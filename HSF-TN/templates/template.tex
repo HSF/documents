@@ -1,0 +1,318 @@
+\documentclass[12pt,a4paper]{article}
+
+% Variables that controls behaviour
+\usepackage{ifthen} % for conditional statements
+\newboolean{pdflatex}
+\setboolean{pdflatex}{true} % False for eps figures 
+
+\newboolean{inbibliography}
+\setboolean{inbibliography}{false} %True once you enter the bibliography
+
+
+\textheight=230mm
+\textwidth=160mm
+\oddsidemargin=7mm
+\evensidemargin=-10mm
+\topmargin=-10mm
+\headsep=20mm
+\columnsep=5mm
+\addtolength{\belowcaptionskip}{0.5em}
+
+\renewcommand{\textfraction}{0.01}
+\renewcommand{\floatpagefraction}{0.99}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+
+\setlength{\hoffset}{-2cm}
+\setlength{\voffset}{-2cm}
+
+% Page defaults ...
+\topmargin=0.5cm
+\oddsidemargin=2.5cm
+\textwidth=16cm
+\textheight=22cm
+
+% Don't chase after perfection
+\raggedbottom
+\sloppy
+
+\usepackage{microtype}
+\usepackage{lineno}    % Line numbering during drafting
+\usepackage{xspace}    % Avoid problems with missing or double spaces after predefined symbold
+\usepackage{caption}   % These three command get the figure and table captions automatically small
+\renewcommand{\captionfont}{\small}
+\renewcommand{\captionlabelfont}{\small}
+
+%% Graphics
+\usepackage{graphicx}  % to include figures (can also use other packages)
+\usepackage{color}
+\usepackage{colortbl}
+
+%% Math
+\usepackage{amsmath} % Adds a large collection of math symbols
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{upgreek} % Adds in support for greek letters in roman typeset
+
+%% fix to allow peaceful coexistence of line numbering and
+%% mathematical objects
+%% http://www.latex-community.org/forum/viewtopic.php?f=5&t=163
+%%
+\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+\expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+\expandafter\let\csname oldend#1\expandafter\endcsname\csname
+end#1\endcsname
+ \renewenvironment{#1}%
+   {\linenomath\csname old#1\endcsname}%
+   {\csname oldend#1\endcsname\endlinenomath}%
+}
+\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+  \patchAmsMathEnvironmentForLineno{#1}%
+  \patchAmsMathEnvironmentForLineno{#1*}%
+}
+\AtBeginDocument{%
+\patchBothAmsMathEnvironmentsForLineno{equation}%
+\patchBothAmsMathEnvironmentsForLineno{align}%
+\patchBothAmsMathEnvironmentsForLineno{flalign}%
+\patchBothAmsMathEnvironmentsForLineno{alignat}%
+\patchBothAmsMathEnvironmentsForLineno{gather}%
+\patchBothAmsMathEnvironmentsForLineno{multline}%
+\patchBothAmsMathEnvironmentsForLineno{eqnarray}%
+}
+
+% Get hyperlinks to captions and in references.
+% These do not work with revtex. Use "hypertext" as class option instead.
+\usepackage{hyperref}    % Hyperlinks in references
+\usepackage[all]{hypcap} % Internal hyperlinks to floats.
+
+% Make this the last packages you include before the \begin{document}
+\usepackage{cite} % Allows for ranges in citations
+\usepackage{mciteplus}
+
+\usepackage{longtable} % only for template
+
+\begin{document}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{footnote}{1}
+
+\begin{titlepage}
+\pagenumbering{roman}
+
+
+\vspace*{-1.5cm}
+\centerline{\large THE HEP SOFTWARE FOUNDATION (HSF)}
+\vspace*{1.5cm}
+\noindent
+\begin{tabular*}{\linewidth}{lc@{\extracolsep{\fill}}r@{\extracolsep{0pt}}}
+
+\\
+ & & HSF-TN-2015-01 \\  % ID 
+ & & \today \\ % Date - Can also hardwire e.g.: 23 March 2010
+ & & \\
+% not in paper \hline
+\end{tabular*}
+
+\vspace*{4.0cm}
+
+% Title --------------------------------------------------
+{\bf\boldmath\huge
+\begin{center}
+  HSF Technical Notes policy
+\end{center}
+}
+
+\vspace*{2.0cm}
+
+% Authors -------------------------------------------------
+\begin{center}
+A.~McNab$^1$
+\bigskip\\
+{\it\footnotesize
+$ ^1$University of Manchester
+}
+\end{center}
+
+\vspace{\fill}
+
+% Abstract -----------------------------------------------
+\begin{abstract}
+  \noindent
+  The note describes the HSF Technical Notes policy, the rationale behind
+  the notes series, and further recommendations. 
+  This is the first version of the policy for the HEP
+  Software Foundation
+  (HSF) Technical Notes series, and itself serves as an example technical note.
+
+\end{abstract}
+
+\vspace*{2.0cm}
+
+\vspace{\fill}
+
+{\footnotesize 
+\centerline{\copyright~Named authors on behalf of the HSF, licence \href{http://creativecommons.org/licenses/by/4.0/}{CC-BY-4.0}.}}
+\vspace*{2mm}
+
+\end{titlepage}
+
+% empty page may follow the title page in long documents
+%\newpage
+%\setcounter{page}{2}
+%\mbox{~}
+
+\cleardoublepage
+
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+
+%%%% Uncomment next 2 lines if desired
+%\tableofcontents
+%\cleardoublepage
+
+\pagestyle{plain} % restore page numbers for the main text
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+%% Uncomment during drafting and review.
+%% Comment before a final submission.
+\linenumbers
+
+\section{Introduction}
+\label{sec:Introduction}
+
+This is the first version of the policy for the HEP Software Foundation
+(HSF) Technical Notes series, and itself serves as an example technical note.
+
+The technical notes series provides an early example of community level co-operation and 
+interoperation that can be fostered by HSF.
+It is hoped that groups of projects will co-operate on writing notes for
+interfaces they provide or use, and HSF will offer support and publicity for
+any meetings and workshops that result from these collaborative efforts.
+
+The notes series provides archived, numbered documents that can be referenced in
+software documentation and papers, and the notes themselves may also become the 
+basis for papers associated with HSF member projects.
+
+\section{Policies}
+\label{sec:Policies}
+
+\begin{enumerate}
+
+\item HSF technical notes are informational, and they do not
+constitute standards or recommendations. 
+
+\item If a note needs to describe the required and optional elements of an interface between systems,
+then use of the conventional key words 
+``MUST'', 
+``MUST NOT'', 
+``REQUIRED'', 
+``SHALL'', 
+``SHALL NOT'', 
+``SHOULD'', 
+``SHOULD NOT'', 
+``RECOMMENDED'', 
+``MAY'', and      
+``OPTIONAL''
+as described in RFC 2119\cite{SHOULD-MUST} is preferred.
+
+\item HSF limits its editorial input to checking that the document is within the
+scope of HSF, and has the required format, grammar, and spelling.
+
+\item HSF avoids attempting to judge whether the subject matter of a proposed technical 
+note is sufficiently significant or not. Acceptance of a technical note
+does not constitute an endorsement of its contents or importance.
+
+\item A simple format for notes will be provided as a LaTeX template, but technical
+notes must be supplied by authors as PDF files. Any method for creating a PDF file in
+a similar format is acceptable, such as Word or Pages as a subsitute for 
+LaTeX.
+
+\item The copyright of a technical note remains with its authors, but the note
+must be made available with a Creative Commons Attribution license, 
+CC-BY-4.0 or later.
+
+\item Notes which have been produced as reports for other purposes may be 
+accepted in PDF form as HSF technical notes provided the title page of the
+submitted PDF file conforms
+to the HSF format including the assigned HSF identifier, and the entire document
+is made available under the above Creative Commons license.
+
+\item An archive of technical notes will be made available on a website
+managed by HSF.
+
+\item Each technical note will be assigned an identifier of the format
+HSF-TN-YYYY-NN when it is finally accepted and archived by HSF. Notes should
+be referenced as 
+{\it Author(s), HSF-TN-YYYY-NN ``The Title'' (HEP Software
+Foundation) } rather than with a URL.
+
+\item Once published, substantive revisions to the technical note will not 
+be accepted. This is similar to the IETF RFC model\cite{IETF-RFC}. 
+
+\item Subsequent notes may be accepted
+% from the same authors 
+covering updates to the same subject matter 
+% after one year, 
+and a new note identifier will be issued. Projects are encouraged
+to give version numbers to their interfaces to clarify the process of
+documenting their interfaces as they evolve over time. HSF may prefix copies 
+of older notes presented on the archive website with 
+forward references to newer versions.
+
+\end{enumerate}
+
+\section{Procedure}
+\label{sec:Procedure}
+
+Draft technical notes should be submitted following the process published in
+the Technical Notes section of the HSF website. 
+The acceptance process will be managed by editors for the HSF Technical 
+Notes series appointed by the HSF governing body (initially, by the HSF
+interim Foundation Board). The series editors may co-opt
+other people to act as additional editors for a given technical note.
+The editorial process will include at least one week of consultation
+on the proposed final draft within the HSF community.
+
+\section{Recommendations}
+\label{sec:Recommendations}
+
+HSF working groups are asked to work towards producing technical notes which
+record their outcomes.
+
+Interested projects or groups of projects are encouraged to suggest 
+technical notes documenting their interfaces and methods. It is likely that
+many projects have documents like this already (e.g. as wiki pages, sections
+of published papers or PhD theses) that can readily be reworked and
+perhaps expanded into technical notes. 
+
+\section{Standards}
+\label{sec:Standards}
+
+If there is a need for HSF
+to manage standards, then a procedure will be developed for endorsing
+suitable technical notes as standards documents.
+
+\section{Summary}
+\label{sec:Summary}
+
+This technical note sets out the rationale, policies, and recommendations
+for further HSF technical notes.
+
+%\section*{Acknowledgments}
+
+%\section*{References}
+
+\begin{thebibliography}{9}
+% Use references in the format expected by JPCS (as used for CHEP proceedings)
+
+\bibitem{SHOULD-MUST} S. Bradner, RFC2119 ``Key words for use in RFCs to Indicate Requirement Levels'' (Internet Engineering Task Force)
+
+\bibitem{IETF-RFC} S. Bradner, RFC2026 ``The Internet Standards Process -- Revision 3'' (Internet Engineering Task Force)
+
+\end{thebibliography}
+
+
+%\addcontentsline{toc}{section}{References}
+
+\end{document}
