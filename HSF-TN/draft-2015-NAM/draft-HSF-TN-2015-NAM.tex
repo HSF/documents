@@ -1,0 +1,250 @@
+\documentclass[12pt,a4paper]{article}
+
+% Variables that controls behaviour
+\usepackage{ifthen} % for conditional statements
+\newboolean{pdflatex}
+\setboolean{pdflatex}{true} % False for eps figures 
+
+\newboolean{inbibliography}
+\setboolean{inbibliography}{false} %True once you enter the bibliography
+
+
+\textheight=230mm
+\textwidth=160mm
+\oddsidemargin=7mm
+\evensidemargin=-10mm
+\topmargin=-10mm
+\headsep=20mm
+\columnsep=5mm
+\addtolength{\belowcaptionskip}{0.5em}
+
+\renewcommand{\textfraction}{0.01}
+\renewcommand{\floatpagefraction}{0.99}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+
+\setlength{\hoffset}{-2cm}
+\setlength{\voffset}{-2cm}
+
+% Page defaults ...
+\topmargin=0.5cm
+\oddsidemargin=2.5cm
+\textwidth=16cm
+\textheight=22cm
+
+% Don't chase after perfection
+\raggedbottom
+\sloppy
+
+\usepackage{microtype}
+\usepackage{lineno}    % Line numbering during drafting
+\usepackage{xspace}    % Avoid problems with missing or double spaces after predefined symbold
+\usepackage{caption}   % These three command get the figure and table captions automatically small
+\renewcommand{\captionfont}{\small}
+\renewcommand{\captionlabelfont}{\small}
+
+%% Graphics
+\usepackage{graphicx}  % to include figures (can also use other packages)
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage[table]{xcolor} 
+
+%% Math
+\usepackage{amsmath} % Adds a large collection of math symbols
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{upgreek} % Adds in support for greek letters in roman typeset
+
+%% fix to allow peaceful coexistence of line numbering and
+%% mathematical objects
+%% http://www.latex-community.org/forum/viewtopic.php?f=5&t=163
+%%
+\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+\expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+\expandafter\let\csname oldend#1\expandafter\endcsname\csname
+end#1\endcsname
+ \renewenvironment{#1}%
+   {\linenomath\csname old#1\endcsname}%
+   {\csname oldend#1\endcsname\endlinenomath}%
+}
+\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+  \patchAmsMathEnvironmentForLineno{#1}%
+  \patchAmsMathEnvironmentForLineno{#1*}%
+}
+\AtBeginDocument{%
+\patchBothAmsMathEnvironmentsForLineno{equation}%
+\patchBothAmsMathEnvironmentsForLineno{align}%
+\patchBothAmsMathEnvironmentsForLineno{flalign}%
+\patchBothAmsMathEnvironmentsForLineno{alignat}%
+\patchBothAmsMathEnvironmentsForLineno{gather}%
+\patchBothAmsMathEnvironmentsForLineno{multline}%
+\patchBothAmsMathEnvironmentsForLineno{eqnarray}%
+}
+
+% Get hyperlinks to captions and in references.
+% These do not work with revtex. Use "hypertext" as class option instead.
+\usepackage{hyperref}    % Hyperlinks in references
+\usepackage[all]{hypcap} % Internal hyperlinks to floats.
+
+% Make this the last packages you include before the \begin{document}
+\usepackage{cite} % Allows for ranges in citations
+\usepackage{mciteplus}
+
+\usepackage{longtable} % only for template
+
+\usepackage[colorinlistoftodos]{todonotes}
+
+\date{\today}
+
+
+
+\begin{document}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{footnote}{1}
+
+\begin{titlepage}
+\pagenumbering{roman}
+
+
+\vspace*{-1.5cm}
+\centerline{\large THE HEP SOFTWARE FOUNDATION (HSF)}
+\vspace*{1.5cm}
+\noindent
+\begin{tabular*}{\linewidth}{lc@{\extracolsep{\fill}}r@{\extracolsep{0pt}}}
+
+\\
+ & & HSF-TN-2015-XXX \\  % ID 
+ & & \today \\ % Date - Can also hardwire e.g.: 23 March 2010
+ & & \\
+% not in paper \hline
+\end{tabular*}
+
+\vspace*{4.0cm}
+
+% Title --------------------------------------------------
+{\bf\boldmath\huge
+\begin{center}
+  HSF Platform Naming Conventions - A Proposal
+\end{center}
+}
+
+\vspace*{2.0cm}
+
+% Authors -------------------------------------------------
+\begin{center}
+B.~Hegner$^1$
+\bigskip\\
+{\it\footnotesize
+$ ^1$CERN 
+}
+\end{center}
+
+\vspace{\fill}
+
+% Abstract -----------------------------------------------
+\begin{abstract}
+  \noindent
+  The note describes a proposal for a common platform naming scheme for HEP and tools to automatize the platform identification. 
+\end{abstract}
+
+\vspace*{2.0cm}
+
+\vspace{\fill}
+
+{\footnotesize 
+\centerline{\copyright~Named authors on behalf of the HSF, licence \href{http://creativecommons.org/licenses/by/4.0/}{CC-BY-4.0}.}}
+\vspace*{2mm}
+
+\end{titlepage}
+
+\pagestyle{plain} % restore page numbers for the main text
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\section{Rationale}
+
+Multiple ways of denoting hardware platform vs. compiler vs. operating-system vs. build type combinations exist throughout the field of high energy physics. Quite often packages with different naming conventions have to be combined and a significant amount of time is spent to transform between these different conventions. Furthermore, this transformation is error prone and has to be updated from time to time when new hardware platforms or compiler implementations arrive.
+
+\section{Proposal}
+
+In the view of the fact, that naming conventions are just agreements we propose to adopt existing naming conventions wherever possible and useful. 
+
+We consider the following pieces as part of the convention. A build configuration is denoted by the scheme
+\[architecture-OS-compiler-buildtype\]
+where \emph{architecture}, \emph{OS}, \emph{compiler}, and \emph{buildtype} are described in the following. Furthermore, we propose a common tool that helps identifying and building these strings. 
+
+\subsection{Architecture}
+
+Different OSes may call the same \emph{architecture} with different names. We propose to rely on the abstraction of the Python package \emph{platform}, namely \texttt{platform.machine()}. This translates to e.g. x86\_64 for current Intel and AMD CPUs. In cases where optimized builds for a certain processor generation are required and software is not runable on the generic architecture, the generic architecture should be replaced by \emph{architecture+instructionset}. 
+There exist no stable conventions for the instruction set, thus we propose to create ad-hoc conventions. 
+
+\subsection{Operating System}
+The operating system (\emph{OS}) is a combination of the name of the operating system itself and its major version, e.g. \emph{ubuntu15} or \emph{slc6} in case a canonical abbreviation exists. 
+
+
+\subsubsection{Linux}
+The name and version are as given by Python's \texttt{platform.linux\_distribution()}, using the short name of the distribution, transformed to all lower-case. This leads to names like \emph{ubuntu, centos, fedora}.
+
+\emph{nota bene: Due to mistakes in the distribution of Scientific Linux CERN 6, this convention identifies SLC as redhat. This is fixed in the tool mentioned further below.}
+
+\subsubsection{MacOS X}
+The name is set to \emph{macos} and the version as given by the first two parts of \texttt{platform.mac\_ver()}, e.g. yielding \emph{macos1010}.
+
+\subsubsection{Windows}
+The name is set to \emph{win} and the version as given by the first two parts of \texttt{platform.win32\_ver()}.
+
+
+\subsection{Compiler}
+The \emph{compiler} is a combination of compiler name and compiler version. We propose to use the self-given names of the compilers like \emph{gcc, clang, msvc, icc} and adding major, minor version, and patch version numbers to it, e.g. \emph{clang350} or \emph{gcc511}. In case the system compiler is being used, the compiler should be denoted as \emph{native}. 
+
+
+\subsection{Buildtype}
+The \emph{buildtype} denotes whether there is a debug build, an optimized build, or any other special setting. We propose to use \emph{opt} for optimized and \emph{dbg} for debug builds. The buildtype can be used to specify further custom build options, e.g. the used C++ standard, leading to opt11 or dbg14.
+In general, any special compile time setting can be tracked in this name component.  
+
+\subsection{Generic Cases}
+In some cases the mentioned components do not influence the build-artifacts created or are not relevant. In those cases, the corresponding name component is replaced by the string \emph{all}. Examples are pure-Python packages that do not require compilation at install time.
+
+
+\section{Examples}
+\texttt{x86\_64-centos7-gcc511-opt}
+\\
+\texttt{x86\_64-slc6-clang350-dbg}
+
+
+\section{Identification tool -- hsf\_get\_platform}
+As to simplify the adoption of these conventions, we provide a minimal command line tool \emph{hsf\_get\_platform}, that is able to identify architecture, operating system, and compiler in a transparent way. It can be used to e.g. auto-derive everything in a given environment or to extract one part of the platform string
+\\
+\texttt{hsf\_get\_platform.py --buildtype opt $\rightarrow$ "x86\_64-ubuntu15-gcc49-opt"}
+\\
+\texttt{hsf\_get\_platform.py --get compiler $\rightarrow$ "gcc49"}.
+
+\section{Possible Extensions to denote Platform Compatibility}
+The proposed naming convention identifies a given platform. In many cases, different platforms, however, may behave the same or yield compatible binaries. 
+
+For example, \emph{slc6} is compatible with \emph{sl6} and \emph{redhat6}. Similarly, patch versions of compilers are \emph{usually} compatible with each other.
+
+We provide an additional tool \texttt{hsf\_platform\_compatibility} to tell the compatibility of platforms. The logic and mapping of these compatibilities cannot be derived from first principles and thus has to be maintained actively. In the long view, the maintenance burden should be shared across the community. It can be used like follows
+\\
+\newline
+\texttt{hsf\_platform\_compatibility.py x86\_64-slc5-gcc481-opt x86\_64-slc6-gcc481-opt}
+\newline 
+\texttt{$\rightarrow$ "OS'es slc5 and slc6 are incompatible"} + \emph{return code 1}
+
+\section{Resources}
+Both of the tools mentioned are available at \url{https://github.com/HEP-SF/tools}. 
+
+\section*{Acknowledgements}
+We would like to thank Ben Couturier and Brett Viren for fruitful discussions and feedback on earlier drafts.
+
+
+
+
+
+
+
+
+
+
+\end{document}
