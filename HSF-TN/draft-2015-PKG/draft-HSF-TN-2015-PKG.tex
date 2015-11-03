@@ -147,8 +147,7 @@ $ ^1$FNAL,$^2$CERN
 \begin{abstract}
   \noindent
   The note describes the outcome of the discussions in the HSF Packaging Working Group. 
-  It summarizes the discussion on existing configuration and build tools and the possibility to 
-  converge on more common solutions.
+  It summarizes the discussion on existing configuration and build tools and the possibility to converge on more common solutions.
 \end{abstract}
 
 \vspace*{2.0cm}
@@ -180,7 +179,7 @@ Additional discussions took place via the public \href{https://groups.google.com
 
 \section{The HEP build and packaging tool landscape}
 
-Software stacks are needed by many organizations most notably HEP experiments.  If a package is authored by the organization it is not considered an external package however it still will need build recipes. Any system that builds external packages into a coherent whole must also be capable of building the internal packages as well.  In the area of external packages it will be useful to distinguish between "foreign" and "domain" external packages. Domain packages are authored by groups within the field of HEP and therefor the HSF could influence the behavior of the domain packages. The foreign packages have to be dealt with as they exist. Examples of foreign packages include: gcc, fftw3, eigen and lapack. Examples of domain packages include clhep and ROOT. In the following a few of the solutions used within the community are summarized. For more details we refer to the project websites. 
+Software stacks are needed by many organizations most notably HEP experiments.  If a package is authored by the organization it is not considered an external package however it still will need build recipes. Any system that builds external packages into a coherent whole must also be capable of building the internal packages as well.  In the area of external packages it will be useful to distinguish between ``foreign'' and ``domain'' external packages. Domain packages are authored by groups within the field of HEP and therefor the HSF could influence the behavior of the domain packages. The foreign packages have to be dealt with as they exist. Examples of foreign packages include: gcc, fftw3, eigen and lapack. Examples of domain packages include clhep and ROOT. In the following a few of the solutions used within the community are summarized. For more details we refer to the project websites. 
 
 \subsection{Solution 1 -- Worch}
 \emph{Worch}\cite{worch} is the build tool being proposed for the DUNE collaboration.  It has been used to build the software suite common to many liquid argon experiments, called larsoft, as well as the experiment specific code that builds on top of larsoft.
@@ -197,27 +196,27 @@ Software stacks are needed by many organizations most notably HEP experiments.  
 \emph{Contractor} is the build tool used by the accelerator modeling community and was developed for the Synergia project.  The project must support a wide diversity of platforms from laptops to super-computers.  Looking at the requirements of this community and the solutions they chose to meet them should inform the HSF community as we look forward to a time when many more diverse platforms will be need in HEP computing.  Contractor has no external dependencies and is implemented in Python.
 
 \subsection{Solution 5 -- SciSoft (mrb/ups/cetbuildtools)}
-MRB is an acronym for Multi-Repository-Build and is used by some of the intensity frontier experiments at FNAL. Unlike other tools in this list it requires ups (an acronym for Unix-Product-Support) to create an environment for it to operate in properly.  cetbuildtools is a set of scripts that drive cmake to build an interdependent set of packages.  The resulting packages are uploaded to a distribution server called SciSoft.
+MRB is an acronym for Multi-Repository-Build and is used by some of the intensity frontier experiments at FNAL. Unlike other tools in this list it requires ups (an acronym for Unix-Product-Support) to create an environment for it to operate in properly.  cetbuildtools is a set of scripts that drive CMake to build an interdependent set of packages.  The resulting packages are uploaded to a distribution server called SciSoft.
 
 
 \section{Taxonomy of non-HEP tools}
 \subsection{Solution 6 - Homebrew }
-\emph{Homebrew}\cite{homebrew} is a MacOS specific build tool. Packages build instructions are declared by writing Ruby classes with a given set of attributes. The feature set of these declarations is similar to those of cmsBuild and lcgcmake. A project fork focusses on the addition of Linux as a supported platform.
+\emph{Homebrew}\cite{homebrew} is a MacOS specific build tool. Packages build instructions are declared by writing Ruby classes with a given set of attributes. The feature set of these declarations is similar to those of cmsBuild and lcgcmake. A project fork focuses on the addition of Linux as a supported platform.
 
 \subsection{Solution 7 - Nix }
 \emph{Nix}\cite{nix} is a cross-platform build tool. Package build instructions are written in the \emph{Nix expression language}.
 
 \section{Tool Features and Requirements}
-We compared the feature set of the tools described. In evaluating them we defined a set of criteria in which to measure the tools against each other.  One experiment's strict requirement may just be considered a feature for another experiment. This is why we only list the findings, but do not make an overall assessment at the end of the report. In the following we explain the comparison criteria and the situation for the individual tools.
+We compared the feature set of the tools described. In evaluating them we defined a set of criteria in which to measure the tools against each other. However, one experiment's strict requirement may just be considered a feature for another experiment. In the following we explain the comparison criteria and the situation for the individual tools.
 
 \subsection{Supported Platforms and Environments}
 The most basic criterion is the support for the various platforms and environments used in high-energy physics. There are three categories of environments:
 \begin{enumerate}
-\item \textbf{Linux} on physical or virtual machines
-\item \textbf{MacOS X} on mainly physical machines
-\item \textbf{Windows} on desktop machines
+\item \textbf{Linux}
+\item \textbf{MacOS X}
+\item \textbf{Windows}
 \end{enumerate}
-The first category is split into several flavours of distributions. The main distribution are the RedHat derived Scientific Linux\cite{sl} and CentOS\cite{centos}. 
+The first category is split into several flavours of distributions. The main distribution are the RedHat derived Scientific Linux~\cite{sl} and CentOS~\cite{centos}. Compared to these, Debian~\cite{debian} and Debian based based distributions play a smaller role in computing centres. On desktops, the Debian based Ubuntu~\cite{ubuntu} seems rather popular.  
 
 In addition, multiple hardware architectures are in use or will be in use in the foreseeable future - x86, ARM, PowerPC, MIC, and various dedicated super-computers. Some of them impose the requirement of cross compilation onto the build and packaging solution, which is why the keyword \textbf{Xcompiler} is added to the platform table.
 The table~\ref{tab:taxonomyPlatforms} summarizes this information for the tools considered by the working group so far. Both Linux and MacOS X are supported by all of the tools, while Windows is not supported at all. X-compilation does not seem a priority of the projects yet.
@@ -232,9 +231,9 @@ Homebrew & \cellcolor{green} + & \cellcolor{green} + & \cellcolor{red} - & \cell
 LCGCMake & \cellcolor{green} + & \cellcolor{green} + & \cellcolor{yellow} o   & \cellcolor{yellow} o \\
 Nix & \cellcolor{green} + & \cellcolor{green} + & \cellcolor{yellow} o  & \cellcolor{yellow} o \\
 SciSoft &  \cellcolor{green} + & \cellcolor{green} + & \cellcolor{red} - & ? \\
-Worch &  \cellcolor{green} + &  \cellcolor{green}  + & \cellcolor{red} -  & ?
+Worch &  \cellcolor{green} + &  \cellcolor{green}  + & \cellcolor{red} -  &  \cellcolor{yellow} o
 \end{tabular}
-\caption{\label{tab:taxonomyPlatforms}Supported platforms of the different build tools.}
+\caption{\label{tab:taxonomyPlatforms}Supported platforms of the different build tools. A yellow ``o'' denotes that the support is untested or not of production quality.}
 \end{table}
 
 \subsection{Build and Installation Variants}
@@ -258,7 +257,7 @@ Homebrew &  \cellcolor{red} - & \cellcolor{red} -   & \cellcolor{yellow} NA   & 
 LCGCMake & \cellcolor{green} + & \cellcolor{green} + & \cellcolor{green} + & \cellcolor{green} +\\
 Nix & \cellcolor{green} + & \cellcolor{red} - & \cellcolor{green} +  & \cellcolor{red} -\\
 SciSoft &  \cellcolor{green} + & \cellcolor{green} + &  \cellcolor{green} + & \cellcolor{green} + \\
-Worch &  \cellcolor{green} + &  \cellcolor{green}  + & ? & ?
+Worch &  \cellcolor{green} + &  \cellcolor{green}  + &  \cellcolor{green} + &  \cellcolor{green} +
 \end{tabular}
 \caption{\label{tab:taxonomyVariants}Support for multiple releases and build variants. \emph{NA} denotes that the criteria are not-applicable for homebrew. As it only provides one variant it can rely on default system paths.}
 \end{table}
@@ -290,7 +289,7 @@ Worch &   \cellcolor{green} Waf,Python &  \cellcolor{green}  Text-files & \cellc
 \end{table}
 
 \subsection{Other Criteria}
-During the meetings proponents brought up other creiteria that are not so easy to group together.  Some might consider these requirements, other might disagree. For now we've just listed them as "other". The criteria in this category are:
+During the meetings proponents brought up other creiteria that are not so easy to group together.  Some might consider these requirements, other might disagree. For now we've just listed them as ``other''. The criteria in this category are:
 \begin{enumerate}
 \item \textbf{Performance}: The relevant metrics are a. length of time to build the entire stack, this includes support for parallel builds. b. length of time to incrementally build a developer defined subset of the stack. 
 %BH: I merged Parallel + Performance again
@@ -311,12 +310,12 @@ Homebrew & \cellcolor{green} +  & \cellcolor{green} +  & \cellcolor{green} + & \
 LCGCMake & \cellcolor{green} + & \cellcolor{green} + & \cellcolor{green} + & \cellcolor{green} + & \cellcolor{green} + \\
 Nix & \cellcolor{green} + & \cellcolor{red} -  & ? & \cellcolor{green} + & ? \\
 SciSoft & \cellcolor{yellow} o & ? & \cellcolor{green} + & ? & \cellcolor{green}+  \\
-Worch &  ? &  \cellcolor{green} + & \cellcolor{red} -  & ? & \cellcolor{green} + 
+Worch & \cellcolor{green} + &  \cellcolor{green} + & \cellcolor{red} -  & \cellcolor{yellow} o & \cellcolor{green} + 
 \end{tabular}
 \caption{\label{tab:taxonomyOthers}Further considered features of the build tools. Details in the text.}
 \end{table}
 
-\section{Sharing of porting/patching -- "Build recipes"}
+\section{Sharing of porting/patching -- ``Build recipes''}
 At the core of all packaging systems sits the execution of a given set of build instructions for a particular package, so-called \emph{build recipes}. Framed by collaboration-specific pre- and post-processing steps. The behaviour of these build instructions may be platform dependent or they may be influenced by parameters like build type or paths to their dependencies. 
 
 A lot, probably even most of the work in the packaging infrastructures goes into porting software and preparing these \emph{recipes} for the various platform-dependency-compiler-version combinations. When comparing the (implicit) interfaces of the packaging systems towards their individual recipes, they are strikingly similar. Thus starting with sharing these recipes looks like a viable solution. Various options have been discussed on the HSF packaging github tracker~\cite{github:discussion}. A first implementation of this idea was done in the context of the ALICE experiment~\cite{alidist}.
@@ -343,6 +342,8 @@ We would like to thank all people participating in the constructive and lively d
 
 \bibitem{sl} Scientific Linux: \url{https://www.scientificlinux.org/}
 \bibitem{centos} CentOS: \url{https://www.centos.org/}
+\bibitem{debian} Debian: \url{https://www.debian.org/}
+\bibitem{ubuntu} Ubuntu: \url{https://www.ubuntu.com/}
 \bibitem{github:discussion} Packaging Protocol Discussion:  \url{https://github.com/HEP-SF/packaging/issues/1}
 \bibitem{alidist} The alidist package: \url{https://github.com/alisw/alidist}.
 \end{thebibliography}
