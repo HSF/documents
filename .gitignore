@@ -1,0 +1,6 @@
+.project
+*.aux
+*.dvi
+*.log
+*.out
+*.synctex.gz
