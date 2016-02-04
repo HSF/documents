@@ -107,7 +107,7 @@ end#1\endcsname
 \begin{tabular*}{\linewidth}{lc@{\extracolsep{\fill}}r@{\extracolsep{0pt}}}
 
 \\
- & & HSF-TN-2015-MJF \\  % ID 
+ & & HSF-TN-2016-MJF \\  % ID 
  & & \today \\ % Date - Can also hardwire e.g.: 23 March 2010
  & & \\
 % not in paper \hline
@@ -126,12 +126,20 @@ end#1\endcsname
 
 % Authors -------------------------------------------------
 \begin{center}
-A.~McNab$^1$, 
-Stefan Roiser$^2$, Tony Cass$^2$, Ulrich Schwickerath$^2$, ...
+M.~Alef$^1$,
+T.~Cass$^2$,
+J.J.~Keijser$^3$,
+A.~McNab$^4$,
+S.~Roiser$^2$,
+U.~Schwickerath$^2$,
+I.~Sfiligoi$^5$
 \bigskip\\
 {\it\footnotesize
-$ ^1$University of Manchester \\
-$ ^2$CERN
+$ ^1$Karlsruhe Institute of Technology \\
+$ ^2$CERN \\
+$ ^3$NIKHEF \\
+$ ^4$University of Manchester \\
+$ ^5$Fermi National Accelerator Laboratory \\
 }
 \end{center}
 
@@ -141,13 +149,15 @@ $ ^2$CERN
 \begin{abstract}
   \noindent
 
-Within the HEPiX virtualization group and the WLCG MJF Task Force, a mechanism 
-has been developed which gives 
-access to detailed information about the current host and the current job.
-This allows user
-payloads to access meta information, independent of the current batch system,
-to access information like the performance of the node or calculate the
-remaining run time available to them.
+Within the HEPiX virtualization group and the 
+WLCG MJF Task Force, a mechanism 
+has been developed which provides
+access to detailed information about the current host and the current job to
+the job itself. This allows user
+payloads to access meta information, independent of the current batch
+system or virtual machine model. This
+information includes the performance of the node and the
+remaining run time for the current job.
 
 \end{abstract}
 
@@ -181,52 +191,91 @@ remaining run time available to them.
 
 %% Uncomment during drafting and review.
 %% Comment before a final submission.
-\linenumbers
+%\linenumbers
 
 \section{Introduction}
 \label{sec:Introduction}
 
-The proposed schema is made to be extensible so that it can be used to add
-additional information. The purpose of this document is to define the
+Within the HEPiX virtualization group\cite{HEPIXMJF} and the 
+WLCG MJF Task Force\cite{WLCGMJF}, a mechanism 
+has been developed which provides
+access to detailed information about the current host and the current job to
+the job itself. This allows user
+payloads to access meta information, independent of the current batch
+system or virtual machine model. 
+
+The proposed schema is made to be extensible so that 
+additional information can be added. The purpose of this note is to define the
 specifications and use case of this schema. It should be seen as the source
-of information for the actual implementation of the required scripts by the
-sites.
+of information for the actual implementation of the scripts required by the
+sites to provide it.
+
+\section{Aims}
+\label{sec:Aims}
+
+\begin{itemize}
+\item The proposed schema must be unique and leave no room for interpretation of the values provided.
+      For this reason, basic information is used which is well defined across sites.
+\item Host and job information can be both static (like the HS06\cite{HEPIXHS06} rating of the 
+      hardware) and dynamic (eg shutdown time may be set at any time by the site.)
+\item Job specific files will be readable and possibly owned by the user and
+      residing on a /tmp like area
+\item The implementation, that is the creation of the files and their contents, can
+      be highly site specific. A sample implementation can be done per batch
+      system in use, but it is understood that sites are allowed to change the
+      implementation, provided that the created numbers match the definitions
+      given in this note.
+\end{itemize}
+
+\section{Use cases}
+\label{sec:Use cases}
+
+The use cases considered in developing the protocols included:
+
+\begin{enumerate}
+\item The job needs to calculate the remaining time it is allowed to run.
+\item The job needs to know how long it was already running.
+\item The job wants to know the performance of the processors allocated to it in order to calculate the remaining time it will need to complete (for CPU intensive jobs).
+\item A host needs to be drained, and the payload needs to be informed of the planned shutdown time.
+\item A multiprocessor user job on a non-exclusive node needs to know how many threads or processes it is allowed to start. This
+      especially useful in a late-binding scenario where the pilot reserved the processors and the user payload needs to discover this.
+\item A user job wants to know how many processors are allocated to the current job.
+\item A user job wants to know the maximum amount of scratch disk it is allowed to use.
+\item A user job wants to set up memory limits to protect itself from being killed by the batch system automatically.
+\end{enumerate}
 
 \section{Definitions}
 \label{sec:Definitions}
 
-The resource provider for batch systems is the owner of the worker nodes. 
-When jobs are running within virtual machines, the entity that performs
-system level configuration within the VM (typically with root access) acts
-as the resource provider referred to in the rest of this document.
+On VM-based systems, references to ``jobs'' are to be interpreted
+as ``virtual machines'' and ``machines'' as ``hypervisors''.
 
-\subsection{Environment variables}
+When jobs are running within virtual machines, the entity that provides 
+the system level configuration or contextualization of the VM acts
+as the resource provider referred to in the rest of this note.
+
+\section{Environment variables}
 \label{sec:EnvironmentVariables}
 
-For each job, two environment variables may be set, with the following
-names:
-
-\begin{tabular}{l l l}
-Variable	& Contents		& Comments \\
-\hline
-MACHINEFEATURES	& Path to a directory or URL & Information about the execution host\\
-JOBFEATURES	& Path to a directory or URL & Job specific information \\
-\end{tabular}
+For each job, two environment variables may be set, with the names
+\$MACHINEFEATURES and \$JOBFEATURES.
 
 These environment variables are the base interface for the user payload.
-They must be set for the job environment by the resource provider. 
+Their values must be provided for the job by the resource provider. 
 
 In the
-case of virtual machines on IaaS cloud platforms, the resource provider may
-discover the values to set for the environment variables from the
-machinefeatures and jobfeatures metadata keys provided by the cloud
+case of virtual machines on IaaS cloud platforms, the virtual machine
+may discover the values to set for the environment variables from 
+``machinefeatures'' and ``jobfeatures'' metadata keys provided by resource
+provider via the cloud
 infrastructure. These metadata keys should only be accessed once in the
-lifetime of each virtual machine.
+lifetime of each virtual machine. Alternatively, the values to set may
+be supplied as part of the contextualization of the virtual machines.
 
-\subsection{Directories}
+\section{Directories}
 \label{sec:Directories}
 
-The environment variables point to directories or URLs created by the resource
+The environment variables point to directories created by the resource
 provider. Inside, the file name is the key, the contents are the values, so
 that files can be referred to with expressions like
 \$MACHINEFEATURES/shutdowntime . The directory name should not include the
@@ -235,136 +284,192 @@ filesystem or sections of the URL space on an HTTP(S) server. The user
 positively determines whether the files are to be opened locally or over
 HTTP(S) by checking for a leading slash or the prefix http:// or https://
 respectively. Typically this can achieved using library functions which can
-transparently handle local files and remote URLs when opening files. The
-files may be accessed multiple times to check for changes in value or in the
-absence of caching by the user. The HTTP(S) server may provide HTTP cache
+transparently handle local files and remote URLs when opening files. 
+
+Unlike metadata keys, the key/value files may be
+accessed multiple times to check for changes in value or in the
+absence of caching by the user. An HTTP(S) server may provide HTTP cache
 control and expiration information which the user may use to reduce the
 number of queries.
-The \$MACHINEFEATURES and \$JOBFEATURES directories contain files created by
-the resource provider.
 All files in the directories must be readable by both the user and the
-resource provider services.
+resource provider services, and have file names which only consist of
+lowercase letters, numbers, and underscores.
 
-\section{Use cases}
-\label{sec:Use cases}
+\section{\$MACHINEFEATURES}
+\label{sec:MACHINEFEATURES}
 
-Use cases to be covered are
-
-\begin{tabular}{l l l p{5cm}}
-Identifier & Actors & Pre-conditions & Scenario \\
-\hline
-1.	& user	& job starter script	& The job needs to calculate the remaining time it is allowed to run	 	  \\
-2.	& user	& job starter scripts	& The job needs to know how long it was already running	 	  \\
-3.	& user	& host setup		& The job wants to know the performance of the host in order to calculate the remaining time it will need to complete (for CPU intensive jobs)	 	  \\
-4.	& site	& host setup		& A host needs to be drained. The payload needs to be informed of the planned shutdown time	 	  \\
-5.	& site	& job starter script	& A multi-core user job on a non-exclusive node needs to know how many threads it is allowed to start. This is specifically of interest in a late-binding scenario where the pilot reserved the cores and the user payload needs to know about this.	  \\
-6.	& site	& job starter script	& A user job wants to know how many job slots are allocated to the current job	  \\
-7.	& site	& job starter script	& A user jobs wants to know the maximum amount of disk space it is allowed to use	  \\
-8.	& site	& job starter script	& A user job wants to setup memory limits to protect itself from being killed by the batch system automatically	  \\
-\end{tabular}
-
-\section{Requirements}
-\label{sec:Requirements}
+Host-specific key/value pairs which are all:
 
 \begin{itemize}
-\item The proposed schema must be unique and leave no room for interpretation of the values provided.
-\item For this reason, basic information is used which is well defined across sites.
-\item Host and Job information can be both static (like the HS06 rating) and dynamic (eg shutdown time may be set at any time by the site).
-% \item Job specific files will be owned by the user and possibly reside on a /tmp like area
+\item Found in the directory pointed to by \$MACHINEFEATURES
+\item Readable by the user who is executing the original job. In the case
+      of pilots this would be the pilot user at the site.
+\item Required unless the resource provider cannot determine their value.
+\item Static unless otherwise stated.
 \end{itemize}
 
-\section{General explications}
-\label{sec:GeneralExplications}
+\begin{description}
 
-The implementation, that is the creation of the files and their contents, can
-be highly site specific. A sample implementation can be done per batch
-system in use, but it is understood that sites are allowed to change the
-implementation, provided that the created numbers match the definitions
-given in this document.
+\item[total\_cpu] Number of processors which may be allocated to
+jobs. Typically the number of processors seen by the operating system on one
+worker node (that is the number of ``processor :'' lines in /proc/cpuinfo on
+Linux), but potentially set to more or less than this for performance
+reasons. (Use case 3.)
 
-\section{Normalization and CPU factors}
-\label{sec:Normalization}
+\item[hs06] Total HS06 rating of the full machine in its current
+setup. HS06 is measured following the HEPiX recommendations\cite{HEPIXHS06}, with 
+HS06 benchmarks run in parallel, one for each processor which may be 
+allocated to jobs. (Use case 3.)
 
-At many sites batch resources consist of a mixture of different hardware
-types which have different performance. When a user submits a job to a queue,
-this queue typically sets limits on the CPU time and the wall clock time of
-the job. If such a job ends up on a faster node, it will terminate quicker.
-To avoid that jobs which run on slower nodes are terminated prematurely, CPU
-and Wall clock times are usually scaled with a factor which depends on the
-performance of the machine. This factor is called the CPU factor. A
-reference machine has a CPU factor of 1. For such a machine, normalized and
-real time values for CPU are the same. A CPU factor below 1 means that the
-worker node is slower than a given reference. In this case normalized times
-are larger than the real time values, and jobs are allowed to run longer in
-order to terminate. A CPU factor above 1 means that the worker node is
-faster than a given reference. In this case normalized times are smaller
-than the real time values.
+\item[shutdowntime] Shutdown time for the machine as a UNIX time stamp 
+in seconds. The value is dynamic and optional. If the file is missing, 
+no shutdown is foreseen.  (Use case 4.)
 
-\section{List of requirements}
-\label{sec:ListOfRequirements}
+\item[grace\_secs] If the resource provider announces a
+shutdown time to the jobs on this host, that time will not be less than 
+grace\_secs seconds after the moment the shutdown time is set. This 
+allows jobs to begin packages of work knowing that there will be sufficient 
+time for them to be completed even if a shutdown time is announced. 
+This value is required if a shutdown time will be set or changed
+which will affect any jobs which have already started on this host.
 
-Job specific information which are:
+\end{description}
+
+\section{\$JOBFEATURES}
+\label{sec:JOBFEATURES}
+
+Job specific key/value pairs which are all:
+
 \begin{itemize}
-\item found in the directory pointed to by \$JOBFEATURES
-\item owned by the user who is executing the original job. e.g. the batch
-system job start script. In the case of pilots this would be the pilot user at the site.
-\item created before the user job starts, eg during a job starter script.
+\item Found in the directory pointed to by \$JOBFEATURES
+\item Readable and possibly owned by the user who is executing the original
+      job. In the case of pilots this would be the pilot user at the site.
+\item Required unless the resource provider cannot determine their value.
+\item Created before the job starts and static unless otherwise stated, or 
+      unless the batch system has a recognised way of changing the
+      parameters of the job in a way the job is guaranteed to be aware
+      of. For example, if there is a mechanism for a job to
+      release processors, then the resource provider may update
+      allocated\_cpu when this happens.
 \end{itemize}
 
-\begin{tabular}{l l l p{2.5cm} p{5cm}}
-Identifier & File Name (key) & Use cases & Value & (Optional) Comments \\
-\hline
-1.1	& cpufactor\_lrms		& 1,3	& Normalization factor as used by the batch system. & Can be site specific \\
-1.2.1	& cpu\_limit\_secs\_lrms	& 1	& CPU limit in seconds, normalized & Divide by cpufactor\_lrms to retrieve the real time seconds. For multi-core jobs it's the total. \\
-1.2.2	& cpu\_limit\_secs		& 1	& CPU limit in seconds, real time (not normalized) & For multi-core jobs it's the total. \\
-1.3.1	& wall\_limit\_secs\_lrms	& 1	& Run time limit in seconds, normalized & Divide by cpufactor\_lrms to retrieve the real time seconds \\
-1.3.2	& wall\_limit\_secs		& 1	& Run time limit in seconds, real time (not normalized) &  \\
-1.4	& disk\_limit\_GB		& 7	& Scratch space limit in GB (if any) & If no quotas are used on a shared system, this corresponds to the full scratch space available to all jobs which run on the host. Counting is 1GB = 1000MB = 1000x1000kB \\
-1.5	& jobstart\_secs		& 2	& Unix time stamp (in seconds) of the time when the job started in the batch farm. & This is what the batch system sees, not when the user payload started to work. \\
-1.6	& mem\_limit\_MB		& 8	& Memory limit (if any) in MB. & Total memory. Count with 1000 not 1024, that is 4GB corresponds to 4000MB \\
-1.7	& allocated\_CPU		& 5	& number of allocated cores to the current job & Allocated cores can be physical or logical \\
-1.8	& shutdowntime\_job		& 1	& dynamic value, shutdown time as a UNIX time stamp (in seconds) & optional, if the file is missing no job shutdown is foreseen. The job needs to have finished all its processing when the shutdowntime has arrived \\
-\end{tabular}
+\begin{description}
 
-Host specific information which are:
-\begin{itemize}
-\item found in the directory pointed to by \$MACHINEFEATURES
-\item readable by the user who is executing the original job. In the case of pilots this would be the pilot user at the site.
-\item created before the user job starts
-\end{itemize}
+\item[allocated\_cpu] Number of processors allocated to the current job. 
+(Use case~5.) 
 
-\begin{tabular}{l l l p{2.5cm} p{5cm}}
-Identifier & File Name (key) & Use cases & Value & (Optional) Comments \\
-\hline
-2.1	& hs06			& 3	& HS06 rating of the full machine in it's current setup & Static value. HS06 is measured following the HEPiX recommendations. If Hyperthreading is enabled, the additional cores are treats as if they were full cores \\
-2.2	& shutdowntime		& 4	& dynamic value, shutdowntime as a UNIX time stamp (in seconds) & Dynamic. If the file is missing, no shutdown is foreseen. The value is in real time, and must be in the future. Must be removed if the shutdowntime has arrived \\
-2.3	& jobslots		& 6	& Number of job slots for the host & dynamic value, can change with batch reconfigurations \\
-2.4	& phys\_cores		& 3	& number of physical cores &  \\
-2.5	& log\_cores		& 3	& number of logical cores & can be zero if hyperthreading is off \\
-2.6	& shutdown\_command	& 4	& path to a command on the machine & optional, only relevant for virtual machines. A command provided by the site which provides a hook for the user to properly destroy the virtual machine and unregister it \\
-\end{tabular}
+\item[hs06\_job] Total HS06 rating for the processors allocated
+to this job. The job's share is calculated by the resource provider from 
+per-processor HS06 measurements made for the machine. (Use case~3.)
+
+\item[shutdowntime\_job] Dynamic value. Shutdown time as a UNIX time 
+stamp in seconds. If the file is missing no job shutdown
+is foreseen. The job needs to have finished all of its processing when
+the shutdown time has arrived. (Use case~1.)
+
+\item[grace\_secs\_job] If the resource provider announces a
+shutdowntime\_job to the job, it will not be less than grace\_secs\_job
+seconds after the moment the shutdown time is set. This allows jobs to
+begin packages of work knowing that there will be sufficient time for
+them to be completed even if a shutdown time is announced.
+This value is static and required if a shutdown time will be set or changed
+after the job has started.
+
+\item[jobstart\_secs] UNIX time stamp in seconds of the time when the job 
+started on the worker node. For a pilot job scenario, this is when the 
+batch system started the pilot job, not when the user payload started to 
+run. (Use case~2.)
+
+\item[job\_id] A string of printable non-whitespace ASCII characters
+used by the resource provider to
+identify the job at the site. In batch environments, this should simply be
+the job ID. In virtualized environments, job\_id will typically contain the
+UUID of the VM.
+
+\item[wall\_limit\_secs] Elapsed time limit in seconds, starting from
+jobstart\_secs. This is not scaled up for multiprocessor jobs.
+(Use case~1.)
+
+\item[cpu\_limit\_secs] CPU time limit in seconds. For multiprocessor jobs
+this is the total for all processes started by the job. (Use case~1.)
+
+\item[max\_rss\_bytes] Resident memory usage limit, if any, in bytes
+for all processes started by this job. (Use case~8.) 
+
+\item[max\_swap\_bytes] Swap limit, if any, in bytes for all processes
+started by this job. (Use case~8) 
+
+\item[scratch\_limit\_bytes] Scratch space limit if any. If no quotas
+are used on a shared system, this corresponds to the full scratch 
+space available to all jobs which run on the host. User jobs from
+EGI-registered VOs expect the ``max size of scratch space used by jobs''
+value on their VO ID Card\cite{VOIDCARD} to be available to each job in the worst case.
+If there is a recognised procedure for informing the job of the location
+of the scratch space (eg EGI's \$TMPDIR policy\cite{EGITMPDIR}), then this value refers to that
+space. (Use case~7.) 
+
+\end{description}
 
 \clearpage
-
-
 
 \section{Summary}
 \label{sec:Summary}
 
-MJF
+This note describes how the \$MACHINEFEATURES and \$JOBFEATURES variables
+may be set and used by jobs to obtain meta information from resource
+providers in a uniform way across different batch and virtual machine
+systems.
+\vspace{0.5cm}
+
+The following key/value pairs have been defined:
+
+\begin{center}
+\begin{tabular}{|l|l|p{5cm}}
+\hline
+\$MACHINEFEATURES & \$JOBFEATURES \\
+\hline
+total\_cpu & allocated\_cpu \\
+hs06 & hs06\_job \\
+shutdowntime & shutdowntime\_job \\
+grace\_secs & grace\_secs\_job \\
+ & jobstart\_secs \\
+ & job\_id \\
+ & wall\_limit\_secs \\
+ & cpu\_limit\_secs \\
+ & max\_rss\_bytes \\
+ & max\_swap\_bytes \\
+ & scratch\_limit\_bytes \\
+\hline
+\end{tabular}
+\end{center}
+
 
 %\section*{Acknowledgments}
 
 %\section*{References}
 
-%\begin{thebibliography}{9}
-%% Use references in the format expected by JPCS (as used for CHEP proceedings)
-%
+\begin{thebibliography}{9}
+% Use references in the format expected by JPCS (as used for CHEP proceedings)
+
+\bibitem{HEPIXMJF} T. Cass, ``Environmental Information on WN'', Grid
+Deployment Board, CERN, 13 June 2012, retrieved from
+https://indico.cern.ch/event/155069/
+
+\bibitem{WLCGMJF} ``Machine / Job Features Task Force'', \\
+ https://twiki.cern.ch/twiki/bin/view/LCG/MachineJobFeatures
+
+\bibitem{HEPIXHS06} ``HEP-SPEC06 Benchmark'', https://w3.hepix.org/benchmarks/
+
+\bibitem{VOIDCARD} ``The VO ID Card system'', http://operations-portal.egi.eu/vo/help
+
+\bibitem{EGITMPDIR} P. Solagna, ``EGI policy for the TMPDIR environment variable usage'',
+ EGI Document 1119, retrieved from https://documents.egi.eu/public/ShowDocument?docid=1119
+
 %\bibitem{SHOULD-MUST} S. Bradner, RFC2119 ``Key words for use in RFCs to Indicate Requirement Levels'' (Internet Engineering Task Force)
-%
+
 %\bibitem{IETF-RFC} S. Bradner, RFC2026 ``The Internet Standards Process -- Revision 3'' (Internet Engineering Task Force)
-%
-%\end{thebibliography}
+
+\end{thebibliography}
 
 
 %\addcontentsline{toc}{section}{References}
