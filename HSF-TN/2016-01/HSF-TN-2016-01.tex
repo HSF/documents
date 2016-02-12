@@ -258,6 +258,15 @@ As of July 2013, the ASL, BSD and MIT permissive licences accounted for 42\% of 
 \section{Specific Constraints}
 \label{sec:SpecificConstraints}
 
+\subsection{Licence Compatibility}
+\label{sec:LicenceCompatibility}
+
+The software stacks used in HEP experiments are generally composed of large numbers of software packages, with complex inter-dependencies on one another. The term licence compatibility refers to the problem of combining software programmes (such as the software packages in typical HEP stacks) when they are subject to different licences that may contain contradictory requirements. This issue and the related terminology are well described in the Annexes to the final report of the CERN Task Force on OSS Licences~\cite{[1]}. 
+
+As compatibility is not necessarily reciprocal, compatibility is generally described as a directional property between two licences. One refers to upstream or downstream compatibility to specify the direction of the licence compatibility; when the compatibility direction is not specified, this is usually understood as equivalent to the upstream compatibility. For example, as mentioned above, the Apache v2.0 licence is (upstream-)compatible with GPL v3, and GPL v3 is downstream-compatible with Apache v2.0: it is possible for programmes licensed under GPL v3 to incorporate programmes licensed under Apache v2.0, with the resulting work still licensed under GPL v3, but the opposite is not true.
+
+Licence compatibility is an important factor that the owners of a specific package should keep in mind when choosing the licence for their software. Downstream-compatibility, with the licences of any other programs upon which a given package depends, may effectively restrict the choice of the licence that can be adopted for that package, as some licences might be prohibited by compatibility issues. Amongst the licences allowed by downstream-compatibility, the most appropriate licence for a given package should be chosen taking into account its potential upstream-compatibility with the licences chosen by the prospective customers of that package: the choice of a particular licence for a package may in fact be an encouragement or a deterrent for other people to use that package within their software. These considerations are reflected in the HSF recommendations described in section~\ref{sec:Recommendations}.
+
 \subsection{Changing the License}
 \label{sec:LicenseChange}
 
