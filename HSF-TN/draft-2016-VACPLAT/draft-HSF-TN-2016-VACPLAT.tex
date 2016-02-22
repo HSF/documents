@@ -382,7 +382,7 @@ the maximum VM lifetime.
 \section{VacQuery}
 \label{sec:vacquery}
 
-The principle use of the VacQuery protocol is to allow Vac factories to
+The principal use of the VacQuery protocol is to allow Vac factories to
 gather information from their neighbours about what VMs are running for
 what machinetypes. This done using the machinetypes\_query and
 machinetype\_status UDP messages. Factory and machine message pairs
@@ -397,6 +397,9 @@ modern times.} The protocol has been designed to keep JSON message and
 IP header below the ethernet MTU of 1500 bytes to avoid fragmentation
 on local networks. Responses are sent to the UDP port from which the
 query was sent.
+
+All dates/times in VacQuery messages are expressed as Unix seconds. That
+is, the number of seconds since 00:00:00 1st Jan 1970.
 
 \subsection{Factory messages}
 \label{sec:factorymessages}
@@ -441,7 +444,7 @@ service as described in section~\ref{sec:vacmon}.
 \item[cookie] Matching the value supplied by the recipient
 \item[space] Vac space name
 \item[factory] FQDN of the factory
-\item[time\_sent] Time in Unix seconds (since 00:00:00 1st Jan 1970)
+\item[time\_sent] Time in Unix seconds
 \item[total\_cpus] Number of (logical) processors available to VMs
 \item[running\_cpus] Number of processors assigned to running VMs
 \item[running\_machines] Number of running VMs
@@ -506,7 +509,7 @@ machine\_status messages are returned in response to machines\_query messages di
 \item[space] Vac space name
 \item[factory] FQDN of the factory
 \item[num\_machines] Number of machine\_status messages to expect from this factory
-\item[time\_sent] Time in Unix seconds (since 00:00:00 1st Jan 1970)
+\item[time\_sent] Time in Unix seconds
 \item[machine] Hostname of the VM slot
 \item[state] State of the current or most recent VM in this slot, as a string
 \item[uuid] Lowlevel UUID, as used by libvirtd
@@ -565,7 +568,7 @@ service as described in section~\ref{sec:vacmon}.
 \item[space] Vac space name
 \item[factory] FQDN of the factory
 \item[num\_machinetypes] Number of machinetype\_status messages to expect from this factory
-\item[time\_sent] Time in Unix seconds (since 00:00:00 1st Jan 1970)
+\item[time\_sent] Time in Unix seconds
 \item[machinetype] Name of the machinetype
 \item[total\_hs06] Total HEPSPEC06 of all the processors allocated to running VMs for this machinetype on this factory
 \item[total\_machines] Number of running VMs for this machinetype on this factory
