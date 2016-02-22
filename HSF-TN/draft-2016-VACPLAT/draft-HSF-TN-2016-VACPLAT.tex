@@ -406,7 +406,7 @@ is, the number of seconds since 00:00:00 1st Jan 1970.
 
 The factory messages factory\_query and factory\_status are intended
 for monitoring the state of the factories themselves, including
-generic Unix health metrics such as free disk and CPU load. As well
+generic Linux health metrics such as free disk and CPU load. As well
 as manual queries by administrators, these messages may also be
 used for automated Nagios-style monitoring and alarms.
 
@@ -435,6 +435,10 @@ factory\_query messages directed to a factory. They may
 also be generated spontaneously and sent to a VacMon
 service as described in section~\ref{sec:vacmon}.
 
+The format and units of the disk and memory values are
+aligned with the values returned by the relevant system
+calls and the /proc interface.
+
 \begin{quote}
 \begin{description}
 \setlength{\parskip}{0pt}
@@ -445,28 +449,28 @@ service as described in section~\ref{sec:vacmon}.
 \item[space] Vac space name
 \item[factory] FQDN of the factory
 \item[time\_sent] Time in Unix seconds
+\item[site] Name of the site registered in the GOCDB, or the Vac space name if the site is not registered
 \item[total\_cpus] Number of (logical) processors available to VMs
 \item[running\_cpus] Number of processors assigned to running VMs
 \item[running\_machines] Number of running VMs
 \item[total\_machines] Maximum possible number of VMs
 \item[total\_hs06] Total HS06 available to VMs
-\item[vac\_disk\_avail\_kb] Free space available in Vac's workspace, in units of 1024 bytes
-\item[root\_disk\_avail\_kb] Free space available on the root partition, in units of 1024 bytes
-\item[vac\_disk\_avail\_inodes] Free inodes available in Vac's workspace
-\item[root\_disk\_avail\_inodes] Free inodes available on the root partition
-\item[load\_average] The 15 minute Unix load average on the factory
-\item[kernel\_version] The running kernel version of the factory
-\item[os\_issue] A string identifying the operating system (typically the first line of /etc/issue)
 \item[boot\_time] The time when the factory booted up in Unix seconds
 \item[factory\_heartbeat\_time] Time of the last heartbeat created by the VM factory agent in Unix secconds
 \item[responder\_heartbeat\_time] Time of the last heartbeat created by the VacQuery responder service in Unix secconds
 \item[mjf\_heartbeat\_time] Time of the last heartbeat created by the HTTP Machine/Job Features service in Unix secconds
 \item[metadata\_heartbeat\_time] Time of the last heartbeat created by the HTTP Metadata service in Unix secconds
+\item[vac\_disk\_avail\_kb] Free space available in Vac's workspace, in units of 1024 bytes
+\item[root\_disk\_avail\_kb] Free space available on the root partition, in units of 1024 bytes
+\item[vac\_disk\_avail\_inodes] Free inodes available in Vac's workspace
+\item[root\_disk\_avail\_inodes] Free inodes available on the root partition
+\item[load\_average] The 15 minute load average on the factory
+\item[kernel\_version] The kernel version of the factory
+\item[os\_issue] A string identifying the operating system (typically the first line of /etc/issue)
 \item[swap\_used\_kb] Swap space in use on the factory, in units of 1024 bytes
 \item[swap\_free\_kb] Free swap space, in units of 1024 bytes
 \item[mem\_used\_kb] Physical memory in use on the factory, in units of 1024 bytes
 \item[mem\_total\_kb] Free physical memory, in units of 1024 bytes
-\item[site] Name of the site registered in the GOCDB, or the Vac space name if the site is not registered
 \end{description}
 \end{quote}
 
