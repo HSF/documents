@@ -372,6 +372,13 @@ substitutions required by the VM. These patterns take the form
 \texttt{\#\#user\_data\_option\_XXX\#\#} where XXX is an arbitrary string
 consisting of letters, numbers, and underscores. 
 
+If the VM requires the address(es) of HTTP proxies to use with CernVM-FS,
+it must expect this value as the special pattern 
+\texttt{\#\#user\_data\_option\_cvmfs\_proxy\#\#} The VM must be able to
+accept compound CernVM-FS proxy expressions containing semicolon and pipe 
+characters. Typically this will involve placing the substitution pattern
+in appropriate quotation marks within the user\_data template.
+
 If the VM requires an X.509 proxy, it must expect that the special pattern
 \texttt{\#\#user\_data\_option\_x509\_proxy\#\#} will be replaced by the 
 PEM encoded X.509 certificates and RSA private key which compromise the
