@@ -192,19 +192,20 @@ The term ``resource provider'' is used to refer to the entity which is
 able to take the decision about creating each VM. That is, the decision 
 about whether resources will be provided or not. Typically, this is owner 
 of an OpenStack or other cloud tenancy managed by Vcycle or the manager of Vac VM 
-factories. Beyond this may be many layers of resource provision
-in terms of legal owners of services and hardware and even funding agencies.
+factories. The term is not used here to refer to higher or lower layers of resource
+provision in terms of legal owners of services and hardware, funding
+agencies, operators of the site infrastructure etc.
 
 A location at which VMs can be created managed by one or more VMLMs
 which are cooperating to achieve a set of target shares is referred to
-as a ``space''. This is equivalent to a Compute Element at a Grid site,
-and spaces must be given DNS names in DNS space available to the
+as a ``space''. This is equivalent to a Compute Element (CE) at a Grid site,
+and spaces must be given CE-style DNS names in DNS space available to the
 resource provider. However, it is not necessary to register the 
 space name in the corresponding DNS zone. For Vac, a space is a set
 of VM factory machines which are communicating via VacQuery and may
 be said to be neighbours. For Vcycle, a space corresponds to an 
-OpenStack tenancy or project, with a specified endpoint to contact
-and identity tokens to use.
+OpenStack or similar tenancy or project, with a specified endpoint to 
+contact and identity tokens to use.
 
 \section{Environment}
 \label{sec:env}
