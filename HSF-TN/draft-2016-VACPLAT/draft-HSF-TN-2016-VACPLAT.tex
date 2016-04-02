@@ -419,7 +419,7 @@ IP headers below the ethernet MTU of 1500 bytes to avoid fragmentation
 on local networks. 
 
 All dates/times in VacQuery messages are expressed as Unix seconds. That
-is, the number of seconds since 00:00:00 1st Jan 1970.
+is, the integer number of seconds since 00:00:00 1st Jan 1970.
 
 \subsection{Factory messages}
 \label{sec:factorymessages}
@@ -470,11 +470,12 @@ calls and the /proc interface.
 \item[factory] FQDN of the factory
 \item[time\_sent] Time in Unix seconds
 \item[site] Name of the site registered in the GOCDB, or the Vac space name if the site is not registered
-\item[total\_cpus] Number of (logical) processors available to VMs
 \item[running\_cpus] Number of processors assigned to running VMs
 \item[running\_machines] Number of running VMs
-\item[total\_machines] Maximum possible number of VMs
-\item[total\_hs06] Total HS06 available to VMs
+\item[running\_hs06] Total HS06 of running VMs
+\item[max\_cpus] Maximum number of (logical) processors available to VMs
+\item[max\_machines] Maximum possible number of VMs
+\item[max\_hs06] Maximum HS06 available to all VMs
 \item[boot\_time] The time when the factory booted up in Unix seconds
 \item[factory\_heartbeat\_time] Time of the last heartbeat created by the VM factory agent in Unix secconds
 \item[responder\_heartbeat\_time] Time of the last heartbeat created by the VacQuery responder service in Unix secconds
@@ -594,8 +595,9 @@ service as described in section~\ref{sec:vacmon}.
 \item[num\_machinetypes] Number of machinetype\_status messages to expect from this factory
 \item[time\_sent] Time in Unix seconds
 \item[machinetype] Name of the machinetype
-\item[total\_hs06] Total HEPSPEC06 of all the processors allocated to running VMs for this machinetype on this factory
-\item[total\_machines] Number of running VMs for this machinetype on this factory
+\item[running\_hs06] Total HEPSPEC06 of all the processors allocated to running VMs for this machinetype on this factory
+\item[running\_machines] Number of running VMs for this machinetype on this factory
+\item[running\_cpus] Number of CPUs allocated to running VMs for this machinetype on this factory
 \item[num\_before\_fizzle] Number of running VMs which have not yet reached fizzle\_seconds
 \item[shutdown\_message] Shutdown message given by the most recently created VM for this machinetype on this factory which has finished
 \item[shutdown\_time] Unix time of the shutdown\_message
