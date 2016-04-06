@@ -210,8 +210,8 @@ contact and identity tokens to use.
 \section{Environment}
 \label{sec:env}
 
-Where possible, VMLMs should provide an approximation of OpenStack's 
-environment for VMs, which is derived from EC2. Any contexualization 
+Where possible, an approximation of OpenStack's environment for VMs, which 
+is derived from EC2, should be provided. Any contexualization 
 user\_data file required and a metadata service should be provided via a 
 ``Magic IP'' 
 HTTP service at 169.254.169.254 from the point of view of the VM. 
@@ -226,7 +226,11 @@ in section~\ref{sec:vacuserdata}. These include substitutions giving the
 URLs of the \texttt{\$MACHINEFEATURES}, \texttt{\$JOBFEATURES}, and 
 \texttt{\$JOBOUTPUTS} locations.
 
-VMLMs must also support VMs which use Cloud Init contextualization.
+VMLMs must ensure they support VMs which use Cloud Init contextualization.
+
+VMs must not block access to the address 169.254.169.253, which is used
+by Amazon for DNS and by Vac for the default route, the local DNS, and 
+for the Machine/Job Features HTTP service.
 
 \section{Machine/Job Features}
 \label{sec:mjf}
