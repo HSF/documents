@@ -29,10 +29,10 @@ The following sections discuss points mainly relevant for project developers and
 The first requirement for an open-source project is fully versioned code in a *public repository*. The code should be accessible in anonymous read-only mode by anybody. Services like GitHub or GitLab provide it for free. In addition efforts like [hepforge](https://www.hepforge.org/) or labs like CERN or DESY may host HEP-specific packages. Services supporting a clone plus *merge-request/pull-request workflow* can be helpful to attract new contributors.
 
 ## License
-The code and software provided should be properly licensed. As to be able to use code provided by others, and to allow people to re-use, update, or improve the software you provide. The HSF technical note *HSF-TN-2016-01* (*Software Licence Agreements HSF Policy Guidelines*) discusses various options. This is one of the topics that is typically ignored at the beginning of a project and hard to fix afterwards.
+The code and software provided should be properly licensed. As to be able to use code provided by others, and to allow people to re-use, update, or improve the software you provide. The [HSF technical note](http://hepsoftwarefoundation.org/technical_notes.html) *HSF-TN-2016-01* (*Software Licence Agreements HSF Policy Guidelines*) discusses various options. This is one of the topics that is typically ignored at the beginning of a project and hard to fix afterwards.
 
 ## Compilation and other commands
-Compiling, installing and testing should be - if possible - each single-command actions like *make, make install, make test*. In particular making testing easy is useful. A good place to put the necessary information is a *README* file in the repository. Relying on community standards like *CMake* make it easier for others to use and understand the setup.
+Compiling, installing and testing should be - if possible - each single-command actions for building, installing and testing. In particular making testing easy is useful. A good place to put the necessary information is a *README* file in the repository. Relying on community standards like *CMake* make it easier for others to use and understand the setup.
 
 ## Testing
 To improve on the quality of software, unit and integration testing are essential. Having well-documented tests makes it as well easier for contributors to participate. They can check whether they break old features and can with new tests document what their addition is supposed to do. 
@@ -58,13 +58,13 @@ Every project choses certain (coding) conventions and workflows. While there is 
 In addition to the already mentioned documentation, an end-user focused documentation is important. A little checklist further below summarizes the most important information to be given as part of the documentation.
  
 ## Release Information
-While developers (most of the time) know the changes between various releases, it is important to document changes between releases for end-users. It turned out to be a good policy to have multiple categories of releases, like production releases, development releases, bug fix releases, etc. While each project may have different conventions there, the chosen convention should be explained. A clear numbering scheme like "major-minor-patch" can support this. For each release the *supported compilers*, *supported operating systems* and *required dependencies* should be listed. This helps avoiding frustrations on user side.
+While developers (most of the time) know the changes between various releases, it is important to document changes between releases for end-users. It turned out to be a good policy to have multiple categories of releases, like production releases, development releases, bug fix releases, etc. While each project may have different conventions there, the chosen convention should be explained. A clear numbering scheme like "major.minor.patch" can support this. For each release the *supported compilers*, *supported operating systems* and *required dependencies* should be listed. This helps avoiding frustrations on user side.
 
 ## Interaction with developers
 To be able to interact with developers, both the already mentioned *mailing list* and *issue tracker* are important and helpful. The required permissions to post there should be as low as possible. Make it easy for people to give feedback.
 
 ## Relocatability and co-existence of versions
-Often a project has to be integrated into bigger software stacks. Being relocatable is often a necessity to deploy and distribute these stacks. To enable your project to become part of such a software stack, try to make it relocatable. In addition your software should not make too strong assumptions about its own location.
+Often a project has to be integrated into bigger software stacks. Being relocatable, i.e. having no hard-coded paths in any build artifact, is often a necessity to deploy and distribute these stacks. To enable your project to become part of such a software stack, try to make it relocatable. In addition your software should not make too strong assumptions about its own location.
 
 ## Usability and run-time settings
 It should be straight forward for a user to set up and run your project. This can for example be ensured by providing environment setup scripts.
@@ -85,7 +85,7 @@ A little checklist of topics to consider is given here. Not every point applies 
 | License + file     |       | MIT, GPL               | MIT, GPL  |
 | README file        |       |  -                     | Yes       | 
 | Reference guide    |       | Doxygen                | Doxygen   |
-| build scripts      |       | CMake, make            | CMake     |
+| build scripts      |       | CMake                  | CMake     |
 | Unit testing       |       | gtest, catch           | catch     |
 | Integration testing|       | CTest, scripts         | CTest     |
 | version file       |       | headers                | headers   |
