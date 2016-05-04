@@ -29,7 +29,7 @@ The following sections discuss points mainly relevant for project developers and
 The first requirement for an open-source project is fully versioned code in a *public repository*. The code should be accessible in anonymous read-only mode by anybody. Services like GitHub or GitLab provide it for free. In addition efforts like [hepforge](https://www.hepforge.org/) or labs like CERN or DESY may host HEP-specific packages. Services supporting a clone plus *merge-request/pull-request workflow* can be helpful to attract new contributors.
 
 ## License
-The code and software provided should be properly licensed. As to be able to use code provided by others, and to allow people to re-use, update, or improve the software you provide. The [HSF technical note](http://hepsoftwarefoundation.org/technical_notes.html) *HSF-TN-2016-01* (*Software Licence Agreements HSF Policy Guidelines*) discusses various options. This is one of the topics that is typically ignored at the beginning of a project and hard to fix afterwards.
+The code and software provided should be properly licensed in order to be able to use code provided by others, and to allow people to re-use, update, or improve the software you provide. The [HSF technical note](http://hepsoftwarefoundation.org/technical_notes.html) *HSF-TN-2016-01* (*Software Licence Agreements HSF Policy Guidelines*) discusses various options. This is one of the topics that is typically ignored at the beginning of a project and hard to fix afterwards.
 
 ## Compilation and other commands
 Compiling, installing and testing should be - if possible - each single-command actions for building, installing and testing. In particular making testing easy is useful. A good place to put the necessary information is a *README* file in the repository. Relying on community standards like *CMake* make it easier for others to use and understand the setup.
@@ -112,8 +112,8 @@ The following list contains mostly "nice-to-have" points.
 | How to contribute               |       | -                      |
 | User manual                     |       | markdown, doxygen      |
 | Reference manual                |       | doxygen                |
-| Bug tracker                     |       | github, gitlab         |  
-| Mailing list                    |       | google groups          | 
+| Bug tracker                     |       | github, gitlab, jira   |  
+| Mailing list                    |       | google groups, e-groups| 
 | Link to repository              |       | -                      |
 | List of releases                |       | -                      |
 | List of supported OS+compilers  |       | -                      |
@@ -123,4 +123,4 @@ The following list contains mostly "nice-to-have" points.
 
 # Summary and Outlook
 
-This document described a few best practices, and potential implementations.  This is work in progress and every input, addition, correction by the community is welcome!
+This document described a few best practices, and potential implementations.  This is work in progress and every input, addition or correction by the community is welcome!
