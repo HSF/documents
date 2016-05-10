@@ -101,14 +101,14 @@ The following list contains mostly "nice-to-have" points.
 | Defined workflow  |       | plenty                 |           |
 | Automatic testing |       | [travis CI](https://travis-ci.org), [gitlab CI](https://about.gitlab.com/gitlab-ci/)   | -         |
 | Test run+reporting|       | CTest,CDash            | CTest     |
-| Static Analysis   |       | clang-analyzer, SAS    | -         |
+| Static Analysis   |       | [clang-analyzer](http://clang-analyzer.llvm.org), [SAS](https://github.com/dpiparo/SAS)    | -         |
 
 
 ## Website and information checklist
 
 | Topic                           | Done  | Possible solution(s)   |
 | ------------------------------- |-------|:----------------------:|
-| Website                         |       | jekyll, github pages   |
+| Website                         |       | [jekyll](https://jekyllrb.com), [github pages](https://pages.github.com)   |
 | How to contribute               |       | -                      |
 | User manual                     |       | markdown, doxygen      |
 | Reference manual                |       | doxygen                |
