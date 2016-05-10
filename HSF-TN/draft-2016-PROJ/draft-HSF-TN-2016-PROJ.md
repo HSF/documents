@@ -32,10 +32,10 @@ The first requirement for an open-source project is fully versioned code in a *p
 The code and software provided should be properly licensed in order to be able to use code provided by others, and to allow people to re-use, update, or improve the software you provide. The [HSF technical note](http://hepsoftwarefoundation.org/technical_notes.html) *HSF-TN-2016-01* (*Software Licence Agreements HSF Policy Guidelines*) discusses various options. This is one of the topics that is typically ignored at the beginning of a project and hard to fix afterwards.
 
 ## Compilation and other commands
-Compiling, installing and testing should be - if possible - each single-command actions for building, installing and testing. In particular making testing easy is useful. A good place to put the necessary information is a *README* file in the repository. Relying on community standards like [*CMake*](https://www.cmake.org) make it easier for others to use and understand the setup.
+Compiling, installing and testing should each be - if possible - single-command actions for building, installing and testing. In particular, making testing easy is important. A good place to put the necessary information is a *README* file in the repository. Relying on community standards like [*CMake*](https://www.cmake.org) make it easier for others to use and understand the setup.
 
 ## Testing
-To improve on the quality of software, unit and integration testing are essential. Having well-documented tests makes it as well easier for contributors to participate. They can check whether they break old features and can with new tests document what their addition is supposed to do.
+To improve on the quality of software, unit and integration testing are essential. Having well-documented tests makes it as well easier for contributors to participate. They can check whether they break old features and can with new tests document what their addition is supposed to do. Testing can also assist in the triage and fixing of bugs. Tests can be written to reproduce reported issues and fail when they occur, with subsequent fixes validated by the tests passing. 
 
 For *unit tests* plenty of software packages exist, of which [*gtest*](https://github.com/google/googletest) and [*catch*](https://github.com/philsquared/Catch) are two good choices for C++ projects. Integration tests running a software project in a certain setup can take advantage of *CTest* (supplied as part of *CMake*) and [*CDash*](http://www.cdash.org) or be driven by shell scripts. Ease of use is again important here, otherwise tests tend not to be run. For example, *CMake*/*CTest* add dedicated *test* targets to buildscripts so that running the tests is a simple matter of "building" the target, e.g. `make test` when using Makefiles.
 
@@ -67,7 +67,7 @@ To be able to interact with developers, both the already mentioned *mailing list
 Often a project has to be integrated into bigger software stacks. Being relocatable, i.e. having no hard-coded absolute paths in any build artifact, is often a necessity to deploy and distribute these stacks. To enable your project to become part of such a software stack, try to make it relocatable. In addition your software should not make too strong assumptions about its own location.
 
 ## Usability and run-time settings
-It should be straight forward for a user to set up and run your project. This can for example be ensured by providing environment setup scripts.
+It should be straight forward for a user to set up and run your project. This can for example be ensured by providing environment setup scripts, but the number of environment variables required should be limited as far as possible. 
 
 # Making best practices easier - the HSF Template Project
 Many of the points mentioned are per se trivial, but need some infrastructure to be set up. To assist new projects, an HSF project template was created. It covers many of the technical points and provides some canonical or example implementation for many of the issues. It is meant as open collection point of ideas and proposals by the community. More details are to be found in an upcoming HSF technical note.
