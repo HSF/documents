@@ -1,8 +1,8 @@
 ---
 title: Proposal for HSF Project Best Practices
 TN-ID: TN-draft
-author: "Benedikt Hegner"
-institutes: CERN
+author: "Benedikt Hegner, Ben Morgan"
+institutes: "CERN, University of Warwick"
 date: date empty
 abstract: This technical note is a proposed list of best practices for HSF projects. The main motivation is to ensure interoperability and usability of a given project in other projects and being able to build consistent software stacks. In addition it should make it easier for other developers to contribute to existing projects.
 ---
