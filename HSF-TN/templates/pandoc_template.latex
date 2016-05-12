@@ -3,6 +3,7 @@ $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
 $else$
 \usepackage{lmodern}
+\usepackage{graphicx}
 $endif$
 $if(linestretch)$
 \usepackage{setspace}
@@ -191,24 +192,21 @@ $endfor$
 
 
 \begin{document}
+
 \begin{titlepage}
 \pagenumbering{roman}
 
-
-\vspace*{-1.5cm}
-\centerline{\large THE HEP SOFTWARE FOUNDATION (HSF)}
-\vspace*{1.5cm}
+\centerline{\includegraphics[width=4cm]{hsf_logo_angled.png}}
 \noindent
-\begin{tabular*}{\linewidth}{lc@{\extracolsep{\fill}}r@{\extracolsep{0pt}}}
 
-\\
- & & $TN-ID$ \\  % ID 
- & & $date$ \\ % Date - Can also hardwire e.g.: 23 March 2010
- & & \\
-% not in paper \hline
-\end{tabular*}
-
-\vspace*{4.0cm}
+{
+\fontfamily{phv}\selectfont
+\begin{center}
+$TN-ID$ \\
+$date$
+\end{center}
+\vspace*{3.0cm}
+}
 
 % Title --------------------------------------------------
 {\bf\boldmath\huge
