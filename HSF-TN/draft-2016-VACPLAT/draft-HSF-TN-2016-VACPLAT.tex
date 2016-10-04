@@ -36,6 +36,7 @@
 \raggedbottom
 \sloppy
 
+\usepackage{float}
 \usepackage{microtype}
 \usepackage{lineno}    % Line numbering during drafting
 \usepackage{xspace}    % Avoid problems with missing or double spaces after predefined symbold
@@ -161,7 +162,7 @@ VacUserData interfaces.
 \setcounter{footnote}{0}
 
 %%%% Uncomment next 2 lines if desired
-%\tableofcontents
+\tableofcontents
 %\cleardoublepage
 
 \pagestyle{plain} % restore page numbers for the main text
@@ -170,7 +171,7 @@ VacUserData interfaces.
 
 %% Uncomment during drafting and review.
 %% Comment before a final submission.
-\linenumbers
+%\linenumbers
 
 \section{Introduction}
 \label{sec:Introduction}
@@ -185,7 +186,7 @@ by two GridPP software systems, Vac and Vcycle, which can be described
 as VM lifecycle managers (VMLMs).
 
 This note is written in terms of VMs, but the interfaces have been 
-designed to be generalised to other forms of logical machine in the
+designed to be generalise to other forms of logical machine in the
 future, such as Docker containers and unikernels.
 
 The term ``resource provider'' is used to refer to the entity which is 
@@ -206,6 +207,11 @@ of VM factory machines which are communicating via VacQuery and may
 be said to be neighbours. For Vcycle, a space corresponds to an 
 OpenStack or similar tenancy or project, with a specified endpoint to 
 contact and identity tokens to use.
+
+Each space is occupied by VMs which are instances of one or more 
+``machinetype'' that the VMLM is able to create. Each machinetype
+corresponds to a specific combination of VM boot image and 
+contextualization.
 
 \section{Environment}
 \label{sec:env}
@@ -290,7 +296,7 @@ the VM finished and whether to create more VMs of this type in
 the immediate future as slots become available.
 
 \begin{center}
-\begin{table}[h]
+\begin{table}[H]
 \label{table:shutdowncodes}
 \begin{center}
 \begin{tabular}{l}
@@ -387,7 +393,7 @@ in appropriate quotation marks within the user\_data template.
 If the VM requires an X.509 proxy, it must expect that the special pattern
 \texttt{\#\#user\_data\_option\_x509\_proxy\#\#} will be replaced by the 
 PEM encoded X.509 certificates and RSA private key which compromise the
-proxy. VMLM's should provide a mechanism for creating X.509 proxies
+proxy. VMLMs should provide a mechanism for creating X.509 proxies
 dynamically for each VM instance from a host or robot certificate owned
 by the resource provider, with an X.509 proxy lifetime reflecting
 the maximum VM lifetime. 
@@ -531,7 +537,7 @@ machine\_status messages are returned in response to machines\_query messages di
 \begin{quote}
 \begin{description}
 \setlength{\parskip}{0pt}
-\item[message\_type] ``factory\_status''
+\item[message\_type] ``machine\_status''
 \item[vac\_version] Name and software version of Vac
 \item[vacquery\_version] Name and version of the VacQuery protocol
 \item[cookie] Matching the value supplied by the recipient
@@ -590,7 +596,7 @@ service as described in section~\ref{sec:vacmon}.
 \begin{quote}
 \begin{description}
 \setlength{\parskip}{0pt}
-\item[message\_type] ``factory\_status''
+\item[message\_type] ``machinetype\_status''
 \item[vac\_version] Name and software version of Vac
 \item[vacquery\_version] Name and version of the VacQuery protocol
 \item[cookie] Matching the value supplied by the recipient
@@ -668,19 +674,24 @@ spaces.
 Registration allows new Vacuum Platform resources to be discovered more easily
 by experiments, and permits the declaration of downtimes for these services.
 
-\section{GLUE2}
-\label{sec:glue2}
+%\section{GLUE2}
+%\label{sec:glue2}
+%
+%VMLMs should publish status information as JSON documents using the GLUE 2.0 
+%schema, at an HTTPS URL advertised in the GOCDB service entry for the space,
+%in the Grid Information / URL field.
 
-VMLMs should publish status information as JSON documents using the GLUE 2.0 
-schema, at an HTTPS URL advertised in the GOCDB service entry for the space,
-in the Grid Information / URL field.
-
-\clearpage
+%\clearpage
 
 \section{Summary}
 \label{sec:Summary}
 
-Vacuum platform interfaces have been described ...
+This note has described the various interfaces between virtual machines and
+virtual machine lifecycle managers required by the Vacuum Platform. Three new
+interfaces (\$JOBOUTPUTS, VacQuery, and VacUserData) have been introduced,
+and requirements set out for the use of Machine/Job Features, APEL, and
+GOCDB with the platform. Procedures for how experiments providing VMs should
+present their VM boot images and contextualization are also explained.
 
 %\section*{Acknowledgments}
 
