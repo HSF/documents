@@ -115,7 +115,7 @@ end#1\endcsname
 
 \\
  & & HSF-TN-2016-03 \\  % ID
- & & March 23, 2016 \\ % Date - Can also hardwire e.g.: 23 March 2010
+ & & January 12, 2017 \\ % Date - Can also hardwire e.g.: 23 March 2010
  & & \\
 % not in paper \hline
 \end{tabular*}
@@ -134,10 +134,10 @@ end#1\endcsname
 % Authors -------------------------------------------------
 % LSK: Note that people should add themselves when they start editing
 \begin{center}
-L.~Sexton-Kennedy$^1$, B.~Hegner$^2$, B.~Viren$^3$
+L.~Sexton-Kennedy$^1$, B.~Hegner$^2$, B.~Viren$^3$, G.~Amadio$^4$
 \bigskip\\
 {\it\footnotesize
-$ ^1$FNAL,$^2$CERN,$^3$BNL
+$^1$FNAL,$^2$CERN,$^3$BNL,$^4$UNESP
 }
 \end{center}
 
@@ -324,6 +324,16 @@ MRB is an acronym for Multi-Repository-Build and is used by some of the intensit
 \emph{Spack}\cite{Spack} is a packaging system specifically developed for the HPC use case which has a lot in common with the HEP requirements.
 ``Spack provides a novel, recursive specification syntax to invoke parametric builds of packages and dependencies. It allows any number of builds to coexist on the same system, and it ensures that installed packages can find their dependencies, regardless of the environment." On creating Spack the authors did a review of existing packaging systems, including a few of those discussed in this document.
 
+\subsection{Solution 10 - Portage }
+\emph{Portage}\cite{portage} is a GPLv2 package management system
+based on \href{https://en.wikipedia.org/wiki/Ports_collection}{ports collections} from BSD-based operating systems.
+It was originally created for Gentoo Linux, but is also used by ChromeOS
+and CoreOS, among others. Portage packages, called \emph{ebuilds},
+contain build instructions written as bash shell scripts with a special
+syntax. Portage itself is written in a combination of python and bash.
+Portage can be used to manage software on Linux and several other Unix
+variants, including macOS (see \cite{prefix} for more details).
+
 \subsection{Commonalities}
 All these non-HEP tools rely on properly set RPATHs and do not provide any relocatability options. The targeted deployment scenarios are  different ones compared to the current approach in HEP.
 
@@ -372,7 +382,8 @@ LCGCMake & \cellcolor{green} + & \cellcolor{green} + & \cellcolor{yellow} o   & 
 Nix & \cellcolor{green} + & \cellcolor{green} + & \cellcolor{yellow} o  & \cellcolor{yellow} o \\
 SciSoft &  \cellcolor{green} + & \cellcolor{green} + & \cellcolor{red} - & \cellcolor{red} - \\
 Spack & \cellcolor{green} + & \cellcolor{green} + & \cellcolor{red} - & \cellcolor{green} +\\
-Worch &  \cellcolor{green} + &  \cellcolor{green}  + & \cellcolor{red} -  &  \cellcolor{yellow} o
+Worch &  \cellcolor{green} + &  \cellcolor{green}  + & \cellcolor{red} -  &  \cellcolor{yellow} o \\
+Portage &  \cellcolor{green} + &  \cellcolor{green}  + & \cellcolor{red} - &  \cellcolor{green} +
 \end{tabular}
 \caption{\label{tab:taxonomyPlatforms}Supported platforms of the different build tools. A yellow ``o'' denotes that the support is untested or not of production quality.}
 \end{table}
@@ -400,7 +411,8 @@ LCGCMake & \cellcolor{green} + & \cellcolor{green} + & \cellcolor{green} + & \ce
 Nix & \cellcolor{green} + & \cellcolor{red} - & \cellcolor{green} +  & \cellcolor{red} -\\
 SciSoft &  \cellcolor{green} + & \cellcolor{green} + &  \cellcolor{green} + & \cellcolor{green} + \\
 Spack & \cellcolor{green} + & \cellcolor{green} + & \cellcolor{yellow} NA & \cellcolor{red} -\\
-Worch &  \cellcolor{green} + &  \cellcolor{green}  + &  \cellcolor{green} + &  \cellcolor{green} +
+Worch &  \cellcolor{green} + &  \cellcolor{green}  + &  \cellcolor{green} + &  \cellcolor{green} + \\
+Portage & \cellcolor{green} + & \cellcolor{green} + & \cellcolor{yellow} NA & \cellcolor{red} -
 \end{tabular}
 \caption{\label{tab:taxonomyVariants}Support for multiple releases and build variants. \emph{NA} denotes that the criteria are not-applicable for homebrew and Spack. As it only provides one variant it can rely on default system paths.}
 \end{table}
@@ -435,6 +447,7 @@ Nix & \cellcolor{green} Perl & \cellcolor{yellow} expression & \cellcolor{red} -
 SciSoft &  \cellcolor{green} Cmake & \cellcolor{green} Cmake-macro & \cellcolor{yellow} o & \cellcolor{red} -\\
 Spack & \cellcolor{green} Python & \cellcolor{green} auto template & \cellcolor{green} git checkout& \cellcolor{green} +\\
 Worch &   \cellcolor{green} Waf,Python &  \cellcolor{green}  Text-files & \cellcolor{green} + & \cellcolor{yellow} o\\
+Portage & \cellcolor{green} Python & \cellcolor{green} shell script & \cellcolor{green} +& \cellcolor{green} +
 \end{tabular}
 \caption{\label{tab:taxonomyUsability}Ease of use of the various build tools.}
 \end{table}
@@ -466,7 +479,8 @@ LCGCMake & \cellcolor{green} + & \cellcolor{green} + & \cellcolor{yellow} + & \c
 Nix & \cellcolor{green} + & \cellcolor{red} -  & \cellcolor{green} + & \cellcolor{green} + & ? \\
 SciSoft & \cellcolor{yellow} o & \cellcolor{yellow} o & \cellcolor{green} + &  \cellcolor{green} + & \cellcolor{green}+  \\
 Spack & \cellcolor{yellow} o & \cellcolor{yellow} o  & \cellcolor{green} + & \cellcolor{green} +& \cellcolor{green} +\\
-Worch & \cellcolor{green} + &  \cellcolor{green} + & \cellcolor{red} -  & \cellcolor{yellow} o & \cellcolor{green} +
+Worch & \cellcolor{green} + &  \cellcolor{green} + & \cellcolor{red} -  & \cellcolor{yellow} o & \cellcolor{green} + \\
+Portage & \cellcolor{green} + & \cellcolor{green} +  & \cellcolor{green} + & \cellcolor{green} +& \cellcolor{green} +
 \end{tabular}
 \caption{\label{tab:taxonomyOthers}Further considered features of the build tools. Details in the text.}
 \end{table}
@@ -497,7 +511,8 @@ We would like to thank all people participating in the constructive and lively d
 \href{https://indico.cern.ch/event/403790/}{23.6.2015},
 \href{https://indico.cern.ch/event/457365/}{4.11.2015},
 \href{https://indico.cern.ch/event/462334/}{18.11.2015},
-\href{https://indico.cern.ch/event/484006/}{10.2.2016}
+\href{https://indico.cern.ch/event/484006/}{10.2.2016},
+\href{https://indico.cern.ch/event/581338/}{2.11.2016}
 \bibitem{naming-conventions}Naming convention TN listed on \url{http://hepsoftwarefoundation.org/technical_notes.html}
 \bibitem{worch} Worch: \url{https://github.com/brettviren/worch}
 \bibitem{lcgcmake} LCGCMake: \url{http://ph-dep-sft.web.cern.ch/document/using-lcgcmake}
@@ -507,10 +522,12 @@ We would like to thank all people participating in the constructive and lively d
 \bibitem{homebrew} Homebrew: \url{http://brew.sh/}
 \bibitem{nix} Nix: \url{https://nixos.org/nix/}
 \bibitem{Spack} Spack: \url{http://www.computer.org/csdl/proceedings/sc/2015/3723/00/2807623.pdf}
-
+\bibitem{portage} Portage: \url{https://wiki.gentoo.org/wiki/Project:Portage}
+\bibitem{prefix} Gentoo Prefix project \url{https://wiki.gentoo.org/wiki/Project:Prefix}
 \bibitem{sl} Scientific Linux: \url{https://www.scientificlinux.org/}
 \bibitem{centos} CentOS: \url{https://www.centos.org/}
 \bibitem{debian} Debian: \url{https://www.debian.org/}
+\bibitem{gentoo} Gentoo: \url{https://www.gentoo.org/}
 \bibitem{ubuntu} Ubuntu: \url{https://www.ubuntu.com/}
 \bibitem{github:discussion} Packaging Protocol Discussion:  \url{https://github.com/HEP-SF/packaging/issues/1}
 \bibitem{alidist} The alidist package: \url{https://github.com/alisw/alidist}.
