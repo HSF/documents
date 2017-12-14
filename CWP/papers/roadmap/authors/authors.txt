@@ -1,0 +1,229 @@
+﻿Amadio, Guilherme - CERN
+Aphecetche, Laurent - IN2P3/Subatech
+Apostolakis, John - CERN
+Asai, Makoto - SLAC 
+Atzori, Luca - CERN
+Bhimji, Wahid - LBNL 
+Babik, Marian - CERN
+Bagliesi, Giuseppe - INFN
+Bandieramonte, Marilena - CERN
+Barisits, Martin - CERN
+Bauerdick, Lothar A. T. - Fermilab (3)
+Belforte, Stefano - INFN
+Benjamin, Douglas - Duke University
+Bianchi, Riccardo Maria - University of Pittsburgh
+Bird, Ian - CERN - WLCG Project Leader
+Biscarat, Catherine - CNRS/IN2P3, France
+Blomer, Jakob - CERN
+Bloom, Kenneth - University of Nebraska-Lincoln
+Boccali, Tommaso - INFN
+Bockelman, Brian - University of Nebraska - Lincoln
+Bold, Tomasz - UST AGH Krakow
+Bonacorsi, Daniele - University of Bologna, INFN
+Boveia, Antonio - Ohio State University 
+Bozzi, Concezio - INFN
+Britton, David - University of Glasgow
+Buckley, Andy - University of Glasgow
+Buncic, Predrag - CERN - ALICE Computing Coordinator
+Calafiura, Paolo - LBNL
+Campana, Simone - CERN 
+Canali, Luca - CERN
+Carlino Gianpaolo - INFN
+Castro, Nuno - LIP and University of Minho (4)
+Cattaneo, Marco - CERN
+Cerminara, Gianluca - CERN
+Chapman, John - University of Cambridge
+Chang, Philip - UC San Diego
+Childers, Taylor - ANL
+Clarke, Peter - University of Edinburgh
+Cogneras, Eric - CNRS/IN2P3/LPC, Université Clermont Auvergne
+Collier, Ian - STFC
+Corti, Gloria - CERN
+Cosmo, Gabriele - CERN
+Costanzo, Davide - University of Sheffield 
+Couturier, Ben - CERN
+Cranmer, Kyle - New York University
+Crépé-Renaudin, Sabine - CNRS/IN2P3/LPSC
+Cristella, Leonardo - University of Bari, INFN
+Dallmeier-Tiessen, Sünje - CERN
+Di Girolamo, Alessandro - CERN
+De, Kaushik - University of Texas at Arlington
+De Cian, Michel - Heidelberg University
+Doglioni, Caterina - Lund University (8)
+Dotti, Andrea - SLAC
+Duellmann, Dirk - CERN
+Duflot, Laurent - CNRS/LAL
+Dykstra, Dave - Fermilab (3)
+Dziedziniewicz-Wojcik, Katarzyna - CERN
+Dziurda, Agnieszka - CERN - LHCb Tracking & Alignment Coordinator
+Egede, Ulrik - Imperial College London
+Elmer, Peter - Princeton University
+Elmsheuser, Johannes - BNL
+Elvira, V. Daniel - Fermilab (3)
+Eulisse, Giulio - CERN
+Ferber, Torben - University of British Columbia - Belle II generator and ECL Coordinator
+Fisk, Ian - Simons Foundation
+Fitzpatrick, Conor - EPFL - LHCb High Level Trigger Project Leader
+Flix, José - PIC & CIEMAT (7)
+Formica Andrea - CEA/Saclay IRFU/Dedip
+Forti Alessandra - The University of Manchester
+Gaede, Frank - DESY
+Ganis, Gerardo - CERN
+Gardner, Robert - University of Chicago
+Garonne, Vincent - University of Oslo
+Genser, Krzysztof - Fermilab (3)
+George, Simon - Royal Holloway, University of London
+Geurts, Frank - Rice University
+Gheata, Andrei - CERN
+Gheata, Mihaela - CERN
+Giagu, Stefano - Sapienza Università di Roma and INFN
+Gingrich, Douglas - University of Alberta and TRIUMF
+Girone, Maria - CERN
+Gligorov, Vladimir V. - LPNHE, Université Pierre et Marie Curie, Université Paris Diderot, CNRS/IN2P3 (2)
+Ferber, Torben - University of British Columbia
+Glushkov, Ivan - University of Texas at Arlington
+Gohn, Wesley - University of Kentucky
+González Caballero, Isidro - Universidad de Oviedo
+González Fernández, Juan R. - Universidad de Oviedo
+Gonzalez Lopez, Jose Benito - CERN
+Govi, Giacomo - Fermilab
+Grandi, Claudio - INFN
+Grasland, Hadrien - CNRS/LAL
+Gray, Heather - LBNL - ATLAS Simulation Coordinator
+Grillo, Lucia - University of Manchester,  LHCb Tracking & Alignment Coordinator
+Guan Wen - University of Wisconsin-Madison
+Gutsche, Oliver - Fermilab (3)
+Gyurjyan, Vardan - Jefferson Lab
+Hanushevsky, Andrew - SLAC
+Hariri, Farah - CERN
+Harvey, John - CERN 
+Hildreth, Michael, University of Notre Dame (6)
+Hegner, Benedikt - CERN
+Heinrich, Lukas - NYU
+Hernández, José M. - CIEMAT (7)
+Hodgkinson, Mark - University of Sheffield
+Hoeche, Stefan - SLAC National Accelerator Laboratory, MCnet
+Ivanchenko, Vladimir N. - CERN, Tomsk State University Russia
+Ivanov, Todor - University of Sofia, Bulgaria
+Jashal, Brij - TIFR, Mumbai India
+Jayatilaka, Bodhitha - Fermilab (3)
+Jones, Roger - Lancaster University
+Jouvin, Michel - CNRS/LAL, France - Head of Computing Division
+Jun, Soon Yung - Fermilab (3)
+Kagan, Michael - SLAC
+Kalderon, Charles William - Lund University
+Karavakis, Edward - CERN
+Katz, Daniel S. - University of Illinois Urbana-Champaign
+Kirby, Michael - Fermilab (3)
+Klimentov Alexei - BNL
+Klute, Markus - MIT
+Komarov, Ilya - INFN Trieste (14)
+Koppenburg, Patrick - Nikhef, Amsterdam
+Kreczko, Luke - University of Bristol
+Kuhr, Thomas - LMU Munich - Belle II Software Coordinator
+Kuznetsov, Valentin - Cornell University
+Lancon, Eric - BNL
+Lampl, Walter - University of Arizona - ATLAS Software Coordinator
+Lassnig, Mario - CERN
+Laycock, Paul - CERN
+Leggett, Charles - LBNL
+Letts, James - UC San Diego
+Lima, Guilherme - Fermilab
+Linacre, Jacob - Rutherford Appleton Laboratory (13)
+Linden, Tomas - Helsinki Institute of Physics
+Love, Peter - Lancaster University
+Lopienski, Sebastian - CERN
+Lo Presti, Giuseppe - CERN
+Marshall, Zachary L - LBNL
+Martelli, Edoardo - CERN
+Martin-Haugh, Stewart - RAL
+Mato, Pere - CERN
+Mazumdar, Kajari - TIFR, Mumbai India
+Meinhard, Helge - CERN
+Mendez Lorenzo, Patricia - CERN
+McCauley, Thomas - University of Notre Dame
+McKee, Shawn - University of Michigan - ATLAS (12)
+McFayden, Josh - CERN
+McNab, Andrew - University of Manchester - LHCb Computing Deputy Project Leader
+Menasce, Dario - INFN
+Mete, Alaettin Serhan - UC Irvine
+Michelotto, Michele - INFN
+Mitrevski, Jovan - LMU Munich
+Moneta, Lorenzo - CERN
+Morgan, Ben - University of Warwick
+Mount, Richard - SLAC
+Moyse, Edward - University of Massachusetts, Amherst
+Murray, Sean - University of Cape Town/CHPC, Cape Town
+Neubauer, Mark S - University of Illinois Urbana-Champaign (11)
+Novaes, Sérgio - São Paulo State University
+Novak, Mihaly - CERN
+Oyanguren, Arantza - IFIC-Valencia
+Pacheco Pages, Andres - PIC & IFAE (10)
+Paganini, Michela - Yale University
+Pascuzzi, Vincent R. - University of Toronto
+Pearce, Alex - CERN
+Pearson, Ben - MPP Munich
+Pedro, Kevin - Fermilab (3)
+Perdue, Gabriel - Fermilab
+Perez-Calero Yzquierdo, Antonio - PIC & CIEMAT (7)
+Perrozzi, Luca - ETH Zürich
+Petersen, Troels - University of Copenhagen
+Piedra, Jónatan - IFCA (CSIC - Universidad de Cantabria)
+Piilonen, Leo - Virginia Tech (Belle and Belle II) (9)
+Piparo, Danilo - CERN
+Pokorski, Witold - CERN
+Polci, Francesco - LPNHE - LHCb Tracking & Alignment Coordinator
+Potamianos, Karolos - DESY
+Raven, Gerhard - VU Amsterdam/ Nikhef
+Reuter, Jürgen - DESY
+Ribon, Alberto - CERN
+Ritter, Martin - LMU Munich - Belle II, Head of Framework and Infrastructure Group
+Rodrigues, Eduardo - University of Cincinnati (5)
+Roiser, Stefan - CERN - LHCb Computing Project Leader
+Rousseau, David - LAL, Univ. Paris-Sud, CNRS/IN2P3, Université Paris-Saclay, Orsay, France
+Sakuma, Tai - University of Bristol
+Sánchez-Hernández, Alberto - CINVESTAV
+Santana, Renato - Brazilian Centre for Physics Research
+Sartirana, Andrea - CNRS/LLR, France
+Schellman, Heidi - Oregon State University - DUNE computing co-coordinator
+Schovancová, Jaroslava - CERN
+Schramm, Steven - University of Geneva
+Schulz, Markus - CERN
+Sciabà, Andrea - CERN
+Seidel, Sally - University of New Mexico
+Sekmen, Sezen - Kyungpook National University
+Serfon Cedric - University of Oslo
+Severini, Horst - University of Oklahoma
+Sexton-Kennedy, Elizabeth - Fermilab (3), CMS Software & Computing Coordinator
+Seymour, Michael - University of Manchester - MCnet
+Shapoval, Illya - LBNL
+Shiu, Jing-Ge - National Taiwan University
+Shiers, Jamie - CERN
+Short, Hannah - CERN
+Siroli, Gian Piero - University of Bologna & INFN
+Smith, Tim - CERN
+Snyder, Scott - BNL
+Stark, Giordon - University of Chicago
+Stewart, Graeme - CERN - HSF
+Tenaglia, Giacomo - CERN
+Tsulaia, Vakhtang - LBNL
+Tunnell, Christopher - University of Chicago
+Vaandering, Eric - Fermilab (3)
+Valassi, Andrea - CERN
+Valsan, Liviu - CERN
+Vallecorsa, Sofia - Gangneung-Wonju National University, South Korea
+Van Gemmeren, Peter - Argonne National Laboratory
+Vázquez Sierra, Carlos - Nikhef, Amsterdam
+Vernet, Renaud - CC-IN2P3 / CNRS
+Viren, Brett - BNL
+Vuosalo, Carl - University of Wisconsin-Madison
+Wartel, Romain - CERN
+Wenaus, Torre - BNL - ATLAS Computing Coordinator
+Wenzel, Sandro - CERN
+Winklmeier, Frank - University of Oregon
+Wissing, Christoph - DESY
+Wuerthwein, Frank - UCSD
+Wynne, Benjamin - University of Edinburgh
+Yang, Wei - SLAC
+Yazgan, Efe - IHEP, Chinese Academy of Sciences - CMS MC Generators Convener
+Xiaomei, Zhang - IHEP, Chinese Academy of Sciences

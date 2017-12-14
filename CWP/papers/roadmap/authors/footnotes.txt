@@ -1,0 +1,13 @@
+﻿1. Vladimir V. Gligorov acknowledges funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme under grant agreement No 724777 “RECEPT'”.
+2. Supported by the US-DOE, DE-AC02-07CH11359
+3. Supported by FCT-Portugal, IF/00050/2013/CP1172/CT0002
+4. Supported by the US-NSF, ACI-1450319
+5. Supported by the US-NSF, PHY-1607578
+6. Supported by ES-MINECO, FPA2016-80994-c2-1-R & MDM-2015-0509        
+7. Caterina Doglioni acknowledges funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme under grant agreement No 679305 “DARKJETS”.
+8. Supported by the US-DOE, DE-SC0009973
+9. Supported by the ES-MINECO FPA2016-80994-C2-2-R
+10. Supported by the US-DOE, DE-SC0018098 and US-NSF ACI-1558233
+11. Supported by the US-DOE, DE-SC0007859 and US-NSF, 76749/1136652/2
+12. Supported by funding from the European Union’s Horizon 2020 research and innovation programme under the Marie Skłodowska-Curie grant agreement No. 752730
+13. Supported by Swiss National Science Foundation, Early Postdoc Mobility Fellowship, project number P2ELP2_168556
