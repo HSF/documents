@@ -16,7 +16,7 @@ def main():
     affiliation_address_file = "address.txt"
     
     # Open and process the authors file
-    with open(author_file) as author_fh, open(footnote_file) as footnote_fh:
+    with open(author_file) as author_fh:
         author_list = []
         for author_line in author_fh:
             author_line = author_line.strip()
@@ -75,20 +75,45 @@ def main():
     for footnote_mark, affiliation in enumerate(sorted_affiliations, start=1):
         affiliation_map[affiliation]["footnotemark"] = str(footnote_mark)
     
+    # Parse and assign footnotes
+    with open(footnote_file) as footnote_fh:
+        footnote_map = {}
+        footnote_symbols = "abcdefghijklmnopqrstuvwxyz"
+        footnotemark_index = 0
+        for footnote_line in footnote_fh:
+            footnote_line = footnote_line.strip()
+            if footnote_line.startswith("#") or footnote_line == "":
+                continue
+            number, note = footnote_line.split(" ", 1)
+            number = number.rstrip(".")
+            footnote_map[number] = {
+                "note": note.replace("&", "\&").replace("_", "\_"),
+                "footnotemark": footnote_symbols[footnotemark_index],
+                }
+            footnotemark_index += 1
+    sorted_footnotes = footnote_map.keys()[:]
+    sorted_footnotes.sort(cmp=lambda x,y: cmp(int(x), int(y)))
+    #print footnote_map
+        
         
     # Write out the latex author file
     with open("authors.tex", "w") as output:
         for author in author_list:
             affiliation_list = ",".join([ str(affiliation_map[affiliation]["footnotemark"]) for affiliation in author["affiliation"] ])
+            if author["footnotes"]:
+                footnote_list = ",".join( [ footnote_map[footnote]["footnotemark"] for footnote in author["footnotes"] ])
+                affiliation_list = affiliation_list + "," + footnote_list
             print >>output, author["surname"] +", "  + \
             author["forename"] + "$^{" + affiliation_list + "}$" +\
             ("" if author == author_list[-1] else ";")
             #if author["role"]:
             #    print >>output, "(" + author["role"] + ")"
-        print >>output
+        print >>output, "\\bigskip"
         for affiliation in sorted_affiliations:
-            print affiliation
-            print >>output, "\par {\\footnotesize $^{" + str(affiliation_map[affiliation]["footnotemark"]) + "}$", affiliation_map[affiliation]["address"], "}"
+            print >>output, "\\par {\\footnotesize $^{" + str(affiliation_map[affiliation]["footnotemark"]) + "}$", affiliation_map[affiliation]["address"], "}"
+        print >>output, "\\bigskip"
+        for footnote in sorted_footnotes:
+            print >>output, "\\par {\\footnotesize $^{" + footnote_map[footnote]["footnotemark"] + "}$", footnote_map[footnote]["note"], "}"
 
 
 if __name__ == '__main__':

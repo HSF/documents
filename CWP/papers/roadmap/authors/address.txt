@@ -1,3 +1,6 @@
 # Simple mapping of institute names to addresses
 CERN: CERN, Geneva, Switzerland
-
+Fermilab: Fermi National Accelerator Laboratory, Batavia, USA
+ANL: High Energy Physics Division, Argonne National Laboratory, Argonne IL, USA
+BNL: Physics Department, Brookhaven National Laboratory, Upton NY, USA
+LBNL: Lawrence Berkeley National Laboratory and University of California, Berkeley CA, USA
