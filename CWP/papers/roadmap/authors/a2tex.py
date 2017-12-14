@@ -2,6 +2,10 @@
 #
 # Process CWP signatory list into a LaTeX author list
 
+# The data source is expected to be 
+#   Lastname, Firstname - Institution (1) [- Role ]
+# If there are multiple affiliations, separate with &
+
 import os
 import re
 import sys
@@ -9,13 +13,22 @@ import sys
 def main():
     author_file = "authors.txt"
     footnote_file = "footnotes.txt"
-
+    affiliation_address_file = "address.txt"
+    
     # Open and process the authors file
     with open(author_file) as author_fh, open(footnote_file) as footnote_fh:
         author_list = []
         for author_line in author_fh:
-            if author_line.startswith("#"):
+            author_line = author_line.strip()
+            if author_line.startswith("#") or author_line == "":
                 continue
+            # Find any footnotes that the author wanted to add
+            footnotes_search = re.search(r"\(([\d,]+)\)$", author_line)
+            if footnotes_search:
+                footnotes = footnotes_search.group(1).split(",")
+                author_line = author_line.replace(footnotes_search.group(), "")
+            else:
+                footnotes = []
             author_elements = [ el.strip() for el in author_line.split(" - ") ]
             try:
                 surname, forename = [ el.strip() for el in author_elements[0].split(",", 1) ]
@@ -26,22 +39,36 @@ def main():
                     role = ""
                 author_list.append( {"surname": surname,
                      "forename": forename,
-                     "affiliation": affiliation.replace("&", "\&"),
-                     "role": role.replace("&", "\&"),}
+                     "affiliation": [ el.strip() for el in affiliation.split("&") ],
+                     "role": role.replace("&", "\&"),
+                     "footnotes": footnotes,}
                     )
-            except:
-                print "Got an exception processing this line:", author_line
-        
-        print author_list
-
+            except Exception as e:
+                print "Got an exception(", e, ") processing this line:", author_line
+                raise
+    #print author_list
+    
     # Generate the map to people's institutes
+    institute_address = {}
+    with open(affiliation_address_file) as address_fh:
+        for affiliation_line in address_fh:
+            affiliation_line = affiliation_line.strip()
+            if affiliation_line.startswith("#") or affiliation_line == "":
+                continue
+            institute, address = affiliation_line.split(": ", 1)
+            institute_address[institute] = address
+    #print institute_address
+    
     affiliation_map = {}
     for author in author_list:
-        if author["affiliation"] in affiliation_map:
-            continue
-        affiliation_map[author["affiliation"]] = {
-            "address": author["affiliation"],
+        for affiliation in author["affiliation"]:
+            if affiliation in affiliation_map:
+                continue
+            affiliation_map[affiliation] = {
+                "address": (institute_address[affiliation] if affiliation in institute_address else affiliation),
             }
+    #print affiliation_map        
+    
     # Alphabetise and assign footnote marks
     sorted_affiliations = affiliation_map.keys()[:]
     sorted_affiliations.sort()
@@ -52,8 +79,9 @@ def main():
     # Write out the latex author file
     with open("authors.tex", "w") as output:
         for author in author_list:
+            affiliation_list = ",".join([ str(affiliation_map[affiliation]["footnotemark"]) for affiliation in author["affiliation"] ])
             print >>output, author["surname"] +", "  + \
-            author["forename"] + "$^{" + str(affiliation_map[author["affiliation"]]["footnotemark"]) + "}$" +\
+            author["forename"] + "$^{" + affiliation_list + "}$" +\
             ("" if author == author_list[-1] else ";")
             #if author["role"]:
             #    print >>output, "(" + author["role"] + ")"

@@ -28,7 +28,7 @@ Buncic, Predrag - CERN - ALICE Computing Coordinator
 Calafiura, Paolo - LBNL
 Campana, Simone - CERN 
 Canali, Luca - CERN
-Carlino Gianpaolo - INFN
+Carlino, Gianpaolo - INFN
 Castro, Nuno - LIP and University of Minho (4)
 Cattaneo, Marco - CERN
 Cerminara, Gianluca - CERN
@@ -65,8 +65,8 @@ Ferber, Torben - University of British Columbia - Belle II generator and ECL Coo
 Fisk, Ian - Simons Foundation
 Fitzpatrick, Conor - EPFL - LHCb High Level Trigger Project Leader
 Flix, José - PIC & CIEMAT (7)
-Formica Andrea - CEA/Saclay IRFU/Dedip
-Forti Alessandra - The University of Manchester
+Formica, Andrea - CEA/Saclay IRFU/Dedip
+Forti, Alessandra - The University of Manchester
 Gaede, Frank - DESY
 Ganis, Gerardo - CERN
 Gardner, Robert - University of Chicago
@@ -91,13 +91,13 @@ Grandi, Claudio - INFN
 Grasland, Hadrien - CNRS/LAL
 Gray, Heather - LBNL - ATLAS Simulation Coordinator
 Grillo, Lucia - University of Manchester,  LHCb Tracking & Alignment Coordinator
-Guan Wen - University of Wisconsin-Madison
+Guan, Wen - University of Wisconsin-Madison
 Gutsche, Oliver - Fermilab (3)
 Gyurjyan, Vardan - Jefferson Lab
 Hanushevsky, Andrew - SLAC
 Hariri, Farah - CERN
 Harvey, John - CERN 
-Hildreth, Michael, University of Notre Dame (6)
+Hildreth, Michael - University of Notre Dame (6)
 Hegner, Benedikt - CERN
 Heinrich, Lukas - NYU
 Hernández, José M. - CIEMAT (7)
@@ -115,7 +115,7 @@ Kalderon, Charles William - Lund University
 Karavakis, Edward - CERN
 Katz, Daniel S. - University of Illinois Urbana-Champaign
 Kirby, Michael - Fermilab (3)
-Klimentov Alexei - BNL
+Klimentov, Alexei - BNL
 Klute, Markus - MIT
 Komarov, Ilya - INFN Trieste (14)
 Koppenburg, Patrick - Nikhef, Amsterdam
@@ -192,7 +192,7 @@ Schulz, Markus - CERN
 Sciabà, Andrea - CERN
 Seidel, Sally - University of New Mexico
 Sekmen, Sezen - Kyungpook National University
-Serfon Cedric - University of Oslo
+Serfon, Cedric - University of Oslo
 Severini, Horst - University of Oklahoma
 Sexton-Kennedy, Elizabeth - Fermilab (3), CMS Software & Computing Coordinator
 Seymour, Michael - University of Manchester - MCnet

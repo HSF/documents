@@ -1,0 +1,3 @@
+# Simple mapping of institute names to addresses
+CERN: CERN, Geneva, Switzerland
+
