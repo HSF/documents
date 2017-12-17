@@ -65,6 +65,27 @@ class Affiliation():
     def set_mark(self, i):
         self.mark = str(i)
 
+def latex_escape(string):
+    """
+    Function to escape latex reserved characters
+    :param string: the string containing the characters to escape
+    :return: the escaped string
+    """
+
+    CHARS_TO_ESCAPE_PATTERN = re.compile(r'(?<!\\)(?P<char>[&%\$#_{}])')
+    SPECIAL_LATEX_CHARS = {'~':'$\\\\textasciitilde$',
+                           '^':'$\\\\textasciicircum$'}
+    # Do not attempt to escape \ as it may have been added as an escape character
+    # and is unlikely to be present in an affiliation or footnote...
+    # If it is present, if will have to be escaped manually
+    #                       '\\':'$\\\\textbackslash$'}
+    # Escape all reserved characters that can be escaped
+    string = CHARS_TO_ESCAPE_PATTERN.sub('\\\\\g<char>', string)
+    # Then replace special chars
+    for special_char, repl in SPECIAL_LATEX_CHARS.items():
+       string = re.sub(re.escape(special_char), repl, string)
+    return string
+
 def main():
 
     try:
@@ -149,13 +170,13 @@ def main():
         print ("\\bigskip", file=output)
         for affiliation in sorted_affiliations:
             print ("\\par {{\\footnotesize $^{{{}}}$ {}}}".format(str(affiliation_map[affiliation].mark),
-                                                               affiliation_map[affiliation].address),
+                                                                  latex_escape(affiliation_map[affiliation].address)),
                    file=output)
 
         print ("\\bigskip", file=output)
         for footnote in sorted_footnotes:
             print ("\\par {{\\footnotesize $^{{{}}}$ {}}}".format(footnote.mark,
-                                                                 footnote.text),
+                                                                  latex_escape(footnote.text)),
                    file=output)
 
 
