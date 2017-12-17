@@ -1,10 +1,15 @@
 #! /usr/bin/env python
 #
 # Process CWP signatory list into a LaTeX author list
-
-# The data source is expected to be 
-#   Lastname, Firstname - Institution (1) [- Role ]
-# If there are multiple affiliations, separate with &
+#
+# The data source is expected to be made of 3 text files:
+#    - authors.txt: the list of signers in the following format: Lastname, Firstname - AffiliationKey (i) [- Role ]
+#      with i a footnote number. If there are multiple affiliations, separate AffiliationKeys with &.
+#    - footnotes:txt: the list of footnotes. There must be one footnote per line starting with 'i.'
+#    - address.txt: the affiliation list with the following format: AffilitationKey: Affiliation text
+#      AffiliationKey must not contain any space.
+#
+# These 3 files are typically built from the Google Docs https://docs.google.com/document/d/1tBXwlNnQsxxZA3gVS1_KSpa8wRXGyk250EIsJwJ2T34/edit#
 
 import os
 import re
