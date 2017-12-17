@@ -1,6 +1,12 @@
 .project
+.pydevproject
 *.aux
 *.dvi
+*.bbl
+*.bcf
+*.blg
 *.log
 *.out
+*.run.xml
+*.toc
 *.synctex.gz
