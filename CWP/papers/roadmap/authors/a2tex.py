@@ -15,6 +15,19 @@ import os
 import re
 import sys
 from operator import attrgetter
+import argparse
+
+# Define some constants related to application exit status
+EXIT_STATUS_SUCCESS = 0
+EXIT_STATUS_OPTION_ERROR = 3
+EXIT_STATUS_FAILURE = 5
+
+# Default input files
+AUTHOR_FILE_DEFAULT = "authors.txt"
+FOOTNOTE_FILE_DEFAULT = "footnotes.txt"
+AFFILIATION_ADDRESS_FILE_DEFAULT = "address.txt"
+LATEX_AUTHOR_FILE_DEFAULT = "authors.tex"
+
 
 class Footnote():
     def __init__(self, number_str, text):
@@ -25,12 +38,25 @@ class Footnote():
         return repr((self.mark, self.text))
 
 def main():
-    author_file = "authors.txt"
-    footnote_file = "footnotes.txt"
-    affiliation_address_file = "address.txt"
-    
+
+    try:
+        parser = argparse.ArgumentParser()
+        parser.add_argument("--authors", dest="authors", default=AUTHOR_FILE_DEFAULT,
+                            help="File containining author list (D: {})".format(AUTHOR_FILE_DEFAULT))
+        parser.add_argument("--footnotes", dest="footnotes", default=FOOTNOTE_FILE_DEFAULT,
+                            help="File containining footnote list (D: {})".format(FOOTNOTE_FILE_DEFAULT))
+        parser.add_argument("--affiliations", dest="affiliations", default=AFFILIATION_ADDRESS_FILE_DEFAULT,
+                            help="File containining affiliation list (D: {})".format(AFFILIATION_ADDRESS_FILE_DEFAULT))
+        parser.add_argument("--output", dest="output_file", default=LATEX_AUTHOR_FILE_DEFAULT,
+                            help="Output Latex file (D: {})".format(LATEX_AUTHOR_FILE_DEFAULT))
+        options = parser.parse_args()
+    except Exception as e:
+        parser.invalid_option_value('Parsing error: {}'.format(e.msg))
+        return EXIT_STATUS_OPTION_ERROR
+
+
     # Open and process the authors file
-    with open(author_file, encoding='utf-8') as author_fh:
+    with open(options.authors, encoding='utf-8') as author_fh:
         author_list = []
         for author_line in author_fh:
             author_line = author_line.strip()
@@ -64,7 +90,7 @@ def main():
     
     # Generate the map to people's institutes
     institute_address = {}
-    with open(affiliation_address_file, encoding='utf-8') as address_fh:
+    with open(options.affiliations, encoding='utf-8') as address_fh:
         for affiliation_line in address_fh:
             affiliation_line = affiliation_line.strip()
             if affiliation_line.startswith("#") or affiliation_line == "":
@@ -89,7 +115,7 @@ def main():
         affiliation_map[affiliation]["footnotemark"] = str(footnote_mark)
     
     # Parse and assign footnotes
-    with open(footnote_file, encoding='utf-8') as footnote_fh:
+    with open(options.footnotes, encoding='utf-8') as footnote_fh:
         footnote_list = []
         for footnote_line in footnote_fh:
             footnote_line = footnote_line.strip()
@@ -103,7 +129,7 @@ def main():
         
         
     # Write out the latex author file
-    with open("authors.tex", "w", encoding="utf-8") as output:
+    with open(options.output_file, "w", encoding="utf-8") as output:
         for author in author_list:
             affiliation_list = ",".join([ str(affiliation_map[affiliation]["footnotemark"]) for affiliation in author["affiliation"] ])
             if author["footnotes"]:
