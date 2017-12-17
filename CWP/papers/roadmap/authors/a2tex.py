@@ -131,7 +131,7 @@ def main():
         
     # Write out the latex author file
     with open(options.output_file, "w", encoding="utf-8") as output:
-        for author in author_list:
+        for author in sorted(author_list, key=lambda author: author.surname):
             affiliation_list = ",".join([ affiliation_map[affiliation].mark for affiliation in author.affiliations ])
             if author.footnotes:
                 footnote_str = ",".join( [ footnote_list[int(id)-1].mark for id in author.footnotes ])
