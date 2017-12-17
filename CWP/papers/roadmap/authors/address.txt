@@ -78,7 +78,7 @@ UGlasgow: SUPA - School of Physics and Astronomy, University of Glasgow, Glasgow
 UEDINBURGH: SUPA - School of Physics and Astronomy, University of Edinburgh, Edinburgh, United Kingdom
 UGeneva: Section de Physique, Université de Genève, Geneva, Switzerland
 UHeidelberg: Physikalisches Institut, Ruprecht-Karls-Universitat Heidelberg, Heidelberg, Germany
-UKentucky: Department of Physics \& Astronomy, University of Kentucky, Lexington, USA
+UKentucky: Department of Physics & Astronomy, University of Kentucky, Lexington, USA
 ULancaster: Physics Department, Lancaster University, Lancaster, United Kingdom
 ULjubljana: Department of Physics, Jožef Stefan Institute and University of Ljubljana, Ljubljana, Slovenia
 ULund: Fysiska institutionen, Lunds universitet, Lund, Sweden
@@ -96,7 +96,7 @@ UOSLO: Department of Physics, University of Oslo, Oslo, Norway
 UOviedo: Universidad de Oviedo, Oviedo, Spain
 UPittsburgh: Department of Physics and Astronomy, University of Pittsburgh, Pittsburgh, PA, USA
 UPrinceton: Princeton University, Princeton, USA
-URice: Rice University, Houston, USA
+URice: Rice University, Houston, TX, USA
 USaoPaolo: Universidade Estadual Paulista, São Paulo, Brazil
 USapienza: Dipartimento di Fisica, Università La Sapienza, Roma, Italy
 UShandong: School of Physics, Shandong University, Shandong, China
@@ -106,8 +106,7 @@ UTexas: Department of Physics, The University of Texas at Arlington, Arlington, 
 UTomsk: National Research Tomsk Polytechnic University, Tomsk, Russia
 UTorronto: Department of Physics, University of Toronto, Toronto, ON, Canada
 UWarwick: Department of Physics, University of Warwick, Coventry, United Kingdom
-UWisconsin: University ofWisconsin - Madison, Madison, WI, USA
+UWisconsin: University of Wisconsin - Madison, Madison, WI, USA
 UYale: Department of Physics, Yale University, New Haven, CT, USA
 VAST: IOP and GUST, Vietnam Academy of Science and Technology (VAST), Hanoi, Vietnam
 VIRTECH: Virginia Tech, Blacksburg, Virginia, USA
-WISCONSIN: Department of Physics, University of Wisconsin, Madison WI, USA
