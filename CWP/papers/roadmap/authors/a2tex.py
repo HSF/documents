@@ -37,6 +37,26 @@ class Footnote():
     def __repr__(self):
         return repr((self.mark, self.text))
 
+class Author():
+    def __init__(self, author_line):
+        footnotes_search = re.search(r"\((?P<footnotes>[\d,]+)\)$", author_line)
+        if footnotes_search:
+            self.footnotes = footnotes_search.group('footnotes').split(",")
+            author_line = author_line.replace(footnotes_search.group(), "")
+        else:
+            self.footnotes = []
+        author_elements = [el.strip() for el in author_line.split(" - ")]
+        try:
+            self.surname, self.forename = [el.strip() for el in author_elements[0].split(",", 1)]
+            self.affiliations = [el.strip() for el in author_elements[1].split("&")]
+            if len(author_elements) == 3:
+                self.role = author_elements[2]
+            else:
+                self.role = ""
+        except Exception as e:
+            raise Exeption("Got an exception({}) processing line: {}".format(e, author_line))
+
+
 def main():
 
     try:
@@ -62,32 +82,8 @@ def main():
             author_line = author_line.strip()
             if author_line.startswith("#") or author_line == "":
                 continue
-            # Find any footnotes that the author wanted to add
-            footnotes_search = re.search(r"\(([\d,]+)\)$", author_line)
-            if footnotes_search:
-                footnotes = footnotes_search.group(1).split(",")
-                author_line = author_line.replace(footnotes_search.group(), "")
-            else:
-                footnotes = []
-            author_elements = [ el.strip() for el in author_line.split(" - ") ]
-            try:
-                surname, forename = [ el.strip() for el in author_elements[0].split(",", 1) ]
-                affiliation = author_elements[1]
-                if len(author_elements) == 3:
-                    role = author_elements[2]
-                else:
-                    role = ""
-                author_list.append( {"surname": surname,
-                     "forename": forename,
-                     "affiliation": [ el.strip() for el in affiliation.split("&") ],
-                     "role": role.replace("&", "\&"),
-                     "footnotes": footnotes,}
-                    )
-            except Exception as e:
-                print ("Got an exception({}) processing this line: {}".format(e, author_line))
-                raise
-    #print author_list
-    
+            author_list.append(Author(author_line))
+
     # Generate the map to people's institutes
     institute_address = {}
     with open(options.affiliations, encoding='utf-8') as address_fh:
@@ -97,18 +93,15 @@ def main():
                 continue
             institute, address = affiliation_line.split(": ", 1)
             institute_address[institute] = address
-    #print institute_address
-    
+
     affiliation_map = {}
     for author in author_list:
-        for affiliation in author["affiliation"]:
-            if affiliation in affiliation_map:
-                continue
-            affiliation_map[affiliation] = {
-                "address": (institute_address[affiliation] if affiliation in institute_address else affiliation),
-            }
-    #print affiliation_map        
-    
+        for affiliation in author.affiliations:
+            if affiliation not in affiliation_map:
+                affiliation_map[affiliation] = {
+                    "address": (institute_address[affiliation] if affiliation in institute_address else affiliation),
+                }
+
     # Alphabetise and assign footnote marks
     sorted_affiliations = sorted(affiliation_map)
     for footnote_mark, affiliation in enumerate(sorted_affiliations, start=1):
@@ -131,16 +124,16 @@ def main():
     # Write out the latex author file
     with open(options.output_file, "w", encoding="utf-8") as output:
         for author in author_list:
-            affiliation_list = ",".join([ str(affiliation_map[affiliation]["footnotemark"]) for affiliation in author["affiliation"] ])
-            if author["footnotes"]:
-                footnote_str = ",".join( [ footnote_list[int(id)-1].mark for id in author["footnotes"] ])
+            affiliation_list = ",".join([ str(affiliation_map[affiliation]["footnotemark"]) for affiliation in author.affiliations ])
+            if author.footnotes:
+                footnote_str = ",".join( [ footnote_list[int(id)-1].mark for id in author.footnotes ])
                 affiliation_list = affiliation_list + "," + footnote_str
             if author == author_list[-1]:
                 eol_str = ""
             else:
                 eol_str = ";"
-            print ("{}, {} $^{{{}}}${}".format(author["surname"],
-                                               author["forename"],
+            print ("{}, {} $^{{{}}}${}".format(author.surname,
+                                               author.forename,
                                                affiliation_list,
                                                eol_str),
                    file=output)
