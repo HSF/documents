@@ -57,6 +57,14 @@ class Author():
             raise Exeption("Got an exception({}) processing line: {}".format(e, author_line))
 
 
+class Affiliation():
+    def __init__(self,address):
+        self.address = address
+        self.mark = ''
+
+    def set_mark(self, i):
+        self.mark = str(i)
+
 def main():
 
     try:
@@ -98,14 +106,15 @@ def main():
     for author in author_list:
         for affiliation in author.affiliations:
             if affiliation not in affiliation_map:
-                affiliation_map[affiliation] = {
-                    "address": (institute_address[affiliation] if affiliation in institute_address else affiliation),
-                }
+                if affiliation in institute_address:
+                    affiliation_map[affiliation] = Affiliation(institute_address[affiliation])
+                else:
+                    raise Exception('Affiliation {} not defined'.format(affiliation))
 
     # Alphabetise and assign footnote marks
     sorted_affiliations = sorted(affiliation_map)
     for footnote_mark, affiliation in enumerate(sorted_affiliations, start=1):
-        affiliation_map[affiliation]["footnotemark"] = str(footnote_mark)
+        affiliation_map[affiliation].set_mark(footnote_mark)
     
     # Parse and assign footnotes
     with open(options.footnotes, encoding='utf-8') as footnote_fh:
@@ -118,13 +127,12 @@ def main():
             number = number.rstrip(".")
             footnote_list.append(Footnote(number, note))
     sorted_footnotes = sorted(footnote_list, key=lambda footnote: footnote.mark)
-    #print footnote_map
-        
+
         
     # Write out the latex author file
     with open(options.output_file, "w", encoding="utf-8") as output:
         for author in author_list:
-            affiliation_list = ",".join([ str(affiliation_map[affiliation]["footnotemark"]) for affiliation in author.affiliations ])
+            affiliation_list = ",".join([ affiliation_map[affiliation].mark for affiliation in author.affiliations ])
             if author.footnotes:
                 footnote_str = ",".join( [ footnote_list[int(id)-1].mark for id in author.footnotes ])
                 affiliation_list = affiliation_list + "," + footnote_str
@@ -137,13 +145,13 @@ def main():
                                                affiliation_list,
                                                eol_str),
                    file=output)
-            #if author["role"]:
-            #    print >>output, "(" + author["role"] + ")"
+
         print ("\\bigskip", file=output)
         for affiliation in sorted_affiliations:
-            print ("\\par {{\\footnotesize $^{{{}}}$ {}}}".format(str(affiliation_map[affiliation]["footnotemark"]),
-                                                               affiliation_map[affiliation]["address"]),
+            print ("\\par {{\\footnotesize $^{{{}}}$ {}}}".format(str(affiliation_map[affiliation].mark),
+                                                               affiliation_map[affiliation].address),
                    file=output)
+
         print ("\\bigskip", file=output)
         for footnote in sorted_footnotes:
             print ("\\par {{\\footnotesize $^{{{}}}$ {}}}".format(footnote.mark,
