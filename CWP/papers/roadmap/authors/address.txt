@@ -19,7 +19,7 @@ HIP: Helsinki Institute of Physics, Helsinki, Finland
 IFAE: Institut de Física d’Altes Energies and Departament de Física de la Universitat Autònoma de Barcelona and ICREA, Barcelona, Spain
 IFCA: Instituto de Física de Cantabria (IFCA), CSIC-Universidad de Cantabria, Santander, Spain
 IFICValencia: Instituto de Fisica Corpuscular, Centro Mixto Universidad de Valencia - CSIC, Valencia, Spain
-IHEPCHINA: Institute of High Energy Physics, Chinese Academy of Sciences, Beijing
+IHEP: Institute of High Energy Physics, Chinese Academy of Sciences, Beijing
 INDIANA: Department of Physics, Indiana University, Bloomington IN, USA
 INFNBOLOGNA: INFN Sezione di Bologna, Università di Bologna, Bologna, Italy
 INFNFerrara: Universita e INFN, Ferrara, Ferrara, Italy

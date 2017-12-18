@@ -39,6 +39,7 @@ Cattaneo, Marco - CERN
 Cerminara, Gianluca - CERN
 Chapman, John - UCambridge
 Chang, Philip - UCSD
+Chen, Gang - IHEP
 Childers, Taylor - ANL
 Clarke, Peter - UEDINBURGH
 Clemencic, Marco - CERN
@@ -262,6 +263,6 @@ Winklmeier, Frank - OREGON
 Wissing, Christoph - DESY
 Wuerthwein, Frank - UCSD
 Wynne, Benjamin - UEDINBURGH
-Xiaomei, Zhang - IHEPCHINA
+Xiaomei, Zhang - IHEP
 Yang, Wei - SLAC (16)
-Yazgan, Efe - IHEPCHINA - CMS MC Generators Convener
+Yazgan, Efe - IHEP - CMS MC Generators Convener
