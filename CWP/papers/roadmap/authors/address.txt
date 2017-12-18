@@ -41,7 +41,7 @@ Imperial: Imperial College London, London, United Kingdom
 LAL: LAL, Université Paris-Sud and CNRS/IN2P3, Orsay, France
 LBNL: Lawrence Berkeley National Laboratory and University of California, Berkeley CA, USA
 LIP: Laboratório de Instrumentação e Física Experimental de Partículas (LIP), Lisboa, Portugal
-LLR: Laboratoire Leprince-Ringuet, École polytechnique, CNRS/IN2P3, Université Paris-Saclay, Palaiseau, France
+LLR: Laboratoire Leprince-Ringuet, École Polytechnique, CNRS/IN2P3, Université Paris-Saclay, Palaiseau, France
 LMU: Fakultät für Physik, Ludwig-Maximilians-Universität München, München, Germany
 LPCClermont: Laboratoire de Physique Corpusculaire, Clermont Université and Université Blaise Pascal and CNRS/IN2P3, Clermont-Ferrand, France
 LPNHE: LPNHE, Université Pierre et Marie Curie, Université Paris Diderot, CNRS/IN2P3, Paris, France
@@ -92,12 +92,11 @@ UOslo: Department of Physics, University of Oslo, Oslo, Norway
 UNebraska: University of Nebraska-Lincoln, Lincoln, USA
 UNotreDame: University of Notre Dame, Notre Dame, USA
 UNewMexico: Department of Physics and Astronomy, University of New Mexico, Albuquerque NM, USA
-UOSLO: Department of Physics, University of Oslo, Oslo, Norway
 UOviedo: Universidad de Oviedo, Oviedo, Spain
 UPittsburgh: Department of Physics and Astronomy, University of Pittsburgh, Pittsburgh, PA, USA
 UPrinceton: Princeton University, Princeton, USA
 URice: Rice University, Houston, TX, USA
-USaoPaolo: Universidade Estadual Paulista, São Paulo, Brazil
+USaoPaulo: Universidade Estadual Paulista, São Paulo, Brazil
 USapienza: Dipartimento di Fisica, Università La Sapienza, Roma, Italy
 UShandong: School of Physics, Shandong University, Shandong, China
 USheffield: Department of Physics and Astronomy, University of Sheffield, Sheffield, United Kingdom

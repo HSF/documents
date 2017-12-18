@@ -180,7 +180,7 @@ Mount, Richard - SLAC (16)
 Moyse, Edward - UAmherst
 Murray, Sean - UCape & CPHC
 Neubauer, Mark S - UChampaign (1,11)
-Novaes, Sérgio - USaoPaolo
+Novaes, Sérgio - USaoPaulo
 Novak, Mihaly - CERN
 Oyanguren, Arantza - IFICValencia
 Ozturk, Nurcan - UTexas
@@ -224,7 +224,7 @@ Schulz, Markus - CERN
 Sciabà, Andrea - CERN
 Seidel, Sally - UNewMexico
 Sekmen, Sezen - KYUNGPOOK
-Serfon, Cedric - UOSLO
+Serfon, Cedric - UOslo
 Severini, Horst - UOKLAHOMA
 Sexton-Kennedy, Elizabeth - Fermilab - CMS Software and Computing Coordinator (1,3)
 Seymour, Michael - UManchester - MCnet
