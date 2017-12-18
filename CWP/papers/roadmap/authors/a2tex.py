@@ -3,17 +3,29 @@
 # Process CWP signatory list into a LaTeX author list
 #
 # The data source is expected to be made of 3 text files:
-#    - authors.txt: the list of signers in the following format: Lastname, Firstname - AffiliationKey (i) [- Role ]
+#    - authors.txt: the list of signers in the following format: Lastname, Firstname - AffiliationKey [- Role ] (i)
 #      with i a footnote number. If there are multiple affiliations, separate AffiliationKeys with &.
 #    - footnotes:txt: the list of footnotes. There must be one footnote per line starting with 'i.'
 #    - address.txt: the affiliation list with the following format: AffilitationKey: Affiliation text
 #      AffiliationKey must not contain any space.
 #
-# These 3 files are typically built from the Google Docs https://docs.google.com/document/d/1tBXwlNnQsxxZA3gVS1_KSpa8wRXGyk250EIsJwJ2T34/edit#
+# These 3 files are typically built from the Google Docs https://docs.google.com/document/d/1tBXwlNnQsxxZA3gVS1_KSpa8wRXGyk250EIsJwJ2T34
+#
+# Note: this script requires Python >= 3.5
+#
+# Initial version written by Graeme Stewart (graeme.andrew.stewart@cern.ch) and Michel Jouvin (jouvin@lal.in2p3.fr)
+
+import sys
+PYTHON_MIN = (3, 5)
+major, minor, _, _, _ = sys.version_info
+if (major, minor) < PYTHON_MIN:
+    python_min_str = '.'.join(str(x) for x in PYTHON_MIN)
+    # Keep old formatter syntax to be sure it works with old version of Python
+    print ("This script requires Python %s or later" % python_min_str)
+    sys.exit(2)
 
 import os
 import re
-import sys
 from operator import attrgetter
 import argparse
 
