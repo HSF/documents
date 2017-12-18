@@ -1,0 +1,268 @@
+Alves Jr, Antonio Augusto - UCincinnati
+Amadio, Guilherme - CERN
+Anh-Ky, Nguyen - VAST
+Aphecetche, Laurent - Subatech
+Apostolakis, John - CERN
+Asai, Makoto - SLAC (16)
+Atzori, Luca - CERN
+Bhimji, Wahid - LBNL
+Babik, Marian - CERN
+Bagliesi, Giuseppe - INFNPISA
+Bandieramonte, Marilena - CERN
+Barisits, Martin - CERN
+Bauerdick, Lothar A. T. - Fermilab (3)
+Belforte, Stefano - INFNTRIESTE
+Benjamin, Douglas - UDuke
+Bernius, Catrin - SLAC
+Bianchi, Riccardo Maria - UPittsburgh
+Bird, Ian - CERN - WLCG Project Leader
+Biscarat, Catherine - LPSC
+Blomer, Jakob - CERN
+Bloom, Kenneth - UNebraska
+Boccali, Tommaso - INFNPISA
+Bockelman, Brian - UNebraska
+Bold, Tomasz - KRAKOWUST
+Bonacorsi, Daniele - INFNBOLOGNA
+Boveia, Antonio - UOhio
+Bozzi, Concezio - INFNFerrara
+Bracko, Marko - UMaribor & JSI - Belle II Conditions Database Group co-Coordinator
+Britton, David - UGlasgow
+Buckley, Andy - UGlasgow
+Buncic, Predrag - CERN - ALICE Computing Coordinator (1)
+Calafiura, Paolo - LBNL
+Campana, Simone - CERN (1)
+Canal, Philippe - Fermilab (3)
+Canali, Luca - CERN
+Carlino, Gianpaolo - INFNNapoli
+Castro, Nuno - LIP & UMinho (4)
+Cattaneo, Marco - CERN
+Cerminara, Gianluca - CERN
+Chapman, John - UCambridge
+Chang, Philip - UCSD
+Chen, Gang - IHEP
+Childers, Taylor - ANL
+Clarke, Peter - UEDINBURGH
+Clemencic, Marco - CERN
+Cogneras, Eric - LPCClermont
+Collier, Ian - RAL
+Corti, Gloria - CERN
+Cosmo, Gabriele - CERN
+Costanzo, Davide - USheffield
+Couturier, Ben - CERN
+Cranmer, Kyle - NYU
+Cranshaw, Jack - ANL
+Crépé-Renaudin, Sabine - LPSC
+Cristella, Leonardo - INFNBari
+Crooks, David - UGlasgow
+Dallmeier-Tiessen, Sünje - CERN
+Di Girolamo, Alessandro - CERN
+Dimitrov, Gancho - CERN
+De, Kaushik - UTexas
+De Cian, Michel - UHeidelberg
+Doglioni, Caterina - ULund (8)
+Dotti, Andrea - SLAC (16)
+Duellmann, Dirk - CERN
+Duflot, Laurent - LAL
+Dykstra, Dave - Fermilab (3)
+Dziedziniewicz-Wojcik, Katarzyna - CERN
+Dziurda, Agnieszka - CERN - LHCb Tracking and Alignment Coordinator
+Egede, Ulrik - Imperial
+Elmer, Peter - UPrinceton (1)
+Elmsheuser, Johannes - BNL
+Elvira, V. Daniel - Fermilab (3)
+Eulisse, Giulio - CERN
+Ferber, Torben - UBritishColumbia - Belle II generator and ECL Coordinator
+Filipcic, Andrej - JSI
+Fisk, Ian - SimonsFoundation
+Fitzpatrick, Conor - EPFL - LHCb High Level Trigger Project Leader
+Flix, José - PIC & CIEMAT (7)
+Formica, Andrea - Irfu
+Forti, Alessandra - UManchester
+Gaede, Frank - DESY
+Ganis, Gerardo - CERN
+Gardner, Robert - UChicago
+Garonne, Vincent - UOslo
+Gellrich, Andreas - DESY
+Genser, Krzysztof - Fermilab (3)
+George, Simon - RHU
+Geurts, Frank - URice
+Gheata, Andrei - CERN
+Gheata, Mihaela - CERN
+Giagu, Stefano - USapienza & INFNRoma
+Giffels, Manuel - KIT
+Gingrich, Douglas - UAlberta
+Girone, Maria - CERN
+Gligorov, Vladimir V. - LPNHE
+Giacomini, Francesco - CNAF
+Glushkov, Ivan - UTexas
+Gohn, Wesley - UKentucky
+González Caballero, Isidro - UOviedo
+González Fernández, Juan R. - UOviedo
+Gonzalez Lopez, Jose Benito - CERN
+Govi, Giacomo - Fermilab
+Grandi, Claudio - INFNBOLOGNA
+Grasland, Hadrien - LAL
+Gray, Heather - LBNL - ATLAS Simulation Coordinator
+Grillo, Lucia - UManchester -  LHCb Tracking and Alignment Coordinator
+Guan, Wen - UWisconsin
+Gutsche, Oliver - Fermilab (3)
+Gyurjyan, Vardan - JLab
+Hanushevsky, Andrew - SLAC (16)
+Hariri, Farah - CERN
+Harvey, John - CERN (1)
+Hartmann, Thomas - DESY
+Hauth, Thomas - KIT
+Hegner, Benedikt - CERN (1)
+Heinemann, Beate - DESY
+Heinrich, Lukas - NYU
+Hernández, José M. - CIEMAT (7)
+Hildreth, Michael - UNotreDame (6)
+Hodgkinson, Mark - USheffield
+Hoeche, Stefan - SLAC - MCnet (16)
+Hristov, Peter - CERN
+Huang, Xingtao - UShandong
+Ivanchenko, Vladimir N. - CERN & UTomsk
+Ivanov, Todor - USofia
+Jashal, Brij - TIFR
+Jayatilaka, Bodhitha - Fermilab (3)
+Jones, Roger - ULancaster (1)
+Jouvin, Michel - LAL (1)
+Jun, Soon Yung - Fermilab (3)
+Kagan, Michael - SLAC (16)
+Kalderon, Charles William - ULund
+Karavakis, Edward - CERN
+Katz, Daniel S. - UChampaign
+Kcira, Dorian - Caltech
+Kersevan, Borut Paul - ULjubljana
+Kirby, Michael - Fermilab (3)
+Klimentov, Alexei - BNL
+Klute, Markus - MIT
+Komarov, Ilya - INFNTRIESTE (14)
+Koppenburg, Patrick - NIKHEF
+Kowalkowski, Jim - Fermilab (3)
+Kreczko, Luke - UBristol
+Kuhr, Thomas - LMU - Belle II Software Coordinator (1)
+Kutschke, Robert - Fermilab - Mu2e Head of Software and Simulations (1,3)
+Kuznetsov, Valentin - Cornell
+Lancon, Eric - BNL
+Lampl, Walter - UArizona - ATLAS Software Coordinator
+Lange, David - UPrinceton
+Lassnig, Mario - CERN
+Laycock, Paul - CERN
+Leggett, Charles - LBNL
+Letts, James - UCSD
+Lewendel, Birgit - DESY
+Li, Teng - UEDINBURGH
+Lima, Guilherme - Fermilab
+Linacre, Jacob - RAL (13)
+Linden, Tomas - HIP
+Lo Presti, Giuseppe - CERN
+Lopienski, Sebastian - CERN
+Love, Peter - ULancaster
+Marshall, Zachary L - LBNL
+Martelli, Edoardo - CERN
+Martin-Haugh, Stewart - RAL
+Mato, Pere - CERN
+Mazumdar, Kajari - TIFR
+McCauley, Thomas - UNotreDame
+McFayden, Josh - CERN
+McKee, Shawn - UMich - ATLAS (12)
+McNab, Andrew - UManchester - LHCb Computing Deputy Project Leader
+Meinhard, Helge - CERN
+Menasce, Dario - INFNMilano (1)
+Mendez Lorenzo, Patricia - CERN
+Mete, Alaettin Serhan - UCIrvine
+Michelotto, Michele - INFNPadova
+Mitrevski, Jovan - LMU
+Moneta, Lorenzo - CERN
+Morgan, Ben - UWarwick
+Mount, Richard - SLAC (16)
+Moyse, Edward - UAmherst
+Murray, Sean - UCape & CPHC
+Neubauer, Mark S - UChampaign (1,11)
+Novaes, Sérgio - USaoPaolo
+Novak, Mihaly - CERN
+Oyanguren, Arantza - IFICValencia
+Ozturk, Nurcan - UTexas
+Pacheco Pages, Andres - PIC & IFAE (10)
+Paganini, Michela - UYale
+Pansanel, Jerome - IPHC
+Pascuzzi, Vincent R. - UTorronto
+Pearce, Alex - CERN
+Pearson, Ben - MPP
+Pedro, Kevin - Fermilab (3)
+Perdue, Gabriel - Fermilab
+Perez-Calero Yzquierdo, Antonio - PIC & CIEMAT (7)
+Perrozzi, Luca - ETHZurich
+Petersen, Troels - NBI
+Petric, Marko - CERN
+Piedra, Jónatan - IFCA
+Piilonen, Leo - VIRTECH - Belle & Belle II (9)
+Piparo, Danilo - CERN
+Pokorski, Witold - CERN
+Polci, Francesco - LPNHE - LHCb Tracking and Alignment Coordinator
+Potamianos, Karolos - DESY
+Psihas, Fernanda - INDIANA
+Raven, Gerhard - NIKHEF
+Reuter, Jürgen - DESY
+Ribon, Alberto - CERN
+Ritter, Martin - LMU - Belle II, Head of Framework and Infrastructure Group
+Robinson, James - DESY
+Rodrigues, Eduardo - UCincinnati (1,5)
+Roiser, Stefan - CERN - LHCb Computing Project Leader (1)
+Rousseau, David - LAL
+Roy, Gareth - UGlasgow
+Sailer, Andre - CERN
+Sakuma, Tai - UBristol
+Sánchez-Hernández, Alberto - CINVESTAV (15)
+Santana, Renato - CBPF
+Sartirana, Andrea - LLR
+Schellman, Heidi - OREGON - DUNE computing co-coordinator
+Schovancová, Jaroslava - CERN
+Schramm, Steven - UGeneva
+Schulz, Markus - CERN
+Sciabà, Andrea - CERN
+Seidel, Sally - UNewMexico
+Sekmen, Sezen - KYUNGPOOK
+Serfon, Cedric - UOSLO
+Severini, Horst - UOKLAHOMA
+Sexton-Kennedy, Elizabeth - Fermilab - CMS Software and Computing Coordinator (1,3)
+Seymour, Michael - UManchester - MCnet
+Shapoval, Illya - LBNL
+Shiers, Jamie - CERN
+Shiu, Jing-Ge - TAIWAN
+Short, Hannah - CERN
+Siroli, Gian Piero - INFNBOLOGNA
+Skipsey, Sam - UGlasgow
+Smith, Tim - CERN
+Snyder, Scott - BNL
+Sokoloff, Michael D - UCincinnati (1)
+Stadie, Hartmut - HAMBURG
+Stark, Giordon - CHICAGO
+Stewart, Gordon - UGlasgow
+Stewart, Graeme - CERN - HSF (1)
+Templon, Jeff - NIKHEF
+Tenaglia, Giacomo - CERN
+Tsulaia, Vakhtang - LBNL
+Tunnell, Christopher - CHICAGO
+Vaandering, Eric - Fermilab (3)
+Valassi, Andrea - CERN
+Vallecorsa, Sofia - UGangneung
+Valsan, Liviu - CERN
+Van Gemmeren, Peter - ANL
+Vázquez Sierra, Carlos - NIKHEF
+Vernet, Renaud - CCIN2P3
+Viren, Brett - BNL
+Vlimant, Jean-Roch - Caltech (1)
+Voss, Christian - DESY
+Vuosalo, Carl - UWisconsin
+Wartel, Romain - CERN
+Wenaus, Torre - BNL - ATLAS Computing Coordinator
+Wenzel, Sandro - CERN
+Winklmeier, Frank - OREGON
+Wissing, Christoph - DESY
+Wuerthwein, Frank - UCSD
+Wynne, Benjamin - UEDINBURGH
+Xiaomei, Zhang - IHEP
+Yang, Wei - SLAC (16)
+Yazgan, Efe - IHEP - CMS MC Generators Convener
