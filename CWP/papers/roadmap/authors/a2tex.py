@@ -39,6 +39,7 @@ AUTHOR_FILE_DEFAULT = "authors.txt"
 FOOTNOTE_FILE_DEFAULT = "footnotes.txt"
 AFFILIATION_ADDRESS_FILE_DEFAULT = "address.txt"
 LATEX_AUTHOR_FILE_DEFAULT = "authors.tex"
+ARXIV_AUTHOR_FILE_DEFAULT = "arxiv.txt"
 
 
 class Footnote():
@@ -110,6 +111,8 @@ def main():
                             help="File containining affiliation list (D: {})".format(AFFILIATION_ADDRESS_FILE_DEFAULT))
         parser.add_argument("--output", dest="output_file", default=LATEX_AUTHOR_FILE_DEFAULT,
                             help="Output Latex file (D: {})".format(LATEX_AUTHOR_FILE_DEFAULT))
+        parser.add_argument("--arxivoutput", dest="arxiv_output_file", default=ARXIV_AUTHOR_FILE_DEFAULT,
+                            help="Output arXiv author list (D: {})".format(ARXIV_AUTHOR_FILE_DEFAULT))
         options = parser.parse_args()
     except Exception as e:
         parser.invalid_option_value('Parsing error: {}'.format(e.msg))
@@ -161,6 +164,11 @@ def main():
             footnote_list.append(Footnote(number, note))
     sorted_footnotes = sorted(footnote_list, key=lambda footnote: footnote.mark)
 
+    # Write out the author list to copy into the arXiv author file
+    with open(options.arxiv_output_file, "w", encoding="utf-8") as arxivoutput:
+        print("HEP Software Foundation: ", ", ".join([ "{} {}".format(author.forename, author.surname) 
+                                                      for author in  sorted(author_list, key=lambda author: author.surname) ]),
+              file=arxivoutput)
         
     # Write out the latex author file
     with open(options.output_file, "w", encoding="utf-8") as output:
@@ -173,7 +181,7 @@ def main():
                 eol_str = ""
             else:
                 eol_str = ";"
-            print ("{}, {} $^{{{}}}${}".format(author.surname,
+            print ("{}, {}$^{{{}}}${}".format(author.surname,
                                                author.forename,
                                                affiliation_list,
                                                eol_str),
