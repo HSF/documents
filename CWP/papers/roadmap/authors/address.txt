@@ -1,7 +1,7 @@
 ANL: High Energy Physics Division, Argonne National Laboratory, Argonne IL, USA
 BNL: Physics Department, Brookhaven National Laboratory, Upton NY, USA
 Caltech: California Institute of Technology, Pasadena, California, USA
-CBPF: Centro Brasileiro de Pesquisas Fisicas, Rio de Janeiro, Brazil
+CBPF: Centro Brasileiro de Pesquisas Físicas, Rio de Janeiro, Brazil
 CCIN2P3: Centre de Calcul de l’IN2P3, Villeurbanne, Lyon, France
 CERN: CERN, Geneva, Switzerland
 CIEMAT: Centro de Investigaciones Energéticas Medioambientales y Tecnológicas (CIEMAT), Madrid, Spain
@@ -11,18 +11,18 @@ CNAF: Centro Nazionale Analisi Fotogrammi (CNAF), INFN, Bologna, Italy
 Cornell: Cornell University, Ithaca, USA
 CPHC: Center for High Performance Computing, Cape Town, South Africa
 DESY: Deutsches Elektronen-Synchrotron, Hamburg, Germany
-EPFL: Institute of Physics, Ecole Polytechnique Federale de Lausanne (EPFL), Lausanne, Switzerland
+EPFL: Institute of Physics, École Polytechnique Fédérale de Lausanne (EPFL), Lausanne, Switzerland
 ETHZurich: ETH Zurich - Institute for Particle Physics and Astrophysics (IPA), Zurich, Switzerland
 Fermilab: Fermi National Accelerator Laboratory, Batavia, USA
 HAMBURG: University of Hamburg, Hamburg, Germany
 HIP: Helsinki Institute of Physics, Helsinki, Finland
 IFAE: Institut de Física d’Altes Energies and Departament de Física de la Universitat Autònoma de Barcelona and ICREA, Barcelona, Spain
 IFCA: Instituto de Física de Cantabria (IFCA), CSIC-Universidad de Cantabria, Santander, Spain
-IFICValencia: Instituto de Fisica Corpuscular, Centro Mixto Universidad de Valencia - CSIC, Valencia, Spain
+IFICValencia: Instituto de Física Corpuscular, Centro Mixto Universidad de Valencia - CSIC, Valencia, Spain
 IHEP: Institute of High Energy Physics, Chinese Academy of Sciences, Beijing
 INDIANA: Department of Physics, Indiana University, Bloomington IN, USA
 INFNBOLOGNA: INFN Sezione di Bologna, Università di Bologna, Bologna, Italy
-INFNFerrara: Universita e INFN, Ferrara, Ferrara, Italy
+INFNFerrara: Università e INFN, Ferrara, Ferrara, Italy
 INFNBari: INFN Sezione di Bari, Università di Bari, Politecnico di Bari, Bari, Italy
 INFNMilano: INFN Sezione di Milano-Bicocca, Milano, Italy
 INFNNapoli: INFN Sezione di Napoli, Università di Napoli, Napoli, Italy
@@ -31,20 +31,20 @@ INFNPISA: INFN Sezione di Pisa, Università di Pisa, Scuola Normale Superiore di
 INFNRoma: INFN Sezione di Roma I, Università La Sapienza, Roma, Italy
 INFNTRIESTE: INFN Sezione di Trieste, Università di Trieste, Trieste, Italy
 IPHC: Université de Strasbourg, CNRS, IPHC UMR 7178, F-67000 Strasbourg, France
-Irfu: DSM/IRFU (Institut de Recherches sur les Lois Fondamentales de l’Univers), CEA Saclay (Commissariat a l’Energie Atomique), Gif-sur-Yvette, France
+Irfu: DSM/IRFU (Institut de Recherches sur les Lois Fondamentales de l’Univers), CEA Saclay (Commissariat à l’Énergie Atomique), Gif-sur-Yvette, France
 JLab: Thomas Jefferson National Accelerator Facility, Newport News, Virginia, USA
-JSI: Jozef Stefan Institute, Ljubljana, Slovenia
+JSI: Jožef Stefan Institute, Ljubljana, Slovenia
 KIT: Karlsruhe Institute of Technology, Karlsruhe, Germany
 KRAKOWUST: AGH University of Science and Technology, Faculty of Physics and Applied Computer Science, Krakow, Poland
 KYUNGPOOK: Kyungpook National University, Daegu, Republic of Korea
 Imperial: Imperial College London, London, United Kingdom
 LAL: LAL, Université Paris-Sud and CNRS/IN2P3, Orsay, France
 LBNL: Lawrence Berkeley National Laboratory and University of California, Berkeley CA, USA
-LIP: Laboratorio de Instrumentacao e Fisica Experimental de Particulas (LIP), Lisboa, Portugal
-LLR: Laboratoire Leprince-Ringuet, Ecole polytechnique, CNRS/IN2P3, Université Paris-Saclay, Palaiseau, France
+LIP: Laboratório de Instrumentação e Física Experimental de Partículas (LIP), Lisboa, Portugal
+LLR: Laboratoire Leprince-Ringuet, École polytechnique, CNRS/IN2P3, Université Paris-Saclay, Palaiseau, France
 LMU: Fakultät für Physik, Ludwig-Maximilians-Universität München, München, Germany
 LPCClermont: Laboratoire de Physique Corpusculaire, Clermont Université and Université Blaise Pascal and CNRS/IN2P3, Clermont-Ferrand, France
-LPNHE: LPNHE, Universite Pierre et Marie Curie, Universite Paris Diderot, CNRS/IN2P3, Paris, France
+LPNHE: LPNHE, Université Pierre et Marie Curie, Université Paris Diderot, CNRS/IN2P3, Paris, France
 LPSC: Laboratoire de Physique Subatomique et de Cosmologie, Université Joseph Fourier and CNRS/IN2P3 and Institut National Polytechnique de Grenoble, Grenoble, France
 MIT: Department of Physics, University of Massachusetts, Amherst, MA, USA
 MPP: Max-Planck-Institut für Physik (Werner-Heisenberg-Institut), München, Germany
@@ -78,14 +78,14 @@ UGlasgow: SUPA - School of Physics and Astronomy, University of Glasgow, Glasgow
 UEDINBURGH: SUPA - School of Physics and Astronomy, University of Edinburgh, Edinburgh, United Kingdom
 UGeneva: Section de Physique, Université de Genève, Geneva, Switzerland
 UHeidelberg: Physikalisches Institut, Ruprecht-Karls-Universitat Heidelberg, Heidelberg, Germany
-UKentucky: Department of Physics & Astronomy, University of Kentucky, Lexington, USA
+UKentucky: Department of Physics and Astronomy, University of Kentucky, Lexington, USA
 ULancaster: Physics Department, Lancaster University, Lancaster, United Kingdom
 ULjubljana: Department of Physics, Jožef Stefan Institute and University of Ljubljana, Ljubljana, Slovenia
-ULund: Fysiska institutionen, Lunds universitet, Lund, Sweden
+ULund: Fysiska institutionen, Lunds Universitet, Lund, Sweden
 UManchester: School of Physics and Astronomy, University of Manchester, Manchester, United Kingdom
 UMaribor: University of Maribor, Ljubljana, Slovenia
 UMich: Department of Physics, The University of Michigan, Ann Arbor, MI, USA
-UMinho: Departamento de Fisica, Universidade de Minho, Braga, Portugal
+UMinho: Departamento de Física, Universidade do Minho, Braga, Portugal
 UOhio: The Ohio State University, Columbus, USA
 UOKLAHOMA: Homer L. Dodge Department of Physics and Astronomy, University of Oklahoma, Norman OK, USA
 UOslo: Department of Physics, University of Oslo, Oslo, Norway
