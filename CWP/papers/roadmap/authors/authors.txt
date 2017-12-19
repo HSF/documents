@@ -146,7 +146,7 @@ Kutschke, Robert - Fermilab - Mu2e Head of Software and Simulations (1,3)
 Kuznetsov, Valentin - Cornell
 Lancon, Eric - BNL
 Lampl, Walter - UArizona - ATLAS Software Coordinator
-Lange, David - UPrinceton
+Lange, David - UPrinceton (1)
 Lassnig, Mario - CERN
 Laycock, Paul - CERN
 Leggett, Charles - LBNL
