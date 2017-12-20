@@ -16,6 +16,7 @@ ETHZurich: ETH Zurich - Institute for Particle Physics and Astrophysics (IPA), Z
 Fermilab: Fermi National Accelerator Laboratory, Batavia, USA
 HAMBURG: University of Hamburg, Hamburg, Germany
 HIP: Helsinki Institute of Physics, Helsinki, Finland
+ICTP: International Center for Theoretical Physics, Trieste, Italy
 IFAE: Institut de Física d’Altes Energies and Departament de Física de la Universitat Autònoma de Barcelona and ICREA, Barcelona, Spain
 IFCA: Instituto de Física de Cantabria (IFCA), CSIC-Universidad de Cantabria, Santander, Spain
 IFICValencia: Instituto de Física Corpuscular, Centro Mixto Universidad de Valencia - CSIC, Valencia, Spain
@@ -104,6 +105,7 @@ USofia: University of Sofia, Sofia, Bulgaria
 UTexas: Department of Physics, The University of Texas at Arlington, Arlington, TX, USA
 UTomsk: National Research Tomsk Polytechnic University, Tomsk, Russia
 UTorronto: Department of Physics, University of Toronto, Toronto, ON, Canada
+UUdine: Dipartimento di Chimica, Fisica e Ambiente, Università di Udine, Udine, Italy
 UWarwick: Department of Physics, University of Warwick, Coventry, United Kingdom
 UWisconsin: University of Wisconsin - Madison, Madison, WI, USA
 UYale: Department of Physics, Yale University, New Haven, CT, USA
