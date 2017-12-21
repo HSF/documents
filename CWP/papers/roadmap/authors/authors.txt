@@ -169,6 +169,7 @@ McCauley, Thomas - UNotreDame
 McFayden, Josh - CERN
 McKee, Shawn - UMich - ATLAS (12)
 McNab, Andrew - UManchester - LHCb Computing Deputy Project Leader
+Mehdiyev, Rashid - UCarleton
 Meinhard, Helge - CERN
 Menasce, Dario - INFNMilano (1)
 Mendez Lorenzo, Patricia - CERN
@@ -188,7 +189,8 @@ Ozturk, Nurcan - UTexas
 Pacheco Pages, Andres - PIC & IFAE (10)
 Paganini, Michela - UYale
 Pansanel, Jerome - IPHC
-Pascuzzi, Vincent R. - UTorronto
+Pascuzzi, Vincent R. - UToronto
+Patrick, Glenn - RAL
 Pearce, Alex - CERN
 Pearson, Ben - MPP
 Pedro, Kevin - Fermilab (3)
