@@ -68,6 +68,7 @@ UBristol: H.H. Wills Physics Laboratory, University of Bristol, Bristol, United 
 UBritishColumbia: Department of Physics, University of British Columbia, Vancouver, BC, Canada
 UCambridge: Cavendish Laboratory, University of Cambridge, Cambridge, United Kingdom
 UCape: Physics Department, University of Cape Town, Cape Town, South Africa
+UCarleton: Carleton University, Ottawa, ON, Canada
 UChampaign: University of Illinois Urbana-Champaign, Champaign, Illinois, USA
 UChicago: Enrico Fermi Institute, University of Chicago, Chicago, IL, USA
 UCincinnati: University of Cincinnati, Cincinnati, OH, USA
@@ -104,7 +105,7 @@ USheffield: Department of Physics and Astronomy, University of Sheffield, Sheffi
 USofia: University of Sofia, Sofia, Bulgaria
 UTexas: Department of Physics, The University of Texas at Arlington, Arlington, TX, USA
 UTomsk: National Research Tomsk Polytechnic University, Tomsk, Russia
-UTorronto: Department of Physics, University of Toronto, Toronto, ON, Canada
+UToronto: Department of Physics, University of Toronto, Toronto, ON, Canada
 UWarwick: Department of Physics, University of Warwick, Coventry, United Kingdom
 UWisconsin: University of Wisconsin - Madison, Madison, WI, USA
 UYale: Department of Physics, Yale University, New Haven, CT, USA
