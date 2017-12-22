@@ -1,3 +1,4 @@
+Albrecht, Johannes - TUDortmund
 Alves Jr, Antonio Augusto - UCincinnati
 Amadio, Guilherme - CERN
 Anh-Ky, Nguyen - VAST
@@ -160,6 +161,7 @@ Linden, Tomas - HIP
 Lo Presti, Giuseppe - CERN
 Lopienski, Sebastian - CERN
 Love, Peter - ULancaster
+Magini, Nicolò - INFNGenova
 Marshall, Zachary L - LBNL
 Martelli, Edoardo - CERN
 Martin-Haugh, Stewart - RAL
