@@ -247,6 +247,7 @@ Stadie, Hartmut - HAMBURG
 Stark, Giordon - CHICAGO
 Stewart, Gordon - UGlasgow
 Stewart, Graeme - CERN - HSF (1)
+Taffard, Anyes - UCIrvine
 Templon, Jeff - NIKHEF
 Tenaglia, Giacomo - CERN
 Tsulaia, Vakhtang - LBNL
