@@ -45,6 +45,7 @@ Childers, Taylor - ANL
 Clarke, Peter - UEDINBURGH
 Clemencic, Marco - CERN
 Cogneras, Eric - LPCClermont
+Coles, Jeremy - UCambridge
 Collier, Ian - RAL
 Corti, Gloria - CERN
 Cosmo, Gabriele - CERN
