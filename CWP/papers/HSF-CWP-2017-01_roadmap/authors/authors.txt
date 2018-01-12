@@ -264,6 +264,7 @@ Vlimant, Jean-Roch - Caltech (1)
 Voss, Christian - DESY
 Vuosalo, Carl - UWisconsin
 Wartel, Romain - CERN
+Watts, Gordon T - USeattle
 Wenaus, Torre - BNL - ATLAS Computing Coordinator
 Wenzel, Sandro - CERN
 Winklmeier, Frank - OREGON
