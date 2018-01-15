@@ -79,6 +79,7 @@ Fitzpatrick, Conor - EPFL - LHCb High Level Trigger Project Leader
 Flix, José - PIC & CIEMAT (7)
 Formica, Andrea - Irfu
 Forti, Alessandra - UManchester
+Frost, James - UOxford
 Gaede, Frank - DESY
 Ganis, Gerardo - CERN
 Gardner, Robert - UChicago
@@ -211,6 +212,7 @@ Psihas, Fernanda - INDIANA
 Raven, Gerhard - NIKHEF
 Reuter, Jürgen - DESY
 Ribon, Alberto - CERN
+Rinaldi, Lorenzo - INFNBOLOGNA
 Ritter, Martin - LMU - Belle II, Head of Framework and Infrastructure Group
 Robinson, James - DESY
 Rodrigues, Eduardo - UCincinnati (1,5)
