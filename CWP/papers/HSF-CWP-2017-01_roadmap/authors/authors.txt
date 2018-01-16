@@ -1,3 +1,4 @@
+Albrecht, Johannes - TUDortmund
 Alves Jr, Antonio Augusto - UCincinnati
 Amadio, Guilherme - CERN
 Anh-Ky, Nguyen - VAST
@@ -44,6 +45,7 @@ Childers, Taylor - ANL
 Clarke, Peter - UEDINBURGH
 Clemencic, Marco - CERN
 Cogneras, Eric - LPCClermont
+Coles, Jeremy - UCambridge
 Collier, Ian - RAL
 Corti, Gloria - CERN
 Cosmo, Gabriele - CERN
@@ -78,6 +80,7 @@ Fitzpatrick, Conor - EPFL - LHCb High Level Trigger Project Leader
 Flix, José - PIC & CIEMAT (7)
 Formica, Andrea - Irfu
 Forti, Alessandra - UManchester
+Frost, James - UOxford
 Gaede, Frank - DESY
 Ganis, Gerardo - CERN
 Gardner, Robert - UChicago
@@ -138,6 +141,7 @@ Kirby, Michael - Fermilab (3)
 Klimentov, Alexei - BNL
 Klute, Markus - MIT
 Komarov, Ilya - INFNTRIESTE (14)
+Konstantinov, Dmitri - Protvino
 Koppenburg, Patrick - NIKHEF
 Kowalkowski, Jim - Fermilab (3)
 Kreczko, Luke - UBristol
@@ -146,7 +150,7 @@ Kutschke, Robert - Fermilab - Mu2e Head of Software and Simulations (1,3)
 Kuznetsov, Valentin - Cornell
 Lancon, Eric - BNL
 Lampl, Walter - UArizona - ATLAS Software Coordinator
-Lange, David - UPrinceton
+Lange, David - UPrinceton (1)
 Lassnig, Mario - CERN
 Laycock, Paul - CERN
 Leggett, Charles - LBNL
@@ -159,6 +163,7 @@ Linden, Tomas - HIP
 Lo Presti, Giuseppe - CERN
 Lopienski, Sebastian - CERN
 Love, Peter - ULancaster
+Magini, Nicolò - INFNGenova
 Marshall, Zachary L - LBNL
 Martelli, Edoardo - CERN
 Martin-Haugh, Stewart - RAL
@@ -168,6 +173,7 @@ McCauley, Thomas - UNotreDame
 McFayden, Josh - CERN
 McKee, Shawn - UMich - ATLAS (12)
 McNab, Andrew - UManchester - LHCb Computing Deputy Project Leader
+Mehdiyev, Rashid - UCarleton
 Meinhard, Helge - CERN
 Menasce, Dario - INFNMilano (1)
 Mendez Lorenzo, Patricia - CERN
@@ -180,14 +186,15 @@ Mount, Richard - SLAC (16)
 Moyse, Edward - UAmherst
 Murray, Sean - UCape & CPHC
 Neubauer, Mark S - UChampaign (1,11)
-Novaes, Sérgio - USaoPaolo
+Novaes, Sérgio - USaoPaulo
 Novak, Mihaly - CERN
 Oyanguren, Arantza - IFICValencia
 Ozturk, Nurcan - UTexas
 Pacheco Pages, Andres - PIC & IFAE (10)
 Paganini, Michela - UYale
 Pansanel, Jerome - IPHC
-Pascuzzi, Vincent R. - UTorronto
+Pascuzzi, Vincent R. - UToronto
+Patrick, Glenn - RAL
 Pearce, Alex - CERN
 Pearson, Ben - MPP
 Pedro, Kevin - Fermilab (3)
@@ -206,6 +213,7 @@ Psihas, Fernanda - INDIANA
 Raven, Gerhard - NIKHEF
 Reuter, Jürgen - DESY
 Ribon, Alberto - CERN
+Rinaldi, Lorenzo - INFNBOLOGNA
 Ritter, Martin - LMU - Belle II, Head of Framework and Infrastructure Group
 Robinson, James - DESY
 Rodrigues, Eduardo - UCincinnati (1,5)
@@ -214,6 +222,7 @@ Rousseau, David - LAL
 Roy, Gareth - UGlasgow
 Sailer, Andre - CERN
 Sakuma, Tai - UBristol
+Sánchez, Arturo - UUdine & ICTP
 Sánchez-Hernández, Alberto - CINVESTAV (15)
 Santana, Renato - CBPF
 Sartirana, Andrea - LLR
@@ -224,7 +233,7 @@ Schulz, Markus - CERN
 Sciabà, Andrea - CERN
 Seidel, Sally - UNewMexico
 Sekmen, Sezen - KYUNGPOOK
-Serfon, Cedric - UOSLO
+Serfon, Cedric - UOslo
 Severini, Horst - UOKLAHOMA
 Sexton-Kennedy, Elizabeth - Fermilab - CMS Software and Computing Coordinator (1,3)
 Seymour, Michael - UManchester - MCnet
@@ -241,6 +250,7 @@ Stadie, Hartmut - HAMBURG
 Stark, Giordon - CHICAGO
 Stewart, Gordon - UGlasgow
 Stewart, Graeme - CERN - HSF (1)
+Taffard, Anyes - UCIrvine
 Templon, Jeff - NIKHEF
 Tenaglia, Giacomo - CERN
 Tsulaia, Vakhtang - LBNL
@@ -257,6 +267,7 @@ Vlimant, Jean-Roch - Caltech (1)
 Voss, Christian - DESY
 Vuosalo, Carl - UWisconsin
 Wartel, Romain - CERN
+Watts, Gordon T - USeattle
 Wenaus, Torre - BNL - ATLAS Computing Coordinator
 Wenzel, Sandro - CERN
 Winklmeier, Frank - OREGON

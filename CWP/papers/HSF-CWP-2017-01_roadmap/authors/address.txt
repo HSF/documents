@@ -1,29 +1,31 @@
-ANL: High Energy Physics Division, Argonne National Laboratory, Argonne IL, USA
-BNL: Physics Department, Brookhaven National Laboratory, Upton NY, USA
-Caltech: California Institute of Technology, Pasadena, California, USA
+ANL: High Energy Physics Division, Argonne National Laboratory, Argonne, IL, USA
+BNL: Physics Department, Brookhaven National Laboratory, Upton, NY, USA
+Caltech: California Institute of Technology, Pasadena, California, CA, USA
 CBPF: Centro Brasileiro de Pesquisas Físicas, Rio de Janeiro, Brazil
 CCIN2P3: Centre de Calcul de l’IN2P3, Villeurbanne, Lyon, France
 CERN: CERN, Geneva, Switzerland
 CIEMAT: Centro de Investigaciones Energéticas Medioambientales y Tecnológicas (CIEMAT), Madrid, Spain
-CHICAGO: Enrico Fermi Institute, University of Chicago, Chicago IL, USA
+CHICAGO: Enrico Fermi Institute, University of Chicago, Chicago, IL, USA
 CINVESTAV: Cinvestav, Mexico City, Mexico
 CNAF: Centro Nazionale Analisi Fotogrammi (CNAF), INFN, Bologna, Italy
-Cornell: Cornell University, Ithaca, USA
+Cornell: Cornell University, Ithaca, NY, USA
 CPHC: Center for High Performance Computing, Cape Town, South Africa
 DESY: Deutsches Elektronen-Synchrotron, Hamburg, Germany
 EPFL: Institute of Physics, École Polytechnique Fédérale de Lausanne (EPFL), Lausanne, Switzerland
 ETHZurich: ETH Zurich - Institute for Particle Physics and Astrophysics (IPA), Zurich, Switzerland
-Fermilab: Fermi National Accelerator Laboratory, Batavia, USA
+Fermilab: Fermi National Accelerator Laboratory, Batavia, IL, USA
 HAMBURG: University of Hamburg, Hamburg, Germany
 HIP: Helsinki Institute of Physics, Helsinki, Finland
+ICTP: International Center for Theoretical Physics, Trieste, Italy
 IFAE: Institut de Física d’Altes Energies and Departament de Física de la Universitat Autònoma de Barcelona and ICREA, Barcelona, Spain
 IFCA: Instituto de Física de Cantabria (IFCA), CSIC-Universidad de Cantabria, Santander, Spain
 IFICValencia: Instituto de Física Corpuscular, Centro Mixto Universidad de Valencia - CSIC, Valencia, Spain
 IHEP: Institute of High Energy Physics, Chinese Academy of Sciences, Beijing
-INDIANA: Department of Physics, Indiana University, Bloomington IN, USA
+INDIANA: Department of Physics, Indiana University, Bloomington, IN, USA
 INFNBOLOGNA: INFN Sezione di Bologna, Università di Bologna, Bologna, Italy
 INFNFerrara: Università e INFN, Ferrara, Ferrara, Italy
 INFNBari: INFN Sezione di Bari, Università di Bari, Politecnico di Bari, Bari, Italy
+INFNGenova: INFN Sezione di Genova, Genova, Italy
 INFNMilano: INFN Sezione di Milano-Bicocca, Milano, Italy
 INFNNapoli: INFN Sezione di Napoli, Università di Napoli, Napoli, Italy
 INFNPadova: INFN Sezione di Padova, Università di Padova b, Padova, Italy
@@ -32,16 +34,16 @@ INFNRoma: INFN Sezione di Roma I, Università La Sapienza, Roma, Italy
 INFNTRIESTE: INFN Sezione di Trieste, Università di Trieste, Trieste, Italy
 IPHC: Université de Strasbourg, CNRS, IPHC UMR 7178, F-67000 Strasbourg, France
 Irfu: DSM/IRFU (Institut de Recherches sur les Lois Fondamentales de l’Univers), CEA Saclay (Commissariat à l’Énergie Atomique), Gif-sur-Yvette, France
-JLab: Thomas Jefferson National Accelerator Facility, Newport News, Virginia, USA
+JLab: Thomas Jefferson National Accelerator Facility, Newport News, Virginia, VA, USA
 JSI: Jožef Stefan Institute, Ljubljana, Slovenia
 KIT: Karlsruhe Institute of Technology, Karlsruhe, Germany
 KRAKOWUST: AGH University of Science and Technology, Faculty of Physics and Applied Computer Science, Krakow, Poland
 KYUNGPOOK: Kyungpook National University, Daegu, Republic of Korea
 Imperial: Imperial College London, London, United Kingdom
 LAL: LAL, Université Paris-Sud and CNRS/IN2P3, Orsay, France
-LBNL: Lawrence Berkeley National Laboratory and University of California, Berkeley CA, USA
+LBNL: Lawrence Berkeley National Laboratory and University of California, Berkeley, CA, USA
 LIP: Laboratório de Instrumentação e Física Experimental de Partículas (LIP), Lisboa, Portugal
-LLR: Laboratoire Leprince-Ringuet, École polytechnique, CNRS/IN2P3, Université Paris-Saclay, Palaiseau, France
+LLR: Laboratoire Leprince-Ringuet, École Polytechnique, CNRS/IN2P3, Université Paris-Saclay, Palaiseau, France
 LMU: Fakultät für Physik, Ludwig-Maximilians-Universität München, München, Germany
 LPCClermont: Laboratoire de Physique Corpusculaire, Clermont Université and Université Blaise Pascal and CNRS/IN2P3, Clermont-Ferrand, France
 LPNHE: LPNHE, Université Pierre et Marie Curie, Université Paris Diderot, CNRS/IN2P3, Paris, France
@@ -51,15 +53,17 @@ MPP: Max-Planck-Institut für Physik (Werner-Heisenberg-Institut), München, Ger
 NBI: Niels Bohr Institute, University of Copenhagen, Kobenhavn, Denmark
 NIKHEF: Nikhef National Institute for Subatomic Physics and University of Amsterdam, Amsterdam, Netherlands
 NYU: Department of Physics, New York University, New York, NY, USA
-OREGON: Center for High Energy Physics, University of Oregon, Eugene OR, USA
+OREGON: Center for High Energy Physics, University of Oregon, Eugene, OR, USA
 PIC: Port d’Informació Científica (PIC), Universitat Autònoma de Barcelona (UAB), Barcelona, Spain
+Protvino: High Energy Physics (IHEP), Protvino, Russia
 RAL: STFC Rutherford Appleton Laboratory, Didcot, United Kingdom
 RHU: Department of Physics, Royal Holloway University of London, Surrey, United Kingdom
-SimonsFoundation: Simons Foundation, New York, USA
-SLAC: SLAC National Accelerator Laboratory, Menlo Park CA, USA
+SimonsFoundation: Simons Foundation, New York, NY, USA
+SLAC: SLAC National Accelerator Laboratory, Menlo Park, CA, USA
 Subatech: SUBATECH, IMT Atlantique, Université de Nantes, CNRS-IN2P3, Nantes, France
 TAIWAN: National Taiwan University, Taipei, Taiwan
 TIFR: Tata Institute of Fundamental Research, Mumbai, India
+TUDortmund: Technische Universit\"at Dortmund, Dortmund, Germany
 UAlberta: Department of Physics, University of Alberta, Edmonton, AB, Canada
 UAmherst: Department of Physics, University of Massachusetts, Amherst, MA, USA
 UArizona: Department of Physics, University of Arizona, Tucson, AZ, USA
@@ -67,18 +71,19 @@ UBristol: H.H. Wills Physics Laboratory, University of Bristol, Bristol, United 
 UBritishColumbia: Department of Physics, University of British Columbia, Vancouver, BC, Canada
 UCambridge: Cavendish Laboratory, University of Cambridge, Cambridge, United Kingdom
 UCape: Physics Department, University of Cape Town, Cape Town, South Africa
-UChampaign: University of Illinois Urbana-Champaign, Champaign, Illinois, USA
+UCarleton: Carleton University, Ottawa, ON, Canada
+UChampaign: University of Illinois Urbana-Champaign, Champaign, Illinois, IL, USA
 UChicago: Enrico Fermi Institute, University of Chicago, Chicago, IL, USA
 UCincinnati: University of Cincinnati, Cincinnati, OH, USA
 UCIrvine: Department of Physics and Astronomy, University of California Irvine, Irvine, CA, USA
-UCSD: University of California, San Diego, La Jolla, USA
+UCSD: University of California, San Diego, La Jolla, CA, USA
 UDuke: Department of Physics, Duke University, Durham, NC, USA
 UGangneung: Gangneung-Wonju National University, South Korea
 UGlasgow: SUPA - School of Physics and Astronomy, University of Glasgow, Glasgow, United Kingdom
 UEDINBURGH: SUPA - School of Physics and Astronomy, University of Edinburgh, Edinburgh, United Kingdom
 UGeneva: Section de Physique, Université de Genève, Geneva, Switzerland
 UHeidelberg: Physikalisches Institut, Ruprecht-Karls-Universitat Heidelberg, Heidelberg, Germany
-UKentucky: Department of Physics and Astronomy, University of Kentucky, Lexington, USA
+UKentucky: Department of Physics and Astronomy, University of Kentucky, Lexington, KY, USA
 ULancaster: Physics Department, Lancaster University, Lancaster, United Kingdom
 ULjubljana: Department of Physics, Jožef Stefan Institute and University of Ljubljana, Ljubljana, Slovenia
 ULund: Fysiska institutionen, Lunds Universitet, Lund, Sweden
@@ -86,27 +91,29 @@ UManchester: School of Physics and Astronomy, University of Manchester, Manchest
 UMaribor: University of Maribor, Ljubljana, Slovenia
 UMich: Department of Physics, The University of Michigan, Ann Arbor, MI, USA
 UMinho: Departamento de Física, Universidade do Minho, Braga, Portugal
-UOhio: The Ohio State University, Columbus, USA
-UOKLAHOMA: Homer L. Dodge Department of Physics and Astronomy, University of Oklahoma, Norman OK, USA
+UOhio: The Ohio State University, Columbus, OH, USA
+UOKLAHOMA: Homer L. Dodge Department of Physics and Astronomy, University of Oklahoma, Norman, OK, USA
 UOslo: Department of Physics, University of Oslo, Oslo, Norway
-UNebraska: University of Nebraska-Lincoln, Lincoln, USA
-UNotreDame: University of Notre Dame, Notre Dame, USA
-UNewMexico: Department of Physics and Astronomy, University of New Mexico, Albuquerque NM, USA
-UOSLO: Department of Physics, University of Oslo, Oslo, Norway
+UNebraska: University of Nebraska-Lincoln, Lincoln, NE, USA
+UNotreDame: University of Notre Dame, Notre Dame, IN, USA
+UNewMexico: Department of Physics and Astronomy, University of New Mexico, Albuquerque, NM, USA
 UOviedo: Universidad de Oviedo, Oviedo, Spain
+UOxford: Department of Physics, Oxford University, Oxford, UK
 UPittsburgh: Department of Physics and Astronomy, University of Pittsburgh, Pittsburgh, PA, USA
-UPrinceton: Princeton University, Princeton, USA
+UPrinceton: Princeton University, Princeton, NJ, USA
 URice: Rice University, Houston, TX, USA
-USaoPaolo: Universidade Estadual Paulista, São Paulo, Brazil
+USaoPaulo: Universidade Estadual Paulista, São Paulo, Brazil
 USapienza: Dipartimento di Fisica, Università La Sapienza, Roma, Italy
+USeattle: University of Washington, Seattle, WA, USA
 UShandong: School of Physics, Shandong University, Shandong, China
 USheffield: Department of Physics and Astronomy, University of Sheffield, Sheffield, United Kingdom
 USofia: University of Sofia, Sofia, Bulgaria
 UTexas: Department of Physics, The University of Texas at Arlington, Arlington, TX, USA
 UTomsk: National Research Tomsk Polytechnic University, Tomsk, Russia
-UTorronto: Department of Physics, University of Toronto, Toronto, ON, Canada
+UToronto: Department of Physics, University of Toronto, Toronto, ON, Canada
+UUdine: Dipartimento di Chimica, Fisica e Ambiente, Università di Udine, Udine, Italy
 UWarwick: Department of Physics, University of Warwick, Coventry, United Kingdom
 UWisconsin: University of Wisconsin - Madison, Madison, WI, USA
 UYale: Department of Physics, Yale University, New Haven, CT, USA
 VAST: IOP and GUST, Vietnam Academy of Science and Technology (VAST), Hanoi, Vietnam
-VIRTECH: Virginia Tech, Blacksburg, Virginia, USA
+VIRTECH: Virginia Tech, Blacksburg, Virginia, VA, USA
