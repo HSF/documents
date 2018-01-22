@@ -19,19 +19,19 @@
 %\usepackage{lineno}  % for line numbering during review
 %\linenumbers
 
-\abstract{The High Energy Phyiscs community has developed and needs to maintain
-many tens of millions of lines of code and to integrate effectively the
-work of thousands of developers across large collaborations. 
-Software needs to be built, validated, and deployed across hundreds of
-sites. Software also has a lifetime of many years, frequently beyond that
-of the original developer, it must be developed with sustainability in
-mind. Adequate recognition of software development as a critical task in the HEP
-community needs to be fostered and an appropriate publication and citation
-strategy needs to be developed. As part of the HEP Softare Foundation's
-Community White Paper process a working group on Software Development,
-Deployment and Validation was formed to examine all of these
-issues, identify best practice and to formulare recommendations for the next
-decade. Its report is presented here.}
+\abstract{ A working group on detector simulation was formed as part of the HEP 
+Software Foundation's initiative to prepare a Community White Paper that describes 
+the main software challenges and opportunities to be faced in our field over the next 
+decade. The working group met over a period of several months in order to review the 
+current status of the Full and Fast simulation applications of HEP experiments 
+and the improvements that will need to be made in order to meet the goals of future HEP 
+experimental programmes.  The scope of the topics covered includes the main components 
+of a HEP simulation application, including MC truth handling, geometry modeling, particle 
+propagation in materials and fields, physics modeling of the interactions of particles 
+with matter, the treatment of pileup and other backgrounds, as well as signal processing 
+and digitisation. The work programme described in this document focuses on the need to 
+improve both software and physics performance, in view of the need to improve statistical precision
+and to address the diversification of physics programmes.}
 
 \begin{document}
 
@@ -43,31 +43,17 @@ decade. Its report is presented here.}
 \end{tabular*}
 \vspace{2.0cm}
 
-\title{HEP Software Foundation Community White Paper Working Group -- Software
-Development, Deployment and Validation}
+\title{HEP Software Foundation Community White Paper Working Group -- Detector Simulation}
 
 \author{HEP Software Foundation:}
-\author[a]{Benjamin Couturier}
-\author[a,1]{Giulio Eulisse}
-\author[b]{Hadrien Grasland}
-\author[a]{Benedikt Hegner}
-\author[b]{Michel Jouvin}
-\author[c]{Meghan Kane}
-\author[d]{Daniel S. Katz}
-\author[e]{Thomas Kuhr}
-\author[f]{David Lange}
-\author[a,1]{Patricia Mendez Lorenzo}
-\author[e]{Martin Ritter}
-\author[a,1]{Graeme Andrew Stewart}
-\author[a]{Andrea Valassi}
+\author[f,1]{Victor D. Elvira}
+\author[a,1]{John Harvey}
 
 \affiliation[a]{CERN, Geneva, Switzerland}
 \affiliation[b]{LAL, Université Paris-Sud and CNRS/IN2P3, Orsay, France}
-\affiliation[c]{Soundcloud, Berlin, Germany}
-\affiliation[d]{University of Illinois Urbana-Champaign, Champaign, Illinois,
+\affiliation[c]{University of Illinois Urbana-Champaign, Champaign, Illinois,
 USA}
-\affiliation[e]{Fakultät für Physik, Ludwig-Maximilians-Universität München,
-München, Germany}
+\affiliation[d]{FNAL, Fermilab, Batavia IL 60510- 5011, USA}
 \affiliation[f]{Princeton University, Princeton, USA}
 \affiliation[1]{Paper Editor}
 
@@ -3068,6 +3054,8 @@ person-power with the unique set of skills needed to guarantee the
 development, maintenance, and support of simulation codes over the
 short, medium, and long timeframes foreseen in the HEP experimentals
 programmes.
+
+\end{document}
 
 \hypertarget{references}{%
 \section{References}\label{references}}
