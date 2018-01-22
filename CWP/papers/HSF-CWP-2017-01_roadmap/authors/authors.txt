@@ -81,6 +81,7 @@ Fitzpatrick, Conor - EPFL - LHCb High Level Trigger Project Leader
 Flix, José - PIC & CIEMAT (7)
 Formica, Andrea - Irfu
 Forti, Alessandra - UManchester
+Franzoni, Giovanni - CERN
 Frost, James - UOxford
 Gaede, Frank - DESY
 Ganis, Gerardo - CERN
