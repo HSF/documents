@@ -1,4 +1,3 @@
-
 % Copyright (C) 2017, The HSF Community White Paper authors, licence CC-BY-4.0.
 
 % JHEP preprint template
@@ -19,19 +18,21 @@
 %\usepackage{lineno}  % for line numbering during review
 %\linenumbers
 
-\abstract{ A working group on detector simulation was formed as part of the HEP 
+\abstract{ A working group on detector simulation was formed as part of the high-energy physics (HEP) 
 Software Foundation's initiative to prepare a Community White Paper that describes 
-the main software challenges and opportunities to be faced in our field over the next 
+the main software challenges and opportunities to be faced in the HEP field over the next 
 decade. The working group met over a period of several months in order to review the 
 current status of the Full and Fast simulation applications of HEP experiments 
 and the improvements that will need to be made in order to meet the goals of future HEP 
 experimental programmes.  The scope of the topics covered includes the main components 
-of a HEP simulation application, including MC truth handling, geometry modeling, particle 
+of a HEP simulation application, such as MC truth handling, geometry modeling, particle 
 propagation in materials and fields, physics modeling of the interactions of particles 
 with matter, the treatment of pileup and other backgrounds, as well as signal processing 
-and digitisation. The work programme described in this document focuses on the need to 
-improve both software and physics performance, in view of the need to improve statistical precision
-and to address the diversification of physics programmes.}
+and digitisation. The resulting work programme described in this document focuses on the need to 
+improve both the software and the physics of detector simulation. The goals are to increase the 
+accuracy of the physics models and expand their applicability to future physics programmes, 
+while achieving large factors in computing performance gains consistent with projections on 
+available computing resources.}
 
 \begin{document}
 
@@ -124,9 +125,7 @@ tens of billions of simulated events. This effort required more than
 half of the total computing resources allocated to the experiments. As
 part of the high-luminosity LHC physics program (HL-LHC) and through the
 end of the 2030's, the upgraded experiments expect to collect 150 times
-more data than in Run 1. The 50 PB of raw data produced in 2016 will
-grow to approximately 600 PB in 2026 while the CPU needs will increase
-by a factor of about 60. Demand for larger simulation samples to satisfy
+more data than in Run 1. Demand for larger simulation samples to satisfy
 analysis needs will grow accordingly. In addition, simulation tools have
 to serve diverse communities, including accelerator-based particle
 physics research utilizing proton-proton colliders, neutrino and muon
@@ -340,7 +339,8 @@ accurate modeling of energy deposition by a variety of particles across
 a range of energies. Geant4 is the universal solution at this stage.
 
 Muon experiments such as Muon g-2 and Mu2e also face large simulation
-challenges. Because they are searching for extremely rare effects, they
+challenges, being Geant4 the primary simulation toolkit for
+all stages of these experiments. Because they are searching for extremely rare effects, they
 must grapple with very low signal to background ratios, and the modeling
 of low cross-section background processes. Often the physics of these
 processes is not well understood, introducing large systematic
@@ -353,14 +353,13 @@ effects of low energy neutrons, which requires large computational
 resources. For example, Mu2e used a total of approximately 60 million
 CPU hours, or 83 thousand core months, in a 2016 simulation campaign to
 produce the Full Simulation sample needed to complete a technical design
-report delivered in 2016. Geant4 is the primary simulation toolkit for
-all stages of these experiments. For comparison, the CMS experiment
-spent 860 thousand core months on simulation in the May 2015-May 2016
-period.
+report delivered in 2016. 
 
-Although the computing needs of the intensity frontier are currently
-small compared to the LHC experiments, they are expected to grow
-substantially in the next decade, and it is imperative that the
+Although in comparison the current computing needs of neutrino and muon experiments
+are small compared to the LHC experiments, i.e. the CMS experiment
+spent 860 thousand core months on simulation in the May 2015-May 2016
+period, they are expected to grow substantially in the next decade.
+It is therefore imperative that the
 intensity frontier experiments make use of modern computing
 architectures and algorithms. This transition will be complicated by the
 fact that the intensity frontier is fractured into many small
@@ -1416,7 +1415,7 @@ designed multi-threading approach, which shares the read-only data among
 threads, that it is possible to run with the maximum number of threads
 remaining in a memory budget of approximately 1 GB. Recent versions of
 Geant4 have put emphasis on further reducing memory consumption to the
-current level of about 10MB needed for each additional thread.
+current level of about 10 MB needed for each additional thread.
 
 Figure 11 shows the percentage change in CPU time performance taking
 Geant4 version 10.0 as a reference, starting with Geant4 version 9.4.p02
@@ -1662,8 +1661,8 @@ but was shown to reduce the size of the output file by almost a factor
 of two in previous tests. This file size issue can also be mitigated by
 various approaches to hit storage, however. Removing range cuts
 decreases the simulation time per event, because the thin volumes of the
-sampling calorimeter demand a tighter range cut, including 30um in the
-forward calorimeter and 300um in the EM calorimeters, to provide an
+sampling calorimeter demand a tighter range cut, including 30~$\mu$m in the
+forward calorimeter and 300~$\mu$m in the EM calorimeters, to provide an
 accurate physics description. This penalty is not present in the CMS
 simulation, since the CMS EM calorimeter has much larger active volumes.
 Still, the effect of range cuts on the two applications is similar.
@@ -2464,7 +2463,7 @@ examples}\label{fast-simulation-techniques-and-examples}}
 There are many techniques to make simulation faster. Some of them are
 applied to Geant4-based Full Simulation applications, such as for
 example Russian Roulette and shower libraries, to speedup simulation in
-a given sub-detector. In the literature, these applications are still
+a given sub-detector. These applications are still
 labeled Full Simulation and Geant4-based. Some experiments have
 developed alternative fast simulation frameworks, based on fast track
 propagation through a simplified geometry and parameterised showers,
@@ -2820,7 +2819,7 @@ detectors and targets.
 While the focus in this section and in the literature so far has been on
 using machine learning to do fast simulation (e.g. learn Geant4), it may
 be possible to train a generator directly on data to replace or augment
-Full Simulation. This would require high fidelity testbeam data for a
+Full Simulation. This would require high fidelity test beam data for a
 variety of particles and energies. While this is beyond the scope of
 this CWP, we suggest that this be pursued in parallel to improving the
 speed and accuracy of fast simulators.
@@ -3007,7 +3006,7 @@ opportunities for Full and Fast Simulation applications of HEP
 experiments in view of planned future experimental programs in the next
 decade; these include the HL-LHC, neutrino and muon experiments, and
 studies towards future colliders such as FCC and CLIC. The combination
-of additional physics models and higher precision in the simulation with
+of additional physics models and higher accuracy in the simulation with
 the need of larger Monte Carlo samples, which scale with the number of
 real events recorded in future experiments, place an additional burden
 on the computing resources that will be needed to generate them.
@@ -3017,7 +3016,8 @@ these challenges. Firstly Geant4 will continue to deliver new or refined
 functionalities both in physics coverage and accuracy, whilst
 introducing software performance improvements whenever possible. At the
 same time, an R\&D programme is investigating new approaches that aim to
-benefit from modern computing architectures. Its main feature is
+benefit from modern computing architectures. For example, 
+the main feature of the GeantV transport engine is
 track-level parallelisation, bundling particles with similar properties
 from different events to process them in a single thread. This approach
 combined with SIMD vectorisation coding techniques and use of data
@@ -3026,13 +3026,14 @@ in a realistic prototype under development. In addition, the work on
 Fast Simulation is accelerating with a view to producing a flexible
 framework that permits Full and Fast simulation to be combined for
 different particles in the same event. The overriding requirement is to
-ensure the support of experiments through continuous maintenance,
-support and improvement of the Geant4 simulation toolkit with minimal
+ensure the support of experiments through continuous maintenance 
+and improvement of the Geant4 simulation toolkit with minimal
 API changes visible to these experiments at least until production
 versions of potentially alternative engines, such as those resulting
 from ongoing R\&D work, become available, integrated, and validated by
 experiments. The agreed ongoing strategy to meet this goal is to ensure
-that new developments resulting from the GeantV R\&D programme are
+that new developments resulting from the GeantV R\&D programme,
+including the novel transport engine, are
 deployed in a timely way in Geant4.
 
 Improving the speed of simulation codes by an order of magnitude
