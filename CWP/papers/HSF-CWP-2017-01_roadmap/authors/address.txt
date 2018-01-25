@@ -115,5 +115,6 @@ UUdine: Dipartimento di Chimica, Fisica e Ambiente, Università di Udine, Udine,
 UWarwick: Department of Physics, University of Warwick, Coventry, United Kingdom
 UWisconsin: University of Wisconsin - Madison, Madison, WI, USA
 UYale: Department of Physics, Yale University, New Haven, CT, USA
+UZurich: Physik-Institut, Universität Zürich, Zürich, Switzerland
 VAST: IOP and GUST, Vietnam Academy of Science and Technology (VAST), Hanoi, Vietnam
 VIRTECH: Virginia Tech, Blacksburg, Virginia, VA, USA

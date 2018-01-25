@@ -214,6 +214,7 @@ Pokorski, Witold - CERN
 Polci, Francesco - LPNHE - LHCb Tracking and Alignment Coordinator
 Potamianos, Karolos - DESY
 Psihas, Fernanda - INDIANA
+Puig Navarro, Albert - UZurich
 Raven, Gerhard - NIKHEF
 Reuter, Jürgen - DESY
 Ribon, Alberto - CERN
