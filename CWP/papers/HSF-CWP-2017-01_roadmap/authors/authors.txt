@@ -58,6 +58,7 @@ Cristella, Leonardo - INFNBari
 Crooks, David - UGlasgow
 Dallmeier-Tiessen, Sünje - CERN
 Delgado Peris, Antonio - CIEMAT (7)
+De Roeck, Albert - CERN
 Di Girolamo, Alessandro - CERN
 Di Guida, Salvatore - INFNMilano
 Dimitrov, Gancho - CERN
@@ -82,6 +83,7 @@ Fitzpatrick, Conor - EPFL - LHCb High Level Trigger Project Leader
 Flix, José - PIC & CIEMAT (7)
 Formica, Andrea - Irfu
 Forti, Alessandra - UManchester
+Franzoni, Giovanni - CERN
 Frost, James - UOxford
 Gaede, Frank - DESY
 Ganis, Gerardo - CERN
@@ -239,6 +241,7 @@ Serfon, Cedric - UOslo
 Severini, Horst - UOKLAHOMA
 Sexton-Kennedy, Elizabeth - Fermilab - CMS Software and Computing Coordinator (1,3)
 Seymour, Michael - UManchester - MCnet
+Sgalaberna, Davide - CERN
 Shapoval, Illya - LBNL
 Shiers, Jamie - CERN
 Shiu, Jing-Ge - TAIWAN
