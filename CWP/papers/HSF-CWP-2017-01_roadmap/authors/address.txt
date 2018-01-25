@@ -12,7 +12,7 @@ Cornell: Cornell University, Ithaca, NY, USA
 CPHC: Center for High Performance Computing, Cape Town, South Africa
 DESY: Deutsches Elektronen-Synchrotron, Hamburg, Germany
 EPFL: Institute of Physics, École Polytechnique Fédérale de Lausanne (EPFL), Lausanne, Switzerland
-ETHZurich: ETH Zurich - Institute for Particle Physics and Astrophysics (IPA), Zurich, Switzerland
+ETHZurich: ETH Zürich - Institute for Particle Physics and Astrophysics (IPA), Zürich, Switzerland
 Fermilab: Fermi National Accelerator Laboratory, Batavia, IL, USA
 HAMBURG: University of Hamburg, Hamburg, Germany
 HIP: Helsinki Institute of Physics, Helsinki, Finland
