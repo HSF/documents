@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{xspace}
+\usepackage{verbatim}
 
 \usepackage[utf8]{inputenc}
 
@@ -29,7 +30,7 @@ of a HEP simulation application, such as MC truth handling, geometry modeling, p
 propagation in materials and fields, physics modeling of the interactions of particles 
 with matter, the treatment of pileup and other backgrounds, as well as signal processing 
 and digitisation. The resulting work programme described in this document focuses on the need to 
-improve both the software and the physics of detector simulation. The goals are to increase the 
+improve both the software performance and the physics of detector simulation. The goals are to increase the 
 accuracy of the physics models and expand their applicability to future physics programmes, 
 while achieving large factors in computing performance gains consistent with projections on 
 available computing resources.}
@@ -39,32 +40,96 @@ available computing resources.}
 \noindent
 \begin{tabular*}{\linewidth}{lc@{\extracolsep{\fill}}r@{\extracolsep{0pt}}}
  & & HSF-CWP-2017-13 \\
- & & December 21, 2017 \\ % use \date or hardwire e.g. December 15, 2017
+ & & January 24, 2018 \\ % use \date or hardwire e.g. December 15, 2017
  & & \\
 \end{tabular*}
-\vspace{2.0cm}
+\vspace{0.1cm}
 
 \title{HEP Software Foundation Community White Paper Working Group -- Detector Simulation}
 
-\author{HEP Software Foundation:}
-\author[f,1]{Victor D. Elvira}
-\author[a,1]{John Harvey}
+\author[d]{J Apostolakis}
+\author[q]{M Asai}
+\author[n]{S Banerjee}
+\author[m]{R Bianchi}
+\author[d]{F Carminati}
+\author[l]{R Cenci}
+\author[b]{J Chapman}
+\author[d]{G Corti}
+\author[d]{G Cosmo}
+\author[p]{S Easo}
+\author[q]{A Dotti}
+\author[f,1]{V Elvira}
+\author[f]{L Fields}
+\author[f]{K Genser}
+\author[d]{A Gheata}
+\author[d]{M Gheata}
+\author[d]{I Goulas}
+\author[d,1]{J Harvey}
+\author[d]{F Hariri}
+\author[f]{R Hatcher}
+\author[f]{K Herner}
+\author[d]{V Ivantchenko}
+\author[f]{T Junk}
+\author[f]{S-Y Jun}
+\author[f]{M Kirby}
+\author[f]{R Kutschke}
+\author[f]{P Lebrun}
+\author[f]{A Lyon}
+\author[j]{Z Marshall}
+\author[c]{J-F Marchand}
+\author[a]{M Mooney}
+\author[q]{R Mount}
+\author[k]{J Mousseau}
+\author[j]{B Nachman}
+\author[f]{A Norman}
+\author[f]{I Osborne}
+\author[f]{K Pedro}
+\author[d]{W Pokorski}
+\author[a]{X Qian}
+\author[f]{J Raaf}
+\author[l]{M Rama}
+\author[d]{A Ribon}
+\author[d]{S Roiser}
+\author[o]{D Ruterbories}
+\author[f]{S Sekmen}
+\author[h]{B Siddi}
+\author[f]{E Snider}
+\author[g]{S Vallecorsa}
+\author[e]{M Verderi}
+\author[f]{H Wenzel}
+\author[d]{S Wenzel}
+\author[d]{B Viren}
+\author[f]{T Yang}
+\author[f]{L Welty-Rieger}
 
-\affiliation[a]{CERN, Geneva, Switzerland}
-\affiliation[b]{LAL, Université Paris-Sud and CNRS/IN2P3, Orsay, France}
-\affiliation[c]{University of Illinois Urbana-Champaign, Champaign, Illinois,
-USA}
-\affiliation[d]{FNAL, Fermilab, Batavia IL 60510- 5011, USA}
-\affiliation[f]{Princeton University, Princeton, USA}
+\vspace{0.5cm}
+
+\affiliation[a]{Brookhaven National Laboratory, Upton NY, USA}
+\affiliation[b]{University of Cambridge,Cambridge, UK}
+\affiliation[c]{Carleton University, Ottawa, ON, Canada}
+\affiliation[d]{CERN, Geneva, Switzerland}
+\affiliation[e]{IN2P3-LLR, Ecole Polytechnique, Palaiseau, France}
+\affiliation[f]{Fermilab National Accelerator Laboratory, Batavia IL , USA}
+\affiliation[g]{Gangneung-Wonju National University, Gangneung, Gangwon-do, South Korea}
+\affiliation[h]{Università di Ferrara and INFN Ferrara, Ferrara, Italy}
+\affiliation[j]{Lawrence Berkeley National Laboratory, Berkeley CA, USA}
+\affiliation[k]{University of Michigan, Ann Arbor MI, USA}
+\affiliation[l]{Università di Pisa and INFN Pisa, Pisa, Italy}
+\affiliation[m]{University of Pittsburgh, Pittsburgh PA, USA}
+\affiliation[n]{Princeton University, Princeton, NJ 08544, USA}
+\affiliation[o]{University of Rochester, Rochester NY, USA}
+\affiliation[p]{Rutherford Appleton Laboratory, Chilton, UK}
+\affiliation[q]{SLAC National Accelerator Laboratory, Menlo Park, CA 94025, USA}
+\affiliation[r]{University of Illinois Urbana-Champaign, Champaign IL, USA}
+
 \affiliation[1]{Paper Editor}
 
 \maketitle
 
 \newpage
 
-
 \hypertarget{introduction}{%
-\section{1 Introduction}\label{introduction}}
+\section{Introduction}\label{introduction}}
 
 Detector simulation is an essential tool to design, build and commission
 the highly sophisticated detectors utilised in modern particle physics
@@ -161,14 +226,11 @@ lattices (i.e. CERN and Fermilab accelerator complexes) are considered
 to be outside the scope of this chapter. Space and medical applications
 are referred to briefly where appropriate.
 
-\hypertarget{section}{%
-\section{}\label{section}}
-
-\textbf{Draft executive summary document}:
-\href{https://goo.gl/FHaAtm}{{https://goo.gl/FHaAtm}}
+%\textbf{Draft executive summary document}:
+%\href{https://goo.gl/FHaAtm}{{https://goo.gl/FHaAtm}}
 
 \hypertarget{challenges}{%
-\section{2 Challenges}\label{challenges}}
+\section{Challenges}\label{challenges}}
 
 The experimental programmes planned in the next decade are driving
 developments in the simulation domain; they include the High Luminosity
@@ -369,7 +431,7 @@ Efforts such as LArSoft{[}7{]} have recognised this challenge and aim to
 pool resources of many experiments for the benefit of all.
 
 \hypertarget{geometry}{%
-\section{3 Geometry}\label{geometry}}
+\section{Geometry}\label{geometry}}
 
 The geometry modeler is a key component in Monte Carlo detector
 simulation, combining both solids modelling and efficient navigation
@@ -436,10 +498,16 @@ the near future to provide hooks within both Geant4 and ROOT for using
 the navigation system of VecGeom, eventually boosting speed further also
 for the scalar mode.
 
-\includegraphics[width=6.26772in,height=4.76389in]{media/image1.png}
 
-\textbf{Figure 1} - An interactive Geant4 example featuring parallel
-geometries and scoring with VecGeom primitives and parameterisations
+\begin{figure}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image1.png}
+\caption{An interactive Geant4 example featuring parallel
+geometries and scoring with VecGeom primitives and parameterisations}
+\label{fig:geom}
+\end{figure}
+
 
 Geant4 offers the ability to import and export Detector geometrical
 descriptions from text files according to the Geometry Description
@@ -516,12 +584,8 @@ includes the following:
   easy detector description geometry exchange.
 \end{itemize}
 
-\hypertarget{section-1}{%
-\section{\texorpdfstring{\\
-}{ }}\label{section-1}}
-
 \hypertarget{digitisation}{%
-\section{4 Digitisation}\label{digitisation}}
+\section{Digitisation}\label{digitisation}}
 
 Simulation toolkits like Geant4, in the end, only provide energy
 depositions positioned in space and time in geometric elements. These
@@ -610,7 +674,7 @@ the different needs. Specific objectives are by:
 \end{itemize}
 
 \hypertarget{modeling-of-pileup}{%
-\section{5 Modeling of Pileup}\label{modeling-of-pileup}}
+\section{Modeling of Pileup}\label{modeling-of-pileup}}
 
 For the LHC experiments, in particular ATLAS and CMS, the modeling of
 pileup (proton-proton collisions simultaneous with the collision of
@@ -739,7 +803,7 @@ years:
 \end{itemize}
 
 \hypertarget{handling-of-monte-carlo-truth-information}{%
-\section{6 Handling of Monte Carlo Truth
+\section{Handling of Monte Carlo Truth
 Information}\label{handling-of-monte-carlo-truth-information}}
 
 All simulations keep some concept of Monte Carlo Truth, a record of what
@@ -797,7 +861,7 @@ and analysis-specific, but frameworks must ensure the flexibility
 required to satisfy even the most exotic use-case.
 
 \hypertarget{physics-modeling}{%
-\section{7 Physics Modeling}\label{physics-modeling}}
+\section{Physics Modeling}\label{physics-modeling}}
 
 Geant4 physics libraries provide accurate simulation for a wide variety
 of applications in HEP, space science, medical physics and other
@@ -849,8 +913,7 @@ performance improvements along with results of comparison of simulation
 with experimental data.
 
 \hypertarget{electromagnetic-physics}{%
-\subsubsection{7.1 Electromagnetic
-Physics}\label{electromagnetic-physics}}
+\subsection{Electromagnetic Physics}\label{electromagnetic-physics}}
 
 Electromagnetic (EM) transport simulation is challenging as it occupies
 a significant part of the computing resources used in full detector
@@ -861,7 +924,8 @@ physics models need to be improved for achieving higher accuracy and the
 implementation of algorithms needs to be reviewed in order to optimise
 performance. Significant efforts have been made in the recent past to
 better describe the simulation of electromagnetic shower shapes, in
-particular to model the H -\textgreater{} γγ signal accurately at the
+particular to model the H $\rightarrow \gamma \gamma $ 
+signal accurately at the
 LHC. This effort is being continued with emphasis on reviewing the
 models assumptions, approximations and limitations, especially at very
 high energy, and with a view to improving their respective software
@@ -892,7 +956,22 @@ utilises a simplified (faster) multiple scattering model for all
 detectors, while EMM uses the detailed multiple scattering model for
 sampling calorimeters and the simplified model for other detectors. The
 same figure also shows the ratio of Monte Carlo to data as a function of
-beam momentum. It is clear from the figure that the predictions from the
+beam momentum. 
+
+\begin{figure}[bthp]
+\centering
+\includegraphics[width=0.94\textwidth]{image2.png}
+\caption{The top plots correspond to the mean energy response for
+p\textsuperscript{-} (left) and p\textsuperscript{+} (right) as a
+function of the beam momentum. The bottom plots are ratios of Monte
+Carlo predictions to the data for pions as a function of beam momentum.
+The black points refer to the data, whilst the red and blue points are
+Monte Carlo predictions from physics lists QGSP\_FTFP\_BERT\_EML of
+Geant4 10.0.p02 and FTFP\_BERT\_EMM of Geant4 10.2.p02 respectively.}
+\label{fig:enresp}
+\end{figure}
+
+It is clear from the figure that the predictions from the
 physics list FTFP\_BERT\_EMM are closer to the data, in particular at
 higher beam energies, and therefore CMS has taken the decision to move
 to this list for its 2017 MC productions. Recent results from the CMS
@@ -902,10 +981,36 @@ observation that needs a much more detailed understanding, leaving us
 with an open question as to whether there is a problem in the physics
 model or an issue with the modelling of detector materials.
 
+\begin{figure}[bthp]
+\centering
+\includegraphics[width=0.94\textwidth]{image3.png}
+\caption{Crystal-based EM shower width from the CMS experiment in the 
+eta direction in both the barrel and the endcap. Simulation and data
+are in good agreement in the barrel (figure on the left) but not in
+the endcap region (figure on the right) where there is more material.}
+\label{fig:emshwid}
+\end{figure}
+
+\begin{figure}[bthp]
+\centering
+\includegraphics[width=0.94\textwidth]{image4.png}
+\caption{The upper plot plot shows a measurement of R\textsubscript{$\eta$}
+for unconverted photons in the ATLAS EM calorimeter, where
+R\textsubscript{$\eta$} is the ratio of shower energy deposited in 3x7
+cells to 7x7 cells in $\eta$-$\varphi$. The lower plot shows the lateral shower
+width, W\textsubscript{$\eta1$}, for electrons in the first layer of the EM
+calorimeter. Both plots show a clear discrepancy between real data and
+the results of MC simulation.}
+\label{fig:R}
+\end{figure}
+
+
+
 In the ATLAS experiment one area of disagreement concerns the
 measurement of lateral shower shapes in the EM calorimeter. Figure 4
-shows a measurement of R\textsubscript{η} for unconverted photons in the
-ATLAS EM calorimeter, where R\textsubscript{η} is the ratio of shower
+shows a measurement of R\textsubscript{$\eta$}  for unconverted photons in the
+ATLAS EM calorimeter, where R\textsubscript{$\eta$} 
+is the ratio of shower
 energy deposited in 3x7 cells to 7x7 cells in the forward hadron
 calorimeter. There is a clear discrepancy between real data and the
 results of MC simulation with Geant4 9.6 (red line). Shower shapes in
@@ -922,15 +1027,6 @@ understand correlations between mis-modeled effects, and a more accurate
 simulation is desirable. A substantial amount of work and high level of
 coordination with experiments is therefore needed to investigate the
 pending discrepancies between data and simulation.
-
-\includegraphics[width=6.70522in,height=4.94444in]{media/image2.png}\emph{Figure
-2. The top plots correspond to the mean energy response for
-p\textsuperscript{-} (left) and p\textsuperscript{+} (right) as a
-function of the beam momentum. The bottom plots are ratios of Monte
-Carlo predictions to the data for pions as a function of beam momentum.
-The black points refer to the data, whilst the red and blue points are
-Monte Carlo predictions from physics lists QGSP\_FTFP\_BERT\_EML of
-Geant4 10.0.p02 and FTFP\_BERT\_EMM of Geant4 10.2.p02 respectively.}
 
 The HL-LHC era will require higher precision simulations that can only
 be achieved by continuous improvement of the electromagnetic physics
@@ -954,13 +1050,6 @@ the following.
   performance penalty.
 \end{itemize}
 
-\includegraphics[width=3.29292in,height=3.03646in]{media/image3.png}\includegraphics[width=3.29288in,height=3.07813in]{media/image4.png}
-
-\emph{Figure 3. Crystal-based EM shower width from the CMS experiment in
-the eta direction in both the barrel and the endcap. Simulation and data
-are in good agreement in the barrel (figure on the left) but not in the
-endcap region (figure on the right) where there is more material.}
-
 \begin{itemize}
 \item
   The models used to describe the \emph{bremsstrahlung} process have
@@ -979,7 +1068,7 @@ endcap region (figure on the right) where there is more material.}
   reviewed. Similar improvements were introduced in the LPM suppression
   functions. At very high energy the improved pair production model
   shows a significant difference in the differential cross-section. The
-  old implementation (green plot in Figure 7) was over-suppressing gamma
+  old implementation (green plot in Figure 7) was over-suppressing $ \gamma$
   conversion i.e. the LPM effect was overestimated. There are currently
   no available experimental data for validation of our results. The use
   of the relativistic pair-production model is essential for accurate
@@ -996,44 +1085,42 @@ endcap region (figure on the right) where there is more material.}
   and for simulation of background for a dark matter search experiment.
 \end{itemize}
 
-\includegraphics[width=3.45982in,height=2.73438in]{media/image5.png}
-
-\includegraphics[width=6.66281in,height=2.57813in]{media/image6.png}\emph{Figure
-4. The upper plot plot shows a measurement of} R\textsubscript{η}
-\emph{for unconverted photons in the ATLAS EM calorimeter, where}
-R\textsubscript{η} \emph{is the ratio of shower energy deposited in 3x7
-cells to 7x7 cells in η-φ. The lower plot shows the lateral shower
-width, W\textsubscript{η1}, for electrons in the first layer of the EM
-calorimeter. Both plots show a clear discrepancy between real data and
-the results of MC simulation.}
-
-\includegraphics[width=5.84531in,height=4.08869in]{media/image7.png}
-
-\emph{Figure 5. The new Goudsmit-Saunderson} \emph{multiple scattering
+\begin{figure}[bthp]
+\centering
+\includegraphics[width=0.94\textwidth]{image5.png}
+\caption{The new Goudsmit-Saunderson multiple scattering
 model implementation (GS - Geant4 10.2) shows no artefacts and excellent
-agreement with experimental data. }
+agreement with experimental data}
+\label{fig:gs}
+\end{figure}
 
-\includegraphics[width=6.03802in,height=4.2226in]{media/image8.png}
-
-\emph{Figure 6. The improved bremsstrahlung model included in Geant4
+\begin{figure}[bthp]
+\centering
+\includegraphics[width=0.94\textwidth]{image6.png}
+\caption{The improved bremsstrahlung model included in Geant4
 10.3.beta and in GeantV shows better agreement with experimental data
-with respect to the existing implementation.}
+with respect to the existing implementation}
+\label{fig:brem}
+\end{figure}
 
-\includegraphics[width=5.88021in,height=3.99503in]{media/image9.png}
-
-\emph{Figure 7. The improved pair production model included in both
+\begin{figure}[bthp]
+\centering
+\includegraphics[width=0.94\textwidth]{image7.png}
+\caption{The improved pair production model included in both
 Geant4 10.4.beta and in GeantV is compared with the existing Geant4
-implementation with and without LPM. }
+implementation with and without LPM}
+\label{fig:ppm}
+\end{figure}
 
-\begin{quote}
-\includegraphics[width=4.31527in,height=3.89063in]{media/image10.png}
-\end{quote}
-
-\emph{Figure 8. New models were developed in Geant4 taking into account
+\begin{figure}[bthp]
+\centering
+\includegraphics[width=0.94\textwidth]{image8.png}
+\caption{New models were developed in Geant4 taking into account
 finite nuclear size effect for elastic scattering of electrons at high
-energies. }
+energies}
+\label{fig:newm}
+\end{figure}
 
-\begin{quote}
 Theoretical review of all electromagnetic models, including those of
 hadrons and ions is therefore of high priority both for HL-LHC and even
 more importantly for FCC studies. Efforts in this direction will
@@ -1041,7 +1128,7 @@ continue, but completion of this task by 2025 will demand a substantial
 amount of work and continuous investments in effort. Avenues that should
 be investigated include other channels that become important at extreme
 energies, such as triplet production taking into account nuclear recoil
-effects, size effects as well as γ conversion to muon and hadron pairs.
+effects, size effects as well as $\gamma$ conversion to muon and hadron pairs.
 Energy fluctuation models should be developed based on theory, not just
 parametrisation. For Geant4 10.3 the upper energy limit for all EM
 physics models was extended to 100 TeV, which is important not only the
@@ -1050,10 +1137,9 @@ the context of the FCC detector design studies. At the same time,
 further improvements for high energy EM models are possible. A
 substantial amount of work is needed for preparing simulations of next
 generation detectors.
-\end{quote}
 
 \hypertarget{hadronic-physics}{%
-\subsubsection{7.2 Hadronic Physics}\label{hadronic-physics}}
+\subsection{Hadronic Physics}\label{hadronic-physics}}
 
 Hadronic physics simulation is loosely defined to cover any reaction
 producing hadrons in its final state. As such, it covers purely hadronic
@@ -1100,7 +1186,7 @@ to 5 GeV incident hadron energy, and the FTF parton string model for
 hadron--nucleus interactions from 4 GeV upwards. The letter P indicates
 that the Geant4 pre-compound model is used to de-excite the nucleus
 after the high energy FTF interaction has been completed. The
-FTFP-Bertini combination forms the backbone of many physics lists. It
+FTFP--Bertini combination forms the backbone of many physics lists. It
 successfully extends the use of the string model at lower energies, down
 to 3 GeV, and at the same time the Bertini intra-nuclear cascade model
 has been validated up to 15 GeV. The net result has been that the need
@@ -1204,8 +1290,9 @@ recent past in this direction, but a lot more remains to be done. In
 particular, a well-defined procedure to tune hadronic models needs to be
 defined and deployed.
 
+
 \hypertarget{physics-modelling-for-the-intensity-frontier}{%
-\subsubsection{7.3 Physics Modelling for the Intensity
+\subsection{Physics Modelling for the Intensity
 Frontier}\label{physics-modelling-for-the-intensity-frontier}}
 
 Much of the text above concentrates on physics processes relevant to the
@@ -1285,7 +1372,7 @@ be of use to the entire HEP community. This work includes:
 \end{itemize}
 
 \hypertarget{non-hep-use-cases}{%
-\subsubsection{7.4 Non-HEP use-cases}\label{non-hep-use-cases}}
+\subsection{Non-HEP use-cases}\label{non-hep-use-cases}}
 
 The extensibility of Geant4 has been appreciated also outside of the HEP
 domain and several applications and extensions have been created to
@@ -1303,7 +1390,7 @@ mention:
 \end{itemize}
 
 \hypertarget{radiation-and-non-collision-background-modeling}{%
-\subsubsection{7.5 Radiation and Non-Collision Background
+\subsection{Radiation and Non-Collision Background
 Modeling}\label{radiation-and-non-collision-background-modeling}}
 
 The LHC experiments have made use of the FLUKA simulation package, and
@@ -1322,15 +1409,8 @@ the development of the next generation of experiments, improvements in
 both performance and physics are not as critical as they are in the case
 of Geant4.
 
-\hypertarget{section-2}{%
-\section{}\label{section-2}}
-
-\hypertarget{section-3}{%
-\section{\texorpdfstring{\\
-}{ }}\label{section-3}}
-
 \hypertarget{software-performance}{%
-\section{8 Software Performance}\label{software-performance}}
+\section{Software Performance}\label{software-performance}}
 
 Simulation, including physics generation, interaction with matter
 (detailed analogue or parametrised simulation), digitisation,
@@ -1402,7 +1482,7 @@ The Geant4 Collaboration has invested significant effort into improving
 the toolkit computing performance in the past decade, as code was
 reviewed and optimised. In 2013, the release of event-level
 multithreading capabilities in Geant4 brought significant memory
-savings, as illustrated in Figure 10, which shows the CPU time (top) and
+savings, as illustrated in Figure 9, which shows the CPU time (top) and
 memory (bottom) consumption of a simplified CMS standalone simulation
 application, based on Geant4 version 10.3.p01, runs for 50 GeV pions.
 Geant4 achieves almost perfect strong scaling (top plot) with the number
@@ -1417,13 +1497,13 @@ remaining in a memory budget of approximately 1 GB. Recent versions of
 Geant4 have put emphasis on further reducing memory consumption to the
 current level of about 10 MB needed for each additional thread.
 
-Figure 11 shows the percentage change in CPU time performance taking
+Figure 10 shows the percentage change in CPU time performance taking
 Geant4 version 10.0 as a reference, starting with Geant4 version 9.4.p02
 (2010) and ending with Geant4 version 10.2 (2015) for the standalone CMS
 application and a simple calorimeter configuration made of
 Cu-Scintillator in a 4 Tesla magnetic field {[}29{]}.The study is
 performed for 50 GeV e\textsuperscript{-}, p\textsuperscript{-}, and
-protons, as well as for H → ZZ events. On average, the time performance
+protons, as well as for H $\rightarrow$ ZZ events. On average, the time performance
 improvement through the life of the LHC experiments (2010-2015) is of
 the order of 35\%. All tests were performed on the same hardware (AMC
 Opteron 6128 HE @ 2 GHz) using the same compiler and operating system
@@ -1440,7 +1520,7 @@ Bertini physics model code yielded a reduced memory churn, making it
 substantially faster.
 
 Evolving compilers also offer opportunities for speed gains in
-simulation applications. Figure 12 illustrates the impact of the use of
+simulation applications. Figure 10 illustrates the impact of the use of
 shared and static libraries in a simplified CMS application (HepExpMT
 public benchmark) {[}31{]}. In this example, static linkage yields a
 20\% gain, while Profile-Guided Optimisation (PGO) gives another 20\%.
@@ -1450,8 +1530,11 @@ particularly interesting because they do not change the physics output
 of the simulation. If this constraint can be relaxed additional speedups
 can be obtained using additional Geant4 flags to speedup the simulation.
 
-\includegraphics[width=6.5625in,height=3in]{media/image11.png}\includegraphics[width=6.48958in,height=2.9375in]{media/image12.png}\emph{Figure
-10: CPU time (top) and memory (bottom) consumption of a CMS standalone
+\begin{figure}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image9.png}
+\caption{CPU time (top) and memory (bottom) consumption of a CMS standalone
 simulation application, based on Geant4 version 10.3.p01, run for 50 GeV
 pions. The strong scaling (top) as a function of the number of threads
 shows an almost perfect linearity (\textgreater{}90\%) with the number
@@ -1462,17 +1545,25 @@ of the limited memory budget of many-core systems. With multi-process
 approaches (Geant4 9.6.p03 and 10.0.p04 sequential) it is possible to
 use only a very limited set of the available parallelism. With
 multithreading the memory requirements are reduced by a factor 10.}
+\label{fig:perfcms}
+\end{figure}
 
-\includegraphics[width=3.28646in,height=1.95745in]{media/image13.png}\includegraphics[width=3.26538in,height=1.95313in]{media/image14.png}\includegraphics[width=3.30325in,height=1.96354in]{media/image15.png}\includegraphics[width=3.2959in,height=1.95313in]{media/image16.png}
-
-\emph{Figure 11: Percentage change in CPU time performance taking Geant4
+\begin{figure}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image10.png}
+\caption{Percentage change in CPU time performance taking Geant4
 version 10.0 as a reference, starting with Geant4 version 9.4.p02 (2010)
 and ending with Geant4 version 10.2 (2015) for the standalone CMS
 application and a simple calorimeter configuration.}
+\label{fig:perfchange}
+\end{figure}
 
-\includegraphics[width=6.70522in,height=6.73611in]{media/image17.png}
-
-\emph{Figure 12: Impact of the use of shared and static libraries in a
+\begin{figure}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image11.png}
+\caption{Impact of the use of shared and static libraries in a
 simplified HEP application. Results obtained with a simplified version
 of CMS with Geant4 version 10.0. Performances for different combinations
 of compilation options are compared. There is an important performance
@@ -1481,20 +1572,22 @@ of PLT calls. Another +20\% can be obtained using Profiler Guided
 Optimisations (PGO). These techniques do not change the physics output
 of the simulation, if this constraint can be relaxed compilation and
 runtime options of Geant4 can be used to obtain another +10\% speedup. }
+\label{fig:perflib}
+\end{figure}
 
 In the following sections, we will discuss computing performance studies
 by different HEP experiments, as well as their diverse approaches to
 improve computing performance.
 
 \hypertarget{cpu-time-and-memory-performance-measurements}{%
-\subsubsection{8.1 CPU Time and Memory Performance
+\subsection{CPU Time and Memory Performance
 Measurements}\label{cpu-time-and-memory-performance-measurements}}
 
 The largest improvements to computing performance experienced by ATLAS
 and CMS have come from physics code reviews as part of the effort to
 reduce memory churn. The speedup has been a side effect of this effort.
 The lesson learned is that profiling is not a very useful exercise
-unless it is related to physics observables. The table in Figure 13
+unless it is related to physics observables. The table in Figure 12
 shows the number of Geant4 steps in each ATLAS sub-detector and for each
 particle type, providing useful quantitative information to optimise
 Geant4 tracking and therefore improve time performance. It is apparent
@@ -1506,9 +1599,11 @@ element. The tool will also provide this information for each Geant4
 track in user defined energy ranges. The output will be displayed in the
 console, or saved in histograms or ntuples.
 
-\includegraphics[width=6.21354in,height=3.875in]{media/image18.png}
-
-\emph{Figure 13: Number of Geant4 steps in each ATLAS sub-detector and
+\begin{figure}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image12.png}
+\caption{Number of Geant4 steps in each ATLAS sub-detector and
 for each particle type. The sub-detector types are: Px (pixel tracker),
 Sct (strip tracker), Trt (straw-tube tracker), Sev (tracker services),
 Cry (calorimeter cryostat), Pre (calorimeter presampler), EMB (EM barrel
@@ -1518,21 +1613,27 @@ calorimeter EM module), FC23 (forward calorimeter hadronic modules), FCO
 (other parts of the forward calorimeter), LAr (other parts of the liquid
 argon calorimeter system), Mu (muon system), and other (those not
 otherwise accounted for).}
+\label{fig:perfsteps}
+\end{figure}
 
-Figure 14 shows a chart of CPU time for the G4 module of the CMS Full
+Figure 13 shows a chart of CPU time for the G4 module of the CMS Full
 Simulation application {[}32{]}. About 60\% of the time is spent on
 functions associated with the propagation of particles through the
 detector geometry and magnetic field, while about 15\% is spent on EM
-physics, and about 10\% followed by hadronic physics. Figure 15 shows
+physics, and about 10\% followed by hadronic physics. Figure 14 shows
 the CMS throughput and memory per event utilisation for QCD and ttbar
 simulated events {[}32{]}. Maximum CPU efficiency is achieved after
 simulating about 500 events, when contribution of initialisation of
 Geant4 and CMSSW become negligible.
 
-\includegraphics[width=4.37995in,height=3.08854in]{media/image19.png}
-
-\emph{Figure 14: Chart of CPU time spent in different tasks of the CMS
+\begin{figure}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image13.png}
+\caption{Chart of CPU time spent in different tasks of the CMS
 Full Simulation application for Run-2 simulation}
+\label{fig:perfcpucms}
+\end{figure}
 
 Optimizing particle production cuts and replacing particle showers in
 detectors with pre-generated showers or parameterisations are also part
@@ -1553,13 +1654,18 @@ regions. The surviving particle is assigned a weight of N. The use of
 this technique by the CMS experiment yields significantly CPU time
 savings, as discussed in Section 8.2.
 
-\includegraphics[width=6.70522in,height=8.18056in]{media/image20.png}
 
-\emph{Figure 15: Throughput and memory per event for ttbar simulated
+\begin{figure}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image14.png}
+\caption{Throughput and memory per event for ttbar simulated
 events in CMS as a function of the event number. The version of Geant4
 is 10.2p02, run in multi-threaded mode with 4 and 8 threads. Forced init
 refers to the case when all data for photon evaporation is read at
 initialisation time.}
+\label{fig:perfthroughput}
+\end{figure}
 
 8.2 ATLAS and CMS
 
@@ -1586,10 +1692,10 @@ simulation configurations and physics input samples:
 \item
   Pythia {[}34{]} events: 13 TeV Pythia minimum bias (300 events) and
   ttbar (300 events), pseudo rapidity cut
-  \textbar{}η\textbar{}\textless{}5.5
+  \textbar{}$\eta$\textbar{}\textless{}5.5
 \item
-  Particle gun: 50 GeV e's, muons, pions with a flat η,φ distribution in
-  η={[}-0.8,0.8{]}, η={[}2,2.7{]}, and φ={[}0,2π{]}
+  Particle gun: 50 GeV e's, muons, pions with a flat $\eta,\varphi$ distribution in
+  $\eta={[}-0.8,0.8{]}, \eta={[}2,2.7{]}, and \varphi={[}0,2\pi{]}$
 \item
   Geometry: 2015 or 2016
 \end{itemize}
@@ -1603,6 +1709,23 @@ tracking parameter values. The experiments also study the evolution of
 the time and memory performance of the Full Simulation application as
 the detectors are upgraded from the Run 1 and Run 2 configurations to
 several potential HL-LHC configurations.
+
+\begin{table}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image15.png}
+\caption{Time and memory performance of the Geant4 module of the
+CMS Full Simulation application for minimum bias and ttbar events in
+current and future detector configurations. The Geant4 version used in
+the test is 10.2p02. With respect to the 2015 and 2016 configurations,
+which are very similar, 2017 adds an upgraded pixel detector and
+modifies the forward calorimeter layer configuration, 2023D4 and 2023D17
+are different versions of the HL-LHC CMS detector with an upgraded
+tracker and a High Granularity end cap calorimeter (HGCAL), the latter
+sub-detector involving a significant increase in the number of Geant4
+volumes. }
+\label{label:table1}
+\end{table}
 
 The differing structures of the ATLAS and CMS detectors means that even
 in stand-alone Geant4 the simulation times are very different. Different
@@ -1636,7 +1759,34 @@ several options to reduce CPU time consumption in production of Pythia
 individual impact of each of the options, while Table 3 shows the
 cumulative effect. The conclusion is that small gains may be achieved by
 utilizing static libraries and by re-optimizing timing or particle
-production cuts. In the CMS simulation Geant4 time cuts and tracking
+production cuts. 
+
+\begin{table}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image16.png}
+\caption{Relative time performance of the Geant4 module of the CMS Full
+Simulation application for minimum bias and ttbar production.
+Measurements of the individual effect of several options to reduce CPU
+time consumption are listed. The Geant4 version used in the test is
+10.2.p02. Values of range cuts and tracking cuts are specified in the
+text.}
+\label{table:table2}
+\end{table}
+
+\begin{table}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image17.png}
+\caption{Relative time performance of the Geant4 module of the CMS Full
+Simulation application for minimum bias and ttbar production.
+Measurements of the cumulative effect of several options to reduce CPU
+time consumption are listed. The Geant4 version used in the test is
+10.2p02. Values of range cuts and tracking cuts are specified in the text.}
+\label{table:table3}
+\end{table}
+
+In the CMS simulation Geant4 time cuts and tracking
 cuts are optimised per detector region. The cut in range value for the
 production of secondary particles is 1 mm in the electromagnetic and
 hadronic calorimeters, 0.01 mm in the pixel detector, 0.1 mm in the
@@ -1666,6 +1816,61 @@ forward calorimeter and 300~$\mu$m in the EM calorimeters, to provide an
 accurate physics description. This penalty is not present in the CMS
 simulation, since the CMS EM calorimeter has much larger active volumes.
 Still, the effect of range cuts on the two applications is similar.
+
+\begin{table}[bhp]
+\centering
+\begin{tabular}{| p{9cm} | c | c |}
+\hline
+Configuration & MinBias & ttbar \\ \hline
+Nominal production configuration: shower libraries 
+in the forward calorimeter, nominal range cuts, 
+NystromRK4 stepper, FTFP\_BERT\_ATL
+physics list, 250ns neutron time cut, simulation 
+of primary particles with pseudo-rapidity below 6.0
+ & 1.0 & 1.0 \\ \hline
+No shower libraries & 1.5 & 1.3 \\ \hline
+ClassicalRK4 stepper instead of NystromRK4 & 1.09 & 1.07 \\ \hline
+No neutron time cut & 1.02 & 1.01 \\ \hline
+FTFP\_BERT instead of FTFP\_BERT\_ATL physics list & No change & No
+change \\ \hline
+No simulation of primaries with pseudo-rapidity above 5.5 & 0.94 & 0.95
+\\ \hline
+All range cuts set to 1mm & 0.92 & 0.90 \\ \hline
+\end{tabular}
+\caption{Performance of various configurations of the ATLAS
+simulation for minimum bias and ttbar production events. The Geant4
+version used for this test was G4 10.2p03. No significant performance
+improvements were introduced in patch 03 with respect to patch 02.}
+\label{table:table4}
+\end{table}
+
+\begin{table}[bthp]
+\centering
+\begin{tabular}{| p{9cm} | c | c |}
+\hline
+Configuration & MinBias & ttbar \\ \hline
+Nominal production configuration: & 1.0 & 1.0 \\ \hline
+No shower libraries & 1.5 & 1.3 \\ \hline
+No shower libraries + use ClassicalRK4 stepper & 1.6 & 1.4 \\ \hline
+No shower libraries + use ClassicalRK4 stepper + No neutron time cut &
+1.6 & 1.4 \\ \hline
+No shower libraries + use ClassicalRK4 stepper + No neutron time cut +
+use FTFP\_BERT physics list & 1.6 & 1.4 \\ \hline
+No shower libraries + use ClassicalRK4 stepper + No neutron time cut +
+use FTFP\_BERT physics list + All range cuts set to 1mm & 1.5 & 1.3
+\\ \hline
+No shower libraries + use ClassicalRK4 stepper + No neutron time cut +
+use FTFP\_BERT physics list + All range cuts set to 1mm + No simulation
+of primaries with pseudo-rapidity above 5.5 & 1.4 & 1.2 \\ \hline
+\end{tabular}
+\caption{Performance of various configurations of the ATLAS
+simulation for minimum bias and ttbar production events. Measurements of
+the cumulative effect of several options to reduce CPU time consumption
+are listed. The Geant4 version used for this test was G4 10.2p03. No
+significant performance improvements were introduced in patch 03 with
+respect to patch 02.}
+\label{table:table5}
+\end{table}
 
 Having exhausted the most obvious optimisations, CMS is exploring
 various opportunities to improve computing performance in various ways
@@ -1725,87 +1930,8 @@ samples simulated with the new optimisation cannot be combined with
 older samples, then a new simulation campaign with new calibrations
 might be required to benefit from the new optimisation.
 
-\includegraphics[width=6.06094in,height=3.03532in]{media/image21.jpg}
-
-\emph{Table 1: Time and memory performance of the Geant4 module of the
-CMS Full Simulation application for minimum bias and ttbar events in
-current and future detector configurations. The Geant4 version used in
-the test is 10.2p02. With respect to the 2015 and 2016 configurations,
-which are very similar, 2017 adds an upgraded pixel detector and
-modifies the forward calorimeter layer configuration, 2023D4 and 2023D17
-are different versions of the HL-LHC CMS detector with an upgraded
-tracker and a High Granularity end cap calorimeter (HGCAL), the latter
-sub-detector involving a significant increase in the number of Geant4
-volumes. }
-
-\includegraphics[width=7.59701in,height=3.65104in]{media/image22.jpg}\emph{Table
-2: Relative time performance of the Geant4 module of the CMS Full
-Simulation application for minimum bias and ttbar production.
-Measurements of the individual effect of several options to reduce CPU
-time consumption are listed. The Geant4 version used in the test is
-10.2.p02. Values of range cuts and tracking cuts are specified in the
-text.}\includegraphics[width=6.81771in,height=3.90017in]{media/image23.jpg}\emph{Table
-3: Relative time performance of the Geant4 module of the CMS Full
-Simulation application for minimum bias and ttbar production.
-Measurements of the cumulative effect of several options to reduce CPU
-time consumption are listed. The Geant4 version used in the test is
-10.2p02. Values of range cuts and tracking cuts are specified in the
-text.}
-
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-\endhead
-Configuration & MinBias & ttbar\tabularnewline
-Nominal production configuration: shower libraries in the forward
-calorimeter, nominal range cuts, NystromRK4 stepper, FTFP\_BERT\_ATL
-physics list, 250ns neutron time cut, simulation of primary particles
-with pseudo-rapidity below 6.0 & 1.0 & 1.0\tabularnewline
-No shower libraries & 1.5 & 1.3\tabularnewline
-ClassicalRK4 stepper instead of NystromRK4 & 1.09 & 1.07\tabularnewline
-No neutron time cut & 1.02 & 1.01\tabularnewline
-FTFP\_BERT instead of FTFP\_BERT\_ATL physics list & No change & No
-change\tabularnewline
-No simulation of primaries with pseudo-rapidity above 5.5 & 0.94 &
-0.95\tabularnewline
-All range cuts set to 1mm & 0.92 & 0.90\tabularnewline
-\bottomrule
-\end{longtable}
-
-\emph{Table 4: Performance of various configurations of the ATLAS
-simulation for minimum bias and ttbar production events. The Geant4
-version used for this test was G4 10.2p03. No significant performance
-improvements were introduced in patch 03 with respect to patch 02.}
-
-\begin{longtable}[]{@{}lll@{}}
-\toprule
-\endhead
-Configuration & MinBias & ttbar\tabularnewline
-Nominal production configuration: & 1.0 & 1.0\tabularnewline
-No shower libraries & 1.5 & 1.3\tabularnewline
-No shower libraries + use ClassicalRK4 stepper & 1.6 &
-1.4\tabularnewline
-No shower libraries + use ClassicalRK4 stepper + No neutron time cut &
-1.6 & 1.4\tabularnewline
-No shower libraries + use ClassicalRK4 stepper + No neutron time cut +
-use FTFP\_BERT physics list & 1.6 & 1.4\tabularnewline
-No shower libraries + use ClassicalRK4 stepper + No neutron time cut +
-use FTFP\_BERT physics list + All range cuts set to 1mm & 1.5 &
-1.3\tabularnewline
-No shower libraries + use ClassicalRK4 stepper + No neutron time cut +
-use FTFP\_BERT physics list + All range cuts set to 1mm + No simulation
-of primaries with pseudo-rapidity above 5.5 & 1.4 & 1.2\tabularnewline
-\bottomrule
-\end{longtable}
-
-\emph{Table 5: Performance of various configurations of the ATLAS
-simulation for minimum bias and ttbar production events. Measurements of
-the cumulative effect of several options to reduce CPU time consumption
-are listed. The Geant4 version used for this test was G4 10.2p03. No
-significant performance improvements were introduced in patch 03 with
-respect to patch 02.}
-
 \hypertarget{lhcb-and-alice}{%
-\subsubsection{8.3 LHCb and Alice}\label{lhcb-and-alice}}
+\subsection{LHCb and Alice}\label{lhcb-and-alice}}
 
 Although the use of CPU grid resources by LHCb is two orders of
 magnitude below ATLAS', the expectation for the 2020 LHC run and beyond
@@ -1830,7 +1956,7 @@ with the promise to achieve significant memory savings. Potential gains
 from static library linkage and re-optimisation of simulation parameters
 will also be investigated. The plan is to evolve the software into an
 integrated simulation framework which allows to choose and combine
-different fast simulation options. Table 4 shows the percentage of the
+different fast simulation options. Table 6 shows the percentage of the
 CPU time spent on each sub-detector systems for different particle types
 in a given version of the software The RICH detector took almost 50\% of
 the time followed by the Ecal with about 26\%. Optical photons took the
@@ -1839,14 +1965,18 @@ Re-optimisation of the RICH modeling has already been performed reducing
 the time of the RICH simulation to 20-30\% in future production
 versions.
 
-\includegraphics[width=6.82813in,height=2.20063in]{media/image24.jpg}
-
-\emph{Table 4: Percentage of the CPU time spent on each sub-detector
-systems for different particle types for a given version of the
+\begin{table}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image18.png}
+\caption{Percentage of the CPU time spent on each sub-detector
+system in LHCb for different particle types for a given version of the
 software.}
+\label{table:table6}
+\end{table}
 
 ALICE also consumes two orders of magnitude less CPU resources than
-ATLAS. Figures 16 and 17 show charts of the percentage of time spent in
+ATLAS. Figures 15 and 16 show charts of the percentage of time spent in
 different elements of the detector simulation chain, including the
 Geant4 and digitisation modules, and in the different library
 components, respectively. The challenge for ALICE is to reduce the time
@@ -1857,20 +1987,28 @@ resources in ALICE (35\%) and is therefore also a target of ongoing R\&D
 to improve the modeling of the TPC readout and the IO, and to explore
 the benefits from SIMD vectorisation.
 
-\includegraphics[width=5.37135in,height=2.64583in]{media/image25.jpg}
-
-\emph{Figure 16: Approximate percentage of time spent in different
+\begin{figure}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image19.png}
+\caption{Approximate percentage of time spent in different
 components of the ALICE detector simulation chain, including the Geant
 and digitisation modules (for a representative Pb-Pb Hijing event)}
+\label{fig:alicecpu}
+\end{figure}
 
-\includegraphics[width=4.52441in,height=2.60938in]{media/image26.jpg}
-
-\emph{Figure 17: Approximate percentage of time spent in the different
+\begin{figure}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image20.png}
+\caption{Approximate percentage of time spent in the different
 library components of the ALICE detector simulation chain for the same
-setting as in Figure 16.}
+setting as in Figure 16}
+\label{fig:alicesimchain}
+\end{figure}
 
 \hypertarget{neutrino-experiments}{%
-\subsubsection{8.4 Neutrino Experiments}\label{neutrino-experiments}}
+\subsection{Neutrino Experiments}\label{neutrino-experiments}}
 
 Accelerator-based neutrino experiments use ``detector'' simulation tools
 in two different places. Beam simulations are used to model primary
@@ -1923,66 +2061,26 @@ computing resources. The issue of liquid argon simulations requiring
 large amounts of memory will be mitigated by evolving the \emph{art}
 software framework {[}35{]} to support multithreading.
 
-\begin{longtable}[]{@{}llllll@{}}
-\toprule
-\endhead
-\begin{minipage}[t]{0.14\columnwidth}\raggedright
-\begin{quote}
-\textbf{Experiment / Simulation Stage CPU} ( sec/event)
-\end{quote}\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-\textbf{Generation}\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-\textbf{Geant4}\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-\textbf{Geant4 with space charge}\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-\textbf{DetSim}\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-\textbf{Reco}\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.14\columnwidth}\raggedright
-\begin{quote}
-\textbf{ProtoDUNE} (Cosmic events with Corsika {[}36{]})
-\end{quote}\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-10\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-180\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-480\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-25\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-1000\strut
-\end{minipage}\tabularnewline
-\begin{minipage}[t]{0.14\columnwidth}\raggedright
-\begin{quote}
-\textbf{DUNE FD} (v\textsubscript{e} events with GENIE)
-\end{quote}\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-0.04\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-4\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-44\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
-160\strut
-\end{minipage}\tabularnewline
-\bottomrule
-\end{longtable}
 
-\emph{Table 5: Summary of CPU time measurements for the different
+\begin{table}[tbhp]
+\centering
+\begin{tabular}{| p{3.5cm} | c | c | p{2.5cm} | c | c |}
+\hline
+Experiment/ Simulation Stage CPU (sec/event) & Generation & Geant4 
+& Geant4 with space charge & DetSim & Reco \\ \hline
+ProtoDUNE (Cosmic events with Corsika {[}36{]}) & 10 & 180  & 
+480 & 25 & 1000 \\ \hline
+DUNE FD ($\nu$\textsubscript{e} events with GENIE) & 0.04 & 4 &   & 
+44 & 160 \\ \hline
+\end{tabular}
+\caption{Summary of CPU time measurements for the different
 modules associated with the ProtoDUNE and DUNE Far Detector (DUNE FD)
 simulation applications.}
-
-\hypertarget{section-4}{%
-\subsubsection{}\label{section-4}}
+\label{table:cpudune}
+\end{table}
 
 \hypertarget{direct-dark-matter-search-experiments}{%
-\subsubsection{8.5 Direct dark-matter search
+\subsection{Direct dark-matter search
 experiments}\label{direct-dark-matter-search-experiments}}
 
 As is the case for neutrino and muon experiments, the direct dark-matter
@@ -2018,7 +2116,7 @@ The specific CPU-related elements are:
 \end{itemize}
 
 \hypertarget{rd-towards-improving-software-performance}{%
-\section{9 R\&D Towards Improving Software Performance
+\section{R\&D Towards Improving Software Performance
 }\label{rd-towards-improving-software-performance}}
 
 To meet the challenge of improving the performance by a large factor, an
@@ -2040,7 +2138,7 @@ This is also true for jets because hadronic showers, induced by the
 hadron components of jets, have electromagnetic components coming from
 the decays of neutral pions. The geometry component as well as particle
 propagation in fields fill also important slices in the overall
-performance pie-chart of simulation, as can be observed in Figure 14.
+performance pie-chart of simulation, as can be observed in Figure 13.
 These observations are showing in which areas the R\&D effort should be
 mainly focused in the short and medium term from the perspective of
 detailed simulation.
@@ -2053,7 +2151,7 @@ architectures is very important. In the following we describe in detail
 some of the studies to be performed in the next 3-5 years.
 
 \hypertarget{particle-transport-and-vectorisation}{%
-\subsubsection{9.1 Particle Transport and
+\subsection{Particle Transport and
 Vectorisation}\label{particle-transport-and-vectorisation}}
 
 One of the most ambitious elements of the simulation R\&D programme is a
@@ -2102,7 +2200,7 @@ The entire simulation workflow needs to be adapted to provide the
 multiple data required by vectorisation. GeantV prototyped an approach
 that splits the stepping procedure for tracks into stages, aiming to
 accumulate many particles before actually performing the actions
-involved by the stage. As illustrated In Figure 18, the generation of
+involved by the stage. As illustrated In Figure 17, the generation of
 the final states from discrete physics processes can be such a
 simulation stage. Particles entering it are directed to different
 physics model handlers that accumulate tracks into baskets, executing
@@ -2136,9 +2234,11 @@ to be reflected in the program of work. This will also facilitate the
 validation of the new developments and benchmarking their performance in
 a ``basket flow'' environment.
 
-\includegraphics[width=6.26772in,height=3.52778in]{media/image27.png}
-
-Figure 18: \emph{The stepping procedure in particle transport is the
+\begin{figure}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image22.png}
+\caption{The stepping procedure in particle transport is the
 sequence of actions allowing to propagate a particle from a starting
 point to the next point where the state of the particle changes
 meaningfully (e.g. physics process occurrence or geometry crossing). In
@@ -2147,6 +2247,8 @@ set of models. Tracks can be buffered and sent in form of baskets to
 vectorised models, which are allowed to coexist with scalar models. This
 approach improves the locality and cache coherency compared to the
 classical stack-based approach.}
+\label{fig:parttransp}
+\end{figure}
 
 The required improvement in CPU performance cannot be achieved only from
 algorithmic improvements, structural changes and multiparticle flow.
@@ -2195,7 +2297,7 @@ to allow meaningful physics and time comparisons. This effort is
 estimated at 2 FTEs.
 
 \hypertarget{hybrid-computing-and-simulation}{%
-\subsubsection{9.2 Hybrid Computing and
+\subsection{Hybrid Computing and
 simulation}\label{hybrid-computing-and-simulation}}
 
 Hybrid computing refers to sharing work across a mixture of computers
@@ -2241,12 +2343,16 @@ can be integrated in existing applications, replacing only the specific
 components with independent libraries. This approach is particularly
 effective for HEP experiments because it allows for a non-disruptive
 evolution of the simulation code that extends the thoroughly validated
-current versions of the Geant4 neutron physics models (see Figure 19).
+current versions of the Geant4 neutron physics models (see Figure 18).
 
-\includegraphics[width=6.70522in,height=1.38889in]{media/image28.png}
-
-\emph{Figure 19: Proposed architecture of a specialised library to
+\begin{figure}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image23.png}
+\caption{Proposed architecture of a specialised library to
 leverage GPU for neutron transport.}
+\label{fig:neutrontransport}
+\end{figure}
 
 The first target of the described approach is the use of GPUs for
 thermal neutron transportation. While the CPUs continue to process the
@@ -2274,7 +2380,7 @@ in order for the factor of 30 to be achieved, due to the long transfer
 times to and from the GPU.
 
 \hypertarget{modularisation}{%
-\subsubsection{9.3 Modularisation}\label{modularisation}}
+\subsection{Modularisation}\label{modularisation}}
 
 Starting from the next release, a modularisation of Geant4 is being
 pursued that will allow an easier integration in experimental
@@ -2292,7 +2398,7 @@ systems. A review will be made of the multithreading design to be closer
 to the task-based frameworks, such as Intel's TBB.
 
 \hypertarget{simulation-on-high-performance-computing-systems}{%
-\subsubsection{9.4 Simulation on High Performance Computing
+\subsection{Simulation on High Performance Computing
 Systems}\label{simulation-on-high-performance-computing-systems}}
 
 HPC resources at supercomputer centers can provide a substantial
@@ -2311,7 +2417,7 @@ be achieved for a semi-realistic HEP-Geant4 application. A test
 performed on the MIRA supercomputer at ANL successfully ran a modified
 version of Geant4 spawning more than 3 million threads {[}44{]}. The
 test concluded that the main bottleneck to achieve scaling linearity is
-concurrent access to I/O resources (see Figure 20). Extensions to Geant4
+concurrent access to I/O resources (see Figure 19). Extensions to Geant4
 capabilities to improve the scalability of the code are underway. These
 include:
 
@@ -2358,23 +2464,21 @@ node event throughput was achieved with two jobs using 128 threads each.
 The simulation application and its underlying simulation engine, Geant4,
 is not limiting scaling behaviour.
 
-\includegraphics[width=6.26772in,height=4.625in]{media/image29.png}\emph{Figure
-20: Top: Initial testing of Geant4 on MIRA (blue diamonds) and VESTA
+\begin{figure}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image24.png}
+\caption{Top: Initial testing of Geant4 on MIRA (blue diamonds) and VESTA
 (green stars). Each node has 80 threads. The loss of scalability is due
 to I/O and intra-node communication limitations (MIRA nodes do not have
 disks and rely on MPI for every I/O operation). VESTA, a smaller
 test-bed, shows better results because the number of I/O nodes is
 larger. }
-
-\hypertarget{section-5}{%
-\section{}\label{section-5}}
-
-\hypertarget{section-6}{%
-\section{\texorpdfstring{\\
-}{ }}\label{section-6}}
+\label{fig:mira}
+\end{figure}
 
 \hypertarget{fast-simulation}{%
-\section{10. Fast Simulation}\label{fast-simulation}}
+\section{Fast Simulation}\label{fast-simulation}}
 
 As pointed out earlier, simulation consumes the majority of the CPU time
 used by many experiments. Optimisation studies on detailed simulation
@@ -2457,7 +2561,7 @@ the needs of a specific physics analysis. This would allow to target a
 given sub-detector or part of the event.
 
 \hypertarget{fast-simulation-techniques-and-examples}{%
-\subsubsection{10.1 Fast Simulation techniques and
+\subsection{Fast Simulation techniques and
 examples}\label{fast-simulation-techniques-and-examples}}
 
 There are many techniques to make simulation faster. Some of them are
@@ -2600,7 +2704,7 @@ simulation frameworks, are:
 
 A natural evolution of having separate Full and Fast Simulation
 frameworks in experiments is the concept of ``hybrid'' simulation (see
-Sec. 9.2), where a single framework allows to treat some aspects of the
+Section 9.2), where a single framework allows to treat some aspects of the
 event with a fast or very fast simulation technique and others with a
 detailed simulation approach. Such configurations might be useful for
 handling pile-up and also for B-physics, where only a few particles are
@@ -2619,7 +2723,7 @@ underlying event. It allows a reduction in CPU time consumption
 proportional to the number of times the underlying event is reused.
 
 \hypertarget{physics-performance-of-fast-simulations}{%
-\subsubsection{10.2 Physics Performance of Fast
+\subsection{Physics Performance of Fast
 Simulations}\label{physics-performance-of-fast-simulations}}
 
 The fastest of the fast simulations are typically useful for situations
@@ -2660,7 +2764,7 @@ like PGS and DELPHES), and they have a more clear connection with
 physical observables. Thus, it can be easier to tune a fast simulation
 to match the data than it is to tune a detailed simulation toolkit.
 
-Figure 21 shows the speed of CMS Fast Simulation factored into different
+Figure 20 shows the speed of CMS Fast Simulation factored into different
 subprocesses as a function of the number of pileup interactions. The
 sub-processes are defined as follows:
 
@@ -2695,14 +2799,18 @@ sub-processes are defined as follows:
   used in data and simulation.
 \end{itemize}
 
-\includegraphics[width=6.70522in,height=4.93056in]{media/image30.png}
-
-\emph{Figure 21 Speed of CMS Fast Simulation factorised into different
+\begin{figure}[bthp]
+\vspace*{0.3cm}
+\centering
+\includegraphics[width=0.94\textwidth]{image25.png}
+\caption{Speed of CMS Fast Simulation factorised into different
 subprocesses, as explained in Section 10.2, versus number of pileup
 interactions. }
+\label{fig:speedfastsim}
+\end{figure}
 
 \hypertarget{machine-learning-in-fast-simulations}{%
-\subsubsection{10.3 Machine Learning in Fast
+\subsection{Machine Learning in Fast
 Simulations}\label{machine-learning-in-fast-simulations}}
 
 There has recently been a great deal of interest in the use of machine
@@ -2825,7 +2933,7 @@ this CWP, we suggest that this be pursued in parallel to improving the
 speed and accuracy of fast simulators.
 
 \hypertarget{sharing-of-fast-simulation-and-interfaces}{%
-\subsubsection{10.4 Sharing of Fast Simulation and
+\subsection{Sharing of Fast Simulation and
 Interfaces}\label{sharing-of-fast-simulation-and-interfaces}}
 
 At the moment, simulation toolkits like Geant4 provide interfaces for
@@ -2859,8 +2967,8 @@ data and code locality, as well as instruction level parallelism as any
 other component of GeantV, while the scalar models will be still usable.
 
 \hypertarget{pseudorandom-number-generators}{%
-\section{\texorpdfstring{\textbf{11. Pseudorandom number
-generators}}{11. Pseudorandom number generators}}\label{pseudorandom-number-generators}}
+\section{\texorpdfstring{\textbf{Pseudorandom number
+generators}}{Pseudorandom number generators}}\label{pseudorandom-number-generators}}
 
 The use of sequences of pseudo-random numbers is critical for all Monte
 Carlo simulations. In simulating particle and radiation transport the
@@ -2991,15 +3099,8 @@ following:
   simple setups.
 \end{itemize}
 
-\hypertarget{section-7}{%
-\section{}\label{section-7}}
-
-\hypertarget{section-8}{%
-\section{\texorpdfstring{\\
-}{ }}\label{section-8}}
-
 \hypertarget{summary-and-outlook}{%
-\section{12. Summary and outlook}\label{summary-and-outlook}}
+\section{Summary and outlook}\label{summary-and-outlook}}
 
 In this note we have attempted to describe the main challenges and
 opportunities for Full and Fast Simulation applications of HEP
