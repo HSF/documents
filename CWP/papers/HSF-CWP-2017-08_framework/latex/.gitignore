@@ -4,10 +4,8 @@
 *.fls
 *.log
 *.out
+*.xml
 *.fdb_latexmk
-.proposal.lb
-project_summary.pdf
-requested_changes.pdf
-proposal.pdf
-proposal.dvi
-proposal.toc
+df_fwk_summary.pdf
+df_fwk_summary.dvi
+df_fwk_summary.toc
