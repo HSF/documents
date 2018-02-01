@@ -5,7 +5,6 @@ CBPF: Centro Brasileiro de Pesquisas Físicas, Rio de Janeiro, Brazil
 CCIN2P3: Centre de Calcul de l’IN2P3, Villeurbanne, Lyon, France
 CERN: CERN, Geneva, Switzerland
 CIEMAT: Centro de Investigaciones Energéticas Medioambientales y Tecnológicas (CIEMAT), Madrid, Spain
-CHICAGO: Enrico Fermi Institute, University of Chicago, Chicago, IL, USA
 CINVESTAV: Cinvestav, Mexico City, Mexico
 CNAF: Centro Nazionale Analisi Fotogrammi (CNAF), INFN, Bologna, Italy
 Cornell: Cornell University, Ithaca, NY, USA

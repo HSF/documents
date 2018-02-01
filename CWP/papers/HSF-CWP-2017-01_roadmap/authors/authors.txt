@@ -253,15 +253,16 @@ Skipsey, Sam - UGlasgow
 Smith, Tim - CERN
 Snyder, Scott - BNL
 Sokoloff, Michael D - UCincinnati (1)
+Spentzouris, Panagiotis - Fermilab
 Stadie, Hartmut - HAMBURG
-Stark, Giordon - CHICAGO
+Stark, Giordon - UChicago
 Stewart, Gordon - UGlasgow
 Stewart, Graeme - CERN - HSF (1)
 Taffard, Anyes - UCIrvine
 Templon, Jeff - NIKHEF
 Tenaglia, Giacomo - CERN
 Tsulaia, Vakhtang - LBNL
-Tunnell, Christopher - CHICAGO
+Tunnell, Christopher - UChicago
 Vaandering, Eric - Fermilab (3)
 Valassi, Andrea - CERN
 Vallecorsa, Sofia - UGangneung
