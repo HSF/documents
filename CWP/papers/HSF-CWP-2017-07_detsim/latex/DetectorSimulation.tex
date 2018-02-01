@@ -12,8 +12,8 @@
 \usepackage[utf8]{inputenc}
 
 \usepackage[style=numeric-comp,sorting=none]{biblatex}
-\addbibresource{../../roadmap/latex/cwp.bib}
-\addbibresource{../../roadmap/latex/cwp-chapters.bib}
+\addbibresource{../..//HSF-CWP-2017-01_roadmap/latex/cwp.bib}
+\addbibresource{../..//HSF-CWP-2017-01_roadmap/latex/cwp-chapters.bib}
 
 %% Comment out before final submission
 %\usepackage{lineno}  % for line numbering during review
@@ -159,7 +159,7 @@ typically starts with a Geant4 module to model the interaction of a
 proton beam with a target to produce a neutrino beam which is driven to
 a detector where the physics interaction of interest occurs. The
 neutrino beam and the first neutrino-nucleus interaction in the detector
-is typically modeled with the GENIE ~\cite{}{[}7{]} package, while Geant4 is
+is typically modeled with the GENIE ~\cite{Andreopoulos:2009rq} package, while Geant4 is
 utilised in a second step to simulate the nucleus de-excitation and
 subsequent hadron production. Readout modeling, calibration, and
 reconstruction is done as described for collider experiments.
@@ -214,7 +214,7 @@ network technologies. A plan must consider new approaches to computing
 and software that could radically extend the physics reach of the
 detectors, while ensuring the long-term sustainability of the software
 through the lifetime of the experiments running through the 2020's and
-2030's. One example is the GeantV {[}2{]} R\&D project, started in 2013.
+2030's. One example is the GeantV ~\cite{1742-6596-396-2-022014} R\&D project, started in 2013.
 Another example is the ongoing effort to port simulation code to run on
 High Performance Computing (HPC) facilities, which provide massive CPU
 power and modern computing architectures.
@@ -378,10 +378,11 @@ models.
 
 There are specific challenges associated with the Intensity Frontier
 experimental programme. Properly simulating a neutrino experiment like
-NOvA {[}3{]}, MicroBooNE{[}4{]}, MINERvA{[}5{]}, or DUNE {[}6{]}
+NOvA ~\cite{1742-6596-396-2-022014}, MicroBooNE~\cite{MicroBooNE}, 
+MINERvA~\cite{Aliaga:2013uqz}, or DUNE ~\cite{Acciarri:2015uup}
 involves a three-part software stack, the first and last of which are
-relevant to this paper; the second, event generators such as GENIE
-{[}7{]}, is discussed elsewhere. The first element of the stack concerns
+relevant to this paper; the second, event generators such as GENIE, 
+is discussed elsewhere. The first element of the stack concerns
 the beamline and the neutrino flux prediction. Estimating the neutrino
 flux is a notorious problem because as weakly interacting particles,
 neutrinos offer no independent mechanisms for measuring the flux. A
@@ -390,8 +391,8 @@ hadronic physics of meson production, especially in a thick target.
 Additionally, the simulated neutrino flux depends very strongly on
 minute details of the beamline, meaning that neutrino beam kinematic
 distributions must be described in great detail. Geant4 is the most
-commonly used software toolkit for this work, although FLUKA {[}8{]} and
-MARS {[}9{]} are also used. The final element of the stack is the
+commonly used software toolkit for this work, although FLUKA ~\cite{Ferrari:2005zk} 
+and MARS ~\cite{MARS} are also used. The final element of the stack is the
 detector simulation. Again there are numerous challenges in terms of
 efficiently simulating large numbers of events inside complex detector
 geometries and in handling subtle physics effects in the traversal of
@@ -427,8 +428,8 @@ architectures and algorithms. This transition will be complicated by the
 fact that the intensity frontier is fractured into many small
 experiments, some of which have as few as 50 collaborators, limiting the
 manpower available for updating detector simulations to use new tools.
-Efforts such as LArSoft{[}7{]} have recognised this challenge and aim to
-pool resources of many experiments for the benefit of all.
+Efforts such as LArSoft~\cite{LArSoft} have recognised this challenge and 
+aim to pool resources of many experiments for the benefit of all.
 
 \hypertarget{geometry}{%
 \section{Geometry}\label{geometry}}
@@ -438,7 +439,7 @@ simulation, combining both solids modelling and efficient navigation
 techniques. Stringent requirements apply to provide the right level of
 flexibility, robustness and accuracy in modeling from the simplest to
 the most complex setups and to offer adequate precision and efficiency
-in the implemented algorithms. Geant4 {[}1{]} provides a wide variety of
+in the implemented algorithms. Geant4 provides a wide variety of
 tools and solutions for describing geometry setups from simple to highly
 complex. Geometrical models of the LHC detectors, for instance, easily
 reach millions of geometrical elements of different kinds combined
@@ -462,17 +463,17 @@ their surfaces as a set of planar facets (triangles), with tuneable
 resolution. This technique is used nowadays for importing geometries
 from CAD systems to generate surface-bounded solids. Recent developments
 introduced in Geant4 along with the implementation of the Unified Solids
-library {[}10{]} provide considerably improved CPU performance, making
+library ~\cite{1742-6596-396-5-052035} provide considerably improved CPU performance, making
 it possible to use such constructs for very detailed and realistic
 descriptions of surfaces, while optimally scaling with the number of
 facets in use. Further improvements to the tessellated solid construct
 are expected as part of the rewrite of most geometry primitives going on
-in the VecGeom {[}12{]} package, initiated within the GeantV project
-{[}2{]}.
+in the VecGeom ~\cite{1742-6596-608-1-012023} package, initiated within 
+the GeantV project.
 
 The Unified Solids Library started as an AIDA project in 2011, with the
 aim to unify and improve the algorithms provided by the Geant4 and ROOT
-{[}11{]} approaches to solids modeling. The library which comes with a
+~\cite{Brun1996} approaches to solids modeling. The library which comes with a
 large collection of primitives, has been extended and enhanced as part
 of the AIDA-2020 project, and is now integrated in VecGeom, which
 provides an independent geometry modeler library for use as alternative
@@ -511,16 +512,16 @@ geometries and scoring with VecGeom primitives and parameterisations}
 
 Geant4 offers the ability to import and export Detector geometrical
 descriptions from text files according to the Geometry Description
-Markup Language (GDML) {[}13{]} based on XML; the exchange format is
+Markup Language (GDML) ~\cite{1710291} based on XML; the exchange format is
 also supported by ROOT and the schema includes all the geometrical
 primitives currently in use. GDML supports the modularisation of
 geometry descriptions to multiple GDML files, allowing for rational
 organisation of the modules for complex setups. Verification of the GDML
 file against the latest version of the schema comes for free thanks to
-Xerces-C++ {[}14{]}, with the possibility to turn it on or off in the
+Xerces-C++, with the possibility to turn it on or off in the
 Geant4 GDML parser.
 
-The DD4hep Geometry Toolkit {[}15{]}, being developed in the context of
+The DD4hep Geometry Toolkit ~\cite{1742-6596-513-2-022010}, being developed in the context of
 the AIDA and AIDA-2020 projects aims to provide a generic detector
 description toolkit built by reusing the existing components of widely
 used packages and provide the missing functional elements and
@@ -641,7 +642,7 @@ common software frameworks need to be flexible and modular to cater the
 different needs. The Allpix software and the more recent Allpix Squared
 framework provide generic algorithms shared between many silicon pixel
 detector projects, and Allpix Squared follows a modular approach and is
-thus also suited to simulate silicon-based calorimeters {[}16{]}. The
+thus also suited to simulate silicon-based calorimeters ~\cite{Allpix}. The
 frameworks also allow the implementation of effective radiation damage
 models and therefore enable the simulation of the detector response
 throughout the experiment lifetime.
@@ -691,7 +692,7 @@ the LHC.
 There are a number of ways to model the effect of pileup that the
 experiments have all examined. The simplest approach is to simulate a
 large number of inclusive proton proton collision (minimum bias) events
-with an event generator, such as Pythia8 {[}30{]}, and to overlay the
+with an event generator, such as Pythia8 ~\cite{Sjostrand:2014zea}, and to overlay the
 energy depositions from these events on top of the energy depositions
 from the event of interest. Normally these minimum bias events are kept
 in libraries to avoid frequent, CPU intensive re-simulation of all the
@@ -925,13 +926,14 @@ implementation of algorithms needs to be reviewed in order to optimise
 performance. Significant efforts have been made in the recent past to
 better describe the simulation of electromagnetic shower shapes, in
 particular to model the H $\rightarrow \gamma \gamma $ 
-signal accurately at the
-LHC. This effort is being continued with emphasis on reviewing the
+signal accurately at the LHC. This effort is being continued with 
+emphasis on reviewing the
 models assumptions, approximations and limitations, especially at very
 high energy, and with a view to improving their respective software
 implementations. For LHC Run-1 simulation Geant4 version 9.4 was used
-{[}17{]}. For Run-2 significant improvements were introduced into the
-bremsstrahlung, pair production and multiple scattering {[}18, 19{]}
+~\cite{1742-6596-331-3-032029}. For Run-2 significant improvements were introduced into the
+bremsstrahlung, pair production and multiple scattering 
+~\cite{1742-6596-396-2-022013} ~\cite{1742-6596-513-2-022015}
 further improving simulation of the EM shower shape; these improvements
 were made available in Geant4 9.5 and 9.6. For validation purposes, an
 extended set of tests versus data has been developed for high, moderate
@@ -946,7 +948,7 @@ resolution of detectors. The scattering of low energy electrons defines
 the energy flow across volume boundaries. This affects the sharing of
 energy between absorbers and sensitive elements, directly affecting
 shower shapes. A comprehensive description of recent improvements of the
-Geant4 electromagnetic module can be found in {[}19{]}. Rather good
+Geant4 electromagnetic module can be found in ~\cite{1742-6596-513-2-022015}. Rather good
 agreement was found when Geant4 predictions were compared with
 experimental data collected at the LHC.
 
@@ -1223,7 +1225,7 @@ important effect recently introduced in Geant4 is the improvement of the
 neutron capture cross-sections and final state generator. Based on the
 high precision neutron library, it allows for an improved simulation of
 the time structure and the lateral profile of hadronic showers in
-neutron-rich materials {[}19{]}. Other recent developments include an
+neutron-rich materials ~\cite{WERNER200881}. Other recent developments include an
 improved and re-tuned Fritiof model.
 
 The LHC experiments are preparing detector upgrades for PHASE 2 of the
@@ -1247,7 +1249,7 @@ coverage of hadronic interactions to higher energies, in the multi-TeV
 region, will be necessary for FCC detector simulation studies. Moreover,
 this would open a completely new domain of applications: the possibility
 to simulate very high energy cosmic ray showers in the Earth's
-atmosphere. The EPOS hadronic generator {[}20{]} offers currently the
+atmosphere. The EPOS hadronic generator ~{20{]} offers currently the
 most accurate simulations in this domain, as a fresh C++ rewrite of the
 model, appears as a very interesting possibility for the future of
 hadronic simulations in high energy and cosmic ray physics.
@@ -1313,12 +1315,12 @@ Major components of the intensity frontier over the next decade will
 include liquid Argon TPC detectors and liquid Xenon calorimeters.
 Efforts to address common needs of the liquid Argon experiments
 including the post Geant4 phase of simulation are undertaken in projects
-such as LArSoft{[}21{]} and Qscan{[}22{]}, while extending Geant4 EM
+such as LArSoft~\cite{LArSoft} and Qscan~\cite{LArLEM-TPC}, while extending Geant4 EM
 physics models for liquid noble gases is undertaken by the NEST project
-{[}23{]}. Detectors with large numbers of wires and photo-sensors may
+~\cite{Szydagis:2013sih}. Detectors with large numbers of wires and photo-sensors may
 naturally lend themselves to parallelisation techniques, provided that
 the simulation frameworks are able to handle such cases in an efficient
-way. Additionally, the Wire Cell Toolkit {[}24{]} provides simulation,
+way. Additionally, the Wire Cell Toolkit ~\cite{Wire-Cell} provides simulation,
 noise filtering, signal processing and reconstruction algorithms for
 LArTPC detectors. It includes experimental support for parallel
 processing following the data flow processing paradigm. More work and
@@ -1340,11 +1342,11 @@ be of use to the entire HEP community. This work includes:
 
 \begin{itemize}
 \item
-  Validation of models: a validation database known as DoSSiER {[}25{]}
+  Validation of models: a validation database known as DoSSiER ~\cite{Wenzel:2017dqo}
   that contains data from experiments measuring particle cross-sections
   (e.g. NA61) is being developed. It was started as a Geant4 project,
   but is now also used by GeantV and should be suitable for other MC
-  toolkits such as e.g. GENIE {[}7{]}.
+  toolkits such as e.g. GENIE.
 \item
   Development of new physics lists: Geant4 physics lists utilised by IF
   experiments were originally designed to meet the needs of LHC
@@ -1383,10 +1385,10 @@ mention:
 \item
   Crystal extensions to model the property of crystalline structures.
   Applications include the use of bent crystals for beams manipulations,
-  phonons and ultra-cold neutrons beams {[}26{]}.
+  phonons and ultra-cold neutrons beams ~\cite{Brandt:2014imy}.
 \item
   Geant4-DNA: a Geant4 extension for the calculation of physico-chemical
-  damage to DNA at a nanoscale level {[}27{]}
+  damage to DNA at a nanoscale level ~\cite{bernal:hal-01288764}
 \end{itemize}
 
 \hypertarget{radiation-and-non-collision-background-modeling}{%
@@ -1487,7 +1489,7 @@ memory (bottom) consumption of a simplified CMS standalone simulation
 application, based on Geant4 version 10.3.p01, runs for 50 GeV pions.
 Geant4 achieves almost perfect strong scaling (top plot) with the number
 of available cores (57) and still gains about +30\% in hyperthreading
-regime {[}29,30{]}. The large memory reduction obtained with
+regime ~\cite{G4CPUPerf} ~\cite{Dotti:2016ors}. The large memory reduction obtained with
 multi-threading is clearly visible (bottom). While a multi-process
 approach can reach the O(10GB) memory consumption with a relatively
 small number of threads (Geant4 version 9.6), it is only with a well
@@ -1501,7 +1503,7 @@ Figure 10 shows the percentage change in CPU time performance taking
 Geant4 version 10.0 as a reference, starting with Geant4 version 9.4.p02
 (2010) and ending with Geant4 version 10.2 (2015) for the standalone CMS
 application and a simple calorimeter configuration made of
-Cu-Scintillator in a 4 Tesla magnetic field {[}29{]}.The study is
+Cu-Scintillator in a 4 Tesla magnetic field ~\cite{G4CPUPerf}.The study is
 performed for 50 GeV e\textsuperscript{-}, p\textsuperscript{-}, and
 protons, as well as for H $\rightarrow$ ZZ events. On average, the time performance
 improvement through the life of the LHC experiments (2010-2015) is of
@@ -1522,7 +1524,7 @@ substantially faster.
 Evolving compilers also offer opportunities for speed gains in
 simulation applications. Figure 10 illustrates the impact of the use of
 shared and static libraries in a simplified CMS application (HepExpMT
-public benchmark) {[}31{]}. In this example, static linkage yields a
+public benchmark) ~\cite{Farrell:2016ovs}. In this example, static linkage yields a
 20\% gain, while Profile-Guided Optimisation (PGO) gives another 20\%.
 Multithreaded applications benefit more from static linkage and PGO,
 larger speedups as the number of threads increase. These options are
@@ -1617,12 +1619,12 @@ otherwise accounted for).}
 \end{figure}
 
 Figure 13 shows a chart of CPU time for the G4 module of the CMS Full
-Simulation application {[}32{]}. About 60\% of the time is spent on
+Simulation application ~\cite{Hildreth:2017vpw}. About 60\% of the time is spent on
 functions associated with the propagation of particles through the
 detector geometry and magnetic field, while about 15\% is spent on EM
 physics, and about 10\% followed by hadronic physics. Figure 14 shows
 the CMS throughput and memory per event utilisation for QCD and ttbar
-simulated events {[}32{]}. Maximum CPU efficiency is achieved after
+simulated events. Maximum CPU efficiency is achieved after
 simulating about 500 events, when contribution of initialisation of
 Geant4 and CMSSW become negligible.
 
@@ -1640,7 +1642,7 @@ detectors with pre-generated showers or parameterisations are also part
 of the strategy to improve computing performance. Both ATLAS and CMS
 have these ``frozen showers'' or ``shower library'' options,
 particularly to replace Full Simulation in the forward calorimeters.
-GFLASH {[}33{]}, a Geant4 module for the fast simulation of
+GFLASH ~\cite{GRINDHAMMER1990469}, a Geant4 module for the fast simulation of
 electromagnetic and hadronic showers using parameterisations for the
 longitudinal and lateral profile, is not used at the moment due to the
 peculiarities of the ATLAS accordion calorimeter and the limitations of
@@ -1690,12 +1692,11 @@ simulation configurations and physics input samples:
 \item
   Geant4: version 10.2, FTFP\_BERT physics list
 \item
-  Pythia {[}34{]} events: 13 TeV Pythia minimum bias (300 events) and
-  ttbar (300 events), pseudo rapidity cut
-  \textbar{}$\eta$\textbar{}\textless{}5.5
+  Pythia ~\cite{Sjostrand:2014zea} events: 13 TeV Pythia minimum bias (300 events) and
+  ttbar (300 events), pseudo rapidity cut \textbar{}$\eta$\textbar{}\textless{}5.5
 \item
   Particle gun: 50 GeV e's, muons, pions with a flat $\eta,\varphi$ distribution in
-  $\eta={[}-0.8,0.8{]}, \eta={[}2,2.7{]}, and \varphi={[}0,2\pi{]}$
+  $\eta={[}-0.8,0.8{]}, \eta={[}2,2.7{]}, and \varphi= {[}0,2\pi{]}$
 \item
   Geometry: 2015 or 2016
 \end{itemize}
@@ -1755,7 +1756,7 @@ Tables 2, 3 show the CMS time performance of the Geant4 module of the
 Full Simulation application, that is excluding physics generation,
 digitisation, and reconstruction, for the default configuration and
 several options to reduce CPU time consumption in production of Pythia
-{[}34{]} generated minimum bias and ttbar events. Table 2 lists the
+generated minimum bias and ttbar events. Table 2 lists the
 individual impact of each of the options, while Table 3 shows the
 cumulative effect. The conclusion is that small gains may be achieved by
 utilizing static libraries and by re-optimizing timing or particle
@@ -2014,9 +2015,9 @@ Accelerator-based neutrino experiments use ``detector'' simulation tools
 in two different places. Beam simulations are used to model primary
 proton beam interactions with the target and the creation, integration
 and decay of hadrons that produce neutrinos. For this step, most
-experiments use Geant4, although some use Fluka {[}8{]} or MARS {[}9{]}.
+experiments use Geant4, although some use Fluka or MARS.
 Neutrino-nucleus interactions inside the detectors are taken care of by
-neutrino generator tools, such as GENIE {[}7{]}. The actual Geant4-based
+neutrino generator tools, such as GENIE. The actual Geant4-based
 detector simulation stage takes over from the generator to propagate the
 final state particles through the detectors. Neutrino detectors divide
 into three broad categories: segmented scintillator detectors, liquid
@@ -2037,7 +2038,7 @@ used 13 million CPU hours in 2016, 70\% of which were spent on
 simulation, and less than 2 GB of memory per job.
 
 For liquid argon TPC detectors, all Fermilab experiments use the LArSoft
-software {[}21{]}, which contains the simulation and reconstruction
+software, which contains the simulation and reconstruction
 packages. LArSoft includes both the Geant4 module and a ``DetSim''
 module that handles the conversion from energy to ionisation charge, the
 scintillator light, and the propagation of charge and photons. The
@@ -2059,7 +2060,7 @@ TPC's liquid argon and segmented detector technology under consideration
 for the DUNE near detector (DUNE ND) may pose significant new demands on
 computing resources. The issue of liquid argon simulations requiring
 large amounts of memory will be mitigated by evolving the \emph{art}
-software framework {[}35{]} to support multithreading.
+software framework ~\cite{Green:2012gv} to support multithreading.
 
 
 \begin{table}[tbhp]
@@ -2068,7 +2069,7 @@ software framework {[}35{]} to support multithreading.
 \hline
 Experiment/ Simulation Stage CPU (sec/event) & Generation & Geant4 
 & Geant4 with space charge & DetSim & Reco \\ \hline
-ProtoDUNE (Cosmic events with Corsika {[}36{]}) & 10 & 180  & 
+ProtoDUNE (Cosmic events with Corsika ~\cite{Heck:1998vt}) & 10 & 180  & 
 480 & 25 & 1000 \\ \hline
 DUNE FD ($\nu$\textsubscript{e} events with GENIE) & 0.04 & 4 &   & 
 44 & 160 \\ \hline
@@ -2095,11 +2096,11 @@ The issues associated with physics modeling can be summarised as:
 \begin{itemize}
 \item
   For the liquid noble gas experiments an extension to the Geant4
-  scintillation process {[}37{]} is usually employed
+  scintillation process ~\cite{1748-0221-6-10-P10002} is usually employed
 \item
   For cryogenic crystal detectors the simulation of phonons and their
   interaction becomes important. Geant4 has been extended to support
-  these processes {[}38{]}
+  these processes ~\cite{Brandt:2014imy}
 \end{itemize}
 
 The specific CPU-related elements are:
@@ -2112,7 +2113,7 @@ The specific CPU-related elements are:
 \item
   Optical photon transportation may become a CPU bottleneck for
   experiments with a detailed and complex optical model. Advanced
-  techniques leveraging GPUs are under investigation {[}39{]}.
+  techniques leveraging GPUs are under investigation ~\cite{1742-6596-898-4-042001}.
 \end{itemize}
 
 \hypertarget{rd-towards-improving-software-performance}{%
@@ -2163,7 +2164,7 @@ particles with similar properties from different events to process them
 in a single thread. This approach, combined with SIMD vectorisation
 coding techniques and improved data locality, is expected to yield
 significant speed-ups, which are to be measured in a realistic prototype
-currently under development {[}40{]}.
+currently under development ~\cite{1742-6596-608-1-012003}.
 
 For the GeantV transport engine to display its best computing
 performance, it is necessary to vectorise and optimise the accompanying
@@ -2273,7 +2274,7 @@ detector applications and in collaboration with the experiments.
 The vectorised components show substantial speed-ups with respect to the
 corresponding code in Geant4, sometimes exceeding by one order of
 magnitude. This is the case for certain solids within the VecGeom
-geometry package {[}41{]}, and is planned to be extended to field
+geometry package ~\cite{1742-6596-608-1-012023}, and is planned to be extended to field
 propagators and certain EM physics models. While this result is very
 promising, it still does not constitute an authoritative benchmark,
 although it gives confidence that the stated project goal of reaching a
@@ -2333,7 +2334,7 @@ candidate to explore acceleration with the use of co-processors:
   signal is relatively limited.
 \end{itemize}
 
-Previous experience {[}42{]} has shown that large speedup factors can be
+Previous experience ~\cite{refId0} has shown that large speedup factors can be
 achieved for tasks that are well-suited to GPGPU technology: simplified
 geometry with only few materials, limited number of particle species and
 physics processes. One example is the R\&D effort started by the Geant4
@@ -2369,7 +2370,7 @@ opportunity for making efficient use of GPUs.
 
 Along the same lines, the GeantV project achieved speedup factors of up
 to 30 with respect to Geant4 when processing a basket of electrons and
-photons in a GPU {[}43{]}. This is explained by the fact that EM
+photons in a GPU ~\cite{1742-6596-762-1-012019}. This is explained by the fact that EM
 interactions in a detector evolve into a self-contained cascade of
 electrons and photons that can exploit the benefits of vectorised code,
 SIMD, and data locality. In other words, electrons and photons
@@ -2415,7 +2416,7 @@ techniques (MPI), using a mixed MT/MPI approach. A recent result has
 shown that scaling for hundreds of thousands of concurrent threads can
 be achieved for a semi-realistic HEP-Geant4 application. A test
 performed on the MIRA supercomputer at ANL successfully ran a modified
-version of Geant4 spawning more than 3 million threads {[}44{]}. The
+version of Geant4 spawning more than 3 million threads. The
 test concluded that the main bottleneck to achieve scaling linearity is
 concurrent access to I/O resources (see Figure 19). Extensions to Geant4
 capabilities to improve the scalability of the code are underway. These
@@ -2441,14 +2442,14 @@ before.
 ATLAS is actively pursuing HPC resource utilisation to supplement grid
 resources for simulation production. Multi-process jobs distributed with
 YODA have been running successfully in production on supercomputers at
-NERSC and machine utilisation is being studied {[}45{]}. ATLAS is
+NERSC and machine utilisation is being studied ~\cite{1742-6596-664-9-092025}. ATLAS is
 currently migrating its simulation application to multi-threading to
 ensure good scaling performance on HPC architectures with minimal memory
 footprint. Current measurements of multi-threaded event throughput and
 memory consumption scaling on Intel Xeon Phi Knights Landing chips are
 very promising, demonstrating ability to scale well up to the maximum
 number of threads on a device with a factor five decrease in the
-per-worker memory consumption relative to multi-process jobs {[}46{]}.
+per-worker memory consumption relative to multi-process jobs ~\cite{Farrell:2242857}.
 Overall throughput performance falls short of traditional Xeon
 architectures, however, so studies are ongoing to identify and remove
 the performance bottlenecks.
@@ -2615,12 +2616,12 @@ simulation frameworks, are:
   relatively thick inner detector, and in the case of ATLAS a cryostat
   and solenoid in front of the active calorimeter region, there may not
   be many high-energy electromagnetic particles available to the fast
-  simulation. This simplest approach, based on Ref. {[}34{]}, was
+  simulation. This simplest approach, based on Ref. ~\cite{Sjostrand:2014zea}, was
   abandoned by ATLAS about ten years ago. Current approaches used by
   both ATLAS and CMS involve more complex modeling of the showers than
   can be achieved by a simple parameterisation. Although not part of the
   current default simulation, CMS implemented shower parameterisations
-  using GFLASH {[}33{]} to model the shower after the first interaction
+  using GFLASH to model the shower after the first interaction
   of each primary particle with matter, by tuning a set of parameters to
   fit the geometric distribution of the associated energy depositions
   obtained from a Geant4 simulation. The ATLAS approach uses histograms
@@ -2661,7 +2662,7 @@ simulation frameworks, are:
   models for material interactions, particularly for the more common
   electromagnetic interactions. The fast track simulation code used by
   ATLAS has been made public as a part of the common tracking software
-  project ACTS {[}47{]}, adopted by the FCC {[}48{]}. These fast track
+  project ACTS ~\cite{ACTS}, adopted by the FCC. These fast track
   simulations offer speed improvements of 10-1000x over a detailed
   simulation, though for a Fast Simulation including both fast tracking
   and fast calorimeter simulation, tracking is typically the dominant
@@ -2679,12 +2680,13 @@ simulation frameworks, are:
   reconstruction, whereas fast tracking often uses generator (truth)
   particles as seeds to avoid the combinatorial issues of standard track
   reconstruction software. The speed improvements from these algorithms
-  varies with pileup but are generally more than one order of magnitude.
-  {[}49{]}
+  varies with pileup but are generally more than one order of magnitude
+  ~\cite{1742-6596-523-1-012035}.
 \item
   \textbf{Fully parameterised simulation:} Many programs are available
   in the public domain for the implementation of very fast parameterised
-  simulation, the most popular being DELPHES and PGS {[}50,51{]}. These
+  simulation, the most popular being DELPHES ~\cite{deFavereau:2013fsa}
+  and PGS ~\cite{PGS4}. These
   tools are extremely fast, running at hundreds of events per second,
   but they lack the accuracy of the alternatives discussed before. These
   programs are heavily used by phenomenologists for re-interpretation of
@@ -2696,8 +2698,8 @@ simulation frameworks, are:
   self-tuning simulators based on lookup tables that directly map
   generator events into simulated events. The lookup tables in this case
   are formed directly from fully simulated events. A past example was
-  Turbosim {[}52{]} developed at the Tevatron for the D0 and CDF
-  experiments. A prototype for a redesign called Falcon {[}53{]} was
+  Turbosim ~\cite{Knuteson:2004nj} developed at the Tevatron for the D0 and CDF
+  experiments. A prototype for a redesign called Falcon ~\cite{Brooijmans:2016vro} was
   recently released, with a more efficient algorithm for the
   multi-dimensional mapping of particle properties.
 \end{itemize}
@@ -2815,8 +2817,9 @@ Simulations}\label{machine-learning-in-fast-simulations}}
 
 There has recently been a great deal of interest in the use of machine
 learning in Fast Simulation, most of which has focused on the use of
-multi-objective regression {[}54{]} and generative adversarial networks
-(GANs) {[}55,56,57{]}. Since use of GANs allows for non-parametric
+multi-objective regression ~\cite{2007physics...3039H} and generative adversarial networks
+(GANs) ~\cite{2014arXiv1406.2661G},~\cite{deOliveira:2017pjk},
+~\cite{Paganini:2017hrr}. Since use of GANs allows for non-parametric
 learning in cases such as calorimetric shower fluctuations, it is a
 promising avenue for generating non-Gaussian and highly correlated
 physical effects. This is an obvious area for future expansion and
@@ -2841,7 +2844,7 @@ the network and training methods, could be shared, the exact
 implementation would most likely have to differ among the experiments.
 Discussions and sharing involved in this latter scenario is more
 appropriate in an inter-experiment ``forum'' like the recently developed
-Inter-experiment Machine Learning Working Group at CERN {[}58{]}. The
+Inter-experiment Machine Learning Working Group at CERN ~\cite{IML}. The
 sharing of code and other technical details, in addition to ideas and
 results, is essential in order to expand the benefits to the entire
 community.
@@ -2868,7 +2871,8 @@ applicable to the storage of cross-sections within Geant4, for example.
 While these techniques are quite promising, these are early days, and
 detailed speculation about the adoption of machine learning across the
 field is difficult. The fact that machine learning tools like
-SciKitLearn {[}59{]} and TensorFlow {[}60{]} are being developed by
+SciKitLearn ~\cite{DBLP:journals/corr/abs-1201-0490} and 
+TensorFlow ~\cite{DBLP:journals/corr/AbadiABBCCCDDDG16} are being developed by
 professionals and in an open-source community means that if the
 simulation community takes full advantage of these publicly available
 tools then the optimisations and developments of the broader community
@@ -2878,8 +2882,8 @@ significant improvements from parallelism and vectorisation, even with
 current simulation frameworks based on Geant4.
 
 The first neural network-based fast simulations are now publicly
-available, along with code, documentation, and training data
-{[}56,57{]}. These first results are very promising and establish a
+available, along with code, documentation, and training data. 
+These first results are very promising and establish a
 baseline for continuing to improve the performance in preparation for
 integration into real experimental settings. Dialog between the
 experiments has been, and will continue to be, important to push these
@@ -3010,8 +3014,8 @@ Nevertheless only some PRNGs offer guarantees for the correlation of
 such sequences. Thus tests to ensure that all simulation results are
 unaffected by changing the type of PRNG engine is strongly advised. This
 use is similar to the research on parallel PRNG for use in other fields
-{[}61{]}. A recent survey {[}62{]} covers developments for parallel
-PRNGs, including ones for GPUs.
+~\cite{PhysRevE.75.066701}. A recent survey ~\cite{lecuyer:hal-01399537} covers 
+developments for parallel PRNGs, including ones for GPUs.
 
 When each track of an event can be simulated in different order, as in
 the case of the GeantV simulation design, the state of the PRNG must be
@@ -3019,9 +3023,10 @@ attached to a track. This requires memory proportional to the size of
 the state of the PRNG and to the number of tracks in flight. This
 excludes the use of PRNGs with large state. A number of potentially
 suitable PRNG classes have been identified, including counter-based
-PRNGs, such as Random123 {[}63{]}, Combined Multiple Recursive Random
-number Generators (CMRGs) {[}64{]} and the newest extension of the
-MIXMAX PRNGs {[}65{]} with small matrix size.
+PRNGs, such as Random123 ~\cite{Salmon:2011:PRN:2063384.2063405}, 
+Combined Multiple Recursive Random number Generators (CMRGs) 
+~\cite{doi:10.1287/opre.47.1.159} and the newest extension of the
+MIXMAX PRNGs ~\cite{Savvidy:2015jva} with small matrix size.
 
 These new families of PRNGs are largely untested in radiation transport
 simulation, yet are at the forefront of PRNG 'technology' for use in
@@ -3081,10 +3086,10 @@ following:
   Geant4 and GeantV.
 \item
   Collaborate with the authors of the state of the art PRNG testing
-  suites, and in particular TestU01{[}66{]}, encouraging and seeking to
-  contribute to the extension to increase the statistics of testing,
-  extend testing to 64-bit variates, and expand the testing of
-  correlations between sub-sequences.
+  suites, and in particular TestU01~\cite{Ecuyer:2007:TCL:1268776.1268777}, 
+  encouraging and seeking to contribute to the extension to increase 
+  the statistics of testing, extend testing to 64-bit variates, 
+  and expand the testing of correlations between sub-sequences.
 \item
   Follow and contribute to the evolution of the field of PRNGs for
   parallel and highly parallel applications, collaborating with
@@ -3157,65 +3162,70 @@ development, maintenance, and support of simulation codes over the
 short, medium, and long timeframes foreseen in the HEP experimentals
 programmes.
 
+\sloppy
+\raggedright
+\clearpage
+\printbibliography[title={References},heading=bibintoc]
+
 \end{document}
 
 \hypertarget{references}{%
 \section{References}\label{references}}
 
-{[}1{]} J.Allison et al., NIM A 835 (2016), 186-225
+~\cite{1{]} J.Allison et al., NIM A 835 (2016), 186-225
 
-{[}2{]} J.Apostolakis et al., J. Phys.: Conf. Ser., 396 (2012) 022014
+~\cite{2{]} J.Apostolakis et al., J. Phys.: Conf. Ser., 396 (2012) 022014
 
-{[}3{]} P. Adamson et al. {[}NOvA Collaboration{]}, ``First measurement
+~\cite{3{]} P. Adamson et al. ~\cite{NOvA Collaboration{]}, ``First measurement
 of electron neutrino appearance in NOvA'', Phys. Rev. Lett. 116 (2016)
 no.15, 151806.
 \href{https://arxiv.org/abs/1601.05022}{{arXiv:1601.05022}}.
 
-{[}4{]} The MicroBooNE Collaboration, ``The MicroBooNE Technical Design
+~\cite{4{]} The MicroBooNE Collaboration, ``The MicroBooNE Technical Design
 Report'',
 \href{http://www-microboone.fnal.gov/publications}{{http://www-microboone.fnal.gov/publications}}.
 
-{[}5{]} L. Aliaga, et al. {[}MINERvA Collaboration{]}, ``Design,
+~\cite{5{]} L. Aliaga, et al. ~\cite{MINERvA Collaboration{]}, ``Design,
 Calibration, and Performance of the MINERvA Detector''
 Nucl.Instrum.Meth. A743 (2014) 130-159.
 \href{https://arxiv.org/abs/1305.5199}{{arXiv:1305.5199}}
 
-{[}6{]} R. Acciarri et al. {[}DUNE Collaboration{]}, ``Long-Baseline
+~\cite{6{]} R. Acciarri et al. ~\cite{DUNE Collaboration{]}, ``Long-Baseline
 Neutrino Facility (LBNF) and Deep Underground Neutrino Experiment (DUNE)
 : Volume 2: The Physics Program for DUNE at LBNF'',
 \href{https://arxiv.org/abs/1512.06148}{{arXiv:1512.06148}}.
 
-{[}7{]} C.Andreopoulos et al., The GENIE Neutrino Monte Carlo Generator,
+~\cite{7{]} C.Andreopoulos et al., The GENIE Neutrino Monte Carlo Generator,
 Nucl.Instrum.Meth.A614 (2010) 87-104.
 \href{https://arxiv.org/abs/0905.2517}{{arXiv:09052517}}
 
-{[}8{]} A. Ferrari, P. Sala, A. Fasso, J. Ranft, FLUKA: a multi-particle
+~\cite{8{]} A. Ferrari, P. Sala, A. Fasso, J. Ranft, FLUKA: a multi-particle
 transport code, CERN-2005-10 (2005), INFN/TC\_05/11, SLAC-R-773.
 
-{[}9{]} The MARS Code System,
+~\cite{9{]} The MARS Code System,
 \href{http://mars.fnal.gov}{{http://mars.fnal.gov}}
 
-{[}10{]} M.Gayer et al., New software library of geometrical primitives
+~\cite{10{]} M.Gayer et al., New software library of geometrical primitives
 for modeling of solids used in Monte Carlo detector simulations, J.
 Phys.: Conf. Ser., 396 (2012)
 \href{http://iopscience.iop.org/article/10.1088/1742-6596/396/5/052035/meta}{{052035}}
 
-{[}11{]} R.Brun et al. NIM A 389 (1997) 81 -- 86
+~\cite{11{]} R.Brun et al. NIM A 389 (1997) 81 -- 86
 
-{[}12{]} J.Apostolakis et al., Towards a high performance geometry
+~\cite{12{]} J.Apostolakis et al., Towards a high performance geometry
 library for particle-detector simulations, J. Phys.: Conf. Ser., 608
 (2015)
 \href{http://iopscience.iop.org/article/10.1088/1742-6596/608/1/012023}{{012023}}
 
-{[}13{]} R.Chytracek et al.,
+~\cite{13{]} R.Chytracek et al.,
 \href{http://ieeexplore.ieee.org/document/1710291/}{Geometry Description
 Markup Language for Physics Simulation and Analysis Applications}, IEEE
 Trans. Nucl. Sci., 53 (2006), p.
 \href{http://ieeexplore.ieee.org/document/1710291/}{{2892}}
 
-{[}14{]} Apache Xerces C Parser,
+~\cite{14{]} Apache Xerces C Parser,
 
-\href{http://xerces.apache.org/xerces-c/}{{http://xerces.apache.org/xerces-c/}}{[}15{]}
+\href{http://xerces.apache.org/xerces-c/}{{http://xerces.apache.org/xerces-c/}}~\cite{15{]}
 M.Frank et al, DD4hep: A Detector Description Toolkit for High Energy
 Physics Experiments,
 \href{http://iopscience.iop.org/journal/1742-6596}{{Journal of Physics:
@@ -3239,198 +3249,196 @@ M.Petric et al, Detector Simulations with DD4hep,
 Nuclear Physics, CHEP 2016}, CERN preprint
 \href{https://cds.cern.ch/record/2244362?ln=en}{{CLICdp-Conf-2017-001}}
 
-{[}16{]} M.Benoit, J.Idarraga, The AllPix Simulation Framework, website:
+~\cite{16{]} M.Benoit, J.Idarraga, The AllPix Simulation Framework, website:
 \href{https://twiki.cern.ch/twiki/bin/view/Main/AllPix}{{https://twiki.cern.ch/twiki/bin/view/Main/AllPix}},
 
 D.Hynds, S.Spannagel, K.Wolters, AllPix Squared Framework, website:
 \href{http://project-allpix-squared.web.cern.ch/project-allpix-squared/}{{http://project-allpix-squared.web.cern.ch/project-allpix-squared/}}
 
-{[}17{]} A. Schaeliske et al, J.Physics : Conf. Ser., 331 (2011) 032029
+~\cite{17{]} A. Schaeliske et al, J.Physics : Conf. Ser., 331 (2011) 032029
 
-{[}18{]} J. Allison et al., J.Physics: Conf. Ser. 396 (2012) 022013
+~\cite{18{]} J. Allison et al., J.Physics: Conf. Ser. 396 (2012) 022013
 
-{[}19{]} V.N. Ivanchenko, J. Physics: Conf. Ser. 513 (2014) 0022015
+~\cite{19{]} V.N. Ivanchenko, J. Physics: Conf. Ser. 513 (2014) 0022015
 
-{[}20{]} K.Werner, The hadronic interaction model EPOS,
+~\cite{20{]} K.Werner, The hadronic interaction model EPOS,
 \href{http://www.sciencedirect.com/science/journal/09205632}{Nuclear
 Physics B - Proceedings Supplements},
 \href{http://www.sciencedirect.com/science/journal/09205632/175/supp/C}{Volumes
 175--176}, January 2008, Pages 81-87
 
-{[}21{]} LArSoft: The Liquid Argon Software Collaboration
+~\cite{21{]} LArSoft: The Liquid Argon Software Collaboration
 \href{http://larsoft.org}{{larsoft.org}}.
 
-{[}22{]} D. Lussi, Study of the response of the novel LAr LEM-TPC
+~\cite{22{]} D. Lussi, Study of the response of the novel LAr LEM-TPC
 detector exposed to cosmic rays and a charged particle beam. PhD thesis,
 ETH Zürich, 2013. Chapter 4.1
 
-{[}23{]} M Szydagis, A Fyhrie, D Thorngren and M Tripathi, "Enhancement
+~\cite{23{]} M Szydagis, A Fyhrie, D Thorngren and M Tripathi, "Enhancement
 of NEST capabilities for simulating low-energy recoils in liquid xenon"
 doi:10.1088/1748-0221/8/10/C10003
 
-{[}24{]} Wire-Cell, A 3D Reconstruction Package for LArTPC.
+~\cite{24{]} Wire-Cell, A 3D Reconstruction Package for LArTPC.
 http://lar.bnl.gov/wire-cell.
 
-{[}25{]}
+~\cite{25{]}
 \href{https://inspirehep.net/record/1500313}{{https://inspirehep.net/record/1500313}};
 PoS(ICHEP2016)171
 
-{[}26{]} Baglie, E. et al.,A model for the interaction of high-energy
+~\cite{26{]} Baglie, E. et al.,A model for the interaction of high-energy
 particles in straight and bent crystals implemented in Geant4,
 \href{https://arxiv.org/abs/1403.4984}{{arXiv:1403.4984}}
 
-{[}27{]} Bernal, M.A. et al., Track structure modeling in liquid water:
+~\cite{27{]} Bernal, M.A. et al., Track structure modeling in liquid water:
 A review of the Geant4-DNA very low energy extension of the Geant4 Monte
 Carlo simulation toolkit, Phys. Med. 31 (2015) 861-874
 
-{[}29{]}
+~\cite{29{]}
 \href{https://g4cpt.fnal.gov/g4p/prplots/cpu_by_version.html}{{Source}}:
 Geant4 Testing and Quality Assurance Working Group, 2016.
 
-{[}30{]} Dotti, A. et al "Extending Geant4 Parallelism with external
+~\cite{30{]} Dotti, A. et al "Extending Geant4 Parallelism with external
 libraries (MPI, TBB) and its use on HPC resources," 2015 IEEE Nuclear
 Science Symposium and Medical Imaging Conference (NSS/MIC), San Diego,
 CA, 2015, pp. 1-2. doi: 10.1109/NSSMIC.2015.7581867
 
-{[}31{]} Farrell, S. et al "Multi-threaded Geant4 on the Xeon-Phi with
+~\cite{31{]} Farrell, S. et al "Multi-threaded Geant4 on the Xeon-Phi with
 complex high-energy physics geometry," 2015 IEEE Nuclear Science
 Symposium and Medical Imaging Conference (NSS/MIC), San Diego, CA, 2015,
 pp. 1-4. doi: 10.1109/NSSMIC.2015.7581868
 
-{[}32{]} M. Hildreth, V. N. Ivanchenko and D. J. Lange, ``Upgrades for
+~\cite{32{]} M. Hildreth, V. N. Ivanchenko and D. J. Lange, ``Upgrades for
 the CMS simulation'', CHEP 2016.
 
-{[}33{]} G. Grindhammer, et al., The Fast Simulation of Electromagnetic
+~\cite{33{]} G. Grindhammer, et al., The Fast Simulation of Electromagnetic
 and Hadronic Showers, Nucl. Instrum. Meth. A 290 (1990) 469.
 
-{[}34{]} Torbjorn Sjostrand et al., An Introduction to PYTHIA 8.2,
-arXiv:1410.3012 {[}hep-ph{]}doi:10.1016/j.cpc.2015.01.024; T. Sjostrand,
+~\cite{34{]} Torbjorn Sjostrand et al., An Introduction to PYTHIA 8.2,
+arXiv:1410.3012 ~\cite{hep-ph{]}doi:10.1016/j.cpc.2015.01.024; T. Sjostrand,
 S. Mrenna, P. Skands, PYTHIA 6.4 Physics and Manual, JHEP05 (2006)
 026doi:10.1088/1126-6708/2006/05/026.
 
-{[}35{]} C. Green et. al., The art event processing framework,
+~\cite{35{]} C. Green et. al., The art event processing framework,
 \href{https://inspirehep.net/record/1211020}{J.Phys.Conf.Ser. 396 (2012)
 022020}
 
-{[}36{]} D. Heck, G. Schatz, T. Thouw, J. Knapp, J. N. Capdevielle,
+~\cite{36{]} D. Heck, G. Schatz, T. Thouw, J. Knapp, J. N. Capdevielle,
 CORSIKA: A Monte Carlo code to simulate extensive air showers, Tech.
 Rep. 6019, FZKA (1998)
 
-{[}37{]} Szydagis et al., NEST: A Comprehensive Model for Scintillation
+~\cite{37{]} Szydagis et al., NEST: A Comprehensive Model for Scintillation
 Yield in Liquid Xenon,
 \href{http://dx.doi.org/10.1088/1748-0221/6/10/P10002}{{2011 JINST 6
 P10002}}; e-Print:
 \href{http://arxiv.org/abs/1106.1613}{{arXiv:1106.1613
-{[}physics.ins-det{]}}}
+~\cite{physics.ins-det{]}}}
 
-{[}38{]} Brandt, D. et al., Semiconductor phonon and charge transport
+~\cite{38{]} Brandt, D. et al., Semiconductor phonon and charge transport
 Monte Carlo simulation using Geant4,
 \href{https://arxiv.org/abs/1403.4984}{{arXiv:1403.4984}}
 
-{[}39{]} Blyth, S. et al., Opticks : GPU Optical Photon Simulation for
+~\cite{39{]} Blyth, S. et al., Opticks : GPU Optical Photon Simulation for
 Particle Physics with NVIDIA OptiX, PSROC Annual Meeting, Tamkang
 University, TKU, New Taipei City, Taiwan
 
-{[}40{]} J. Apostolakis et al., ``Adaptive track scheduling to optimise
+~\cite{40{]} J. Apostolakis et al., ``Adaptive track scheduling to optimise
 concurrency and vectorisation in GeantV'', Journal of Physics:
 Conference Series 608 (2015) 012003
 
-{[}41{]} J. Apostolakis et al, ``Towards a high performance geometry
+~\cite{41{]} J. Apostolakis et al, ``Towards a high performance geometry
 library for particle-detector simulations'', Journal of Physics:
 Conference Series 608 (2015) 012023
 
-{[}42{]} Henderson N. et al.; A CUDA Monte Carlo simulator for radiation
+~\cite{42{]} Henderson N. et al.; A CUDA Monte Carlo simulator for radiation
 therapy dosimetry based on Geant4; Joint International Conference on
 Supercomputing in Nuclear Applications and Monte Carlo (2013)
 
-{[}43{]} Amadio, G. et al.: GeantV: from CPU to accelerators; Journal of
+~\cite{43{]} Amadio, G. et al.: GeantV: from CPU to accelerators; Journal of
 Physics: Conference Series 762 (2016)
 \href{http://iopscience.iop.org/article/10.1088/1742-6596/762/1/012019/meta}{{012019}}
 
-{[}44{]} LeCompte, T. et al.; Geant4 at extreme scales, in preparation,
+~\cite{44{]} LeCompte, T. et al.; Geant4 at extreme scales, in preparation,
 cfr \href{https://goo.gl/cgA92Y}{{https://goo.gl/cgA92Y}}
 
-{[}45{]} Calafiura P et al. on behalf of the ATLAS Collaboration (2015)
+~\cite{45{]} Calafiura P et al. on behalf of the ATLAS Collaboration (2015)
 "Fine grained event processing on HPCs with the ATLAS Yoda system", J.
 Phys.: Conf. Ser., 664 092025,
 \href{http://iopscience.iop.org/article/10.1088/1742-6596/664/9/092025}{{link}}
 
-{[}46{]} S. Farrell, et al., "Multi-threaded ATLAS Simulation on Intel
+~\cite{46{]} S. Farrell, et al., "Multi-threaded ATLAS Simulation on Intel
 Knights Landing Processors", CHEP 2016,
 \href{http://cds.cern.ch/record/2242857}{{http://cds.cern.ch/record/2242857}}
 
-{[}47{]} A Common Tracking Software: http://acts.web.cern.ch/
+~\cite{47{]} A Common Tracking Software: http://acts.web.cern.ch/
 
-{[}48{]} V. Volkl, ``Applications of A-Common-Tracking-Software (ACTS)
+~\cite{48{]} V. Volkl, ``Applications of A-Common-Tracking-Software (ACTS)
 in the Future Circular Collider Design Study.'' Submitted to ACAT 2017:
 \href{https://indico.cern.ch/event/567550/contributions/2627161/contribution.pdf}{{https://indico.cern.ch/event/567550/contributions/2627161/contribution.pdf}}
 
-{[}49{]} E. Ritsch for the ATLAS Collaboration, ``Concepts and plans
+~\cite{49{]} E. Ritsch for the ATLAS Collaboration, ``Concepts and plans
 towards fast large-scale Monte Carlo production for the ATLAS
 Experiment.'' J. Phys.: Conf. Ser. 523 (2014)
 \href{http://iopscience.iop.org/article/10.1088/1742-6596/523/1/012035/meta}{{012035}}.
 
-{[}50{]} The DELPHES 3 Collaboration, ``DELPHES 3: A modular framework
+~\cite{50{]} The DELPHES 3 Collaboration, ``DELPHES 3: A modular framework
 for fast simulation of a generic collider experiment.'' JHEP 02 (2014)
 057.
 
-{[}51{]} PGS-4,
+~\cite{51{]} PGS-4,
 \href{http://www.physics.ucdavis.edu:80/~conway/research/software/pgs/pgs4-general.htm}{{http://www.physics.ucdavis.edu:80/\textasciitilde{}conway/research/software/pgs/pgs4-general.htm}}
 
-{[}52{]} B. Knuteson, ``Systematic Analysis of High Energy Collider
-Data'', Nucl. Instrum. Meth. A534 (2004) 7--14, {[}hep-ex/0402029{]}
+~\cite{52{]} B. Knuteson, ``Systematic Analysis of High Energy Collider
+Data'', Nucl. Instrum. Meth. A534 (2004) 7--14, ~\cite{hep-ex/0402029{]}
 
-{[}53{]} H. B. Prosper et. al. ``Falcon: towards an ultra fast
+~\cite{53{]} H. B. Prosper et. al. ``Falcon: towards an ultra fast
 non-parametric detector simulator'', contribution to Les Houches 2015:
 Physics at TeV Colliders New Physics Working Group Report
-{[}arXiv:1605.02684{]}.
+~\cite{arXiv:1605.02684{]}.
 
-{[}54{]} A. Hoecker et al., TMVA - Toolkit for Multivariate Data
+~\cite{54{]} A. Hoecker et al., TMVA - Toolkit for Multivariate Data
 Analysis, PoS ACAT 040 (2007), arXiv:physics/0703039
 
-{[}55{]} I. J. Goodfellow et al., Generative Adversarial Networks,
+~\cite{55{]} I. J. Goodfellow et al., Generative Adversarial Networks,
 arXiv:1406.2661 (2014).
 
-{[}56{]} L. Oliveira, M. Paganini, B. Nachman, Learning Particle Physics
+~\cite{56{]} L. Oliveira, M. Paganini, B. Nachman, Learning Particle Physics
 by Example: Location-Aware Generative Adversarial Networks for Physics
 Synthesis, arXiv:1701.05927, 2017
 
-{[}57{]} M. Paganini, L. Oliveira, B. Nachman, CaloGAN: Simulating 3D
+~\cite{57{]} M. Paganini, L. Oliveira, B. Nachman, CaloGAN: Simulating 3D
 High Energy Particle Showers in Multi-Layer Electromagnetic Calorimeters
 with Generative Adversarial Networks, arXiv:1705.02355 2017.
 
-{[}58{]} Inter-Experimental LHC Machine Learning Working Group :
+~\cite{58{]} Inter-Experimental LHC Machine Learning Working Group :
 \href{https://iml.cern.ch}{{https://iml.cern.ch}}
 
-{[}59{]} F. Pedregosa et al., Scikit-learn: Machine learning in Python,
-J.Machine Learning Res. 12 (2011) 2825-2830 {[}arXiv:1201.0490{]}
+~\cite{59{]} F. Pedregosa et al., Scikit-learn: Machine learning in Python,
+J.Machine Learning Res. 12 (2011) 2825-2830 {{}arXiv:1201.0490{]}
 
-{[}60{]} M. Abudi et al., ``Tensorflow: A system for large-scale machine
-learning'', in OSDI, vol. 16,
+~\cite{60{]} M. Abudi et al., ``Tensorflow: A system for large-scale machine
+learning'', in OSDI, vol. 16, pp. 265--283, 2016
 
-pp. 265--283, 2016
-
-{[}61{]} H. Bauke and S. Mertens, ``Random numbers for large-scale
+~\cite{61{]} H. Bauke and S. Mertens, ``Random numbers for large-scale
 distributed Monte Carlo simulations,'' Phys. Rev. E, vol. 75, no. 6, p.
 66701, Jun. 2007.
 
-{[}62{]} P. L'Ecuyer, D. Munger, B. Oreshkin, and R. Simard, ``Random
+~\cite{62{]} P. L'Ecuyer, D. Munger, B. Oreshkin, and R. Simard, ``Random
 numbers for parallel computers: Requirements and methods, with emphasis
 on GPUs,'' Math. Comput. Simul., vol. 135, pp. 3--17, May 2017.
 
-{[}63{]} J. K. Salmon, M. A. Moraes, R. O. Dror, and D. E. Shaw,
+~\cite{63{]} J. K. Salmon, M. A. Moraes, R. O. Dror, and D. E. Shaw,
 ``Parallel random numbers: As easy as 1, 2, 3,'' in Proceedings of 2011
 International Conference for High Performance Computing, Networking,
 Storage and Analysis on - SC '11, 2011, p. 1.,
 \href{http://dl.acm.org/citation.cfm?id=2063405\&CFID=810701954\&CFTOKEN=31644804}{{link}}
 
-{[}64{]} P. L'Ecuyer, ``Good Parameters and Implementations for Combined
+~\cite{64{]} P. L'Ecuyer, ``Good Parameters and Implementations for Combined
 Multiple Recursive Random Number Generators,'' Operations Research, vol.
 47, no. 1, pp. 159--164, Feb. 1999.
 
-{[}65{]} K. Savvidy and G. Savvidy, ``Spectrum and entropy of C-systems
+~\cite{65{]} K. Savvidy and G. Savvidy, ``Spectrum and entropy of C-systems
 MIXMAX random number generator,'' Chaos, Solitons \& Fractals, vol. 91,
 pp. 33--38, 2016.
 
-{[}66{]} P. L'Ecuyer and R. Simard, ``TestU01,'' ACM Transactions on
+~\cite{66{]} P. L'Ecuyer and R. Simard, ``TestU01,'' ACM Transactions on
 Mathematical Software, vol. 33, no. 4, p. 22--es, Aug. 2007.
