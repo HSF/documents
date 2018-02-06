@@ -77,6 +77,7 @@ Elmer, Peter - UPrinceton (1)
 Elmsheuser, Johannes - BNL
 Elvira, V. Daniel - Fermilab (3)
 Eulisse, Giulio - CERN
+Farrell, Steven - LBNL
 Ferber, Torben - UBritishColumbia - Belle II generator and ECL Coordinator
 Filipcic, Andrej - JSI
 Fisk, Ian - SimonsFoundation
@@ -259,6 +260,7 @@ Stark, Giordon - UChicago
 Stewart, Gordon - UGlasgow
 Stewart, Graeme - CERN - HSF (1)
 Taffard, Anyes - UCIrvine
+Tamponi, Umberto - INFNTorino
 Templon, Jeff - NIKHEF
 Tenaglia, Giacomo - CERN
 Tsulaia, Vakhtang - LBNL

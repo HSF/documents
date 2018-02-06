@@ -30,6 +30,7 @@ INFNNapoli: INFN Sezione di Napoli, Università di Napoli, Napoli, Italy
 INFNPadova: INFN Sezione di Padova, Università di Padova b, Padova, Italy
 INFNPISA: INFN Sezione di Pisa, Università di Pisa, Scuola Normale Superiore di Pisa, Pisa, Italy
 INFNRoma: INFN Sezione di Roma I, Università La Sapienza, Roma, Italy
+INFNTorino: INFN Sezione di Torino, Torino, Italy
 INFNTRIESTE: INFN Sezione di Trieste, Università di Trieste, Trieste, Italy
 IPHC: Université de Strasbourg, CNRS, IPHC UMR 7178, F-67000 Strasbourg, France
 Irfu: DSM/IRFU (Institut de Recherches sur les Lois Fondamentales de l’Univers), CEA Saclay (Commissariat à l’Énergie Atomique), Gif-sur-Yvette, France
