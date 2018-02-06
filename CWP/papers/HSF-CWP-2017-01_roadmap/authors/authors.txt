@@ -227,6 +227,7 @@ Rodrigues, Eduardo - UCincinnati (1,5)
 Roiser, Stefan - CERN - LHCb Computing Project Leader (1)
 Rousseau, David - LAL
 Roy, Gareth - UGlasgow
+Rybkine, Grigori - LAL
 Sailer, Andre - CERN
 Sakuma, Tai - UBristol
 Sánchez, Arturo - UUdine & ICTP
