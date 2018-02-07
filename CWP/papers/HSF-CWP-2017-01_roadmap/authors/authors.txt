@@ -20,7 +20,7 @@ Bird, Ian - CERN - WLCG Project Leader
 Biscarat, Catherine - LPSC
 Blomer, Jakob - CERN
 Bloom, Kenneth - UNebraska
-Boccali, Tommaso - INFNPISA
+Boccali, Tommaso - INFNPISA - CMS Software and Computing co-Coordinator
 Bockelman, Brian - UNebraska
 Bold, Tomasz - KRAKOWUST
 Bonacorsi, Daniele - INFNBOLOGNA
@@ -87,6 +87,7 @@ Formica, Andrea - Irfu
 Forti, Alessandra - UManchester
 Franzoni, Giovanni - CERN
 Frost, James - UOxford
+Fuess, Stu - Fermilab (3)
 Gaede, Frank - DESY
 Ganis, Gerardo - CERN
 Gardner, Robert - UChicago
@@ -128,6 +129,7 @@ Hernández, José M. - CIEMAT (7)
 Hildreth, Michael - UNotreDame (6)
 Hodgkinson, Mark - USheffield
 Hoeche, Stefan - SLAC - MCnet (16)
+Holzman, Burt - Fermilab (3)
 Hristov, Peter - CERN
 Huang, Xingtao - UShandong
 Ivanchenko, Vladimir N. - CERN & UTomsk
@@ -163,12 +165,13 @@ Leggett, Charles - LBNL
 Letts, James - UCSD
 Lewendel, Birgit - DESY
 Li, Teng - UEDINBURGH
-Lima, Guilherme - Fermilab
+Lima, Guilherme - Fermilab (3)
 Linacre, Jacob - RAL (13)
 Linden, Tomas - HIP
 Lo Presti, Giuseppe - CERN
 Lopienski, Sebastian - CERN
 Love, Peter - ULancaster
+Lyon, Adam - Fermilab (3) - g-2 Software and Computing Coordinator
 Magini, Nicolò - INFNGenova
 Marshall, Zachary L - LBNL
 Martelli, Edoardo - CERN
@@ -192,6 +195,7 @@ Mount, Richard - SLAC (16)
 Moyse, Edward - UAmherst
 Murray, Sean - UCape & CPHC
 Neubauer, Mark S - UChampaign (1,11)
+Norman, Andrew - Fermilab (3) - DUNE Software and Computing co-Coordinator
 Novaes, Sérgio - USaoPaulo
 Novak, Mihaly - CERN
 Oyanguren, Arantza - IFICValencia
@@ -204,7 +208,7 @@ Patrick, Glenn - RAL
 Pearce, Alex - CERN
 Pearson, Ben - MPP
 Pedro, Kevin - Fermilab (3)
-Perdue, Gabriel - Fermilab
+Perdue, Gabriel - Fermilab (3)
 Perez-Calero Yzquierdo, Antonio - PIC & CIEMAT (7)
 Perrozzi, Luca - ETHZurich
 Petersen, Troels - NBI
@@ -234,7 +238,7 @@ Sánchez, Arturo - UUdine & ICTP
 Sánchez-Hernández, Alberto - CINVESTAV (15)
 Santana, Renato - CBPF
 Sartirana, Andrea - LLR
-Schellman, Heidi - OREGON - DUNE computing co-coordinator
+Schellman, Heidi - OREGON - DUNE computing co-Coordinator
 Schovancová, Jaroslava - CERN
 Schramm, Steven - UGeneva
 Schulz, Markus - CERN
@@ -243,7 +247,7 @@ Seidel, Sally - UNewMexico
 Sekmen, Sezen - KYUNGPOOK
 Serfon, Cedric - UOslo
 Severini, Horst - UOKLAHOMA
-Sexton-Kennedy, Elizabeth - Fermilab - CMS Software and Computing Coordinator (1,3)
+Sexton-Kennedy, Elizabeth - Fermilab - CMS Software and Computing co-Coordinator (1,3)
 Seymour, Michael - UManchester - MCnet
 Sgalaberna, Davide - CERN
 Shapoval, Illya - LBNL
@@ -255,7 +259,7 @@ Skipsey, Sam - UGlasgow
 Smith, Tim - CERN
 Snyder, Scott - BNL
 Sokoloff, Michael D - UCincinnati (1)
-Spentzouris, Panagiotis - Fermilab
+Spentzouris, Panagiotis - Fermilab (3)
 Stadie, Hartmut - HAMBURG
 Stark, Giordon - UChicago
 Stewart, Gordon - UGlasgow
@@ -276,6 +280,7 @@ Vernet, Renaud - CCIN2P3
 Viren, Brett - BNL
 Vlimant, Jean-Roch - Caltech (1)
 Voss, Christian - DESY
+Votava, Margaret - Fermilab (3)
 Vuosalo, Carl - UWisconsin
 Wartel, Romain - CERN
 Watts, Gordon T - USeattle
