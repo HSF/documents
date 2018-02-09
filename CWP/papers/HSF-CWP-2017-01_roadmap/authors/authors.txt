@@ -9,6 +9,7 @@ Atzori, Luca - CERN
 Bhimji, Wahid - LBNL
 Babik, Marian - CERN
 Bagliesi, Giuseppe - INFNPISA
+Banerjee, Sunanda - Fermilab (3)
 Bandieramonte, Marilena - CERN
 Barisits, Martin - CERN
 Bauerdick, Lothar A. T. - Fermilab (3)
@@ -171,7 +172,7 @@ Linden, Tomas - HIP
 Lo Presti, Giuseppe - CERN
 Lopienski, Sebastian - CERN
 Love, Peter - ULancaster
-Lyon, Adam - Fermilab (3) - g-2 Software and Computing Coordinator
+Lyon, Adam - Fermilab - g-2 Software and Computing Coordinator (3)
 Magini, Nicolò - INFNGenova
 Marshall, Zachary L - LBNL
 Martelli, Edoardo - CERN
@@ -195,7 +196,7 @@ Mount, Richard - SLAC (16)
 Moyse, Edward - UAmherst
 Murray, Sean - UCape & CPHC
 Neubauer, Mark S - UChampaign (1,11)
-Norman, Andrew - Fermilab (3) - DUNE Software and Computing co-Coordinator
+Norman, Andrew - Fermilab - DUNE Software and Computing co-Coordinator (3)
 Novaes, Sérgio - USaoPaulo
 Novak, Mihaly - CERN
 Oyanguren, Arantza - IFICValencia
