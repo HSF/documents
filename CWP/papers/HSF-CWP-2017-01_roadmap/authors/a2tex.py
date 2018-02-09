@@ -145,7 +145,9 @@ def main():
                 if affiliation in institute_address:
                     affiliation_map[affiliation] = Affiliation(institute_address[affiliation])
                 else:
-                    raise Exception('Affiliation {} not defined'.format(affiliation))
+                    raise Exception('Affiliation {} not defined for {}, {}'.format(affiliation, 
+                                                                                   author.surname,
+                                                                                   author.forename))
 
     # Alphabetise and assign footnote marks
     sorted_affiliations = sorted(affiliation_map)
