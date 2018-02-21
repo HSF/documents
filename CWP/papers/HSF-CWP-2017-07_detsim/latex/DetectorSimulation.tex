@@ -1317,6 +1317,30 @@ essential for background studies.
 
 Major components of the intensity frontier over the next decade will
 include liquid Argon TPC detectors and liquid Xenon calorimeters.
+For example, liquid Argon TPC's are equipped with optical readout systems 
+to detect optical photons from the scintillation process. The information 
+from the optical system is used to  provide a trigger and, potentially, 
+could be used to improve the energy resolution of showers by combining the 
+scintillation and charge collection signals. The modeling of optical photons 
+in liquid Argon detectors is a real challenge, since 50,000 scintillation 
+photons are produced per 1 MeV of energy deposited in liquid Argon. To track 
+all these photons in Geant4 would increase the computing time on a CPU by a 
+factor of  more than one thousand. Therefore, the full simulation is only used 
+to produce lookup tables with the probability that that an optical photon makes 
+it to the photo detector. These tables are an approximation and cannot replace 
+the full simulation without a significant loss in physics accuracy. Even the 
+lookup table solution requires a significant amount of CPU time to produce 
+enough statistics. In order to satisfy the physics accuracy and computing 
+performance requirements of future neutrino experiments, approaches based 
+on new computing platforms are under investigation. For example, 
+Opticks ~\cite{1742-6596-898-4-042001} 
+is a software package where the optical physics processes are implemented on the GPU. 
+This package is executed on NVIDIA machines to parallelize the
+tracing of optical photons and yields a drastic time performance improvement 
+with a speedup of the order of a thousand with respect to the original Geant4 
+package running on CPUs. Opticks has been used to simulate the optical photons 
+in the JUNO neutrino experiment. 
+
 Efforts to address common needs of the liquid Argon experiments
 including the post Geant4 phase of simulation are undertaken in projects
 such as LArSoft~\cite{LArSoft} and Qscan~\cite{LArLEM-TPC}, while extending Geant4 EM
