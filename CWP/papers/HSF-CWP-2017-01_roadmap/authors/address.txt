@@ -50,7 +50,7 @@ LPNHE: LPNHE, Université Pierre et Marie Curie, Université Paris Diderot, CNRS
 LPSC: Laboratoire de Physique Subatomique et de Cosmologie, Université Joseph Fourier and CNRS/IN2P3 and Institut National Polytechnique de Grenoble, Grenoble, France
 MPP: Max-Planck-Institut für Physik (Werner-Heisenberg-Institut), München, Germany
 NBI: Niels Bohr Institute, University of Copenhagen, Kobenhavn, Denmark
-NIKHEF: Nikhef National Institute for Subatomic Physics and University of Amsterdam, Amsterdam, Netherlands
+NIKHEF: Nikhef National Institute for Subatomic Physics, Amsterdam, Netherlands
 NYU: Department of Physics, New York University, New York, NY, USA
 OREGON: Center for High Energy Physics, University of Oregon, Eugene, OR, USA
 PIC: Port d’Informació Científica (PIC), Universitat Autònoma de Barcelona (UAB), Barcelona, Spain
@@ -118,3 +118,4 @@ UYale: Department of Physics, Yale University, New Haven, CT, USA
 UZurich: Physik-Institut, Universität Zürich, Zürich, Switzerland
 VAST: IOP and GUST, Vietnam Academy of Science and Technology (VAST), Hanoi, Vietnam
 VIRTECH: Virginia Tech, Blacksburg, Virginia, VA, USA
+VU: Vrije Universiteit Amsterdam, Amsterdam, The Netherlands
