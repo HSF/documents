@@ -48,7 +48,6 @@ LMU: Fakultät für Physik, Ludwig-Maximilians-Universität München, München, 
 LPCClermont: Laboratoire de Physique Corpusculaire, Clermont Université and Université Blaise Pascal and CNRS/IN2P3, Clermont-Ferrand, France
 LPNHE: LPNHE, Université Pierre et Marie Curie, Université Paris Diderot, CNRS/IN2P3, Paris, France
 LPSC: Laboratoire de Physique Subatomique et de Cosmologie, Université Joseph Fourier and CNRS/IN2P3 and Institut National Polytechnique de Grenoble, Grenoble, France
-MIT: Department of Physics, University of Massachusetts, Amherst, MA, USA
 MPP: Max-Planck-Institut für Physik (Werner-Heisenberg-Institut), München, Germany
 NBI: Niels Bohr Institute, University of Copenhagen, Kobenhavn, Denmark
 NIKHEF: Nikhef National Institute for Subatomic Physics and University of Amsterdam, Amsterdam, Netherlands
@@ -89,6 +88,7 @@ ULjubljana: Department of Physics, Jožef Stefan Institute and University of Lju
 ULund: Fysiska institutionen, Lunds Universitet, Lund, Sweden
 UManchester: School of Physics and Astronomy, University of Manchester, Manchester, United Kingdom
 UMaribor: University of Maribor, Ljubljana, Slovenia
+UMass: Department of Physics, University of Massachusetts, Amherst, MA, USA
 UMich: Department of Physics, The University of Michigan, Ann Arbor, MI, USA
 UMinho: Departamento de Física, Universidade do Minho, Braga, Portugal
 UOhio: The Ohio State University, Columbus, OH, USA
