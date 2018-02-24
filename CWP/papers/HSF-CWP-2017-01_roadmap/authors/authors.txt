@@ -193,7 +193,7 @@ Mitrevski, Jovan - LMU
 Moneta, Lorenzo - CERN
 Morgan, Ben - UWarwick
 Mount, Richard - SLAC (16)
-Moyse, Edward - UAmherst
+Moyse, Edward - UMass
 Murray, Sean - UCape & CPHC
 Neubauer, Mark S - UChampaign (1,11)
 Norman, Andrew - Fermilab - DUNE Software and Computing co-Coordinator (3)
@@ -287,6 +287,7 @@ Wartel, Romain - CERN
 Watts, Gordon T - USeattle
 Wenaus, Torre - BNL - ATLAS Computing Coordinator
 Wenzel, Sandro - CERN
+Williams, Mike - MIT
 Winklmeier, Frank - OREGON
 Wissing, Christoph - DESY
 Wuerthwein, Frank - UCSD

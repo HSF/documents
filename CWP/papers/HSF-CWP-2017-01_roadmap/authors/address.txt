@@ -48,6 +48,7 @@ LMU: Fakultät für Physik, Ludwig-Maximilians-Universität München, München, 
 LPCClermont: Laboratoire de Physique Corpusculaire, Clermont Université and Université Blaise Pascal and CNRS/IN2P3, Clermont-Ferrand, France
 LPNHE: LPNHE, Université Pierre et Marie Curie, Université Paris Diderot, CNRS/IN2P3, Paris, France
 LPSC: Laboratoire de Physique Subatomique et de Cosmologie, Université Joseph Fourier and CNRS/IN2P3 and Institut National Polytechnique de Grenoble, Grenoble, France
+MIT: Massachusetts Institute of Technology, Cambridge, MA, USA
 MPP: Max-Planck-Institut für Physik (Werner-Heisenberg-Institut), München, Germany
 NBI: Niels Bohr Institute, University of Copenhagen, Kobenhavn, Denmark
 NIKHEF: Nikhef National Institute for Subatomic Physics, Amsterdam, Netherlands
@@ -64,7 +65,6 @@ TAIWAN: National Taiwan University, Taipei, Taiwan
 TIFR: Tata Institute of Fundamental Research, Mumbai, India
 TUDortmund: Technische Universit\"at Dortmund, Dortmund, Germany
 UAlberta: Department of Physics, University of Alberta, Edmonton, AB, Canada
-UAmherst: Department of Physics, University of Massachusetts, Amherst, MA, USA
 UArizona: Department of Physics, University of Arizona, Tucson, AZ, USA
 UBristol: H.H. Wills Physics Laboratory, University of Bristol, Bristol, United Kingdom
 UBritishColumbia: Department of Physics, University of British Columbia, Vancouver, BC, Canada
