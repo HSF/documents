@@ -148,7 +148,7 @@ Kcira, Dorian - Caltech
 Kersevan, Borut Paul - ULjubljana
 Kirby, Michael - Fermilab (3)
 Klimentov, Alexei - BNL
-Klute, Markus - MIT
+Klute, Markus - UMass
 Komarov, Ilya - INFNTRIESTE (14)
 Konstantinov, Dmitri - Protvino
 Koppenburg, Patrick - NIKHEF
@@ -222,7 +222,7 @@ Polci, Francesco - LPNHE - LHCb Tracking and Alignment Coordinator
 Potamianos, Karolos - DESY
 Psihas, Fernanda - INDIANA
 Puig Navarro, Albert - UZurich
-Raven, Gerhard - NIKHEF
+Raven, Gerhard - NIKHEF & VU
 Reuter, Jürgen - DESY
 Ribon, Alberto - CERN
 Rinaldi, Lorenzo - INFNBOLOGNA
