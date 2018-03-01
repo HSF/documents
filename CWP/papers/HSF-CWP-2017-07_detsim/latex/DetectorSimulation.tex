@@ -228,10 +228,10 @@ High Performance Computing (HPC) facilities, which provide massive CPU
 power and modern computing architectures.
 
 Components of the HEP simulation chain, such as physics generators and
-event visualisation tools are discussed in other chapters, while the
+event visualisation tools are discussed elsewhere, while the
 modeling of the propagation and beam manipulation through accelerator
 lattices (i.e. CERN and Fermilab accelerator complexes) are considered
-to be outside the scope of this chapter. Space and medical applications
+to be outside the scope of this report. Space and medical applications
 are referred to briefly where appropriate.
 
 %\textbf{Draft executive summary document}:
@@ -940,9 +940,9 @@ models assumptions, approximations and limitations, especially at very
 high energy, and with a view to improving their respective software
 implementations. For LHC Run-1 simulation Geant4 version 9.4 was used
 ~\cite{1742-6596-331-3-032029}. For Run-2 significant improvements were introduced into the
-bremsstrahlung, pair production and multiple scattering 
-~\cite{1742-6596-396-2-022013} ~\cite{1742-6596-513-2-022015}
-further improving simulation of the EM shower shape; these improvements
+bremsstrahlung, pair production and multiple scattering
+further improving simulation of the EM shower shape
+~\cite{1742-6596-396-2-022013}~\cite{1742-6596-513-2-022015}; these improvements
 were made available in Geant4 9.5 and 9.6. For validation purposes, an
 extended set of tests versus data has been developed for high, moderate
 and low-energies using test-beam data and published thin target data.
@@ -956,7 +956,7 @@ resolution of detectors. The scattering of low energy electrons defines
 the energy flow across volume boundaries. This affects the sharing of
 energy between absorbers and sensitive elements, directly affecting
 shower shapes. A comprehensive description of recent improvements of the
-Geant4 electromagnetic module can be found in ~\cite{1742-6596-513-2-022015}. Rather good
+Geant4 electromagnetic module can be found in~\cite{1742-6596-513-2-022015}. Rather good
 agreement was found when Geant4 predictions were compared with
 experimental data collected at the LHC.
 
@@ -1060,6 +1060,15 @@ the following.
   performance penalty.
 \end{itemize}
 
+\begin{figure}[bthp]
+\centering
+\includegraphics[width=0.94\textwidth]{image5.png}
+\caption{The new Goudsmit-Saunderson multiple scattering
+model implementation (GS - Geant4 10.2) shows no artefacts and excellent
+agreement with experimental data}
+\label{fig:gs}
+\end{figure}
+
 \begin{itemize}
 \item
   The models used to describe the \emph{bremsstrahlung} process have
@@ -1094,15 +1103,6 @@ the following.
   Such effects may be important for high energy muons, for shower shape,
   and for simulation of background for a dark matter search experiment.
 \end{itemize}
-
-\begin{figure}[bthp]
-\centering
-\includegraphics[width=0.94\textwidth]{image5.png}
-\caption{The new Goudsmit-Saunderson multiple scattering
-model implementation (GS - Geant4 10.2) shows no artefacts and excellent
-agreement with experimental data}
-\label{fig:gs}
-\end{figure}
 
 \begin{figure}[bthp]
 \centering
@@ -1701,7 +1701,8 @@ initialisation time.}
 \label{fig:perfthroughput}
 \end{figure}
 
-8.2 ATLAS and CMS
+\hypertarget{ATLAS-and-CMS}{%
+\subsection{ATLAS and CMS}\label{ATLAS-and-CMS}}
 
 Given that ATLAS and CMS are expected to be the largest consumers of
 computing resources a decade from now, the two experiments have decided
@@ -1716,9 +1717,6 @@ simulation configurations and physics input samples:
 \begin{itemize}
 \item
   Machine: olhswep16.cern.ch (CERN's OpenLab), one thread runs
-\end{itemize}
-
-\begin{itemize}
 \item
   Compiler: gcc 6.3
 \item
@@ -2093,7 +2091,6 @@ for the DUNE near detector (DUNE ND) may pose significant new demands on
 computing resources. The issue of liquid argon simulations requiring
 large amounts of memory will be mitigated by evolving the \emph{art}
 software framework ~\cite{Green:2012gv} to support multithreading.
-
 
 \begin{table}[tbhp]
 \centering
