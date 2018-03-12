@@ -126,6 +126,7 @@ Hauth, Thomas - KIT
 Hegner, Benedikt - CERN (1)
 Heinemann, Beate - DESY
 Heinrich, Lukas - NYU
+Heiss, Andreas - KIT
 Hernández, José M. - CIEMAT (7)
 Hildreth, Michael - UNotreDame (6)
 Hodgkinson, Mark - USheffield
