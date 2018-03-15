@@ -1,5 +1,6 @@
 .project
 .pydevproject
+.idea
 *.aux
 *.dvi
 *.bbl

@@ -126,6 +126,7 @@ Hauth, Thomas - KIT
 Hegner, Benedikt - CERN (1)
 Heinemann, Beate - DESY
 Heinrich, Lukas - NYU
+Heiss, Andreas - KIT
 Hernández, José M. - CIEMAT (7)
 Hildreth, Michael - UNotreDame (6)
 Hodgkinson, Mark - USheffield
@@ -148,7 +149,7 @@ Kcira, Dorian - Caltech
 Kersevan, Borut Paul - ULjubljana
 Kirby, Michael - Fermilab (3)
 Klimentov, Alexei - BNL
-Klute, Markus - MIT
+Klute, Markus - UMass
 Komarov, Ilya - INFNTRIESTE (14)
 Konstantinov, Dmitri - Protvino
 Koppenburg, Patrick - NIKHEF
@@ -193,7 +194,7 @@ Mitrevski, Jovan - LMU
 Moneta, Lorenzo - CERN
 Morgan, Ben - UWarwick
 Mount, Richard - SLAC (16)
-Moyse, Edward - UAmherst
+Moyse, Edward - UMass
 Murray, Sean - UCape & CPHC
 Neubauer, Mark S - UChampaign (1,11)
 Norman, Andrew - Fermilab - DUNE Software and Computing co-Coordinator (3)
@@ -222,7 +223,7 @@ Polci, Francesco - LPNHE - LHCb Tracking and Alignment Coordinator
 Potamianos, Karolos - DESY
 Psihas, Fernanda - INDIANA
 Puig Navarro, Albert - UZurich
-Raven, Gerhard - NIKHEF
+Raven, Gerhard - NIKHEF & VU
 Reuter, Jürgen - DESY
 Ribon, Alberto - CERN
 Rinaldi, Lorenzo - INFNBOLOGNA
@@ -287,6 +288,7 @@ Wartel, Romain - CERN
 Watts, Gordon T - USeattle
 Wenaus, Torre - BNL - ATLAS Computing Coordinator
 Wenzel, Sandro - CERN
+Williams, Mike - MIT
 Winklmeier, Frank - OREGON
 Wissing, Christoph - DESY
 Wuerthwein, Frank - UCSD
