@@ -218,6 +218,7 @@ Petric, Marko - CERN
 Piedra, Jónatan - IFCA
 Piilonen, Leo - VIRTECH - Belle & Belle II (9)
 Piparo, Danilo - CERN
+Pivarski, Jim - UPrinceton
 Pokorski, Witold - CERN
 Polci, Francesco - LPNHE - LHCb Tracking and Alignment Coordinator
 Potamianos, Karolos - DESY
