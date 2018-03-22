@@ -146,6 +146,7 @@ Kalderon, Charles William - ULund
 Karavakis, Edward - CERN
 Katz, Daniel S. - UChampaign
 Kcira, Dorian - Caltech
+Keeble, Oliver - CERN
 Kersevan, Borut Paul - ULjubljana
 Kirby, Michael - Fermilab (3)
 Klimentov, Alexei - BNL
