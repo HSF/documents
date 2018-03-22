@@ -85,25 +85,17 @@ summarized:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\item
-  \begin{quote}
-  \textbf{Big Data:} The HL-LHC era will significantly increase both the
+\item \textbf{Big Data:} The HL-LHC era will significantly increase both the
   date rate and the data volume. The computing systems will need to
   handle this without significant cost increases and within evolving
   storage technology limitations.
-  \end{quote}
-\item
-  \begin{quote}
-  \textbf{Dynamic Distributed Computing:} In addition, the significantly
+\item \textbf{Dynamic Distributed Computing:} In addition, the significantly
   increased computational requirements for the HL-LHC era will also
   place new requirements on data. Specifically, the use of new types of
   compute resources (\emph{e.g.,} cloud, HPC) with different dynamic
   availability and characteristics are used will require more dynamic
   DOMA systems.
-  \end{quote}
-\item
-  \begin{quote}
-  \textbf{New Applications:} New applications, such as machine learning
+\item \textbf{New Applications:} New applications, such as machine learning
   training or high-rate data-query systems for analysis, will likely be
   employed to meet the computational constraints and to extend the
   physics reach of the HL-LHC. These new applications will place new
@@ -111,7 +103,6 @@ summarized:
   example, specific applications (e.g. training for machine learning)
   may require use of specialized processor resources such as GPUs,
   placing further requirements on data.
-  \end{quote}
 \end{enumerate}
 
 The rapid increase in recent years of data-intensive problems in both
@@ -127,18 +118,13 @@ three different aspects of interacting with data: organization,
 management and access.
 
 \begin{itemize}
-\item
-  \begin{quote}
-  \textbf{Data Organization:} This is essentially how data is structured
+\item \textbf{Data Organization:} This is essentially how data is structured
   as it is written. Most data is written in flat files, in ROOT format,
   typically with a column-wise organization of the data. The records
   corresponding to these columns are compressed. The internal details of
   this organization are typically visible only to individual software
   applications.
-  \end{quote}
-\item
-  \begin{quote}
-  \textbf{Data Management:} The key challenge here was the transition to
+\item \textbf{Data Management:} The key challenge here was the transition to
   the use of distributed computing in the form of the grid. The
   experiments developed dedicated data transfer and placement systems,
   along with catalogs, to move data between computing centers. To first
@@ -146,15 +132,11 @@ management and access.
   sites and the relevant compute jobs were sent to the right locations.
   Applications might interact with catalogs or, at times, the workflow
   management systems does this on behalf of the applications.
-  \end{quote}
-\item
-  \begin{quote}
-  \textbf{Data Access:} Various protocols are used for direct reads
+\item \textbf{Data Access:} Various protocols are used for direct reads
   (rfio, dcap, xrootd, etc.) with a given computer center and/or
   explicit local stage-in and caching for read by jobs. Application
   access may use different protocols than those used by the data
   transfers between sites.
-  \end{quote}
 \end{itemize}
 
 Before the LHC turn-on and in the first years of the LHC, these three
@@ -185,9 +167,7 @@ that describe these activities are enumerated for each category:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
-\item
-  \begin{quote}
-  \textbf{Reconstruction:} Event reconstruction is CPU limited, due to
+\item \textbf{Reconstruction:} Event reconstruction is CPU limited, due to
   the complexity of detector data and the computational algorithms
   needed to associate and disentangle the data. This is true of
   reconstruction methods used today at the LHC and throughout the HEP
@@ -199,10 +179,7 @@ that describe these activities are enumerated for each category:
   across wide area networks to compute elements a feasible analysis
   strategy. The requirements of event streaming analysis models can be
   satisfied by a wide range of storage solutions.
-  \end{quote}
-\item
-  \begin{quote}
-  \textbf{Simulation:} HEP event simulation strategies focus on
+\item \textbf{Simulation:} HEP event simulation strategies focus on
   transforming a small set of key input parameters into event and
   detector response information that is representative of what would be
   seen in the physical detector systems. Simulation processes are
@@ -222,10 +199,7 @@ that describe these activities are enumerated for each category:
   common input and overlay data may present a challenge in relation to
   its scaling to the runtime environments of future HPC facilities and
   to the design of caching layers at computing site.
-  \end{quote}
-\item
-  \begin{quote}
-  \textbf{Analysis:} Analysis level datasets and subsets are typically
+\item \textbf{Analysis:} Analysis level datasets and subsets are typically
   comprised of refined or reduced information that is most pertinent to
   the extraction of physics quantities. These analysis-focused event
   records can often be accepted or rejected through fast pre-filtered
@@ -240,10 +214,7 @@ that describe these activities are enumerated for each category:
   dramatically affect the CPU to IO ratios. These factors make this
   categorization of data the most challenging to project to future
   storage needs and models.
-  \end{quote}
-\item
-  \begin{quote}
-  \textbf{Replication:} Data replication, whether within a site or
+\item \textbf{Replication:} Data replication, whether within a site or
   across multiple sites, is performed to enable efficient data access by
   improving data locality (the proximity of the data to compute
   resources) and exploiting the available data bandwidth between the
@@ -256,7 +227,6 @@ that describe these activities are enumerated for each category:
   performance requirement on on the underlying storage systems to match
   the network performance. Satisfying both requirements is necessary to
   provide an efficient point to point data flow.
-  \end{quote}
 \end{enumerate}
 
 In addition to the characteristics described above, HEP workflows in
@@ -624,35 +594,17 @@ all use cases that rely on event selection and whether it offers an advantage ov
 the current paradigm of file-based granularity.
 
 \begin{itemize}
-\item
-  \begin{quote}
-  \protect\hypertarget{_xbbh0qorjpnn}{}{}Quantify impact on performances
+\item Quantify impact on performances
   and resource utilization (storage, network) for the main type of
   access patterns (simulation, reconstruction, analysis)
-  \end{quote}
-\end{itemize}
-
-\begin{itemize}
-\item
-  \begin{quote}
-  \protect\hypertarget{_ox25y1bzr703}{}{}Assess impact on catalogs and
+\item Assess impact on catalogs and
   data distribution
-  \end{quote}
-\end{itemize}
-
-\begin{itemize}
-\item
-  \begin{quote}
-  \protect\hypertarget{_hhvd696t4e1b}{}{}Assess whether
+\item Assess whether
   event-granularity makes sense in object stores that tend to require
   large chunks of data for efficiency
-  \end{quote}
-\item
-  \begin{quote}
-  \protect\hypertarget{_hut1j5u624ly}{}{}Does it improve recoverability
+\item Does it improve recoverability
   from preemption, in particular when using cloud spot resources and/or
   dynamic HPC resources
-  \end{quote}
 \end{itemize}
 
 \emph{The previous tasks should be completed by 2020 (and can be performed in parallel).}
@@ -663,26 +615,17 @@ Data organization and analysis technologies in use by other big data users shoul
 studied to glean whether we can benefit from them.
 
 \begin{itemize}
-\item
-  \begin{quote}
-  \protect\hypertarget{_2uzvesmlywml}{}{}row-based vs. column-based
+\item Row-based vs. column-based
   organization: impact of storage organization on the performance of
   each kind of access, potential storage format providing good
   performance for both
-  \end{quote}
-\item
-  \begin{quote}
-  \protect\hypertarget{_6xwv25emxnty}{}{}Can map-reduce, Spark-like
+\item Can map-reduce, Spark-like
   analysis and their functional or declarative interfaces be adapted to
   HEP analysis needs?
-  \end{quote}
-\item
-  \begin{quote}
-  \protect\hypertarget{_vfqvjf8nrae}{}{}Evaluate just in time
+\item Evaluate just in time
   decompression schemes and mappings onto hardware architectures
   considering the flow of data from spinning disk to memory and
   application
-  \end{quote}
 \end{itemize}
 
 \emph{The proposed proof-of-concept involves the previous tasks that should be completed by 2020. If successful,
@@ -694,23 +637,14 @@ can play in optimizing the use of computing resources as well as the
 technologies that can be used for this.
 
 \begin{itemize}
-\item
-  \begin{quote}
-  \protect\hypertarget{_z9tvlvkzecc1}{}{}Quantify benefit of caching for
+\item Quantify benefit of caching for
   main use cases (reconstruction, analysis, simulation)
-  \end{quote}
-\item
-  \begin{quote}
-  \protect\hypertarget{_vyj6hh4exb5m}{}{}Assess benefit of caching for
+\item Assess benefit of caching for
   Machine Learning-based applications, in particular for the learning
   phase
-  \end{quote}
-\item
-  \begin{quote}
-  \protect\hypertarget{_ob8u0lfv3fum}{}{}What are the benefits of a CDN
+\item What are the benefits of a CDN
   or NDN approach beyond what HEP is doing today with their data
   delivery systems?
-  \end{quote}
 \end{itemize}
 
 \emph{The first two actions should be completed by 2020 but CDN/NDN
@@ -723,16 +657,10 @@ exploiting varied quality of service from different storage
 technologies?
 
 \begin{itemize}
-\item
-  \begin{quote}
-  \protect\hypertarget{_tmwkcbnhjw6g}{}{}Which role for
+\item Which role for
   opportunistic/tactical storage
-  \end{quote}
-\item
-  \begin{quote}
-  \protect\hypertarget{_tpsd2vti9z2o}{}{}Role of archival storage
+\item Role of archival storage
   solutions
-  \end{quote}
 \end{itemize}
 
 \emph{Proof-of-concept by 2020, implementation if PoC successful in the following years}
@@ -743,16 +671,10 @@ Can we globally optimize data access latency vs
 efficiency of CPU use at a sustainable cost?
 
 \begin{itemize}
-\item
-  \begin{quote}
-  \protect\hypertarget{_ykqlttltg8mz}{}{}Impact of concentrating the
+\item Impact of concentrating the
   data in fewer, larger locations (``data-lake'' approach)
-  \end{quote}
-\item
-  \begin{quote}
-  \protect\hypertarget{_ym4ou9y4kpdu}{}{}Impact of an increased use of
+\item Impact of an increased use of
   opportunistic compute resources, further from the data
-  \end{quote}
 \end{itemize}
 
 \emph{Proof-of-concept by 2020, implementation if PoC successful in the following years}
