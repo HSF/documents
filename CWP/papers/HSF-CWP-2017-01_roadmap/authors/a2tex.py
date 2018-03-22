@@ -105,10 +105,12 @@ def main():
         parser = argparse.ArgumentParser()
         parser.add_argument("--authors", dest="authors", default=AUTHOR_FILE_DEFAULT,
                             help="File containining author list (D: {})".format(AUTHOR_FILE_DEFAULT))
-        parser.add_argument("--footnotes", dest="footnotes", default=FOOTNOTE_FILE_DEFAULT,
-                            help="File containining footnote list (D: {})".format(FOOTNOTE_FILE_DEFAULT))
         parser.add_argument("--affiliations", dest="affiliations", default=AFFILIATION_ADDRESS_FILE_DEFAULT,
                             help="File containining affiliation list (D: {})".format(AFFILIATION_ADDRESS_FILE_DEFAULT))
+        parser.add_argument("--footnotes", dest="footnotes", default=FOOTNOTE_FILE_DEFAULT,
+                            help="File containining footnote list (D: {})".format(FOOTNOTE_FILE_DEFAULT))
+        parser.add_argument("--jhep", dest="jhep", action="store_true", default=False,
+                            help="Produce an author list that can be used in jheppub.sty")
         parser.add_argument("--output", dest="output_file", default=LATEX_AUTHOR_FILE_DEFAULT,
                             help="Output Latex file (D: {})".format(LATEX_AUTHOR_FILE_DEFAULT))
         parser.add_argument("--arxivoutput", dest="arxiv_output_file", default=ARXIV_AUTHOR_FILE_DEFAULT,
@@ -176,30 +178,43 @@ def main():
     with open(options.output_file, "w", encoding="utf-8") as output:
         for author in sorted(author_list, key=lambda author: author.surname):
             affiliation_list = ",".join([ affiliation_map[affiliation].mark for affiliation in author.affiliations ])
-            if author.footnotes:
-                footnote_str = ",".join( [ footnote_list[int(id)-1].mark for id in author.footnotes ])
-                affiliation_list = affiliation_list + "," + footnote_str
-            if author == author_list[-1]:
-                eol_str = ""
+
+            if options.jhep:
+                print ("\\author[{}]{{{}, {}}}".format(affiliation_list,
+                                                       author.surname,
+                                                       author.forename),
+                       file=output)
             else:
-                eol_str = ";"
-            print ("{}, {}$^{{{}}}${}".format(author.surname,
-                                               author.forename,
-                                               affiliation_list,
-                                               eol_str),
-                   file=output)
+                if author.footnotes:
+                    footnote_str = ",".join( [ footnote_list[int(id)-1].mark for id in author.footnotes ])
+                    affiliation_list = affiliation_list + "," + footnote_str
+                if author == author_list[-1]:
+                    eol_str = ""
+                else:
+                    eol_str = ";"
+                print ("{}, {}$^{{{}}}${}".format(author.surname,
+                                                   author.forename,
+                                                   affiliation_list,
+                                                   eol_str),
+                       file=output)
 
-        print ("\\bigskip", file=output)
         for affiliation in sorted_affiliations:
-            print ("\\par {{\\footnotesize $^{{{}}}$ {}}}".format(str(affiliation_map[affiliation].mark),
-                                                                  latex_escape(affiliation_map[affiliation].address)),
-                   file=output)
+            if options.jhep:
+                print ("\\affiliation[{}]{{{}}}".format(str(affiliation_map[affiliation].mark),
+                                                        latex_escape(affiliation_map[affiliation].address)),
+                       file=output)
+            else:
+                print ("\\bigskip", file=output)
+                print ("\\par {{\\footnotesize $^{{{}}}$ {}}}".format(str(affiliation_map[affiliation].mark),
+                                                                      latex_escape(affiliation_map[affiliation].address)),
+                       file=output)
 
-        print ("\\bigskip", file=output)
-        for footnote in sorted_footnotes:
-            print ("\\par {{\\footnotesize $^{{{}}}$ {}}}".format(footnote.mark,
-                                                                  latex_escape(footnote.text)),
-                   file=output)
+        if not options.jhep:
+            print ("\\bigskip", file=output)
+            for footnote in sorted_footnotes:
+                print ("\\par {{\\footnotesize $^{{{}}}$ {}}}".format(footnote.mark,
+                                                                      latex_escape(footnote.text)),
+                       file=output)
 
 
 if __name__ == '__main__':
