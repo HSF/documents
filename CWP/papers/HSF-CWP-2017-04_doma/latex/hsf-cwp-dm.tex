@@ -588,96 +588,89 @@ needs of HL LHC.
 Goals}\label{research-and-development-roadmap-and-goals}
 
 \subsection{Sub-file granularity}\label{sub-file-granularity}
-Sub-file granularity ({\it e.g.} event-based granularity) should be studied to see
-whether it can be implemented efficiently and in a scalable, cost-effective manner for
-all use cases that rely on event selection and whether it offers an advantage over
-the current paradigm of file-based granularity.
+Sub-file granularity ({\it e.g.} event-based granularity) should be studied
+to see whether it can be implemented efficiently and in a scalable, cost-effective
+manner for all use cases that rely on event selection and whether it offers an advantage
+over the current paradigm of file-based granularity. Proposed actions are:
 
 \begin{itemize}
 \item Quantify impact on performances
   and resource utilization (storage, network) for the main type of
-  access patterns (simulation, reconstruction, analysis)
-\item Assess impact on catalogs and
-  data distribution
+  access patterns ({\it i.e.} simulation, reconstruction, analysis).
+\item Assess the impact on catalogs and
+  data distribution.
 \item Assess whether
   event-granularity makes sense in object stores that tend to require
-  large chunks of data for efficiency
-\item Does it improve recoverability
+  large chunks of data for efficiency.
+\item Test for improvement in recoverability
   from preemption, in particular when using cloud spot resources and/or
-  dynamic HPC resources
+  dynamic HPC resources.
 \end{itemize}
 
 \emph{The previous tasks should be completed by 2020 (and can be performed in parallel).}
 
 \subsection{Data organization and analysis
 technologies}\label{data-organization-and-analysis}
-Data organization and analysis technologies in use by other big data users should be
-studied to glean whether we can benefit from them.
+Data organization and analysis technologies in use by other big data users should be studied
+to glean whether we can benefit from them. Proposed actions are:
 
 \begin{itemize}
-\item Row-based vs. column-based
-  organization: impact of storage organization on the performance of
-  each kind of access, potential storage format providing good
-  performance for both
-\item Can map-reduce, Spark-like
-  analysis and their functional or declarative interfaces be adapted to
-  HEP analysis needs?
-\item Evaluate just in time
+\item Evaluate row-based versus column-based
+  data organization on the performance of each type of access used.
+\item Investigate data storage and access solutions that support the use of map-reduce or
+Spark-like analysis tools and their adaptability to HEP analysis needs.
+\item Evaluate just-in-time
   decompression schemes and mappings onto hardware architectures
   considering the flow of data from spinning disk to memory and
-  application
+  application.
 \end{itemize}
 
-\emph{The proposed proof-of-concept involves the previous tasks that should be completed by 2020. If successful,
-implementation as a production system will be done in the following years.}
+\emph{The proposed proof-of-concept involves the previous tasks that should be completed by 2020.
+If successful, implementation as a production system will be done in the following years.}
 
 \subsection{Data caching}\label{data-caching}
-Investigate the role that data placement optimizations, such as caching,
-can play in optimizing the use of computing resources as well as the
-technologies that can be used for this.
+Investigate the role that data placement optimizations, such as caching, can play in optimizing
+the use of computing resources as well as the technologies that can be used for this. Proposed actions are:
 
 \begin{itemize}
-\item Quantify benefit of caching for
-  main use cases (reconstruction, analysis, simulation)
-\item Assess benefit of caching for
+\item Quantify the benefit of caching for reconstruction, analysis, and simulation.
+\item Assess the benefit of caching for
   Machine Learning-based applications, in particular for the learning
-  phase
-\item What are the benefits of a CDN
-  or NDN approach beyond what HEP is doing today with their data
-  delivery systems?
+  phase.
+\item Evaluate the benefits of using different approaches to data delivery from what is currently in use in HEP.
+Namely, Content Delivery Networks (CDN) and Named Data Networking (NDN) should be studied.
 \end{itemize}
 
-\emph{The first two actions should be completed by 2020 but CDN/NDN
-evaluation is more long-term}
+-\emph{The first two actions should be completed by 2020 but CDN/NDN
+-evaluation is more long-term}
 
 \subsection{Getting the most out of the
 storage diversity}\label{storage-diversity}
-How to minimize HEP infrastructure cost by
-exploiting varied quality of service from different storage
-technologies?
+
+The landscape of increasing diversity in storage service offerings and technologies should be studied and
+exploited in order to reduce HEP infrastructure costs. The proof-of-concept phase involves the following tasks:
 
 \begin{itemize}
-\item Which role for
-  opportunistic/tactical storage
-\item Role of archival storage
-  solutions
+\item Understand what role tactical or opportunistic (potentially short-term) storage can play in HEP.
+\item Re-evaluate the role of archival storage solutions for HEP.
 \end{itemize}
 
-\emph{Proof-of-concept by 2020, implementation if PoC successful in the following years}
+\emph{The  proof-of-concept should be completed by 2020 and, if successful, implementation in
+production will be done in the following years.}
 
-\subsection{Efficiency / latency (global
-optimization}\label{efficiency-latency}
-Can we globally optimize data access latency vs
-efficiency of CPU use at a sustainable cost?
+\subsection{Global optimization of efficiency and latency}\label{efficiency-latency}
+The inherent trade-offs between data access latency and efficiency of CPU use need to be studied and optimized
+on a global scale across the HEP infrastructure. The proof-of-concept phase involves the following tasks::
 
 \begin{itemize}
-\item Impact of concentrating the
-  data in fewer, larger locations (``data-lake'' approach)
-\item Impact of an increased use of
-  opportunistic compute resources, further from the data
+\item Understand the impact of concentrating the
+  data in fewer, larger locations (the ``data-lake'' approach).
+\item Understand the impact of an increased use of
+  opportunistic compute resources, specifically those further from where data are stored.
 \end{itemize}
 
-\emph{Proof-of-concept by 2020, implementation if PoC successful in the following years}
+\emph{The  proof-of-concept should be completed by 2020 and, if successful, implementation in
+production will be done in the following years.}
 
 \section{Conclusions}\label{conclusions}
 
