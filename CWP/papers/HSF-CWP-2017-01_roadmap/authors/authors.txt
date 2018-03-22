@@ -225,6 +225,7 @@ Polci, Francesco - LPNHE - LHCb Tracking and Alignment Coordinator
 Potamianos, Karolos - DESY
 Psihas, Fernanda - INDIANA
 Puig Navarro, Albert - UZurich
+Quast, Günter - KIT
 Raven, Gerhard - NIKHEF & VU
 Reuter, Jürgen - DESY
 Ribon, Alberto - CERN
