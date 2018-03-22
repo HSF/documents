@@ -617,10 +617,11 @@ needs of HL LHC.
 \section{Research and Development Roadmap and
 Goals}\label{research-and-development-roadmap-and-goals}
 
-\subsection{Event-based granularity}\label{event-based-granularity}
-Can this be implemented efficiently, scalably and in a cost-effective manner
-for relevant use cases (reco, simulation, event-picking)? Does it
-provide an advantage over current file-based granularity?
+\subsection{Sub-file granularity}\label{sub-file-granularity}
+Sub-file granularity ({\it e.g.} event-based granularity) should be studied to see
+whether it can be implemented efficiently and in a scalable, cost-effective manner for
+all use cases that rely on event selection and whether it offers an advantage over
+the current paradigm of file-based granularity.
 
 \begin{itemize}
 \item
@@ -654,13 +655,12 @@ provide an advantage over current file-based granularity?
   \end{quote}
 \end{itemize}
 
-\emph{Should be completed by
-2020: actions can be done in parallel}.
+\emph{The previous tasks should be completed by 2020 (and can be performed in parallel).}
 
 \subsection{Data organization and analysis
 technologies}\label{data-organization-and-analysis}
-How can we benefit from technologies adopted by the
-big-data world?
+Data organization and analysis technologies in use by other big data users should be
+studied to glean whether we can benefit from them.
 
 \begin{itemize}
 \item
@@ -685,12 +685,13 @@ big-data world?
   \end{quote}
 \end{itemize}
 
-\emph{Proof-of-concept by 2020, implementation if PoC successful in the following years}
+\emph{The proposed proof-of-concept involves the previous tasks that should be completed by 2020. If successful,
+implementation as a production system will be done in the following years.}
 
 \subsection{Data caching}\label{data-caching}
-What role will
-caching play to use compute resources and what technologies will be
-used?
+Investigate the role that data placement optimizations, such as caching,
+can play in optimizing the use of computing resources as well as the
+technologies that can be used for this.
 
 \begin{itemize}
 \item
@@ -712,11 +713,12 @@ used?
   \end{quote}
 \end{itemize}
 
-\emph{First two actions to be completed by 2020, CDN/NDN evaluation more long-term}
+\emph{The first two actions should be completed by 2020 but CDN/NDN
+evaluation is more long-term}
 
 \subsection{Getting the most out of the
 storage diversity}\label{storage-diversity}
-how to minimize HEP infrastructure cost by
+How to minimize HEP infrastructure cost by
 exploiting varied quality of service from different storage
 technologies?
 
