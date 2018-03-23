@@ -20,7 +20,7 @@ Klimentov, Alexei - BNL
 Kuznetsov, Valentin - Cornell
 Lancon, Eric - BNL
 Lassnig, Mario - CERN
-Livny, Miron - UWisconsin
+Livny, Miron - CHTC
 Maltzahn, Carlos - UCSD
 McKee, Shawn - UMich - ATLAS (12)
 Menasce, Dario - INFNMilano (1)

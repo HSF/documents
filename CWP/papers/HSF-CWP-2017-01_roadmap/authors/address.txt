@@ -4,6 +4,7 @@ Caltech: California Institute of Technology, Pasadena, California, CA, USA
 CBPF: Centro Brasileiro de Pesquisas Físicas, Rio de Janeiro, Brazil
 CCIN2P3: Centre de Calcul de l’IN2P3, Villeurbanne, Lyon, France
 CERN: CERN, Geneva, Switzerland
+CHTC: Center for High Throughput  Computing, Computer Sciences Department, University of Wisconsin-Madison, Madison, WI, USA
 CIEMAT: Centro de Investigaciones Energéticas Medioambientales y Tecnológicas (CIEMAT), Madrid, Spain
 CINVESTAV: Cinvestav, Mexico City, Mexico
 CNAF: Centro Nazionale Analisi Fotogrammi (CNAF), INFN, Bologna, Italy
