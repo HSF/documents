@@ -146,6 +146,7 @@ Kalderon, Charles William - ULund
 Karavakis, Edward - CERN
 Katz, Daniel S. - UChampaign
 Kcira, Dorian - Caltech
+Keeble, Oliver - CERN
 Kersevan, Borut Paul - ULjubljana
 Kirby, Michael - Fermilab (3)
 Klimentov, Alexei - BNL
@@ -170,6 +171,7 @@ Li, Teng - UEDINBURGH
 Lima, Guilherme - Fermilab (3)
 Linacre, Jacob - RAL (13)
 Linden, Tomas - HIP
+Livny, Miron - CHTC
 Lo Presti, Giuseppe - CERN
 Lopienski, Sebastian - CERN
 Love, Peter - ULancaster
@@ -215,14 +217,17 @@ Perez-Calero Yzquierdo, Antonio - PIC & CIEMAT (7)
 Perrozzi, Luca - ETHZurich
 Petersen, Troels - NBI
 Petric, Marko - CERN
+Petzold, Andreas - KIT
 Piedra, Jónatan - IFCA
 Piilonen, Leo - VIRTECH - Belle & Belle II (9)
 Piparo, Danilo - CERN
+Pivarski, Jim - UPrinceton
 Pokorski, Witold - CERN
 Polci, Francesco - LPNHE - LHCb Tracking and Alignment Coordinator
 Potamianos, Karolos - DESY
 Psihas, Fernanda - INDIANA
 Puig Navarro, Albert - UZurich
+Quast, Günter - KIT
 Raven, Gerhard - NIKHEF & VU
 Reuter, Jürgen - DESY
 Ribon, Alberto - CERN

@@ -1,0 +1,36 @@
+Berzano, Dario - CERN
+Bianchi, Riccardo Maria - UPittsburgh
+Bird, Ian - CERN - WLCG Project Leader
+Bockelman, Brian - UNebraska
+Campana, Simone - CERN (1)
+De, Kaushik - UTexas
+Duellmann, Dirk - CERN
+Elmer, Peter - UPrinceton (1)
+Gardner, Robert - UChicago
+Garonne, Vincent - UOslo
+Grandi, Claudio - INFNBOLOGNA
+Gutsche, Oliver - Fermilab (3)
+Hanushevsky, Andrew - SLAC (16)
+Holzman, Burt - Fermilab (3)
+Jayatilaka, Bodhitha - Fermilab (3)
+Jimenez, Ivo - UCSD
+Jouvin, Michel - LAL (1)
+Keeble, Oliver - CERN
+Klimentov, Alexei - BNL
+Kuznetsov, Valentin - Cornell
+Lancon, Eric - BNL
+Lassnig, Mario - CERN
+Livny, Miron - CHTC
+Maltzahn, Carlos - UCSD
+McKee, Shawn - UMich - ATLAS (12)
+Menasce, Dario - INFNMilano (1)
+Norman, Andrew - Fermilab - DUNE Software and Computing co-Coordinator (3)
+Pivarski, Jim - UPrinceton
+Sevilla, Michael - UCSD
+Schulz, Markus - CERN
+Severini, Horst - UOKLAHOMA
+Sexton-Kennedy, Elizabeth - Fermilab - CMS Software and Computing co-Coordinator (1,3)
+Vaandering, Eric - Fermilab (3)
+Watkins, Noah - UCSD
+Wenaus, Torre - BNL - ATLAS Computing Coordinator
+Wuerthwein, Frank - UCSD
