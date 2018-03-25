@@ -217,6 +217,7 @@ Perez-Calero Yzquierdo, Antonio - PIC & CIEMAT (7)
 Perrozzi, Luca - ETHZurich
 Petersen, Troels - NBI
 Petric, Marko - CERN
+Petzold, Andreas - KIT
 Piedra, Jónatan - IFCA
 Piilonen, Leo - VIRTECH - Belle & Belle II (9)
 Piparo, Danilo - CERN
