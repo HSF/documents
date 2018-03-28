@@ -47,7 +47,7 @@ LIP: Laboratório de Instrumentação e Física Experimental de Partículas (LIP
 LLR: Laboratoire Leprince-Ringuet, École Polytechnique, CNRS/IN2P3, Université Paris-Saclay, Palaiseau, France
 LMU: Fakultät für Physik, Ludwig-Maximilians-Universität München, München, Germany
 LPCClermont: Laboratoire de Physique Corpusculaire, Clermont Université and Université Blaise Pascal and CNRS/IN2P3, Clermont-Ferrand, France
-LPNHE: LPNHE, Université Pierre et Marie Curie, Université Paris Diderot, CNRS/IN2P3, Paris, France
+LPNHE: Laboratoire de Physique Nucléaire et de Hautes Energies (LPNHE), Sorbonne Université, Université Paris Diderot, CNRS/IN2P3, Paris, France
 LPSC: Laboratoire de Physique Subatomique et de Cosmologie, Université Joseph Fourier and CNRS/IN2P3 and Institut National Polytechnique de Grenoble, Grenoble, France
 MIT: Massachusetts Institute of Technology, Cambridge, MA, USA
 MPP: Max-Planck-Institut für Physik (Werner-Heisenberg-Institut), München, Germany

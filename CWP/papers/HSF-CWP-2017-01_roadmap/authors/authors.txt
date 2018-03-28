@@ -61,6 +61,7 @@ Crooks, David - UGlasgow
 Dallmeier-Tiessen, Sünje - CERN
 Delgado Peris, Antonio - CIEMAT (7)
 De Roeck, Albert - CERN
+Derue, Frédéric - LPNHE
 Di Girolamo, Alessandro - CERN
 Di Guida, Salvatore - INFNMilano
 Dimitrov, Gancho - CERN
