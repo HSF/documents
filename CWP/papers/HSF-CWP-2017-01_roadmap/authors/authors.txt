@@ -200,6 +200,7 @@ Morgan, Ben - UWarwick
 Mount, Richard - SLAC (16)
 Moyse, Edward - UMass
 Murray, Sean - UCape & CPHC
+Nairz, Armin - CERN
 Neubauer, Mark S - UChampaign (1,11)
 Norman, Andrew - Fermilab - DUNE Software and Computing co-Coordinator (3)
 Novaes, Sérgio - USaoPaulo
