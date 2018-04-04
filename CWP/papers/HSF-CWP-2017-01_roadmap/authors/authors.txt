@@ -145,6 +145,7 @@ Jouvin, Michel - LAL (1)
 Jun, Soon Yung - Fermilab (3)
 Kagan, Michael - SLAC (16)
 Kalderon, Charles William - ULund
+Kane, Meghan - Soundcloud
 Karavakis, Edward - CERN
 Katz, Daniel S. - UChampaign
 Kcira, Dorian - Caltech
