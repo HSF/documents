@@ -198,13 +198,16 @@ def main():
                                                    eol_str),
                        file=output)
 
+        # In JHEP style, space between authors and affiliations is managed by the style
+        if not options.jhep:
+            print ("\\bigskip", file=output)
+
         for affiliation in sorted_affiliations:
             if options.jhep:
                 print ("\\affiliation[{}]{{{}}}".format(str(affiliation_map[affiliation].mark),
                                                         latex_escape(affiliation_map[affiliation].address)),
                        file=output)
             else:
-                print ("\\bigskip", file=output)
                 print ("\\par {{\\footnotesize $^{{{}}}$ {}}}".format(str(affiliation_map[affiliation].mark),
                                                                       latex_escape(affiliation_map[affiliation].address)),
                        file=output)
