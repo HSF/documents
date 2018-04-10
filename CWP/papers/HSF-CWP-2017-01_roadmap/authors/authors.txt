@@ -61,6 +61,7 @@ Crooks, David - UGlasgow
 Dallmeier-Tiessen, Sünje - CERN
 Delgado Peris, Antonio - CIEMAT (7)
 De Roeck, Albert - CERN
+Derue, Frédéric - LPNHE
 Di Girolamo, Alessandro - CERN
 Di Guida, Salvatore - INFNMilano
 Dimitrov, Gancho - CERN
@@ -136,6 +137,7 @@ Hristov, Peter - CERN
 Huang, Xingtao - UShandong
 Ivanchenko, Vladimir N. - CERN & UTomsk
 Ivanov, Todor - USofia
+Iven, Jan - CERN
 Jashal, Brij - TIFR
 Jayatilaka, Bodhitha - Fermilab (3)
 Jones, Roger - ULancaster (1)
@@ -143,6 +145,7 @@ Jouvin, Michel - LAL (1)
 Jun, Soon Yung - Fermilab (3)
 Kagan, Michael - SLAC (16)
 Kalderon, Charles William - ULund
+Kane, Meghan - Soundcloud
 Karavakis, Edward - CERN
 Katz, Daniel S. - UChampaign
 Kcira, Dorian - Caltech
@@ -198,6 +201,7 @@ Morgan, Ben - UWarwick
 Mount, Richard - SLAC (16)
 Moyse, Edward - UMass
 Murray, Sean - UCape & CPHC
+Nairz, Armin - CERN
 Neubauer, Mark S - UChampaign (1,11)
 Norman, Andrew - Fermilab - DUNE Software and Computing co-Coordinator (3)
 Novaes, Sérgio - USaoPaulo

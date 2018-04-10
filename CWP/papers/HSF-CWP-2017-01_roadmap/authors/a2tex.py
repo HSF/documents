@@ -176,13 +176,22 @@ def main():
         
     # Write out the latex author file
     with open(options.output_file, "w", encoding="utf-8") as output:
-        for author in sorted(author_list, key=lambda author: author.surname):
+        author_list = sorted(author_list, key=lambda author: author.surname)
+        for author in author_list:
             affiliation_list = ",".join([ affiliation_map[affiliation].mark for affiliation in author.affiliations ])
 
             if options.jhep:
-                print ("\\author[{}]{{{}, {}}}".format(affiliation_list,
-                                                       author.surname,
-                                                       author.forename),
+                formatted_name = "{} {}".format(author.forename,
+                                                author.surname)
+                author_position = author_list.index(author) - len(author_list)
+                # The fiddly bit to get "a, b, c and d" as in JHEP style
+                # N.B. For position -2 doing nothing *is correct*
+                if author_position < -2:
+                    formatted_name += ","
+                elif author_position == -1:
+                    formatted_name = "and {}".format(formatted_name)
+                print ("\\author[{}]{{{}}}".format(affiliation_list,
+                                                    formatted_name),
                        file=output)
             else:
                 if author.footnotes:
@@ -198,13 +207,16 @@ def main():
                                                    eol_str),
                        file=output)
 
+        # In JHEP style, space between authors and affiliations is managed by the style
+        if not options.jhep:
+            print ("\\bigskip", file=output)
+
         for affiliation in sorted_affiliations:
             if options.jhep:
                 print ("\\affiliation[{}]{{{}}}".format(str(affiliation_map[affiliation].mark),
                                                         latex_escape(affiliation_map[affiliation].address)),
                        file=output)
             else:
-                print ("\\bigskip", file=output)
                 print ("\\par {{\\footnotesize $^{{{}}}$ {}}}".format(str(affiliation_map[affiliation].mark),
                                                                       latex_escape(affiliation_map[affiliation].address)),
                        file=output)
