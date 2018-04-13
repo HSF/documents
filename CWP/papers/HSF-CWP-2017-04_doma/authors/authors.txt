@@ -26,11 +26,13 @@ McKee, Shawn - UMich - ATLAS (12)
 Menasce, Dario - INFNMilano (1)
 Norman, Andrew - Fermilab - DUNE Software and Computing co-Coordinator (3)
 Pivarski, Jim - UPrinceton
+Riedel, Benedikt - UChicago
 Sevilla, Michael - UCSD
 Schulz, Markus - CERN
 Severini, Horst - UOKLAHOMA
 Sexton-Kennedy, Elizabeth - Fermilab - CMS Software and Computing co-Coordinator (1,3)
 Vaandering, Eric - Fermilab (3)
+Vukotic, Ilija - UChicago
 Watkins, Noah - UCSD
 Wenaus, Torre - BNL - ATLAS Computing Coordinator
 Wuerthwein, Frank - UCSD
