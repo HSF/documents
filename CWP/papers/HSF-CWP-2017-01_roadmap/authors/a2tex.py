@@ -179,6 +179,9 @@ def main():
         author_list = sorted(author_list, key=lambda author: author.surname)
         for author in author_list:
             affiliation_list = ",".join([ affiliation_map[affiliation].mark for affiliation in author.affiliations ])
+            if author.footnotes:
+                footnote_str = ",".join([footnote_list[int(id) - 1].mark for id in author.footnotes])
+                affiliation_list = affiliation_list + "," + footnote_str
 
             if options.jhep:
                 formatted_name = "{} {}".format(author.forename,
@@ -194,9 +197,6 @@ def main():
                                                     formatted_name),
                        file=output)
             else:
-                if author.footnotes:
-                    footnote_str = ",".join( [ footnote_list[int(id)-1].mark for id in author.footnotes ])
-                    affiliation_list = affiliation_list + "," + footnote_str
                 if author == author_list[-1]:
                     eol_str = ""
                 else:
@@ -221,12 +221,18 @@ def main():
                                                                       latex_escape(affiliation_map[affiliation].address)),
                        file=output)
 
-        if not options.jhep:
-            print ("\\bigskip", file=output)
-            for footnote in sorted_footnotes:
-                print ("\\par {{\\footnotesize $^{{{}}}$ {}}}".format(footnote.mark,
-                                                                      latex_escape(footnote.text)),
-                       file=output)
+        if len(sorted_footnotes) > 0:
+            if options.jhep:
+                for footnote in sorted_footnotes:
+                    print ("\\note[{}]{{{}}}".format(footnote.mark,
+                                                         latex_escape(footnote.text)),
+                           file=output)
+            else:
+                print ("\\bigskip", file=output)
+                for footnote in sorted_footnotes:
+                    print ("\\par {{\\footnotesize $^{{{}}}$ {}}}".format(footnote.mark,
+                                                                          latex_escape(footnote.text)),
+                           file=output)
 
 
 if __name__ == '__main__':
