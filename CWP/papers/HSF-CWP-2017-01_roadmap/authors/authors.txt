@@ -12,7 +12,7 @@ Bagliesi, Giuseppe - INFNPISA
 Banerjee, Sunanda - Fermilab (3)
 Bandieramonte, Marilena - CERN
 Barisits, Martin - CERN
-Bauerdick, Lothar A. T. - Fermilab (3)
+Bauerdick, Lothar A.T. - Fermilab (3)
 Belforte, Stefano - INFNTRIESTE
 Benjamin, Douglas - UDuke
 Bernius, Catrin - SLAC
@@ -181,7 +181,7 @@ Lopienski, Sebastian - CERN
 Love, Peter - ULancaster
 Lyon, Adam - Fermilab - g-2 Software and Computing Coordinator (3)
 Magini, Nicolò - INFNGenova
-Marshall, Zachary L - LBNL
+Marshall, Zachary L. - LBNL
 Martelli, Edoardo - CERN
 Martin-Haugh, Stewart - RAL
 Mato, Pere - CERN
@@ -203,7 +203,7 @@ Mount, Richard - SLAC (16)
 Moyse, Edward - UMass
 Murray, Sean - UCape & CPHC
 Nairz, Armin - CERN
-Neubauer, Mark S - UChampaign (1,11)
+Neubauer, Mark S. - UChampaign (1,11)
 Norman, Andrew - Fermilab - DUNE Software and Computing co-Coordinator (3)
 Novaes, Sérgio - USaoPaulo
 Novak, Mihaly - CERN
@@ -270,12 +270,12 @@ Siroli, Gian Piero - INFNBOLOGNA
 Skipsey, Sam - UGlasgow
 Smith, Tim - CERN
 Snyder, Scott - BNL
-Sokoloff, Michael D - UCincinnati (1)
+Sokoloff, Michael D. - UCincinnati (1)
 Spentzouris, Panagiotis - Fermilab (3)
 Stadie, Hartmut - HAMBURG
 Stark, Giordon - UChicago
 Stewart, Gordon - UGlasgow
-Stewart, Graeme - CERN - HSF (1)
+Stewart, Graeme A. - CERN - HSF (1)
 Taffard, Anyes - UCIrvine
 Tamponi, Umberto - INFNTorino
 Templon, Jeff - NIKHEF
@@ -295,7 +295,7 @@ Voss, Christian - DESY
 Votava, Margaret - Fermilab (3)
 Vuosalo, Carl - UWisconsin
 Wartel, Romain - CERN
-Watts, Gordon T - USeattle
+Watts, Gordon T. - USeattle
 Wenaus, Torre - BNL - ATLAS Computing Coordinator
 Wenzel, Sandro - CERN
 Williams, Mike - MIT
