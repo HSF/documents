@@ -43,10 +43,14 @@ ARXIV_AUTHOR_FILE_DEFAULT = "arxiv.txt"
 
 
 class Footnote():
-    def __init__(self, number_str, text):
-        footnote_symbols = "abcdefghijklmnopqrstuvwxyz"
-        self.mark = footnote_symbols[int(number_str)-1]
+    def __init__(self, text):
         self.text = text
+        self.mark = None
+
+    def set_mark(self, i):
+        footnote_symbols = "abcdefghijklmnopqrstuvwxyz"
+        self.mark = footnote_symbols[i-1]
+
     def __repr__(self):
         return repr((self.mark, self.text))
 
@@ -141,6 +145,7 @@ def main():
             institute_address[institute] = address
 
     affiliation_map = {}
+    referenced_foonotes = {}
     for author in author_list:
         for affiliation in author.affiliations:
             if affiliation not in affiliation_map:
@@ -150,23 +155,34 @@ def main():
                     raise Exception('Affiliation {} not defined for {}, {}'.format(affiliation, 
                                                                                    author.surname,
                                                                                    author.forename))
+        for footnote in author.footnotes:
+            referenced_foonotes[footnote] = ''
 
     # Alphabetise and assign footnote marks
     sorted_affiliations = sorted(affiliation_map)
     for footnote_mark, affiliation in enumerate(sorted_affiliations, start=1):
         affiliation_map[affiliation].set_mark(footnote_mark)
     
-    # Parse and assign footnotes
+    # Parse and assign footnotes: interprete the first field as a footnote key
+    # matched against author footnotes rather than the real mark
     with open(options.footnotes, encoding='utf-8') as footnote_fh:
-        footnote_list = []
+        footnote_map = {}
         for footnote_line in footnote_fh:
             footnote_line = footnote_line.strip()
             if footnote_line.startswith("#") or footnote_line == "":
                 continue
-            number, note = footnote_line.split(" ", 1)
-            number = number.rstrip(".")
-            footnote_list.append(Footnote(number, note))
-    sorted_footnotes = sorted(footnote_list, key=lambda footnote: footnote.mark)
+            note_key, note = footnote_line.split(" ", 1)
+            note_key = note_key.rstrip(".")
+            if note_key in referenced_foonotes:
+                if note_key not in footnote_map:
+                    footnote_map[note_key] = Footnote(note)
+                else:
+                    raise Exception('Duplicated footnote ({}'.format(note_key))
+
+    # Generate footnote marks (letters)
+    sorted_note_keys = sorted(footnote_map, key=lambda x: int(x))
+    for footnote_num, note_key in enumerate(sorted_note_keys, start=1):
+        footnote_map[note_key].set_mark(footnote_num)
 
     # Write out the author list to copy into the arXiv author file
     with open(options.arxiv_output_file, "w", encoding="utf-8") as arxivoutput:
@@ -180,7 +196,7 @@ def main():
         for author in author_list:
             affiliation_list = ",".join([ affiliation_map[affiliation].mark for affiliation in author.affiliations ])
             if author.footnotes:
-                footnote_str = ",".join([footnote_list[int(id) - 1].mark for id in author.footnotes])
+                footnote_str = ",".join([footnote_map[note_key].mark for note_key in author.footnotes])
                 affiliation_list = affiliation_list + "," + footnote_str
 
             if options.jhep:
@@ -221,17 +237,17 @@ def main():
                                                                       latex_escape(affiliation_map[affiliation].address)),
                        file=output)
 
-        if len(sorted_footnotes) > 0:
+        if len(sorted_note_keys) > 0:
             if options.jhep:
-                for footnote in sorted_footnotes:
-                    print ("\\note[{}]{{{}}}".format(footnote.mark,
-                                                         latex_escape(footnote.text)),
+                for note_key in sorted_note_keys:
+                    print ("\\note[{}]{{{}}}".format(footnote_map[note_key].mark,
+                                                     latex_escape(footnote_map[note_key].text)),
                            file=output)
             else:
                 print ("\\bigskip", file=output)
-                for footnote in sorted_footnotes:
-                    print ("\\par {{\\footnotesize $^{{{}}}$ {}}}".format(footnote.mark,
-                                                                          latex_escape(footnote.text)),
+                for note_key in sorted_note_keys:
+                    print ("\\par {{\\footnotesize $^{{{}}}$ {}}}".format(footnote_map[note_key].mark,
+                                                                          latex_escape(footnote_map[note_key].text)),
                            file=output)
 
 
