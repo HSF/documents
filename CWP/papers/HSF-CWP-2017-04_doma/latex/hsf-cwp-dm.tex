@@ -46,49 +46,35 @@ Data Organization, Management and Access (DOMA)}
 
 \section{Introduction}\label{introduction}
 
-The coming decade will bring HEP to the exabyte (EB) scale with the expected data
+The coming decade will bring HEP to the exabyte scale with the expected data
 volumes of the HL-LHC experiments, the DUNE experiment, and even non-HEP
-experiments such as the Square Kilometre Array (SKA) entering this
-regime. In devising experimental computing models for this era, many
+experiments such as the Square Kilometer Array (SKA) entering this
+regime. In devising computing models for this era, many
 factors have to be taken into account. In particular, the increasing
-availability of very high-speed networks, which may reduce the need for
+availability of very high-speed networks may reduce the need for
 % * <briedel@uchicago.edu> 2018-04-04T17:59:27.886Z:
 %
 % > very high-speed networks
 % What is "very high-speed" here? 100G? 1000G?
 %
 % ^ <briedel@uchicago.edu> 2018-04-04T17:59:40.128Z.
-CPU and data co-location, need to be examined. Such networks may allow
-for more extensive use of data access over the wide-area network (WAN),
-which may provide fail-over capabilities, global and federated data
+CPU and data co-location. Such networks may allow
+for more extensive use of data access over the wide-area network (WAN) while providing fail-over capabilities, global and federated data
 namespaces, and will have an impact on data caching. Shifts in the data
-presentation and analysis models, such as a potential move to or
-sub-event-based or event-based data streaming from the more
-% * <briedel@uchicago.edu> 2018-04-04T18:00:17.686Z:
-%
-% > sub-event-based or event-based data
-% Added "sub-event-based" because we talk about it below.
-%
-% ^ <briedel@uchicago.edu> 2018-04-04T18:00:36.656Z.
-traditional dataset-based or file-based data access, will be
-particularly important for optimizing the utilization of
-opportunistic computing cycles on HPC facilities, commercial cloud resources,
-and campus clusters, and can potentially resolve currently
-limiting factors such as job eviction.
-% * <briedel@uchicago.edu> 2018-04-04T18:01:55.490Z:
-%
-% >  job eviction
-% Using "job evictions" as a reason to move to different DOMA model seems like an odd choice. Shouldn't it be something like "scheduling difficulties"
-%
-% ^.
+presentation and analysis models, such as a potential move to event-based or
+sub-event-based data streaming from the more traditional dataset-based or file-based
+data access, will be particularly important for optimizing the
+utilization of opportunistic computing cycles on HPC facilities,
+commercial cloud resources, and campus clusters, and can potentially
+resolve currently limiting factors such as job eviction.
 
-Planned analysis of HL-LHC data and data analysis from other large
+Planned analysis of HL-LHC data and data analysis from other
 % * <briedel@uchicago.edu> 2018-04-04T18:09:21.988Z:
 %
 % > large
 % XENON1T has shown that the collaboration doesnt have to be "large" to require DOMA
 %
-% ^.
+% ^ <briedel@uchicago.edu> 2018-04-09T20:36:43.846Z.
 international collaborations will need to adopt a distributed computing
 model due to its scope. The data management systems that will enable
 this type of analysis will need to provide cost-based optimization of
@@ -97,38 +83,36 @@ the data locations and delivery mechanisms.
 \section{Challenges and
 Opportunities}\label{challenges-and-opportunities}
 
-The LHC experiments currently collectively provision and manage about an EB of
+The LHC experiments currently collectively provision and manage about an Exabyte of
 storage of which approximately half is archival and half is
 traditional disk storage. The annual storage requirements are expected
 to jump by a factor of 10 for the HL-LHC. This increase is faster than
-projected Moore's Law gains and will present major challenges. Storage
+projected density gains in current storage technologies and thus will present major challenges. Storage
 % * <briedel@uchicago.edu> 2018-04-05T01:05:55.296Z:
 %
 % > Moore's Law gains
 % This is only a CPU. What about storage technology? Currently we are adding about 2 TB/year in disk capacity. It is unlikely will be at 100 TB/disk in 2023. We may have O(10) - O(100) TB SSDs  at a reasonable cost, but we can't be certain. What does the future of tape look like?
-%
+% changed to "density gains in current storage technologies." Tape scaling has quite a future but hard drives, less so
 % ^.
-will remain one of the visible cost drivers for HEP computing with
-the projected growth and cost of the computational resources needed to
-analyze the data expected to grow even faster than the base
+will remain one of the visible cost drivers for HEP computing. The projected growth and cost of the computational resources needed to
+analyze the data is expected to grow even faster than the base
 storage costs. The combination of storage and analysis computing costs
 may restrict scientific output and potential physics reach of the
 experiments. Thus, new techniques and algorithms are likely to be
 required.
 
-The three main challenges for data in the HL-LHC era can thus be
-summarized:
+The three main challenges for data in the HL-LHC era can be
+summarized as:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\item \textbf{Big Data:} The HL-LHC era will significantly increase both expected
-  date rates and data volumes. Computing systems will need to
+\item \textbf{Big Data:} The expected data volume will significantly increase in the HL-LHC era. Computing systems will need to
   handle this without significant cost increases and within evolving
   storage technology limitations.
 \item \textbf{Dynamic Distributed Computing:} In addition, the significantly
   increased computational requirements for the HL-LHC era will also
   place new requirements on data. Specifically, the use of new types of
-  compute resources (e.g., cloud, HPC) with different dynamic
+  compute resources (e.g., cloud, HPC) with different dynamic %don't want this to be just cloud and HPC, hence "new types"
   availability and characteristics will require more dynamic
   DOMA systems.
 \item \textbf{New Applications:} New applications, such as machine learning
@@ -137,19 +121,12 @@ summarized:
   physics reach of the HL-LHC. These new applications will place new
   requirements on how and where data is accessed and produced. For
   example, specific applications (e.g., training for machine learning)
-  may require use of specialized processor resources, such as GPUs,
-% * <briedel@uchicago.edu> 2018-04-04T18:14:36.074Z:
-%
-% > ,  placing further requirements on data.
-% Not sure this is needed.
-%
-% ^.
-  placing further requirements on data.
+  may require use of specialized processor resources, such as GPUs.
 \end{enumerate}
 
 The rapid increase in recent years of data-intensive problems in both
 the commercial world and in the rest of the research world also provides
-a number of opportunities and solution to tackle these challenges.
+a number of opportunities and solutions to tackle these challenges.
 
 \section{Current Approaches}\label{current-approaches}
 
@@ -161,21 +138,14 @@ management and access.
 
 \begin{itemize}
 \item \textbf{Data Organization:} This is essentially how data is structured
-  as it is written. Most data is written in flat files, in the ROOT format, and
-  typically with a column-wise organization of the data. The records
-  corresponding to these columns are compressed. The internal details of
-  this organization are typically visible only to individual software
-  applications.
+  as it is written. Most data is written in the ROOT file format. ROOT serializes data objects, compresses, and writes them in a column-wise manner. The data written in this way can only be meaningfully read  by a software that includes data object libraries.
 \item \textbf{Data Management:} The key challenge here was the transition to
-  the use of distributed computing in the form of the grid. The
-  experiments developed dedicated data catalog,  transfer and placement systems,
-  to move data between computing centers. To first
+  the use of distributed computing in the form of the grid. To tackle this, the
+  experiments developed dedicated data catalog,  transfer and placement systems. To first
   order, the computing models were rather static: data was placed at
   sites and the relevant compute jobs were sent to the right locations.
-  Applications might interact with catalogs or, at times, the workflow
-  management systems does this on behalf of the applications.
 \item \textbf{Data Access:} Various protocols are used for direct reads
-  (rfio, dcap, xrootd, etc.) with a given computer center and/or
+  (RFIO, dCap, XRootD, etc.) within a given computer center and/or
   explicit local stage-in and caching for read by jobs. Application
   access may use different protocols than those used by the data
   transfers between sites.
@@ -183,29 +153,24 @@ management and access.
 
 Before the LHC turn-on and in the first years of data taking, these three
 areas were, to first order, optimized independently. Many of the
-challenges were in the area of ''Data Management (DM)'' as the Worldwide
+challenges were in the area of ``Data Management'' (DM) as the Worldwide
 LHC Computing Grid was commissioned. As the LHC experiments' computing matured
 through Run1 and Run2, interest has turned to optimizations spanning
 these three areas. For example, the recent use of ``Data Federations''
 must consider together both Data Management and Access. As we will see below, some of the
 foreseen opportunities towards HL-LHC may require global optimizations.
 
-Thus, in this document we take a broader view than traditional ``DM'',
+Thus, in this document we take a broader view than traditional DM,
 and consider the combination of ``Data Organization, Management and
-Access (DOMA)'' together. We believe that this full picture of data
+Access '' together. We believe that this full picture of data
 needs in HEP will provide important opportunities for efficiency and
-scalability as we enter the many-EB era.
+scalability as we enter the many-Exabyte era.
 
 \subsection{HEP Workflow in Context}\label{hep-workflow-in-context}
 
-The way data are used at HEP experiments results in a dynamic range that
-spans many orders of magnitude between the IOPS transactions for data
-access and the bandwidth to storage that is required to store or
-retrieve the information. The primary data analysis workflows that drive
+HEP data transfer and access patterns require network and storage architectures to be able to sustain a large dynamic range in IOPS. The primary data analysis workflows that drive
 these bandwidth requirements can be categorized into four main
-activities. These are the contextual environment in which we present
-future evolutions for HEP data access. In particular, characteristics
-that describe these activities are enumerated for each category:
+activities:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
@@ -213,25 +178,21 @@ that describe these activities are enumerated for each category:
   the complexity of detector data and the computational algorithms
   needed to associate and disentangle the data. This is true of
   reconstruction methods used today at the LHC and throughout the HEP
-  community. This will continue to be the driving characteristic of
+  community and will continue to be the driving characteristic of
   reconstruction at the HL-LHC and for liquid argon TPC experiments. The
   CPU-bound nature of the algorithms and the ratio of event size to
   network bandwidth make the option of streaming individual events
-  records (\emph{e.g.} full collision events or beam spill triggers)
-  across wide area networks to compute elements a feasible analysis
-  strategy. The requirements of event streaming analysis models can be
+  records (e.g., full collision events or beam spill triggers)
+  across the WAN to compute elements a feasible
+  strategy. The requirements of event streaming can be
   satisfied by a wide range of storage solutions.
 \item \textbf{Simulation:} HEP event simulation strategies focus on
   transforming a small set of key input parameters into event and
   detector response information that is representative of what would be
   seen in the physical detector systems. Simulation processes are
-  typically characterized by highly asymmetric Input/Output workflows
-  which have very small data ingest (typically just the key input
-  parameters) and produce output events which are similar in size and
-  structure to real detector data. The output of these simulation
-  processes overlap heavily with other data storage and data replication
-  processes. The requirements and challenges that this output presents
-  are treated in those contexts. The primary drivers that differentiate
+  typically characterized by highly asymmetric IO. They typically have very small data ingest (typically just the key input
+  parameters), while output data are similar in size and
+  structure to real detector data. Due to their similar characteristics, output data from simulation processes share the requirements and associated challenges of detector data. The primary drivers that differentiate
   this type of HEP workflow from the other categorizations are the
   increased complexities that the simulation stages often require. These
   simulations often rely on auxiliary event generation mechanisms and
@@ -248,11 +209,10 @@ that describe these activities are enumerated for each category:
   methods which do not require the reading and retrieval of the full
   event record. This fundamental difference in the way that the analysis
   data is consumed makes it more susceptible to storage bandwidth
-  limitations and to IOPs transaction limits that underlying
+  limitations and to IOPS transaction limits that underlying
   technologies can have. In particular, the internal structure of the
   event data can dramatically impact the efficiency of data retrieval
-  and favor different access models and protocols (i.e. event
-  streaming) while the actual analysis calculations being performed can
+  and favor different access models and protocols while the actual analysis calculations being performed can
   dramatically affect the CPU-to-IO ratios. These factors make this
   categorization of data the most challenging to project to future
   storage needs and models.
@@ -262,9 +222,9 @@ that describe these activities are enumerated for each category:
   resources) and exploiting the available data bandwidth between the
   storage and the compute locations. Data replication also serves to
   guard against data loss. Data replication places modest requirements
-  on the rate of IOP transactions that need to be supported, but drives
+  on the IOPS that need to be supported, but drives
   the bandwidth requirements that are needed in enacting site-to-site
-  data transfers between WAN endpoints (e.g. 10-100~Gbps). This
+  data transfers between WAN endpoints (\emph{e.g.}, 10-100~Gbps). This
   requirement on the available WAN bandwidth provides a corresponding
   performance requirement on on the underlying storage systems to match
   network performance. Satisfying both requirements is necessary to
@@ -273,10 +233,9 @@ that describe these activities are enumerated for each category:
 
 In addition to the characteristics described above, HEP workflows in
 each category exhibit a high degree of parallelism, which allow the work
-to map readily into both high throughput computing (HTC) and high
-performance computing (HPC) environments. These domains span wide
+to map readily into both high throughput computing (HTC) and HPC environments. These domains span wide
 dynamic ranges in their requirements for concurrent data access. If the
-experiments of the HL-LHC, DUNE and other large international projects
+experiments of the HL-LHC, DUNE and other international projects
 are to utilize these facilities, they will need the ability to integrate
 with multiple storage technologies. The storage technologies will need
 to be tuned or matched to the corresponding computing resources that the
@@ -286,22 +245,15 @@ These storage models will also need to be designed and optimized for
 cost, in the context of the scientific workflows that they are enabling.
 Simultaneously, these storage models must remain flexible enough to
 support evolving physical storage options similar to the the shifts that
-have occurred in recent years between mRAM, SSDs, shingled disks, tapes,
+have occurred in recent years between NVMe, SSDs, shingled disks, tapes,
 and other technologies.
 
 \section{Data Organization Models}\label{data-organization-models}
 
 The HEP community has long-established data organization patterns that have
 shaped the prevailing data access and storage
-models that are in use today. These established patterns are centered
-around sets of event records organized into discrete collections through
-traditional file-based storage. There are, however, potential gains that
-can be made by exploring alternative data organization models and the
-corresponding access and storage models that they can enable. These
-alternative designs should be evaluated for the HL-LHC era and, if found
-to be advantageous, implemented by the community. A shift in designs may
-have the potential to reduce storage costs, shift network utilization,
-and result in more efficient use of compute resources.
+models that are in use today. Today's HEP data organization is file-centric with sets of events stored in a given file. Alternative data organization models could yield gains depending on their respective data access and storage models. These
+alternative designs should be evaluated for the HL-LHC era, as they may produce cost reduction, better network utilization, and efficiency gains.
 
 There are two main avenues that these organizational changes can follow,
 each with different impacts on the analysis methodologies. First, we
@@ -394,9 +346,9 @@ A key requirement in devising data catalog models is understanding the
 required granularity of data to be cataloged and what data for an
 experiment needs to be centrally cataloged or tracked, and for what
 purpose (accounting, metadata, location). Analysis access to the data,
-for instance, may benefit from being below the event level (\emph{e.g.}, physics
+for instance, may benefit from being below the event level (e.g. physics
 object). Any such catalogs may have to be external to the primary data
-store (\emph{e.g.}, relational databases that work with metadata in the primary
+store (e.g., relational databases that work with metadata in the primary
 data store). If cataloging requirements for production and
 reconstruction differ considerably from analysis, an approach with
 multiple, complementary catalogs can also be considered. The cataloging
@@ -463,7 +415,7 @@ require a fraction of the dataset? CDNs use, to great benefit, highly
 sophisticated proprietary naming, caching, and placement techniques
 that are customized to particular types of data and what is known about
 their access patterns. Similarly intelligent techniques could be used to
-place, compose, and deliver scientific data products that minimizes data
+place, compose, and deliver scientific data products, minimizing data
 movement, latency, and other costs, taking advantage of data semantics
 and information about the location of reusable intermediate results.
 This is not unlike query planning in relational databases, except for
@@ -477,7 +429,7 @@ opens the paths for many optimizations behind the scenes based on
 factors such as the client application location or the data type.
 
 Currently, new data-caching strategies are being deployed (e.g., XRootD
-caching proxy servers, server-less caching, ARC-style caching) and may
+caching proxy servers, server-less caching, Adaptive Replacement Cache-style caching) and may
 % * <briedel@uchicago.edu> 2018-04-05T02:09:39.626Z:
 %
 % > server-less caching
@@ -514,7 +466,7 @@ not too complex for the SQL-based query languages used by these
 products. We also need to take into account that the adoption of these
 techniques, if they prove to be beneficial, would represent a disruptive
 change which directly impacts the end user and therefore promoting
-acceptance through intermediate solutions would be desirable.
+acceptance through intermediate solutions would be desirable. One such solution - ``Service X'' - has been proposed in \href{https://bit.ly/2Ix9NIL}{Organizing Data Lakes}. The service would start with the data in its persistent format, perform one or more operations on it  (\emph{e.g.} joins, query, decompression, filtering to sub-event level), and finally deliver a data stream to a client.
 
 Many analyses may benefit from column-based data access instead of the
 more traditional row-based access. Enabling data queries that consider
@@ -553,7 +505,7 @@ access. It will be necessary to study and classify I/O patterns in
 applications used in order to understand how data access methods can be
 optimized across prevalent access patterns. Pattern data can then be
 used in algorithms resulting from active research in computer science
-that study trade-offs between storage and CPU in various computing models.
+that studies trade-offs between storage and CPU in various computing models.
 
 A first correlated analysis of the I/O patterns of different
 computational tasks has already started at the CERN Data Centre and
@@ -608,10 +560,22 @@ change can be aided by active R\&D into our own IO patterns; an approach
 which has not yet been adopted widely by the field.
 
 HEP experiments should be prepared to leverage ``tactical storage''.
-
-Storage that becomes most cost-effective as it becomes available (e.g.,
+Such storage may be provisioned only when it becomes cost-effective
+(e.g.,
+% * <briedel@uchicago.edu> 2018-04-05T15:43:01.526Z:
+%
+% > most
+% "more" rather than "most"?
+%
+% ^.
 from a cloud provider) and have a data management and provisioning
 system that can exploit such resources on short notice. Volatile data
+% * <briedel@uchicago.edu> 2018-04-05T15:43:37.726Z:
+%
+% > Volatile data sources would impact many aspects of the system; catalogs, job brokering, monitoring/alerting, accounting, the applications themselves.
+% Aren't we dealing with somewhat volatile storage in terms of xrootd caches today already? The file _might_ be there, but it isnt guaranteed.
+%
+% ^.
 sources would impact many aspects of the system; catalogs, job
 brokering, monitoring/alerting, accounting, the applications themselves.
 
@@ -624,11 +588,17 @@ with archive space. This is especially relevant when access latency is
 proportional to storage density. Either approach would need to also
 evaluate reliability risks and the effort needed to provide data
 stability.
+% * <briedel@uchicago.edu> 2018-04-05T15:49:15.646Z:
+%
+% > stability.
+% This paragraph begs the question of whether one needs to move to "direct-access-based archives" if the data is only accessed once or twice. The plenty of tape is not that great in that case.
+%
+% ^.
 
 Cost reductions in maintenance and operation of the storage
 infrastructure can be realized through convergence of the major
 experiments and resource providers on shared solutions. This does not
-necessarily mean promoting a monoculture, as different solutions will be
+necessarily mean promoting a mono-culture, as different solutions will be
 adapted to certain major classes of use-case, type of site or funding
 environment. Indeed, there will always be a judgment to make on the
 desirability of using a variety of specialized systems, or abstracting
@@ -657,7 +627,7 @@ manner for all use cases that rely on event selection and whether it offers an a
 over the current paradigm of file-based granularity. Proposed actions are:
 
 \begin{itemize}
-\item Quantify impact on performances
+\item Quantify impact on performance
   and resource utilization (storage, network) for the main type of
   access patterns ({\it i.e.} simulation, reconstruction, analysis).
 \item Assess the impact on catalogs and
@@ -670,7 +640,7 @@ over the current paradigm of file-based granularity. Proposed actions are:
   dynamic HPC resources.
 \end{itemize}
 
-\emph{The previous tasks should be completed by 2020 (and can be performed in parallel).}
+\emph{The above tasks should be completed by 2020 (and can be performed in parallel).}
 
 \subsection{Data organization and analysis
 technologies}\label{data-organization-and-analysis}
@@ -686,10 +656,10 @@ Spark-like analysis tools and their adaptability to HEP analysis needs.
   decompression schemes and mappings onto hardware architectures
   considering the flow of data from spinning disk to memory and
   application.
-\item Evaluate possible alternative storage formats to the ROOT format, esp.\ storage formats optimized for storage efficiency and/or  data filterting through metdata
+\item Evaluate possible alternative storage formats to the ROOT format, esp.\ storage formats optimized for storage efficiency and/or  data filtering through metadata
 \end{itemize}
 
-\emph{The proposed proof-of-concept involves the previous tasks that should be completed by 2020.
+\emph{The proposed proof-of-concept involves the above tasks that should be completed by 2020.
 If successful, implementation as a production system will be done in the following years.}
 
 \subsection{Data caching}\label{data-caching}
@@ -705,8 +675,7 @@ the use of computing resources as well as the technologies that can be used for 
 Namely, Content Delivery Networks (CDN) and Named Data Networking (NDN) should be studied.
 \end{itemize}
 
--\emph{The first two actions should be completed by 2020 but CDN/NDN
--evaluation is more long-term}
+-\emph{The first two actions should be completed by 2020 but evaluation of CDN/NDN is more long-term}
 
 \subsection{Getting the most out of the
 storage diversity}\label{storage-diversity}
@@ -738,17 +707,15 @@ on a global scale across the HEP infrastructure. The proof-of-concept phase invo
 production will be done in the following years.}
 
 \subsection{Data Access and Data Access Patterns}\label{access-patterns}
-The data access pattern should inform the the use of storage media and data location. Proposed areas of inquiry are:
+The data access needs and patterns should inform the the choice of storage media and data location. Proposed areas of inquiry are:
 
 \begin{itemize}
 \item Understand data access patterns, including investigating frequency of access of data
 \item Exploring ways to ease preliminary data filtering steps
-\item \end{itemize}
+\item Exploring commercially-popular data transfer methods (\emph{e.g,} HTTP)
+\end{itemize}
 \emph{The  proof-of-concept should be completed by 2020 and, if successful, implementation in
 production will be done in the following years.}
-
-
-A large portion of the LHC data is write-once, read-once. This would make it ideal to store this data on archieval media. Alternatively, a portion of the data is accessed frequently by analyzers.
 
 \section{Conclusions}\label{conclusions}
 
