@@ -42,14 +42,22 @@ LATEX_AUTHOR_FILE_DEFAULT = "authors.tex"
 ARXIV_AUTHOR_FILE_DEFAULT = "arxiv.txt"
 
 
-class Footnote():
+class AffiliationFootnote():
     def __init__(self, text):
         self.text = text
         self.mark = None
 
-    def set_mark(self, i):
-        footnote_symbols = "abcdefghijklmnopqrstuvwxyz"
-        self.mark = footnote_symbols[i-1]
+    def set_mark(self, i, letter=False):
+        if letter:
+            if i > 26:
+                j = int(i / 26)
+                i = i % 26
+                j_str = chr(ord('a')+j-1)
+            else:
+                j_str = ''
+            self.mark = '{}{}'.format(j_str, chr(ord('a')+i-1))
+        else:
+            self.mark = str(i)
 
     def __repr__(self):
         return repr((self.mark, self.text))
@@ -74,14 +82,6 @@ class Author():
             raise Exeption("Got an exception({}) processing line: {}".format(e, author_line))
 
 
-class Affiliation():
-    def __init__(self,address):
-        self.address = address
-        self.mark = ''
-
-    def set_mark(self, i):
-        self.mark = str(i)
-
 def latex_escape(string):
     """
     Function to escape latex reserved characters
@@ -102,6 +102,35 @@ def latex_escape(string):
     for special_char, repl in SPECIAL_LATEX_CHARS.items():
        string = re.sub(re.escape(special_char), repl, string)
     return string
+
+
+def read_kv_file(file, separator=':', referenced_keys=None):
+    """
+    Read a text file defining key/values separated by separator, checking that
+    there is not duplicate key. If reference_keys is defined, only those keys are
+    loaded from the file.
+
+    :param file: file name
+    :param separator: separator string
+    :param referenced_keys: if defined, list of keys to consider (others are ignored)
+    :return: dictionnary of AffiliationNote object where the key is the file line key
+    """
+
+    with open(file, encoding='utf-8') as fh:
+        kv_map = {}
+        for kv_line in fh:
+            kv_line = kv_line.strip()
+            if kv_line.startswith("#") or kv_line == "":
+                continue
+            k, v = kv_line.split(separator, 1)
+            v = v.strip()
+            if k in kv_map:
+                raise Exception('Duplicated key ({}) found in {}'.format(k, file))
+            elif (referenced_keys is None) or (k in referenced_keys):
+                kv_map[k] = AffiliationFootnote(v)
+
+    return kv_map
+
 
 def main():
 
@@ -126,63 +155,47 @@ def main():
 
 
     # Open and process the authors file
+    referenced_affiliations = {}
+    referenced_foonotes = {}
     with open(options.authors, encoding='utf-8') as author_fh:
         author_list = []
         for author_line in author_fh:
             author_line = author_line.strip()
             if author_line.startswith("#") or author_line == "":
                 continue
-            author_list.append(Author(author_line))
+            author = Author(author_line)
+            for affiliation in author.affiliations:
+                referenced_affiliations[affiliation] = ''
+            for footnote in author.footnotes:
+                referenced_foonotes[footnote] = ''
+            author_list.append(author)
 
     # Generate the map to people's institutes
-    institute_address = {}
-    with open(options.affiliations, encoding='utf-8') as address_fh:
-        for affiliation_line in address_fh:
-            affiliation_line = affiliation_line.strip()
-            if affiliation_line.startswith("#") or affiliation_line == "":
-                continue
-            institute, address = affiliation_line.split(": ", 1)
-            institute_address[institute] = address
-
-    affiliation_map = {}
-    referenced_foonotes = {}
-    for author in author_list:
-        for affiliation in author.affiliations:
-            if affiliation not in affiliation_map:
-                if affiliation in institute_address:
-                    affiliation_map[affiliation] = Affiliation(institute_address[affiliation])
-                else:
-                    raise Exception('Affiliation {} not defined for {}, {}'.format(affiliation, 
-                                                                                   author.surname,
-                                                                                   author.forename))
-        for footnote in author.footnotes:
-            referenced_foonotes[footnote] = ''
-
     # Alphabetise and assign footnote marks
+    affiliation_map = read_kv_file(options.affiliations, referenced_keys=referenced_affiliations)
     sorted_affiliations = sorted(affiliation_map)
     for footnote_mark, affiliation in enumerate(sorted_affiliations, start=1):
         affiliation_map[affiliation].set_mark(footnote_mark)
-    
+
     # Parse and assign footnotes: interprete the first field as a footnote key
     # matched against author footnotes rather than the real mark
-    with open(options.footnotes, encoding='utf-8') as footnote_fh:
-        footnote_map = {}
-        for footnote_line in footnote_fh:
-            footnote_line = footnote_line.strip()
-            if footnote_line.startswith("#") or footnote_line == "":
-                continue
-            note_key, note = footnote_line.split(" ", 1)
-            note_key = note_key.rstrip(".")
-            if note_key in referenced_foonotes:
-                if note_key not in footnote_map:
-                    footnote_map[note_key] = Footnote(note)
-                else:
-                    raise Exception('Duplicated footnote ({}'.format(note_key))
-
-    # Generate footnote marks (letters)
+    footnote_map = read_kv_file(options.footnotes, separator='. ', referenced_keys=referenced_foonotes)
     sorted_note_keys = sorted(footnote_map, key=lambda x: int(x))
     for footnote_num, note_key in enumerate(sorted_note_keys, start=1):
-        footnote_map[note_key].set_mark(footnote_num)
+        footnote_map[note_key].set_mark(footnote_num, letter=True)
+
+    # Check that all the required affiliations and footnotes are defined
+    for author in author_list:
+        for affiliation in author.affiliations:
+            if affiliation not in affiliation_map:
+                raise Exception('Affiliation {} not defined for {}, {}'.format(affiliation,
+                                                                               author.surname,
+                                                                               author.forename))
+        for note_key in author.footnotes:
+            if note_key not in footnote_map:
+                raise Exception('Footnote {} not defined for {}, {}'.format(note_key,
+                                                                            author.surname,
+                                                                            author.forename))
 
     # Write out the author list to copy into the arXiv author file
     with open(options.arxiv_output_file, "w", encoding="utf-8") as arxivoutput:
@@ -230,11 +243,11 @@ def main():
         for affiliation in sorted_affiliations:
             if options.jhep:
                 print ("\\affiliation[{}]{{{}}}".format(str(affiliation_map[affiliation].mark),
-                                                        latex_escape(affiliation_map[affiliation].address)),
+                                                        latex_escape(affiliation_map[affiliation].text)),
                        file=output)
             else:
                 print ("\\par {{\\footnotesize $^{{{}}}$ {}}}".format(str(affiliation_map[affiliation].mark),
-                                                                      latex_escape(affiliation_map[affiliation].address)),
+                                                                      latex_escape(affiliation_map[affiliation].text)),
                        file=output)
 
         if len(sorted_note_keys) > 0:
