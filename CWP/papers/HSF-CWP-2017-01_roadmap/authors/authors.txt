@@ -105,7 +105,7 @@ Giagu, Stefano - USapienza & INFNRoma
 Giffels, Manuel - KIT
 Gingrich, Douglas - UAlberta
 Girone, Maria - CERN
-Gligorov, Vladimir V. - LPNHE
+Gligorov, Vladimir V. - LPNHE (2)
 Giacomini, Francesco - CNAF
 Glushkov, Ivan - UTexas
 Gohn, Wesley - UKentucky
