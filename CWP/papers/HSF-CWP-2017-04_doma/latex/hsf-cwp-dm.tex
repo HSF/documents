@@ -48,16 +48,10 @@ Data Organization, Management and Access (DOMA)}
 
 The coming decade will bring HEP to the exabyte scale with the expected data
 volumes of the HL-LHC experiments, the DUNE experiment, and even non-HEP
-experiments such as the Square Kilometer Array (SKA) entering this
+experiments such as the Square Kilometre Array (SKA) entering this
 regime. In devising computing models for this era, many
 factors have to be taken into account. In particular, the increasing
 availability of very high-speed networks may reduce the need for
-% * <briedel@uchicago.edu> 2018-04-04T17:59:27.886Z:
-%
-% > very high-speed networks
-% What is "very high-speed" here? 100G? 1000G?
-%
-% ^ <briedel@uchicago.edu> 2018-04-04T17:59:40.128Z.
 CPU and data co-location. Such networks may allow
 for more extensive use of data access over the wide-area network (WAN) while providing fail-over capabilities, global and federated data
 namespaces, and will have an impact on data caching. Shifts in the data
@@ -69,14 +63,8 @@ commercial cloud resources, and campus clusters, and can potentially
 resolve currently limiting factors such as job eviction.
 
 Planned analysis of HL-LHC data and data analysis from other
-% * <briedel@uchicago.edu> 2018-04-04T18:09:21.988Z:
-%
-% > large
-% XENON1T has shown that the collaboration doesnt have to be "large" to require DOMA
-%
-% ^ <briedel@uchicago.edu> 2018-04-09T20:36:43.846Z.
 international collaborations will need to adopt a distributed computing
-model due to its scope. The data management systems that will enable
+model due to their scope. The data management systems that will enable
 this type of analysis will need to provide cost-based optimization of
 the data locations and delivery mechanisms.
 
@@ -88,12 +76,6 @@ storage of which approximately half is archival and half is
 traditional disk storage. The annual storage requirements are expected
 to jump by a factor of 10 for the HL-LHC. This increase is faster than
 projected density gains in current storage technologies and thus will present major challenges. Storage
-% * <briedel@uchicago.edu> 2018-04-05T01:05:55.296Z:
-%
-% > Moore's Law gains
-% This is only a CPU. What about storage technology? Currently we are adding about 2 TB/year in disk capacity. It is unlikely will be at 100 TB/disk in 2023. We may have O(10) - O(100) TB SSDs  at a reasonable cost, but we can't be certain. What does the future of tape look like?
-% changed to "density gains in current storage technologies." Tape scaling has quite a future but hard drives, less so
-% ^.
 will remain one of the visible cost drivers for HEP computing. The projected growth and cost of the computational resources needed to
 analyze the data is expected to grow even faster than the base
 storage costs. The combination of storage and analysis computing costs
@@ -138,7 +120,7 @@ management and access.
 
 \begin{itemize}
 \item \textbf{Data Organization:} This is essentially how data is structured
-  as it is written. Most data is written in the ROOT file format. ROOT serializes data objects, compresses, and writes them in a column-wise manner. The data written in this way can only be meaningfully read  by a software that includes data object libraries.
+  as it is written. Most data is written in the ROOT file format. ROOT serializes data objects, compresses, and writes them in a column-wise manner. The data written in this way can only be meaningfully read by a software that includes data object libraries.
 \item \textbf{Data Management:} The key challenge here was the transition to
   the use of distributed computing in the form of the grid. To tackle this, the
   experiments developed dedicated data catalog,  transfer and placement systems. To first
@@ -224,7 +206,7 @@ activities:
   guard against data loss. Data replication places modest requirements
   on the IOPS that need to be supported, but drives
   the bandwidth requirements that are needed in enacting site-to-site
-  data transfers between WAN endpoints (\emph{e.g.}, 10-100~Gbps). This
+  data transfers between WAN endpoints (e.g., 10-100~Gbps). This
   requirement on the available WAN bandwidth provides a corresponding
   performance requirement on on the underlying storage systems to match
   network performance. Satisfying both requirements is necessary to
@@ -355,20 +337,8 @@ multiple, complementary catalogs can also be considered. The cataloging
 schemes chosen will be tightly coupled with the data organization
 models. For example, in the case where data organization is object-based
 or content-addressable storage is used, the catalogs need only a single
-% * <briedel@uchicago.edu> 2018-04-05T02:04:26.292Z:
-%
-% > content-addressable
-% This comes a little out of nowhere. Where is this discussed before?
-%
-% ^.
 handle to have a fully descriptive location of a given event or other
 object being sought.
-% * <briedel@uchicago.edu> 2018-04-05T02:05:03.704Z:
-%
-% > or other object
-% This is the first time "other object" is mentioned. What other object? TBranches? It would be better to call this sub-event data like done before.
-%
-% ^.
 
 Our concern is that the size and complexity of a data catalog is
 proportional to the granularity of the data organization. Given that the
@@ -401,12 +371,6 @@ efficiency and exploiting data popularity metrics would be valuable.
 
 A useful analogy for data delivery methods might be content delivery
 network services (CDNs) such as the one offered by Akamai. Without CDNs,
-% * <briedel@uchicago.edu> 2018-04-05T02:08:36.870Z:
-%
-% > Akamai.
-% Google also offers one
-%
-% ^.
 on-demand streaming of movies over the Internet or even the delivery of
 the web sites of major news outlets like CNN or BBC would quickly
 collapse. What is the equivalent of content delivery for accessing huge
@@ -429,13 +393,7 @@ opens the paths for many optimizations behind the scenes based on
 factors such as the client application location or the data type.
 
 Currently, new data-caching strategies are being deployed (e.g., XRootD
-caching proxy servers, server-less caching, Adaptive Replacement Cache-style caching) and may
-% * <briedel@uchicago.edu> 2018-04-05T02:09:39.626Z:
-%
-% > server-less caching
-% In-memory caching?
-%
-% ^.
+caching proxy servers, server-less caching, ARC-style caching) and may
 provide sufficient information on how such strategies can optimize
 mammoth data delivery task for HL-LHC event reconstruction and analysis.
 However, without a global view on how these strategies are used, they
@@ -466,7 +424,7 @@ not too complex for the SQL-based query languages used by these
 products. We also need to take into account that the adoption of these
 techniques, if they prove to be beneficial, would represent a disruptive
 change which directly impacts the end user and therefore promoting
-acceptance through intermediate solutions would be desirable. One such solution - ``Service X'' - has been proposed in \href{https://bit.ly/2Ix9NIL}{Organizing Data Lakes}. The service would start with the data in its persistent format, perform one or more operations on it  (\emph{e.g.} joins, query, decompression, filtering to sub-event level), and finally deliver a data stream to a client.
+acceptance through intermediate solutions would be desirable. One such solution - ``Service X'' - has been proposed in \href{https://bit.ly/2Ix9NIL}{Organizing Data Lakes}. The service would start with the data in its persistent format, perform one or more operations on it  (e.g. joins, query, decompression, filtering to sub-event level), and finally deliver a data stream to a client.
 
 Many analyses may benefit from column-based data access instead of the
 more traditional row-based access. Enabling data queries that consider
@@ -562,20 +520,8 @@ which has not yet been adopted widely by the field.
 HEP experiments should be prepared to leverage ``tactical storage''.
 Such storage may be provisioned only when it becomes cost-effective
 (e.g.,
-% * <briedel@uchicago.edu> 2018-04-05T15:43:01.526Z:
-%
-% > most
-% "more" rather than "most"?
-%
-% ^.
 from a cloud provider) and have a data management and provisioning
 system that can exploit such resources on short notice. Volatile data
-% * <briedel@uchicago.edu> 2018-04-05T15:43:37.726Z:
-%
-% > Volatile data sources would impact many aspects of the system; catalogs, job brokering, monitoring/alerting, accounting, the applications themselves.
-% Aren't we dealing with somewhat volatile storage in terms of xrootd caches today already? The file _might_ be there, but it isnt guaranteed.
-%
-% ^.
 sources would impact many aspects of the system; catalogs, job
 brokering, monitoring/alerting, accounting, the applications themselves.
 
@@ -588,17 +534,11 @@ with archive space. This is especially relevant when access latency is
 proportional to storage density. Either approach would need to also
 evaluate reliability risks and the effort needed to provide data
 stability.
-% * <briedel@uchicago.edu> 2018-04-05T15:49:15.646Z:
-%
-% > stability.
-% This paragraph begs the question of whether one needs to move to "direct-access-based archives" if the data is only accessed once or twice. The plenty of tape is not that great in that case.
-%
-% ^.
 
 Cost reductions in maintenance and operation of the storage
 infrastructure can be realized through convergence of the major
 experiments and resource providers on shared solutions. This does not
-necessarily mean promoting a mono-culture, as different solutions will be
+necessarily mean promoting a monoculture, as different solutions will be
 adapted to certain major classes of use-case, type of site or funding
 environment. Indeed, there will always be a judgment to make on the
 desirability of using a variety of specialized systems, or abstracting
@@ -656,7 +596,7 @@ Spark-like analysis tools and their adaptability to HEP analysis needs.
   decompression schemes and mappings onto hardware architectures
   considering the flow of data from spinning disk to memory and
   application.
-\item Evaluate possible alternative storage formats to the ROOT format, esp.\ storage formats optimized for storage efficiency and/or  data filtering through metadata
+\item Evaluate possible alternative storage formats to the ROOT format, especially storage formats optimized for storage efficiency and/or  data filtering through metadata
 \end{itemize}
 
 \emph{The proposed proof-of-concept involves the above tasks that should be completed by 2020.
@@ -675,7 +615,7 @@ the use of computing resources as well as the technologies that can be used for 
 Namely, Content Delivery Networks (CDN) and Named Data Networking (NDN) should be studied.
 \end{itemize}
 
--\emph{The first two actions should be completed by 2020 but evaluation of CDN/NDN is more long-term}
+\emph{The first two actions should be completed by 2020 but evaluation of CDN/NDN is more long-term}
 
 \subsection{Getting the most out of the
 storage diversity}\label{storage-diversity}
@@ -712,7 +652,7 @@ The data access needs and patterns should inform the the choice of storage media
 \begin{itemize}
 \item Understand data access patterns, including investigating frequency of access of data
 \item Exploring ways to ease preliminary data filtering steps
-\item Exploring commercially-popular data transfer methods (\emph{e.g,} HTTP)
+\item Exploring commercially-popular data transfer methods (e.g. HTTP)
 \end{itemize}
 \emph{The  proof-of-concept should be completed by 2020 and, if successful, implementation in
 production will be done in the following years.}
