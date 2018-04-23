@@ -72,7 +72,7 @@ formulate common data processing framework solutions for the future.
 
 The time periods of interest for this document are DUNE and HL-LHC,
 which will deliver on the order of 50 PB data events per year per
-experiment . The results of the proposed R\&D ought to be used for
+experiment. The results of the proposed R\&D ought to be used for
 building the final software systems that will be utilized in
 commissioning and operations of these experiments and the processing
 of the data.
@@ -99,12 +99,12 @@ coming decade:
     layers in the available compute facilities. This is necessary
     because of the ever-increasing availability of specialized compute
     resources, and includes GPGPUs, Tensor Processing Units (TPUs),
-    and tiered memory systems integrated with storage, ultra
+    and tiered memory systems integrated with storage, and ultra
     high-speed network interconnects.
 \item
     Challenges related to advanced detector technology, like finer
-    granularity high bandwidth continuous readout DAQ, and the need
-    for a very tight feedback loop for conditions which in turn
+    granularity, high bandwidth continuous readout DAQ, and the need
+    for a very tight feedback loop for conditions, which in turn
     requires a focus on low-latency solutions.
 \item
     Tighter integration with the computing model: informing
@@ -183,15 +183,16 @@ described in {[}2.fixme{]} and these are sufficiently general to apply
 to all HEP experiments. The Gaudi framework {[}70{]} was originally
 developed by LHCb, but is also used by ATLAS and various non-LHC
 experiments. CMS uses its own CMSSW framework~\cite{Bayatian:2006nff},
-which was forked to provide the art framework for the Fermilab
-Intensity Frontier experiments~\cite{Green:2012gv}.  Belle II uses
-basf2~\cite{1742-6596-331-3-032024}. The linear collider community
-developed and uses Marlin~\cite{Gaede:2006pj}. The FAIR experiments
+{[}71{]} which was forked to provide the art framework for the Fermilab
+Intensity Frontier experiments~\cite{Green:2012gv},{[}72{]}.  Belle II uses
+basf2~\cite{1742-6596-331-3-032024},{[}73{]}. The linear collider community
+developed and uses Marlin~\cite{Gaede:2006pj},{[}74{]}. The FAIR experiments
 use FairROOT, closely related to ALICE's AliROOT. The FAIR experiments
 and ALICE are now developing a new framework, which is called
-O2~\cite{O2}. At the time of writing, most major frameworks support
+O2~\cite{O2},{[}75{]}. At the time of writing, most major frameworks support
 basic parallelisation, both within and across events, based on a
-task-based model~\cite{Jones:2015soc}~\cite{Clemencic:2015paa}.
+task-based model~\cite{Jones:2015soc}~\cite{Clemencic:2015paa}. O2 already 
+includes additional multi-node setups and communication.
 
 The frameworks provide the necessary functionality like I/O,
 scheduling, configuration, logging, etc to support the execution of
@@ -261,7 +262,8 @@ independently with a fixed size memory space on a fixed set of files
 tradition starting in the beginning of Run 2, by utilizing all cores
 on one virtual node in one process space using threading. ATLAS is
 currently using a multi-process fork-and-copy-on-write solution to
-remove the constraint of one core/process. Both experiments were
+remove the constraint of one core/process, and is now moving to the 
+multithreading approach too. Both experiments were
 driven to solve this problem, by the ever growing needs for more
 memory per process brought on by the increasing complexity of LHC
 events. Current practice manages system-wide (or facility-wide)
@@ -273,10 +275,14 @@ computing facilities, the interplay between workflow/workload
 management systems and framework applications need to be carefully
 examined. It may be advantageous to permit framework applications (or
 systems) to span resources, permitting them to be first-class
-participating in the business of scaling within a facility.
+participatents in the business of scaling within a facility. O2 provides
+a successful proof-of-principle of this approach.
+
 
 \section{Roadmap}
 \label{sec:roadmap}
+Forward-looking work is underway as part of projects funded through government agencies, laboratories, and collaborations.  We want to be sure that relevant ideas and accomplishment are known, and that the groups doing this work have a place to report to and receive feedback for everyone’s benefit. 
+To organize the community, one needs to establish regular working group meetings, on a bi-monthly basis as we did with the concurrency forum. Face to face workshops after at least the 1st and the 3rd year can be co-hosted with events like CHEP and/or the WLCG workshops. A future planning workshop for transforming the results of the R&D activities into a full development and deployment project plan should happen at the 5-year timescale.
 
 \subsection{One-year goals}
 \label{sec:one-year-goals}
@@ -295,15 +301,16 @@ or integration of results into existing software components.
 \paragraph{Concept refinement} Jointly identify key abstractions that
 made frameworks good for HEP in detail beyond what can be described in
 this paper. Identify and describe where individual frameworks have
-similarly or uniquely implemented these concepts. A publishable paper
-should come of this that will serve as an agreed-upon guide for where
-we can hope to go.
+similarly or uniquely implemented these concepts. It is important to 
+describe how these choices are connected to the concrete use-cases. A 
+publishable paper should come of this that will serve as an agreed-upon 
+guide for where we can hope to go.
 
-\paragraph{Technology investigations} There are three key areas that
+\paragraph{Technology investigations} There are four key areas that
 ought to be explored to help determine future direction with regards
-to software technology. The areas are: (1) task-based programming
-tools, (2) parallel number crunching libraries, and (3) framework
-workflow management.
+to software technology. The areas are: (1) task-based programming tools,
+(2) inter-process and inter-node communication tools, (3) parallel number 
+crunching libraries, and (4) framework workflow management.
 
 \paragraph{Functional programming} Conduct a study describing where we
 currently are with functional programming. The study should address
@@ -327,21 +334,16 @@ describe the language that HEP uses to define and describe how to
 simulate and reconstruct physics events. By language, we mean the
 terms used to communicate and express how tasks are described and
 carried out within a framework. This includes not only expressing data
-dependencies, but also resources preferences and constraints, such a
+dependencies, but also resource preferences and constraints, such as
 GPU. The goal here is to provide enough information for a group to
 take on development of domain-specific libraries components and tools
-that will increase the efficiency of carrying out physics.
-\ifixme{the wording here needs much improvement. Maybe a good example
-  is how ML toolkits have evolved over the past few years - the
-  abstractions that have been developed have greatly increased
-  productivity and growth in the ML space}
-
-\paragraph{Coupling with ongoing R\&D activities} Forward-looking work
-is underway as part of projects funded through government agencies,
-laboratories, and collaborations. We want to be sure that relevant
-ideas and accomplishment are known, and that the groups doing this
-work have a place to report to and receive feedback for everyone's
-benefit.
+that will increase the efficiency of carrying out physics. A good example
+is how ML toolkits have evolved over the past few years. The 
+abstractions that have been developed have greatly increased productivity 
+and growth in the ML space such as the abstractions in Tensor Flow that 
+allow a coding of the matrix algebra that then gets remapped internally to 
+match the shape of the data being operated on.  The user only has take care
+of getting the domain science functions correct.
 
 \paragraph{Concluding workshop} Soon after the end of the first year,
 our goal is to have a workshop. This workshop will be used for
