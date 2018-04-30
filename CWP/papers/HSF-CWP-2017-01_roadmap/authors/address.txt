@@ -25,6 +25,7 @@ INDIANA: Department of Physics, Indiana University, Bloomington, IN, USA
 INFNBOLOGNA: INFN Sezione di Bologna, Università di Bologna, Bologna, Italy
 INFNFerrara: Università e INFN, Ferrara, Ferrara, Italy
 INFNBari: INFN Sezione di Bari, Università di Bari, Politecnico di Bari, Bari, Italy
+INFNCatania: INFN Sezione di Catania, Università di Catania, Catania, Italy
 INFNGenova: INFN Sezione di Genova, Genova, Italy
 INFNMilano: INFN Sezione di Milano-Bicocca, Milano, Italy
 INFNNapoli: INFN Sezione di Napoli, Università di Napoli, Napoli, Italy
