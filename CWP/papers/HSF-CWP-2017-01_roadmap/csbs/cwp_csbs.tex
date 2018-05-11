@@ -7,8 +7,11 @@
 
 \usepackage{graphicx}
 \usepackage{subcaption}
+\captionsetup{compatibility=false}
+%\usepackage{subfigure}
 \usepackage[titletoc]{appendix}
 \usepackage{xspace}
+\usepackage{hyperref}
 
 \usepackage[utf8]{inputenc}
 
@@ -30,6 +33,35 @@
 \end{tabular*}
 \vspace{2.0cm}
 
+\title{A Roadmap for\\HEP Software and Computing R\&D\\for the 2020s}
+
+%\subtitle{Do you have a subtitle?\\ If so, write it here}
+
+%\titlerunning{Short form of title}        % if too long for running head
+
+\author{HEP Software Foundation (authors are listed at the end of this report)}
+
+%\author{First Author         \and
+%        Second Author %etc.
+%}
+
+%\authorrunning{Short form of author list} % if too long for running head
+
+%\institute{F. Author \at
+%              first address \\
+%              Tel.: +123-45-678910\\
+M              Fax: +123-45-678910\\
+%              \email{fauthor@example.com}           %  \\
+%             \emph{Present address:} of F. Author  %  if needed
+%           \and
+%           S. Author \at
+%              second address
+%}
+
+\date{Received: date / Accepted: date}
+
+\maketitle
+
 \abstract{Particle physics has an ambitious and broad experimental
 programme for the coming decades. This programme requires large
 investments in detector hardware, either to build new facilities
@@ -40,12 +72,6 @@ In planning for the HL-LHC in particular, it is critical that all of the
 collaborating stakeholders agree on the software goals and priorities,
 and that the efforts complement each other. In this spirit, this white paper
 describes the R\&D activities required to prepare for this software upgrade.}
-
-\title{A Roadmap for\\HEP Software and Computing R\&D\\for the 2020s}
-
-\author{HEP Software Foundation\footnote{Authors are listed at the end of this report.}}
-
-\maketitle
 
 \newpage
 
