@@ -1,0 +1,57 @@
+% This is the styling for submission to arXiv using JHEP Preprint Style
+
+% Copyright (C) 2017, The HSF Community White Paper authors, licence CC-BY-4.0.
+
+% JHEP preprint template
+\documentclass[12pt,a4paper]{article}
+\usepackage{jheppub}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[titletoc]{appendix}
+\usepackage{xspace}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[style=numeric-comp,sorting=none]{biblatex}
+\addbibresource{cwp.bib}
+\addbibresource{cwp-chapters.bib}
+
+%% Comment out before final submission
+%\usepackage{lineno}  % for line numbering during review
+%\linenumbers
+
+\include{cwp-abstract}
+
+\begin{document}
+
+% HSF Document Number (only for arXiv)
+\noindent
+\begin{tabular*}{\linewidth}{lc@{\extracolsep{\fill}}r@{\extracolsep{0pt}}}
+ & & HSF-CWP-2017-01 \\
+ & & December 15, 2017 \\ % use \date or hardwire e.g. December 15, 2017
+ & & \\
+\end{tabular*}
+\vspace{2.0cm}
+
+\title{A Roadmap for\\HEP Software and Computing R\&D\\for the 2020s}
+
+\author{HEP Software Foundation\footnote{Authors are listed at the end of this report.}}
+
+\maketitle
+
+% This only in arXiv
+\newpage
+
+\input{cwp-main}
+
+\sloppy
+\raggedright
+\clearpage
+\printbibliography[title={References},heading=bibintoc]
+
+\clearpage
+\section*{The HEP Software Foundation}
+\input{authors}
+
+\end{document}
