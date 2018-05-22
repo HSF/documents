@@ -1,0 +1,72 @@
+% This is the styling for submission to arXiv using Springer class for CSBS
+
+% Copyright (C) 2017, The HSF Community White Paper authors, licence CC-BY-4.0.
+
+% CSBS template
+\documentclass[twocolumn]{svjour3}          % twocolumn
+\smartqed  % flush right qed marks, e.g. at end of proof
+\journalname{CSBS}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+%\usepackage{subfigure}
+\usepackage[titletoc]{appendix}
+\usepackage{xspace}
+\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[style=numeric-comp,sorting=none]{biblatex}
+\addbibresource{cwp.bib}
+\addbibresource{cwp-chapters.bib}
+
+%% Comment out before final submission
+\usepackage{lineno}  % for line numbering during review
+\linenumbers
+
+\begin{document}
+
+
+\title{A Roadmap for\\HEP Software and Computing R\&D\\for the 2020s}
+
+%\subtitle{Do you have a subtitle?\\ If so, write it here}
+
+%\titlerunning{Short form of title}        % if too long for running head
+
+\author{HEP Software Foundation (authors are listed at the end of this report)}
+
+%\author{First Author         \and
+%        Second Author %etc.
+%}
+
+\authorrunning{HEP Software Foundation} % if too long for running head
+
+%\institute{F. Author \at
+%              first address \\
+%              Tel.: +123-45-678910\%              Fax: +123-45-678910\\
+%              \email{fauthor@example.com}           %  \\
+%             \emph{Present address:} of F. Author  %  if needed
+%           \and
+%           S. Author \at
+%              second address
+%}
+
+\date{Received: date / Accepted: date}
+
+\maketitle
+
+\input{cwp-abstract}
+
+\input{cwp-main}
+
+\sloppy
+\raggedright
+\clearpage
+\printbibliography[title={References},heading=bibintoc]
+
+\clearpage
+\section*{The HEP Software Foundation}
+\input{authors.tex}
+
+\end{document}
