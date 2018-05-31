@@ -145,7 +145,7 @@ $ ^1$CERN
 % Abstract -----------------------------------------------
 \begin{abstract}
   \noindent
-  The note describes a proposal for a common platform naming scheme for HEP and tools to automatize the platform identification. 
+  The note describes a proposal for a common platform naming scheme for HEP and tools to automate the platform identification.
 \end{abstract}
 
 \vspace*{2.0cm}
@@ -168,7 +168,7 @@ Multiple ways of denoting hardware platform vs. compiler vs. operating-system vs
 
 \section{Proposal}
 
-In the view of the fact, that naming conventions are just agreements we propose to adopt existing naming conventions wherever possible and useful. 
+In the view of the fact that naming conventions are just agreements we propose to adopt existing naming conventions wherever possible and useful.
 
 We consider the following pieces as part of the convention. A build configuration is denoted by the scheme
 \[architecture-OS-compiler-buildtype\]
@@ -176,8 +176,8 @@ where \emph{architecture}, \emph{OS}, \emph{compiler}, and \emph{buildtype} are 
 
 \subsection{Architecture}
 
-Different OSes may call the same \emph{architecture} with different names. We propose to rely on the abstraction of the Python package \emph{platform}, namely \texttt{platform.machine()}. This translates to e.g. x86\_64 for current Intel and AMD CPUs. In cases where optimized builds for a certain processor generation are required and software is not runable on the generic architecture, the generic architecture should be replaced by \emph{architecture+instructionset}. 
-There exist no stable conventions for the instruction set, thus we propose to create ad-hoc conventions. 
+Different OSes may call the same \emph{architecture} by different names. We propose to rely on the abstraction of the Python package \emph{platform}, namely \texttt{platform.machine()}. This translates to, e.g., x86\_64 for current Intel and AMD CPUs. In cases where optimized builds for a certain processor generation are required and software is not runable on the generic architecture, the generic architecture should be replaced by \emph{architecture+instructionset1+instructionset2...}. For example \emph{x86\_64+avx2} denotes an x86\_64 processor supporting the AVX2 instruction set.
+There exist no explicit conventions for the instruction set across operating systems, thus we propose to create ad-hoc conventions. In the Linux case the \emph{flags} field of \emph{/proc/cpuinfo} could be used. The instruction sets mentioned should be ordered alphabetically to ensure consistency.
 
 \subsection{Operating System}
 The operating system (\emph{OS}) is a combination of the name of the operating system itself and its major version, e.g. \emph{ubuntu15} or \emph{slc6} in case a canonical abbreviation exists. 
@@ -196,11 +196,11 @@ The name is set to \emph{win} and the version as given by the first two parts of
 
 
 \subsection{Compiler}
-The \emph{compiler} is a combination of compiler name and compiler version. We propose to use the self-given names of the compilers like \emph{gcc, clang, msvc, icc} and adding major, minor version, and patch version numbers to it, e.g. \emph{clang350} or \emph{gcc511}. In case the system compiler is being used, the compiler should be denoted as \emph{native}. 
+The \emph{compiler} is a combination of compiler name and compiler version. We propose to use the self-given names of the compilers like \emph{gcc, clang, msvc, icc} and adding the compiler version indicating feature relevant versions. That can be major, minor version, and patch version numbers for LLVM (e.g. \emph{clang350}) or just major and minor version for GCC (e.g. \emph{gcc73}). In case the system compiler is being used, the compiler should be denoted as \emph{native}. 
 
 
 \subsection{Buildtype}
-The \emph{buildtype} denotes whether there is a debug build, an optimized build, or any other special setting. We propose to use \emph{opt} for optimized and \emph{dbg} for debug builds. The buildtype can be used to specify further custom build options, e.g. the used C++ standard, leading to opt11 or dbg14.
+The \emph{buildtype} denotes whether there is a debug build, an optimized build, or any other special setting. We propose to use \emph{opt} for `optimized` and \emph{dbg} for debugging builds. The buildtype can be used to specify further custom build options, e.g. the used C++ standard, leading to \emph{opt+std14} or \emph{dbg+std18}.
 In general, any special compile time setting can be tracked in this name component.  
 
 \subsection{Generic Cases}
@@ -214,7 +214,7 @@ In some cases the mentioned components do not influence the build-artifacts crea
 
 
 \section{Identification tool -- hsf\_get\_platform}
-As to simplify the adoption of these conventions, we provide a minimal command line tool \emph{hsf\_get\_platform}, that is able to identify architecture, operating system, and compiler in a transparent way. It can be used to e.g. auto-derive everything in a given environment or to extract one part of the platform string
+As to simplify the adoption of these conventions, we provide a minimal command line tool \emph{hsf\_get\_platform}, that is able to identify architecture, operating system, and compiler in a transparent way. It can be used to, e.g., auto-derive everything in a given environment or to extract one part of the platform string
 \\
 \texttt{hsf\_get\_platform.py --buildtype opt $\rightarrow$ "x86\_64-ubuntu15-gcc49-opt"}
 \\
