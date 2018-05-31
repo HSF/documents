@@ -4,29 +4,31 @@ TN-ID: TN-draft
 author: "Benedikt Hegner, Ben Morgan"
 institutes: "CERN, University of Warwick"
 date: date empty
-abstract: This technical note is a proposed list of best practices for HSF projects. The main motivation is to ensure interoperability and usability of a given project in other projects and being able to build consistent software stacks. In addition it should make it easier for other developers to contribute to existing projects.
+abstract: This technical note is a proposed list of best practices for HSF projects. The main motivation is to ensure interoperability and usability of a given project by other projects and being able to build consistent software stacks. In addition it should make it easier for other developers to contribute to existing projects.
 ---
 
 # Introduction
 
-This technical note is a proposed list of best practices for HSF projects. The main motivation is to ensure interoperability and usability of a given project in other projects and being able to build consistent software stacks. In addition it should make it easier for other developers to contribute to existing projects. In the following we discuss different practices and conventions that ease the life of
-  * developers and new contributors
-  * end-users and other client projects 
+This technical note is a proposed list of best practices for HSF projects. The main motivation is to ensure interoperability and usability of a given project by other projects and being able to build consistent software stacks. In addition it should make it easier for other developers to contribute to existing projects. In the following we discuss different practices and conventions that ease the life of
+
+  * developers and new contributors,
+  * end-users and other client projects. 
  
-Afterwards we provide a little checklist of the proposals you may want to use for your project. The proposals are mainly based on experience with the LCG software projects and releases. You may find most of the points discussed here trivial. However people usually differ in what they consider trivial. The technical recommendations in this document are tailored towards C++-based projects, but can easily be mapped onto e.g. Python-based projects.
+Afterwards we provide a checklist of the proposals you may want to use for your project. The proposals are mainly based on experience with the LCG software projects and releases. You may find most of the points discussed here trivial. However people usually differ in what they consider trivial. The technical recommendations in this document are tailored towards C++-based projects, but can easily be mapped onto, e.g., Python-based projects.
 
 # Project Scope, Name and Visibility
 
-On starting a project, make sure you have an idea of the project's scope and goals. Try to pick a name that is suitable for that. You need to ensure uniqueness, as the name will be used to name software artifacts like libraries, code namespaces, error messages, etc.. In addition, have a look around whether it conflicts with pre-existing trademarks for software products or services.
+On starting a project, make sure you have an idea of the project's scope and goals. Try to pick a name that is suitable for that. You need to ensure uniqueness, as the name will be used to name software artifacts like libraries, code namespaces, error messages, etc. In addition, have a look around whether it conflicts with pre-existing trademarks for software products or services.
 
-Though it sounds like a triviality, your project should be made known to the community. For this, having a *dedicated project website* or another entry point for information is essential. It should concentrate all the information useful for users and developers. If possible, it should point at all the other information listed in this document. It is important to find the right place to put information. Try not to repeat yourself, as duplicated documentation can easily run out of sync. Access to all sources of project information should be granted to search engine spiders. Furthermore, the HSF provides a knowledge-base, where your project could be announced.
+Though it sounds like a triviality, your project should be made known to the community. For this, having a *dedicated project website* or another entry point for information is essential. It should concentrate all the information useful for users and developers. If possible, it should point at all the other information listed in this document. It is important to find the right place to put information. Try not to repeat yourself, as duplicated documentation can easily get out of sync. Access to all sources of project information should be granted to search engine spiders. The HSF provides a knowledge-base, where your project could be announced. Furthermore, the HSF software development forum allows you to present your project or ideas at any stage in its project lifecycle.
+
 
 
 # Supporting Developers and Contributors
 The following sections discuss points mainly relevant for project developers and potential new contributors.
 
 ## Code repository
-The first requirement for an open-source project is fully versioned code in a *public repository*. The code should be accessible in anonymous read-only mode by anybody. Services like [GitHub](https://github.com) or [GitLab](https://gitlab.com) provide it for free. In addition efforts like [hepforge](https://www.hepforge.org/) or labs like CERN or DESY may host HEP-specific packages. Services supporting a clone plus *merge-request/pull-request workflow* can be helpful to attract new contributors.
+The first requirement for an open-source project is fully versioned code in a *public repository*. The code should be accessible in anonymous read-only mode by everybody. Services like [GitHub](https://github.com) or [GitLab](https://gitlab.com) provide it for free. In addition efforts like [hepforge](https://www.hepforge.org/) or labs like CERN or DESY may host HEP-specific packages. Services supporting a clone plus *merge-request/pull-request workflow* can be helpful to attract new contributors.
 
 ## License
 The code and software provided should be properly licensed in order to be able to use code provided by others, and to allow people to re-use, update, or improve the software you provide. The [HSF technical note](http://hepsoftwarefoundation.org/technical_notes.html) *HSF-TN-2016-01* (*Software Licence Agreements HSF Policy Guidelines*) discusses various options. This is one of the topics that is typically ignored at the beginning of a project and hard to fix afterwards.
@@ -43,7 +45,7 @@ For *unit tests* plenty of software packages exist, of which [*gtest*](https://g
 A mailing list to contact developers is always useful. Better to have publicly and anonymously accessible archives and be open for subscription and posting by the public.
 
 ## Issue tracking 
-It is useful to provide an issue (bug) tracker for users and developers to interact with, allowing to view of both open and closed tickets anonymously by the public. Possible solutions here are the issue tracking capabilities of GitHub projects or CERN's [JIRA](https://www.atlassian.com/software/jira) service.
+It is useful to provide an issue (bug) tracker for users and developers to interact with, allowing to view of both open and closed tickets anonymously by the public. Possible solutions here are the issue tracking capabilities of GitHub or GitLab projects or CERN's [JIRA](https://www.atlassian.com/software/jira) service. It turned out that solutions which integrate directly with the code repository are much easier to use.
 
 ## Reference Guide
 For developers it is important to have a good overview of provided interfaces, existing classes, and implementation details. For this a reference guide is a helpful tool. A de-facto standard for creating reference guides in C++ projects is [*Doxygen*](http://www.doxygen.org/). 
@@ -55,7 +57,7 @@ Every project choses certain (coding) conventions and workflows. While there is 
 # End-users and client projects
 
 ## Documentation
-In addition to the already mentioned documentation, an end-user focused documentation is important. A little checklist further below summarizes the most important information to be given as part of the documentation.
+In addition to the already mentioned documentation, end-user focused documentation is important. A little checklist further below summarizes the most important information to be given as part of the documentation.
  
 ## Release Information
 While developers (most of the time) know the changes between various releases, it is important to document changes between releases for end-users. It turned out to be a good policy to have multiple categories of releases, like production releases, development releases, bug fix releases, etc. While each project may have different conventions here, the chosen convention should be explained, including its meaning in terms of changes to the project's [*API*](https://en.wikipedia.org/wiki/Application_programming_interface) and [*ABI*](https://en.wikipedia.org/wiki/Application_binary_interface). A clear numbering scheme like "major.minor.patch" can support this. For each release the *supported compilers*, *supported operating systems* and *required dependencies* should be listed. This helps avoiding frustrations on the user side.
@@ -68,6 +70,9 @@ Often a project has to be integrated into bigger software stacks. Being relocata
 
 ## Usability and run-time settings
 It should be straight forward for a user to set up and run your project. This can for example be ensured by providing environment setup scripts, but the number of environment variables required should be limited as far as possible. 
+
+## Publications and References
+Users of your software should be able to give credit to your work. Try to publish your work in conference proceedings or journals such as *Computing and Software for Big Science* so that it can be properly cited.
 
 # Making best practices easier - the HSF Template Project
 Many of the points mentioned are per se trivial, but need some infrastructure to be set up. To assist new projects, an HSF project template was created. It covers many of the technical points and provides some canonical or example implementation for many of the issues. It is meant as open collection point of ideas and proposals by the community. More details are to be found in an upcoming HSF technical note.
