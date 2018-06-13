@@ -14,7 +14,16 @@
 \addbibresource{../../HSF-CWP-2017-01_roadmap/latex/cwp.bib}
 \addbibresource{../../HSF-CWP-2017-01_roadmap/latex/cwp-chapters.bib}
 
-\abstract{The rapidly increasing evolution of technology and the parallel increasing complexity of algorithmic analysis in HEP (and in science in general) require a much larger portfolio of specific skills by the developers with respect to the past. Young researchers, graduating from universities worldwide, currently do not receive adequate preparation in the very diverse fields of modern computing to respond to growing necessities posed by the most advanced experimental challenges. The vast majority of the HEP community strongly agrees on the need for an overarching umbrella of training programs to bring young researchers (but also more mature ones) up to date with new software technologies, such as, for example, concurrent programming and artificial intelligence. }
+\abstract{The rapid evolution of technology and the parallel increasing 
+complexity of algorithmic analysis in HEP require developers 
+to acquire a much larger portfolio of programming skills. Young 
+researchers graduating from universities worldwide currently do not receive adequate 
+preparation in the very diverse fields of modern computing to respond to growing needs 
+of the most advanced experimental challenges. There is a growing cnsensus in the HEP community 
+on the need for training programmes to bring researchers up to date with new software technologies, 
+in particular in the domains of concurrent programming and artificial intelligence. We review some
+of the initiatives under way for introducing new training programmes and highlight some of the issues 
+that need to be taken into account for these to be successful.}
 
 
 \begin{document}
@@ -34,6 +43,7 @@ Training, Staffing and Careers}
 \author[1]{Dario Berzano,}
 \author[2]{Riccardo Maria Bianchi,}
 \author[3]{Peter Elmer,}
+\author[1]{John Harvey,}
 \author[4]{Roger Jones,}
 \author[5]{Michel Jouvin,}
 \author[6]{Daniel S. Katz,}
@@ -69,7 +79,7 @@ Training, Staffing and Careers}
 % ---------------------------------------------------
 % CHAPTER SUMMARY MESSAGE: Motivate the need for training in the HEP community,
 %  summarize existing training efforts to motivate that we already spend funding on
-% this. Discuss initiatives and programs which can be developed in the coming years
+% this. Discuss initiatives and programmes which can be developed in the coming years
 % including a discussion of the known training needs of the community. 
 %
 %    Goals for this chapter 
@@ -94,61 +104,44 @@ Training, Staffing and Careers}
 %____________________________________________________________________
 \section{Introduction}
 
-Throughout the last few decades, the field of high energy physics (HEP) has
-consistently either driven or utilized the latest innovations in computational
-tools and technologies for problem solving.
-The toolset of the particle physicist is vast and ever-growing, and the problem
-set increasingly complex.
-A typical graduate student or postdoc working on HEP experiments will likely
-encounter a number of tools, software, and programming languages with which they
-are totally unfamiliar.
-This requires ``on-the-job'' training for the same people whose work drives the
-reach of our analyses, while they are developing the tools for these analyses.
+The field of high energy physics (HEP) has consistently exploited 
+the latest innovations in computational tools and technologies for processing data.
+The software toolset of the particle physicist is ever-growing, and the problem
+set increasingly complex. Young researchers will likely encounter a number of 
+programming techniques with which they are totally unfamiliar, and will therefore 
+need "on-the-job" training in order for them to be productive.
 
-A strong research community should consist of independent actors who ask
+A strong research community comprises independent thinkers who ask
 research questions and direct their own analyses, instead of blindly following
-prescriptions and recipes. It is therefore imperative that the community be
-proactive about providing training resources and opportunities for the good of
-the community, and that we follow through on the promise that adequate career
+prescriptions and recipes. It is therefore imperative that training opportunities 
+and resources are made available, such that adequate career
 path possibilities exist for people in HEP who would otherwise leave the field
 due to limited advancement opportunities.
 
-To produce the best possible science, it is important, for the broad HEP
-community, to invest in training physicists in essential software and software
-engineering skills, which exist at many different levels. The level of depth of
-software engineering competences in which a physicist should be trained will
-vary depending on the problems that they face, and the appropriate level may
-evolve over time according to the problem at hand. For example, for a researcher
-who only performs basic data analysis, it may be sufficient to be familiar with
-just Python and data analysis libraries. However, contributing to a large open
-source project, such as ROOT, requires greater training in software development
-and related practices. These higher-order skills may include an understanding of
-writing testable code, time and space complexity implications, and knowledge of
-common software architecture paradigms. The need for these skills cannot be
-fulfilled completely just by hiring specialists in computer science, since a
-thorough understanding of the physics problems is usually very important to the
-success of the effort, making it necessary to provide a career path for those
-young physicists willing to steer their interests in that particular direction.
+To produce the best possible science, it is important that physicists can easily acquire
+essential software engineering skills. The nature and level of the expertise a 
+physicist needs to acquire will vary according to the problems that need to be tackled. 
+For example, basic data analysis requires familiarity with the Python programming language 
+and with a broad range of data analysis libraries in current usage. However, those 
+wishing to contribute to large open source projects, such as ROOT, require greater 
+training in the use of software engineering practices that cover the full development 
+life-cycle. Clearly a thorough understanding of the physics problem domain is  
+essential, making it necessary to provide a career path for those
+young physicists willing to invest time and effort in becoming software specialists.
 
-In each HSF workshop, a discussion on the need for proper tutoring, training,
-and the relevant career possibilities in HEP computing emerged and was felt to
-be crucial and essential by almost all participants. There is a strong consensus
-that future software developments will benefit enormously from a successful
-implementation of such training programs, provided proper career prospects are
-put in place, as an incentive, to would-be trainers.
+In each HSF workshop, a consensus on the need for proper tutoring, training,
+and relevant career possibilities emerged as the basic ingredients for ensuring success.
+The main requirements and challenges to be faced were identified as follows:
 
-This document tries to address the most relevant questions related to the
-training in the HEP community, namely:
 \begin{itemize}
-    \item How to encourage and provide incentives to the members of the HEP 
-    community to train students and/or other collaborators?
-    \item How to properly assign credit to software development (and training 
-    thereof) activities?
-    \item What are the current practices in the field regarding hiring of 
-    researchers with a strong specialisation in computing and the policies 
-    to retain such an expertise in the long term? Is there room for improvement?
-    \item How to address and bridge the gap in formal software training that 
-    is not always imparted by universities?
+    \item to encourage and provide incentives to the members of the HEP 
+    community to train students and other collaborators,
+    \item to properly assign credit to software development as a scientific 
+    discipline, including training activities,
+    \item to establish policies for the hiring and long-term retention of researchers 
+    specialising computing,
+    \item to address the gap in formal software training that is not always 
+    given by universities as part of a physicist's education.
 \end{itemize}
 
 %____________________________________________________________________
@@ -158,97 +151,57 @@ training in the HEP community, namely:
 %    DOES THIS SECTION ANSWER THE FOLLOWING: 
 %    - How is training different in software? Specify that there is /no formal training for these tools? 
 
-The introduction and development of increasingly complex tools has led to
-increasing improvements in the performance of our analyses. However, the
-personnel who drive these advancements through novel implementations of the
-technology are the analyzers. In this context, the term {\it analyzers} includes
-all those researchers who participate in an HEP experiment whose contribution
-includes designing and implementing a high speed DAQ system, setting up a modern
-database to store the state of a detector, complex task of managing the data
-flow from the first trigger level to the final n-tuple dataset and creating
-sophisticated statistical and mathematical tools to extract publishable physical
-meaning from those same data.
+The introduction and development of sophisticated software tools has led to
+improvements in the performance of our data processing software. The
+personnel who drive these advances through novel implementations work on a broad 
+range of tasks, including the development of high speed DAQ systems, of modern databases for
+storing the state of a detector, the management of data flow from the first trigger 
+level to the final analysis dataset, as well as the development of algorithms and
+mathematical tools for extracting publishable physics results.
 
-The development of new tools is insufficient to drive advances in the field
-unless researchers who have the expertise apply them to physics questions.
-Furthermore, a larger and a better-connected community, with expertise in the
-tools and access to the new developments, can lead to an open-source model in
-HEP. The efforts to train the community in all relevant tools is, thus, a
-priority within the R\&D effort itself.
-
-However, as tools become more complex, the learning rate of developers must keep
-up if we are to utilize them effectively.  At the same time, as in other
-branches of research, it is essential to sustain efforts in maintaining
-reproducibility of the usage of the tools. This again highlights the need for
-physicts to be appropriately trained in computing science, rather than
-professional computing scientists, whose goals and interests may not necessarily
-be aligned or focused on the physics results of a particular HEP experiment.
-
-To avoid duplicate efforts within the community, it is important to find a way
-to approach training efforts holistically and cross-experimentally, whenever
-possible. This requires a certain level of organization and coordination in
-order to guarantee the delivery of efficient, non-redundant software to
-different experiments and to allow the different communities to agree on common
-standards and procedures.
+As tools become more complex, physicists must be continuously retrained in order
+to utilize them effectively. It is important to find a way to deploy training efforts
+holistically and cross-experimentally, whenever possible, in order to avoid unnecessary 
+duplication of the effort involved. This will require organization and coordination to
+ensure that different software teams can agree on common standards, thereby allowing different
+experiments to adopt the same olutions in an efficient way. 
 
 Beyond the immediate benefit to the scientific community in having well-trained
-collaborators, most people who start a physics graduate program will have
+collaborators, most people who start a physics graduate programme will have
 careers outside of academia. This trend is reflected in several calls for
-proposals from national scientific funding agencies like H2020 and those from
-the National Science Foundation (NSF) that promote training in computer
-infrastructure and information areas.
+proposals from national scientific funding agencies that promote training in computer
+infrastructure areas, such as the EU's Horizon 2020 programme and those from
+the National Science Foundation (NSF) [Refs 1 and 2].
 
-%\textcolor{red}{this call is more to develop cyberinfrastructure staff than scientists - for example, people at computing centers}
-
-\begin{quote}
-\it The overarching goal of these programs is to prepare, nurture and grow the national scientific workforce for creating, utilizing, and supporting advanced cyberinfrastructure (CI) that enables cutting-edge science and engineering and contributes to the Nation's overall economic competiveness and security. 
-
-{\bf - Training-based Workforce Development for Advanced Cyberinfrastructure (CyberTraining) Webinar}\footnote{ \url{https://www.nsf.gov/events/event_summ.jsp?cntn_id=190179&org=NSF}}
-\end{quote}
-
-
-\begin{quote}
-\it New information, communication, and computational technologies have had profound impacts on the practice of science (in this solicitation, the term science includes the natural, mathematical, computing, and social sciences),  engineering, and education. This includes the means by which citizens of all ages use science  and engineering to enhance professional and private lives.  The systems, tools, and services emerging from these new technologies are linked to create a comprehensive cyberinfrastructure that is enabling individuals, groups, and organizations to advance research and education in ways that revolutionize who can participate, what they can do, and how they do it. Sustaining this revolution across all areas of science, engineering, and education requires the formation of a citizenry and workforce with the knowledge and skills needed to design and deploy as well as adopt and apply these cyber-based systems, tools and services over the long-term. The opportunity for such preparation should be available at all stages of formal and informal education (K-16 and lifelong), training and professional development, and must be extended to all individuals and communities. 
-
-{\bf - Cyberinfrastructure Training, Education, Advancement, and Mentoring for Our 21st Century Workforce (CI-TEAM)}\footnote{ \url{https://www.nsf.gov/funding/pgm_summ.jsp?pims_id=12782}}
-\end{quote}
-
-An open issue is the kind of incentive that our community can collectively
-leverage in order to increase the number of people (with strong expertise in
-computing) who decide to dedicate time and effort to train fellow members of
-their community.
+An important challenge will be to discover incentives that will encourage 
+increasing numbers of people to dedicate time and effort to train their colleagues.
 To be effective, the training must be done by people who work at the cutting
 edge of the technology, who in many cases are found among the youngest
 researchers. These are also the very same people who are most in need of
-officially recognized credits for the advancement of their careers. The current
-practice in HEP is that these young scientists only receive credit and
-recognition (in the vast majority of cases) by working on a data analysis
-project, and this discourages them from finding time to transfer their acquired
-know-how to others in an effective way. A possible solution to this conundrum
-could be the establishment of specific career paths for researchers with a
-computer science specialization. The practical implementation of such an
-approach, however, is extremely challenging as there are a wide range of
+officially recognized credits for the advancement of their careers. Currently
+visibility and recognition is given only to those working on a data analysis project, 
+rather othan on the development and support of the underlying software. A possible 
+solution to this conundrum could be the establishment of specific career paths 
+for researchers specialising in scientific software development. However, the practical 
+implementation of such an approach is extremely challenging, as there are a wide range of
 institutions involved that belong to different countries with their own
-policies, priorities, and funding strategies. Broadly, two career paths could be
-envisaged. Both would recognise that domain-sepcific knowledge and continued
-engagement is vital to the success of HEP computing and software. While in an
-ideal world (for physicists, at least), a physicst could make a detailed plan of
-what they need (expressed in a tidy requirements document) and a computer
-scientist could use this document to provide the required solution, with very
-little additional exchange of information during the process (which is how the
-software development process sometimes works in industry). In the real HEP
-world, instead, most of the time the requirements are bound to change rather
-frequently for a variety of reasons (not only because of poor planning) forcing
-developers and physicsts to closely interact during the entire process of
+policies, priorities, and funding strategies. 
+
+Broadly speaking, two scientific profiles of researchers could be
+envisaged; a physicst could make a detailed plan of what they need, expressed 
+in a tidy requirements document, and a computer scientist could use this document 
+to provide the required solution. This is how the software development process 
+typically works in the software industry. However, in HEP requirements are rapidly
+changing forcing developers and physicsts to closely interact during the entire process of
 software development; this works smoothly only when both communities have the
-same goals and speak the same jargon, hence the need for physicists with a
-computer science specialisation.
+same goals and speak the same language, hence the need for physicists with a good
+knowledge of computer science.
 
 The first possible career would be the path of a \emph{physicist researcher with
 computing science specialisation}, in some places corresponding to the role of a
 physicist-programmer. It would be conceptually different to that of a
 \emph{computer scientist}: the two have different goals, seek different paths to
-the solution of their problems, and usually do not even adopt the same jargon in
+the solution of their problems, and usually do not even adopt the same language in
 expressing problems and solutions. Such a role would have an active role in
 physics analysis, and so meet many of the traditional metrics for an academic
 career path.
@@ -261,7 +214,7 @@ posts are almost impossible to develop in the current academic frameworks; but
 while RSEs are understood by many funding agencies and universities as a
 technical post, they are seen as available for short-term engagements with a
 researcher community, delivering a quick fix or a refactoring and then moving
-one. This does not deliver the domain specific expertise required.
+on. This does not deliver the domain specific expertise required.
 
 Both career paths suffer in academic terms from few or poorly cited
 publications, few opportunities to win grants in their own right and little
@@ -288,17 +241,17 @@ weaknesses.
 
 The HEP user community consists of a set of users with diverse software
 experience, interests, and time availablity to learn new techniques.  Any
-training program must take into account the variation in target audiences. For
+training programme must take into account the variation in target audiences. For
 example, an undergraduate doing a summer research project has different needs
-and skills than their mentoring professor. For purposes of training, we will
-name all our user community as \emph{students}.
+and skills than their professor.
 
-%____________________________________________________________________
 \subsection{Classification of trainees}
 
-We can broadly identify four different sets of students, classified by experience level,
-recognizing that even within these groups there will be people who will learn at different
-speeds and with differing depths of understanding:
+For purposes of training, it is useful to think of all our user community as
+\emph{students}. More specifically, we can broadly identify four different sets
+of students, classified by experience level, recognizing that even within these
+groups there will be people who will learn at different speeds and with
+differing depths of understanding:
 
 \begin{itemize}
    \item \emph{Beginners}: New collaborators with no knowledge of the 
@@ -308,31 +261,31 @@ speeds and with differing depths of understanding:
    training in modern computing techniques (basically compiled and scripting 
    languages together with operating system basics such as filesystems, version 
    control, and command-line shells).
-   \item \emph{Intermediate users}: HEP analyzers with some experience in 
+   \item \emph{Intermediate level analysts}: people with some experience in 
    either analysis concepts and/or tools, but  looking to supplement their 
-   experiences with more recent and modern approaches. 
-   \item \emph{Advanced users}: HEP analysis experts who have mastered current 
-   technologies and implementations (at a certain point in time) and want to 
-   stay up-to-date with new advanced developments.
+   experience with more recent and modern approaches. 
+   \item \emph{Advanced level analysts}: experts who have mastered current 
+   technologies and implementations and who want to stay up-to-date with 
+   new advanced developments.
    \item \emph{Software developers}: HEP scientists in charge of software 
    development in areas not limited only to analysis, such as DAQ systems, 
    computing infrastructure, databases, pattern recongition, and complete 
    frameworks.
 \end{itemize}
 
-Each of these groups has vastly different training needs. However,
-\emph{whenever possible}, any training program should take advantage of
+Each of these groups has very different training needs. However,
+\emph{whenever possible}, any training programme should take advantage of
 developments in pedagogy, such as active
 learning\footnote{\url{http://www.crlt.umich.edu/tstrategies/tsal}}, peer
 learning\footnote{\url{https://en.wikipedia.org/wiki/Peer_learning}}, and
 web-based training.\footnote{See \S\ref{sec:initiatives}.} In some cases, it may
 even be advantageous to hand out code samples that are purposely broken or
 flawed, and ask students to fix or improve them. Learning the material in a way
-that sticks with the students is difficult and challenging for both the students
+that sticks is difficult and challenging for both the students
 and the instructor and often takes more time than we would prefer. However, this
-is the best way to ensure an educated community of scientists who can fully
-contribute to the physics programs at large, which is really the ultimate goal
-of any training program.
+is the best way to educate scientists who can fully
+contribute to the physics programmes at large, which is really the ultimate goal
+of any training programme.
 
 %____________________________________________________________________
 \subsection{Knowledge that needs to be transferred}
@@ -343,20 +296,20 @@ checking, modularity of code design, version control, writing tests, etc. All
 the key concepts addressed in the training should not be specific to a
 particular experiment or field of application, but general enough to be useful
 to the whole HEP community and possibly beyond. In this section, we present a
-list of specific concepts that need to be taught to members of the community, in
-order to guarantee the base level of competence needed to write efficient code
+list of specific concepts that need to be taught, in
+order to guarantee the basic level of competence needed to write efficient code
 for the different tasks performed in HEP experiments.
  
 An essential knowledge base that needs to be transferred includes basic
 programming concepts, data structures, basics of code design, error checking,
 code management tools, validation and debugging tools. More advanced topics
 include modularity of code design, advanced data structures, evaluation metrics,
-writing tests and working with different types of hardware accelerators.
+writing tests and working with different types of hardware accelerator.
 Cutting-edge approaches such as the use of hardware accelerators (whether GPUs
 or FPGAs), Deep Neural Networks, and Machine Learning should be considered
-important training topics. Additionally, special emphasis should be made on
+important training topics. Additionally, special emphasis should be given to
 reporting results and documenting them.
-The training subjects that the community considers important to pursue are
+The training subjects considered important to pursue are
 listed as follows:
 
 \begin{itemize}
@@ -366,17 +319,17 @@ listed as follows:
       \item Compiled langauges (C++)
       \item Scripting languages (Python, Javascript,...)
    \end{itemize}
-   \item Algorithmics 
+   \item Algorithms 
    \begin{itemize}
       \item Boost library
       \item STL algorithms for containers
       \item R and/or ROOT
    \end{itemize}
-   \item Existing frameworks (development or application level)
+   \item Frameworks (development or application level)
    \begin{itemize}
       \item Qt
       \item ROOT
-      \item experiment specific framework (possibily if of potential interest outside the native experiment)
+      \item experiment specific frameworks (possibly if of potential interest outside the originating experiment)
    \end{itemize}
    \item Code design (design patterns)
    \item Development tools
@@ -398,60 +351,49 @@ listed as follows:
 
 %____________________________________________________________________
 %____________________________________________________________________
-\section{Challenges}
+\section{Implementation Roadmap}
+The implementation of training should target multiple training formats and knowledge transfer, such as videos, wikis, lectures, jupyter notebooks and advanced visualizations, etc.
+People who learn in non-conventional ways should not be excluded from the
+opportunity to learn. Since there are different stages of knowledge transfer,
+programmes should be developed that encourage experts to share knowledge. Issues
+considered in this section include global training initiatives, strategies for
+leveraging existing forums, and training tool development.
 
-Within a single experiment, different skill sets are needed. In addition to a
-skill set that contains basic programming language knowledge, testing and code
-management tools, and experiment-specific framework knowledge, there are more
-specialized skills that only a subset of the community needs to know, such as
-software optimization, or low-level hardware interfaces.
+An important point to consider is the difficulty, often experienced in the past,
+in developing large software programs across different experiment communities.
 While there already are experiment-specific training efforts in place, there are
 many needs that are in common between experiments. Therefore, we should probably
-strive to extract the common knowledge and build a common training program. This
+strive to extract the common knowledge and build a common training programme. This
 would reduce duplication of efforts and enable growth of a shared training
 culture by accumulating and sharing expertise across different experiments.
 
 To realise this goal, a possibility could be the institution of a {\em
 federation} of existing training initiatives, a very lightwheight umbrella just
 aimed at improving the efficiency and cost-effectivness of this important
-activity.
-
-\section{Implementation Roadmap}
-The implementation of training should target multiple training formats and knowledge transfer, such as videos, wikis, lectures, jupyter notebooks and advanced visualizations, etc.
-People who learn in non-conventional ways should not be excluded from the
-opportunity to learn. Since there are different stages of knowledge transfer,
-programs should be developed that encourage experts to share knowledge. Issues
-considered in this section include global training initiatives, strategies for
-leveraging existing forums, and training tool development.
-
-An important point to consider is the difficulty, often experienced in the past,
-in developing large software programs across different experiment communities.
-It is always challenging to organize a Working Group for training across
-experiments or even across diverse communities (such as HEP and Astroparticle,
-for example). This is a point where an appropriate incentive program to reward
-those who train the community might help.
+activity. An appropriate incentive programme to reward those who train the community 
+might help to facilitate the goals of such an initiative.
 
 %____________________________________________________________________
-\subsection{Initiatives for future training programs\label{sec:initiatives}} 
+\subsection{Initiatives for future training programmes\label{sec:initiatives}} 
 
 Some methods that can be used for global training include Massive Online Open
-Courses, hands-on workshops, online knowledge bases, expert trainer volunteer
+Courses (MOOCs), hands-on workshops, online knowledge bases, expert trainer volunteer
 networks, and web-based training approaches.
 
-Massive Online Open Courses (MOOCs) can be used to develop an open-source set of
-tutorials and tools. Existing online courses such as Udacity and Coursera can be
-evaluated and recommended to the community. A novel approach such as WikiToLearn
-could also explored to assess potential benefits (as has already been attempted
-in the context of the GridKa School of Computing, see below).
+MOOCs can be used to develop an open-source set of tutorials and tools. Existing 
+online courses such as Udacity and Coursera can be evaluated and recommended to 
+the community. A novel approach such as WikiToLearn
+could also explored to assess potential benefits, as has already been attempted
+in the context of the GridKa School of Computing (see below).
 
 Experiment-specific and global knowledge bases can be established with
 incentives for experts to contribute. They can be open-source so that a lot of
-knowledge can be added by the trainees themselves as information is learned
-(this is the particular context where an approach such as WikiToLearn could be
-of great help).
+knowledge can be added by the trainees themselves as information is learned;
+this is the particular context where an approach such as WikiToLearn could be
+of great help.
 
-Question-and-answer websites such as Stack Overflow for HEP are also a very
-useful resource for common problems and questions. This approach has already
+Question-and-answer websites, such as Stack Overflow for HEP, are also a very
+useful resource for addressing common problems and questions. This approach has already
 been considered by HSF start-up members, and turned out to be difficult to
 pursue for a number of reasons, but in the future, boundary conditions might
 change, making this approach viable.
@@ -478,8 +420,8 @@ It should be considered that some professors, who act as graduate student
 advisors, might need to be encouraged to make sure their students are properly
 trained. Sometimes, students are instead pushed to learn the bare minimum to get
 the work done, at the expense of a broader training/education curriculum that
-could actually yield improved results, but further down the line. One incentive
-would be to provide training programs that also count as course credit, perhaps
+could actually yield improved results further down the line. One incentive
+would be to provide training programmes that also count as course credit, perhaps
 as an elective. This model is already in limited use with some online
 solutions\footnote{\url{https://www.edx.org/credit}}, but this is not universal.
 Discussions should be started with collaborators at higher education
@@ -493,7 +435,7 @@ outside research.
 
 Difficulties that have emerged in the past with respect to implementing training
 courses are the lack of funding and the lack of available time by experts in the
-field. People with enough expertise or insight in the field usually don't have
+field. People with enough expertise or insight usually don't have
 time to devote to prolonged periods of student training, and, even when they can
 find time, the cost of setting up a training course in an effective way is often
 beyond what's made available by funding agencies (funds for travel, hosting,
@@ -506,13 +448,13 @@ platform to provide training materials to students. This complementary approach
 has several advantages over traditional ones:
 \begin{itemize}
    \item Tutors can add material to the web site at a very slow pace (whenever
-   they find time to do it, one slide a week or a chapter a day) \item Their
-   material, made public on a web-site, can be further expanded by collaborators
+   they find time to do it, one slide a week or a chapter a day) 
+   \item Their material, made public on a web-site, can be further expanded by collaborators
    (also at their own pace) or, even better and more productively, by students
    who decide to contribute new additions, examples, exercises etc. Such a
    collaborative effort allows more people to be exposed to training at any
    given time, creates a sense of community, and creates bridges between people
-   in contiguous areas or research. Students can use the same platform to
+   in contiguous areas of research. Students can use the same platform to
    exchange their own examples, make suggestions and point out interesting
    concepts. In such a model, the possible contribution from others to the
    training material needs to be moderated and validated with appropriate
@@ -526,9 +468,9 @@ has several advantages over traditional ones:
    of a remote facility that provides some storage and computing power.
    Important here is the concept of ``environment'': a Docker container could be
    set up in such a way that students will work in an exact replica of the
-   environment they will be exposed to in their experiment (or collaboration at
-   large). Moreover, students could be provided with Docker containers that
-   preserves their modified environment across sessions, allowing them to
+   environment they will be exposed to in their experiment. Moreover, students 
+   could be provided with Docker containers that
+   preserve their modified environment across sessions, allowing them to
    develop their skills over a prolonged period of time by accessing all the
    files that were made persistent day by day during the training.
    \item There would no longer be a need to find the resources to host a school
@@ -539,7 +481,7 @@ has several advantages over traditional ones:
    significant depth in such a short time. The web approach, instead, would
    allow for very long and in-depth coverage of any kind of subject, and in this
    sense it could be a {\it complementary} approach to a traditional school. Of
-   particular interest could be courses such as, e.g., ``Machine Learning'',
+   particular interest could be courses such as ``Machine Learning'',
    ``Statistical Analyis with ROOT'', or even just ``Good practices in C++'' or
    ``Python Programming for scientific computing''.
    \item Finally, this approach could allow the creation of {\it browsable}
@@ -557,7 +499,7 @@ several languages, for several disciplines, ranging from Economics to Physics,
 Mathematics, and several others. Because it is based upon
 wikimedia\footnote{\url{https://www.wikimedia.org/}} software, it is very easy
 to add material to the site, and to make it appear under a specific topic (such
-as, e.g., Software/Techniques/Machine-Learning) and to manipulate it as if it
+as Software/Techniques/Machine-Learning) and to manipulate it as if it
 were a single document. In the end, students can selectively choose individual
 chapters from the site and have the corresponding pdf sent them as a book,
 complete with index, content, and chapters.
@@ -570,13 +512,13 @@ the learning curve has been kept appropriately shallow.
 An interesting exercise in this context has recently been made by colleagues of
 the GridKa School of computing: the material from this year (2017) has been made
 publicly available on WTL\footnote{\url{https://en.wikitolearn.org/GridKa2017}}.
-This constitutes an intersting example of what can be accomplished using this
+This constitutes an interesting example of what can be accomplished using this
 platform; it is just a first example of what's possible, but an inspiring one.
 
 Finally it should be important to evaluate, if and to which extent, the
 complementary approaches to training (such as schools and dedicated web-site
-courses) could be of mutual benefit (how to make them cooperate in the
-development of a complete training program).
+courses) could be of mutual benefit in the development of a complete training 
+programme.
 
   % \item Question-and-answer web sites such as Stack Overflow 
    %(https://en.wikipedia.org/wiki/Stack_Overflow) 
@@ -624,11 +566,10 @@ CODAS-HEP\footnote{\url{http://codas-hep.org}} Schools of Computing.
 % preparing new collaborators and might serve as a model for future efforts in
 % ML training.
 
-Over the past decade, massive open online courses (MOOCs) have been developed by
-universities and private organizations. They have been well received by industry
-and academia.% and are maintained by the outside community.
-In addition, they provide a lot of flexibility in terms of cost and time
-constraints; they are typically free and open for enrollment at any time of the
+Over the past decade, MOOCs have been developed by universities and private organizations. 
+They have been well received by industry and academia.
+In addition, they provide a lot of flexibility in terms of cost and use of time; 
+they are typically free and open for enrollment at any time of the
 year. Since the material can be accessed at any time and revisited at any time,
 they can be completed at a pace that makes sense, for example, for a physicist
 who needs to learn machine leanrning in a piecemeal way.
@@ -636,9 +577,9 @@ who needs to learn machine leanrning in a piecemeal way.
 There are a growing set of MOOCs teaching various subjects. Since there are many
 options, there is a wide variety with respect to the depth of the material and
 specific tools taught. Exploring these options allows us to choose which is the
-right offering for the knowledge needed to work on a specific HEP experiment. We
+right offering for the knowledge needed to work on a specific experiment. We
 can pick and choose modules to tailor an appropriate roadmap of skills to learn.
-More difficult will be to assemble HEP specific training material not already
+More difficult will be to assemble specific training material not already
 avaible elsewhere in an efficient and organized way, since this requires
 adequate organization, volounteers and and a suitable infrastructure.
 
@@ -668,7 +609,7 @@ using Python tooling.
 %____________________________________________________________________
 \subsection{Resources and Incentives}
 
-Training the community is something that a large cross-section of the community
+Training is something that a large cross-section of the community
 understands to be important, but finding time and effort to contribute to this
 effort is not actively on the radar of most potential contributors. Providing
 incentives for their participation and creating the appropriate platforms can go
@@ -694,8 +635,8 @@ examples of such efforts are needed.
 
 \section{Other resources}
 
-Software Carpentry\footnote{\url{https://software-carpentry.org}} and Data
-Carpentry\footnote{\url{http://www.datacarpentry.org}} are two parts of The
+Software Carpentry (SC) \footnote{\url{https://software-carpentry.org}} and Data
+Carpentry (DC) \footnote{\url{http://www.datacarpentry.org}} are two parts of The
 Carpentries organization that collaboratively build and teach some of the basic
 concepts in developing and maintaining software, and analyzing data,
 respectively.  The materials that they develop and use are open, and can be
@@ -727,7 +668,7 @@ School in progress in Trieste, Italy during July 2017.
 While Software Carpentry is leveraged to build a foundation of knowledge for
 later more advanced concepts, it is important to note much of this material is
 developed specifically for this course and not a part of a larger Software
-Carpentry program. This course focuses on a shallow but wide building of
+Carpentry programme. This course focuses on a shallow but wide building of
 foundational skills approach, introducing many base concepts but not going deep
 into any one concept, with a through line of Open Science and Ethical Data
 Usage.
@@ -741,7 +682,7 @@ to senior physicists, all of them in need of an appropriately designed training
 path in order to be proficent in their scientific endevours.
 
 We have identified a certain number of problems that need to be overcome in
-setting up an appropriate training program:
+setting up an appropriate training programme:
 \begin{itemize}
     \item Costs and relative funding
     \item Incentives
@@ -756,8 +697,11 @@ For each of these points we provide an overview of the current situation and pos
 %____________________________________________________________________
 %\begin{itemize}
 %
-%   \item How to motivate the community to participate in developing programs? Can some of it come from \& leadership?
-%   \item How to deal with competitiveness in the field? Can’t force people to be interested in forming a community. How can we incentivize this? Building a %vibrant, welcoming community may help.
+%   \item How to motivate the community to participate in developing 
+programs? Can some of it come from \& leadership?
+%   \item How to deal with competitiveness in the field? Can’t force 
+people to be interested in forming a community. How can we incentivize this? 
+Building a %vibrant, welcoming community may help.
 %\end{itemize}
 
 
