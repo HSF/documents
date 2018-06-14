@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{xspace}
+\usepackage[titletoc]{appendix}
 
 \usepackage[utf8]{inputenc}
 
@@ -15,12 +16,12 @@
 \addbibresource{../../HSF-CWP-2017-01_roadmap/latex/cwp-chapters.bib}
 
 \abstract{The rapid evolution of technology and the parallel increasing 
-complexity of algorithmic analysis in HEP require developers 
+complexity of algorithmic analysis in HEP requires developers 
 to acquire a much larger portfolio of programming skills. Young 
 researchers graduating from universities worldwide currently do not receive adequate 
 preparation in the very diverse fields of modern computing to respond to growing needs 
-of the most advanced experimental challenges. There is a growing cnsensus in the HEP community 
-on the need for training programmes to bring researchers up to date with new software technologies, 
+of the most advanced experimental challenges. There is a growing consensus in
+the HEP community on the need for training programmes to bring researchers up to date with new software technologies, 
 in particular in the domains of concurrent programming and artificial intelligence. We review some
 of the initiatives under way for introducing new training programmes and highlight some of the issues 
 that need to be taken into account for these to be successful.}
@@ -68,7 +69,6 @@ Training, Staffing and Careers}
 
 \maketitle
 
-\tableofcontents
 \clearpage
 
 %-------------------------------------------------------------------------
@@ -109,9 +109,9 @@ the latest innovations in computational tools and technologies for processing da
 The software toolset of the particle physicist is ever-growing, and the problem
 set increasingly complex. Young researchers will likely encounter a number of 
 programming techniques with which they are totally unfamiliar, and will therefore 
-need "on-the-job" training in order for them to be productive.
+need ``on-the-job'' training in order for them to be productive.
 
-A strong research community comprises independent thinkers who ask
+Evidently a strong research community comprises independent thinkers who ask
 research questions and direct their own analyses, instead of blindly following
 prescriptions and recipes. It is therefore imperative that training opportunities 
 and resources are made available, such that adequate career
@@ -146,7 +146,7 @@ The main requirements and challenges to be faced were identified as follows:
 
 %____________________________________________________________________
 %____________________________________________________________________
-\section{Motivation for some HSF coordinated actions}
+\section{Career Paths for Software Experts}
 
 %    DOES THIS SECTION ANSWER THE FOLLOWING: 
 %    - How is training different in software? Specify that there is /no formal training for these tools? 
@@ -164,7 +164,7 @@ to utilize them effectively. It is important to find a way to deploy training ef
 holistically and cross-experimentally, whenever possible, in order to avoid unnecessary 
 duplication of the effort involved. This will require organization and coordination to
 ensure that different software teams can agree on common standards, thereby allowing different
-experiments to adopt the same olutions in an efficient way. 
+experiments to adopt the same solutions in an efficient way. 
 
 Beyond the immediate benefit to the scientific community in having well-trained
 collaborators, most people who start a physics graduate programme will have
@@ -173,16 +173,20 @@ proposals from national scientific funding agencies that promote training in com
 infrastructure areas, such as the EU's Horizon 2020 programme and those from
 the National Science Foundation (NSF) [Refs 1 and 2].
 
-An important challenge will be to discover incentives that will encourage 
-increasing numbers of people to dedicate time and effort to train their colleagues.
+A key goal is to find incentives that will encourage 
+increasing numbers of people to dedicate their time and effort to train their
+colleagues.
 To be effective, the training must be done by people who work at the cutting
 edge of the technology, who in many cases are found among the youngest
 researchers. These are also the very same people who are most in need of
 officially recognized credits for the advancement of their careers. Currently
-visibility and recognition is given only to those working on a data analysis project, 
-rather othan on the development and support of the underlying software. A possible 
-solution to this conundrum could be the establishment of specific career paths 
-for researchers specialising in scientific software development. However, the practical 
+visibility and recognition is given mainly to those working on data analysis
+projects, rather than to the development and support of the underlying
+software. One solution to this problem would be the establishment of specific
+career paths for researchers specialising in scientific software development. 
+%% GS Comment - is this actually ``motivation'' - it seems more like a solution
+% See suggested title change for this section...
+However, the practical 
 implementation of such an approach is extremely challenging, as there are a wide range of
 institutions involved that belong to different countries with their own
 policies, priorities, and funding strategies. 
@@ -192,8 +196,8 @@ envisaged; a physicst could make a detailed plan of what they need, expressed
 in a tidy requirements document, and a computer scientist could use this document 
 to provide the required solution. This is how the software development process 
 typically works in the software industry. However, in HEP requirements are rapidly
-changing forcing developers and physicsts to closely interact during the entire process of
-software development; this works smoothly only when both communities have the
+changing, forcing developers and physicsts to interact closely during the entire
+process of software development; this works smoothly only when both communities have the
 same goals and speak the same language, hence the need for physicists with a good
 knowledge of computer science.
 
@@ -220,8 +224,10 @@ Both career paths suffer in academic terms from few or poorly cited
 publications, few opportunities to win grants in their own right and little
 opportunity for impact with commerce and wider society. These three failings
 make an academic appointment challenging or disfavoured compared to other
-applicants. However, there are measures that an be taken to address all three
+applicants. However, there are measures that can be taken to address all three
 weaknesses.
+%% GS Comment - This is an odd place to end a section. What are these measures?
+% Where do we list them? Even a forward reference would help.
 
 % This makes the development of specific solutions even more difficult and
 % cumbersome.
@@ -249,17 +255,15 @@ and skills than their professor.
 
 For purposes of training, it is useful to think of all our user community as
 \emph{students}. More specifically, we can broadly identify four different sets
-of students, classified by experience level, recognizing that even within these
-groups there will be people who will learn at different speeds and with
-differing depths of understanding:
+of students, classified by experience level:
 
 \begin{itemize}
    \item \emph{Beginners}: New collaborators with no knowledge of the 
-   tools or techniques they are expected to use. These might be undergraduates 
+   tools or techniques they are expected to use. These might be undergraduates, 
    but they could also be senior researchers who have not yet or not recently 
    engaged in software analysis. These are people in need of some kind of formal 
    training in modern computing techniques (basically compiled and scripting 
-   languages together with operating system basics such as filesystems, version 
+   languages, together with operating system basics such as filesystems, version 
    control, and command-line shells).
    \item \emph{Intermediate level analysts}: people with some experience in 
    either analysis concepts and/or tools, but  looking to supplement their 
@@ -291,16 +295,16 @@ of any training programme.
 \subsection{Knowledge that needs to be transferred}
 
 At all stages of software and computing training, we should take care to
-encourage \emph{Good Practices Across the Community} (GPAC), such as error
+encourage \emph{Good Practices Across the Community}, such as error
 checking, modularity of code design, version control, writing tests, etc. All
 the key concepts addressed in the training should not be specific to a
 particular experiment or field of application, but general enough to be useful
-to the whole HEP community and possibly beyond. In this section, we present a
+to the whole HEP community and beyond. In this section, we present a
 list of specific concepts that need to be taught, in
 order to guarantee the basic level of competence needed to write efficient code
 for the different tasks performed in HEP experiments.
  
-An essential knowledge base that needs to be transferred includes basic
+Essential knowledge that needs to be transferred includes basic
 programming concepts, data structures, basics of code design, error checking,
 code management tools, validation and debugging tools. More advanced topics
 include modularity of code design, advanced data structures, evaluation metrics,
@@ -309,52 +313,21 @@ Cutting-edge approaches such as the use of hardware accelerators (whether GPUs
 or FPGAs), Deep Neural Networks, and Machine Learning should be considered
 important training topics. Additionally, special emphasis should be given to
 reporting results and documenting them.
-The training subjects considered important to pursue are
-listed as follows:
-
-\begin{itemize}
-   \item Basic and Advanced Programming Concepts
-   \begin{itemize}
-      \item Object oriented paradigm
-      \item Compiled langauges (C++)
-      \item Scripting languages (Python, Javascript,...)
-   \end{itemize}
-   \item Algorithms 
-   \begin{itemize}
-      \item Boost library
-      \item STL algorithms for containers
-      \item R and/or ROOT
-   \end{itemize}
-   \item Frameworks (development or application level)
-   \begin{itemize}
-      \item Qt
-      \item ROOT
-      \item experiment specific frameworks (possibly if of potential interest outside the originating experiment)
-   \end{itemize}
-   \item Code design (design patterns)
-   \item Development tools
-   \begin{itemize}
-      \item IDEs (Integrated Development Environment)
-      \item Debuggers
-      \item Profilers
-   \end{itemize}
-   \item Evaluation metrics
-   \item “Trust” metrics such as data driven tests
-   \item Specific software implementation training
-   \item Good practices 
-   \item Code style and clarity
-   \item Scripting and data cleaning
-   \item Reporting results reproducibly
-   \item Writing Documentation
-\end{itemize}
+Some of the training subjects considered important to pursue are
+listed in Appendix \ref{appendix-a---training-topics-of-interest}.
 
 
-%____________________________________________________________________
-%____________________________________________________________________
+% ____________________________________________________________________
+% ____________________________________________________________________
 \section{Implementation Roadmap}
-The implementation of training should target multiple training formats and knowledge transfer, such as videos, wikis, lectures, jupyter notebooks and advanced visualizations, etc.
+The implementation of training should target multiple training formats and
+knowledge transfer, such as videos, wikis, lectures, jupyter notebooks and
+advanced visualizations, etc.
 People who learn in non-conventional ways should not be excluded from the
-opportunity to learn. Since there are different stages of knowledge transfer,
+opportunity to learn. 
+%% GS Comment - I'm not really sure what that previous sentence is supposed to
+% mean.
+Since there are different stages of knowledge transfer,
 programmes should be developed that encourage experts to share knowledge. Issues
 considered in this section include global training initiatives, strategies for
 leveraging existing forums, and training tool development.
@@ -408,7 +381,7 @@ and support to the community.
 This of course requires proper recognition, at least in terms of career
 prospects as an incentive for young researchers. It is clear that the best
 possible tutors are, in principle, those people who are actively engaged in
-modern software developments: these are in general young researchers in the
+modern software developments: these are often young researchers in the
 first steps of their careers and, in order to be attracted to devoting
 substantial time to training and tutoring, they must be assured that such an
 effort would be properly recognised in an official way. Such kind of recognition
@@ -442,15 +415,15 @@ beyond what's made available by funding agencies (funds for travel, hosting,
 setting up a room with a computing infrastructure to allow interactive hands-on
 session, etc.) A possible solution is a completely different approach to
 training (but complementary to the already existing and successful classical
-efforts such as the CERN School of Computing's Bertinoro and Kit ones): instead
+efforts such as the CERN School of Computing's Bertinoro and KIT ones): instead
 of directly teaching to students, trainees could make use of a web-based
 platform to provide training materials to students. This complementary approach
 has several advantages over traditional ones:
 \begin{itemize}
    \item Tutors can add material to the web site at a very slow pace (whenever
    they find time to do it, one slide a week or a chapter a day) 
-   \item Their material, made public on a web-site, can be further expanded by collaborators
-   (also at their own pace) or, even better and more productively, by students
+   \item Their material, available public on a web-site, can be further expanded
+   by collaborators (also at their own pace) or, even better and more productively, by students
    who decide to contribute new additions, examples, exercises etc. Such a
    collaborative effort allows more people to be exposed to training at any
    given time, creates a sense of community, and creates bridges between people
@@ -645,25 +618,9 @@ undergraduates). Their model is that they offer training of trainers, and then
 the trainers who have graduated can offer training under the SC/DC names, though
 of course, anyone can use the SC/DC materials without doing it under the SC/DC
 names.
-Subjects covered in a typical Data Carpentry school are given below. This list
-is taken from the curriculum of the CODATA-RDA Research Data Science Summer
-School in progress in Trieste, Italy during July 2017.
-(http://indico.ictp.it/event/7974/):
+Subjects covered in a typical Data Carpentry school are given in Appendix
+\ref{appendix-b}.
 
-\begin{itemize}
-\item Introduction
-\item UNIX Shell programming (Software Carpentry Module)
-\item GitHub (Software Carpentry Module)
-\item R (Software Carpentry Module)
-\item BYOD (Bring Your Own Data) best practices
-\item Data Management with SQL  (Software Carpentry Module)
-\item RDM Storage Management
-\item Visualisation
-\item Machine Learning Overview - Recommendation
-\item Recommender Systems
-\item Artificial Neural Networks and other Machine Learning Systems 
-\item Research Computational Infrastructure 
-\end{itemize}
 
 While Software Carpentry is leveraged to build a foundation of knowledge for
 later more advanced concepts, it is important to note much of this material is
@@ -693,17 +650,78 @@ setting up an appropriate training programme:
 
 For each of these points we provide an overview of the current situation and possible proposals to build a roadmap.
 
-%____________________________________________________________________
-%____________________________________________________________________
-%\begin{itemize}
-%
-%   \item How to motivate the community to participate in developing 
-programs? Can some of it come from \& leadership?
-%   \item How to deal with competitiveness in the field? Can’t force 
-people to be interested in forming a community. How can we incentivize this? 
-Building a %vibrant, welcoming community may help.
-%\end{itemize}
+%% GS Comment - this section is incomplete. FIXME.
 
+
+\newpage
+\begin{appendices}
+
+\sloppy
+\raggedright
+
+\hypertarget{appendix-a---training-topics-of-interest}{%
+\section{Training Topics of Interest}\label{appendix-a---training-topics-of-interest}}
+
+\begin{itemize}
+   \item Basic and Advanced Programming Concepts
+   \begin{itemize}
+      \item Object oriented paradigm
+      \item Compiled langauges (C++)
+      \item Scripting languages (Python, Javascript,...)
+   \end{itemize}
+   \item Algorithms 
+   \begin{itemize}
+      \item Boost library
+      \item STL algorithms for containers
+      \item R and/or ROOT
+   \end{itemize}
+   \item Frameworks (development or application level)
+   \begin{itemize}
+      \item Qt
+      \item ROOT
+      \item experiment specific frameworks (possibly if of potential interest outside the originating experiment)
+   \end{itemize}
+   \item Code design (design patterns)
+   \item Development tools
+   \begin{itemize}
+      \item IDEs (Integrated Development Environment)
+      \item Debuggers
+      \item Profilers
+   \end{itemize}
+   \item Evaluation metrics
+   \item “Trust” metrics such as data driven tests
+   \item Specific software implementation training
+   \item Good practices 
+   \item Code style and clarity
+   \item Scripting and data cleaning
+   \item Reporting results reproducibly
+   \item Writing Documentation
+\end{itemize}
+
+
+\hypertarget{appendix-b}{%
+\section{Research Data Science Curriculum}\label{appendix-b}}
+
+This list is taken from the curriculum of the CODATA-RDA Research Data
+Science Summer School in progress in Trieste, Italy during July 2017.
+(http://indico.ictp.it/event/7974/):
+
+\begin{itemize}
+\item Introduction
+\item UNIX Shell programming (Software Carpentry Module)
+\item GitHub (Software Carpentry Module)
+\item R (Software Carpentry Module)
+\item BYOD (Bring Your Own Data) best practices
+\item Data Management with SQL  (Software Carpentry Module)
+\item RDM Storage Management
+\item Visualisation
+\item Machine Learning Overview - Recommendation
+\item Recommender Systems
+\item Artificial Neural Networks and other Machine Learning Systems 
+\item Research Computational Infrastructure 
+\end{itemize}
+
+\end{appendices}
 
 \sloppy
 \raggedright
