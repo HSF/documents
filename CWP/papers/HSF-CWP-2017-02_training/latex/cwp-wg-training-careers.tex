@@ -31,7 +31,7 @@ that need to be taken into account for these to be successful.}
 
 \begin{tabular*}{\linewidth}{lc@{\extracolsep{\fill}}r@{\extracolsep{0pt}}}
  & & HSF-CWP-2017-02 \\
- & & June 6, 2018 \\ % use \date or hardwire e.g. December 15, 2017
+ & & June 20, 2018 \\ % use \date or hardwire e.g. December 15, 2017
  & & \\
 \end{tabular*}
 \vspace{2.0cm}
@@ -171,11 +171,12 @@ collaborators, most people who start a physics graduate programme will have
 careers outside of academia. This trend is reflected in several calls for
 proposals from national scientific funding agencies that promote training in computer
 infrastructure areas, such as the EU's Horizon 2020 programme and those from
-the National Science Foundation (NSF) [Refs 1 and 2].
+the National Science Foundation (NSF) \cite{NSF1,NSF2}.
 
 A key goal is to find incentives that will encourage 
 increasing numbers of people to dedicate their time and effort to train their
 colleagues.
+
 To be effective, the training must be done by people who work at the cutting
 edge of the technology, who in many cases are found among the youngest
 researchers. These are also the very same people who are most in need of
@@ -260,7 +261,7 @@ of students, classified by experience level:
 \begin{itemize}
    \item \emph{Beginners}: New collaborators with no knowledge of the 
    tools or techniques they are expected to use. These might be undergraduates, 
-   but they could also be senior researchers who have not yet or not recently 
+   but they could also be senior researchers who have not yet, or not recently, 
    engaged in software analysis. These are people in need of some kind of formal 
    training in modern computing techniques (basically compiled and scripting 
    languages, together with operating system basics such as filesystems, version 
@@ -280,8 +281,7 @@ of students, classified by experience level:
 Each of these groups has very different training needs. However,
 \emph{whenever possible}, any training programme should take advantage of
 developments in pedagogy, such as active
-learning\footnote{\url{http://www.crlt.umich.edu/tstrategies/tsal}}, peer
-learning\footnote{\url{https://en.wikipedia.org/wiki/Peer_learning}}, and
+learning~\cite{ActiveLearning}, peer learning~\cite{PeerLearning}, and
 web-based training.\footnote{See \S\ref{sec:initiatives}.} In some cases, it may
 even be advantageous to hand out code samples that are purposely broken or
 flawed, and ask students to fix or improve them. Learning the material in a way
@@ -309,10 +309,9 @@ programming concepts, data structures, basics of code design, error checking,
 code management tools, validation and debugging tools. More advanced topics
 include modularity of code design, advanced data structures, evaluation metrics,
 writing tests and working with different types of hardware accelerator.
-Cutting-edge approaches such as the use of hardware accelerators (whether GPUs
-or FPGAs), Deep Neural Networks, and Machine Learning should be considered
-important training topics. Additionally, special emphasis should be given to
+Additionally, special emphasis should be given to
 reporting results and documenting them.
+
 Some of the training subjects considered important to pursue are
 listed in Appendix \ref{appendix-a---training-topics-of-interest}.
 
@@ -353,11 +352,12 @@ Some methods that can be used for global training include Massive Online Open
 Courses (MOOCs), hands-on workshops, online knowledge bases, expert trainer volunteer
 networks, and web-based training approaches.
 
-MOOCs can be used to develop an open-source set of tutorials and tools. Existing 
-online courses such as Udacity and Coursera can be evaluated and recommended to 
-the community. A novel approach such as WikiToLearn
-could also explored to assess potential benefits, as has already been attempted
-in the context of the GridKa School of Computing (see below).
+MOOCs can be used to develop an open-source set of
+tutorials and tools. Existing online courses such as Udacity~\cite{Udacity} and 
+Coursera~\cite{Coursera} can be
+evaluated and recommended to the community. A novel approach such as WikiToLearn~\cite{WikiToLearn}
+could also be explored to assess potential benefits (as has already been attempted
+in the context of the GridKa School of Computing~\cite{GridKa}, see below).
 
 Experiment-specific and global knowledge bases can be established with
 incentives for experts to contribute. They can be open-source so that a lot of
@@ -365,8 +365,8 @@ knowledge can be added by the trainees themselves as information is learned;
 this is the particular context where an approach such as WikiToLearn could be
 of great help.
 
-Question-and-answer websites, such as Stack Overflow for HEP, are also a very
-useful resource for addressing common problems and questions. This approach has already
+Question-and-answer websites such as Stack Overflow~\cite{Stackoverflow} for HEP are also a very
+useful resource for common problems and questions. This approach has already
 been considered by HSF start-up members, and turned out to be difficult to
 pursue for a number of reasons, but in the future, boundary conditions might
 change, making this approach viable.
@@ -386,8 +386,8 @@ first steps of their careers and, in order to be attracted to devoting
 substantial time to training and tutoring, they must be assured that such an
 effort would be properly recognised in an official way. Such kind of recognition
 is not currently implemented, at least not in a standardized or official way. A
-possible structure for such a network could be the establishment of a {\em
-federation} of existing schools.
+possible structure for such a network could be the establishment of a 
+{\em federation} of existing schools.
 
 It should be considered that some professors, who act as graduate student
 advisors, might need to be encouraged to make sure their students are properly
@@ -396,7 +396,7 @@ the work done, at the expense of a broader training/education curriculum that
 could actually yield improved results further down the line. One incentive
 would be to provide training programmes that also count as course credit, perhaps
 as an elective. This model is already in limited use with some online
-solutions\footnote{\url{https://www.edx.org/credit}}, but this is not universal.
+solutions~\cite{TrainingProgram}, but this is not universal.
 Discussions should be started with collaborators at higher education
 institutions to see what the roadblocks or opportunities would be for these
 training sessions to serve double duty.
@@ -466,11 +466,10 @@ has several advantages over traditional ones:
 
 An example of a such a web-based platform already exists, and has been
 implemented as an Open Source project (backed by Wikimedia) by a group of more
-than 30 Italian students. The project is WikiToLearn
-\footnote{\url{https://it.wikitolearn.org/}}. It hosts training material in
+than 30 Italian students. The project is WikiToLearn~\cite{WikiToLearn}. It hosts training material in
 several languages, for several disciplines, ranging from Economics to Physics,
 Mathematics, and several others. Because it is based upon
-wikimedia\footnote{\url{https://www.wikimedia.org/}} software, it is very easy
+wikimedia~\cite{WikiMedia} software, it is very easy
 to add material to the site, and to make it appear under a specific topic (such
 as Software/Techniques/Machine-Learning) and to manipulate it as if it
 were a single document. In the end, students can selectively choose individual
@@ -480,18 +479,18 @@ complete with index, content, and chapters.
 The adoption of such an approach is made rather easy in WikiToLearn by the
 relative simplicity of the wikimedia-based toolset: users contribute their
 training material using just a web-browser, and in order to do this efficiently,
-the learning curve has been kept appropriately shallow.
+the necessary learning curve has been kept appropriately shallow.
 
 An interesting exercise in this context has recently been made by colleagues of
 the GridKa School of computing: the material from this year (2017) has been made
-publicly available on WTL\footnote{\url{https://en.wikitolearn.org/GridKa2017}}.
-This constitutes an interesting example of what can be accomplished using this
+publicly available on WTL~\cite{WikiToLearnGridka}.
+This constitutes an intersting example of what can be accomplished using this
 platform; it is just a first example of what's possible, but an inspiring one.
 
 Finally it should be important to evaluate, if and to which extent, the
-complementary approaches to training (such as schools and dedicated web-site
-courses) could be of mutual benefit in the development of a complete training 
-programme.
+complementary approaches to training, such as schools and dedicated web-site
+courses, could be of mutual benefit, in other words how to make them efficiently cooperate in the
+development of a complete training program.
 
   % \item Question-and-answer web sites such as Stack Overflow 
    %(https://en.wikipedia.org/wiki/Stack_Overflow) 
@@ -513,27 +512,26 @@ Within the HEP community, there are already some working examples of dedicated
 training environments that alternate between general topics and
 experiment-specific topics. The LHC Physics Center (LPC) at Fermilab hosts
 Hands-on Advanced Tutorial Sessions
-(HATS)\footnote{\url{http://lpc.fnal.gov/programs/schools-workshops/}}
+(HATS)~\cite{LPCHandsOn}
 throughout the year to introduce and train participants in topics as diverse as
 the latest $b$-tagging algorithms, Git/GitHub, and machine learning. These HATS
 provide face-to-face time with instructors and participants at Fermilab, and
 also allow remote collaborators to join in by video and complete the same online
 exercises. A similar approach is in use in the CMS Data Analysis Schools
-(CMSDAS)\footnote{\url{http://lpc.fnal.gov/programs/schools-workshops/cmsdas.shtml}},
+(CMSDAS)~\cite{LPCDataAnalysis},
 a series of week-long workshops that now take place at multiple labs all over
 the world and are designed to ramp up new collaborators in CMS-specific analysis
 tools while providing some discussion of the physics as well.
 
-Other examples are CERN School of
-Computing\footnote{\url{https://csc.web.cern.ch/}}, CERN OpenLab Software
-workshops\footnote{\url{http://openlab.cern/}} education in collaboration with
+Other examples are CERN School of Computing~\cite{CERNSchoolOfComputing}, 
+CERN OpenLab Software workshops~\cite{OPENLab} education in collaboration with
 industry partners, and a series of more advanced topical training courses
 provided by MPI Munich and DESY that focus on advanced programming, use of
 acceleration hardware and statistical tools including machine learning. This
 list includes the
-Bertinoro\footnote{\url{https://web.infn.it/esc17/index.php?lang=en}}, 
-GridKa\footnote{\url{http://gridka-school.scc.kit.edu/2017/}}, and
-CODAS-HEP\footnote{\url{http://codas-hep.org}} Schools of Computing.
+Bertinoro~\cite{Bertinoro}, 
+GridKa~\cite{GridKa}, and
+CODAS-HEP~\cite{CODAS-HEP} Schools of Computing.
 
 % Anecdotally, these are viewed as a great success by the CMS community in
 % preparing new collaborators and might serve as a model for future efforts in
@@ -554,12 +552,12 @@ right offering for the knowledge needed to work on a specific experiment. We
 can pick and choose modules to tailor an appropriate roadmap of skills to learn.
 More difficult will be to assemble specific training material not already
 avaible elsewhere in an efficient and organized way, since this requires
-adequate organization, volounteers and and a suitable infrastructure.
+adequate organization, volounteers and a suitable infrastructure.
 
 Several industry conferences already exist that bring together those in academia
 and industry who are at the cutting edge of these techniques. Conferences such
-as NIPS\footnote{\url{https://nips.cc}} and
-PyData\footnote{\url{https://pydata.org}} provide a focused place where
+as NIPS~\cite{NIPS} and
+PyData~\cite{PyData} provide a focused place where
 attendees can learn a lot about machine learning in a short period of time.
 Machine learning concepts such as current methods, tools, and problems facing
 industry and academia can be learned at conferences. In addition, conferences
@@ -570,21 +568,21 @@ outside community can be essential since we will be evolving training materials
 to ensure that they stay relevant over time.
 
 For example, at the time of this writing,
-Coursera\footnote{\url{https://www.coursera.org/learn/machine-learning}} and
-Udacity\footnote{\url{https://www.udacity.com/course/intro-to-machine-learning--ud120}}
+Coursera~\cite{Coursera} and
+Udacity~\cite{Udacity}
 both provide great machine learning massive open online courses at no cost.
-These two courses both provide a great foundation for learning machine learning
+These two courses both provide a great foundation for assimilating machine learning
 fundamentals. However, Coursera's approach emphasizes more theory (with more
 math background necessary) and uses MATLAB/Octave while Udacity's approach
-emphasizes practical using machine learning techniques in a practical sense
-using Python tooling.
+emphasizes more practical aspects using machine learning techniques 
+using Python tools.
 
 %____________________________________________________________________
 \subsection{Resources and Incentives}
 
 Training is something that a large cross-section of the community
 understands to be important, but finding time and effort to contribute to this
-effort is not actively on the radar of most potential contributors. Providing
+project is not actively on the radar of most potential volunteers. Providing
 incentives for their participation and creating the appropriate platforms can go
 a long way to reach a productive training environment. It can be as simple as
 inviting someone to give a software tutorial on the subject that they are
@@ -600,16 +598,16 @@ endeavors.
 
 It is also critical to incorporate training into grant proposals so that it can
 be connected with other areas such as research and development. Efforts like
-DIANA-HEP \footnote{\url{http://diana-hep.org/}} and aMVA4NewPhysics
-\footnote{\url{https://amva4newphysics.wordpress.com/}} that combine training
+DIANA-HEP~\cite{DIANA-HEP} and aMVA4NewPhysics~\cite{aMVA4NewPhysics}
+that combine training
 and software development are good examples of such ideas in practice. More
 examples of such efforts are needed.
 
 
 \section{Other resources}
 
-Software Carpentry (SC) \footnote{\url{https://software-carpentry.org}} and Data
-Carpentry (DC) \footnote{\url{http://www.datacarpentry.org}} are two parts of The
+Software Carpentry~\cite{SoftwareCarpentry} and Data
+Carpentry~\cite{DataCarpentry} are two parts of The
 Carpentries organization that collaboratively build and teach some of the basic
 concepts in developing and maintaining software, and analyzing data,
 respectively.  The materials that they develop and use are open, and can be
@@ -727,7 +725,5 @@ Science Summer School in progress in Trieste, Italy during July 2017.
 \raggedright
 \clearpage
 \printbibliography[title={References},heading=bibintoc]
-
-\printbibliography[title={references}]
 
 \end{document}
