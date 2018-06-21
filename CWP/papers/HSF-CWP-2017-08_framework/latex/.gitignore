@@ -1,0 +1,11 @@
+*.bbl
+*.aux
+*.blg
+*.fls
+*.log
+*.out
+*.xml
+*.fdb_latexmk
+df_fwk_summary.pdf
+df_fwk_summary.dvi
+df_fwk_summary.toc
