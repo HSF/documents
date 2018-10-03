@@ -1,0 +1,279 @@
+\documentclass[11pt,letterpaper,fleqn]{article}
+\usepackage{graphicx}
+\usepackage{lineno}
+\usepackage{hyperref}
+\usepackage{afterpage}
+\usepackage{pdflscape}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=blue,
+  citecolor=blue
+}
+\usepackage{subfigure}
+\usepackage{cite}
+\usepackage{xcolor,colortbl}
+\usepackage{wrapfig}
+\usepackage{enumitem} %%% uncommenting this line and associated
+%% options only saves about 1/4 page
+% enumitem options
+%\setlist{nosep}
+%\setitemize{wide}
+%\setlist\bibitem{itemize}{leftmargin=*}
+%\setlist\bibitem{enumerate}{leftmargin=*}
+
+\selectcolormodel{rgb}
+\definecolor{LHCb dark}{rgb}{0.0000,0.3412,0.6549}%From LHCb logo
+\definecolor{UC red}{rgb}{0.8196,0.1176,0.2314} % from logo
+\definecolor{brickred}{rgb}{0.8, 0.25, 0.33}
+\definecolor{Gray}{gray}{0.85}
+
+%KC see http://en.wikibooks.org/wiki/LaTeX/Page_Layout
+\textwidth      6.5 in
+\textheight     9.0 in
+\hoffset = 0 in
+\voffset = 0 in
+\headheight = 0 in
+\headsep = 0 in
+\topmargin = 0 in
+\oddsidemargin  = 0.0 in
+\evensidemargin = 0.0 in
+
+%KC For ~11 lines per 2 inches. smaller is not easily legible 
+\linespread{0.95}
+
+%adjust enumeration spacing
+% see http://en.wikibooks.org/wiki/LaTeX/List_Structures#Line_spacing
+\let\oldenumerate\itemize
+\renewcommand{\itemize}{
+  \oldenumerate
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{1pt}
+  \setlength{\parsep}{1pt}
+}
+
+\def\s2i2{$S^2 I^2$}
+
+\begin{document}
+%\linenumbers
+\thispagestyle{empty}
+
+\input{titlepageFull.tex}
+\newpage
+%\tableofcontents
+%\newpage
+\setcounter{page}{1}
+
+\input{allFull.tex}
+
+%\newpage 
+%\bibliographystyle{unsrt}
+%\bibliography{recoCWP}
+
+
+\begin{thebibliography}{99}
+
+\bibitem{HSF2017}
+HEP Software Foundation,
+\textit{A Roadmap for HEP Software and Computing R\&D for the 2020s},
+HSF-CWP-2017-01, arXiv:1712.06982v2 (\href{https://arxiv.org/abs/1712.06982}{Link}).
+%\url{http://hepsoftwarefoundation.org/activities/cwp.html}.
+%\href{http://hepsoftwarefoundation.org/activities/cwp.html}{HSF CWP page}.
+
+%\bibitem{RECOCWP}
+%Software trigger and event reconstruction CWP group, To be published (\href{https://docs.google.com/document/d/1QRO8RA488fwfSg5CSjmvm16-pZpGApSA0l666g_mS_0}{Link}).
+
+\bibitem{Campana2016}
+S. Campana,
+\textit{Presentation to the 2016 Aix-les-Bains ECFA HL-LHC workshop},
+Oct 3 2016 (\href{https://indico.cern.ch/event/524795/contributions/2236590/attachments/1347419/2032314/ECFA2016.pdf}{Link}).
+
+\bibitem{Bordry2016} 
+F. Bordry, 
+\textit{presentation at the LHC Performance Workshop (Chamonix 2016)}, 
+January 25th - 28th, 2016. (\href{http://chamonix-2016.web.cern.ch/}{Link} and \href{http://lhc-commissioning.web.cern.ch/lhc-commissioning/schedule/LHC-schedule-update.pdf}{Link})
+
+\bibitem{LHCb2012} 
+LHCb Collaboration, 
+\textit{LHCb upgrade framework TDR},  
+CERN-LHCC-2012-007 (2012) (\href{https://cds.cern.ch/record/1443882}{Link}).
+
+\bibitem{ALICE2013} 
+A. Kluge et al., 
+\textit{Upgrade of the ALICE Readout and Trigger System}, 
+CERN-LHCC-2013-019 (\href{https://cds.cern.ch/record/1603472}{Link}).
+
+\bibitem{Zimmerman2009} 
+F. Zimmerman, PoS EPS-HEP2009, 140 (2009). 
+G. Apollinari et al., 
+\textit{High-Luminosity Large Hadron Collider (HL-LHC): Preliminary Design Report}, 
+CERN-2015-005.%, doi:10.5170/CERN-2015-005. 
+
+\bibitem{ATLAS2015} ATLAS Collaboration, \textit{ATLAS Phase-II Upgrade Scoping Document},
+CERN-LHCC-2015-020, LHCC-G-166 (2015) (\href{https://cds.cern.ch/record/2055248}{Link}).
+
+\bibitem{CMS2015}
+CMS Collaboration,
+\textit{Technical Proposal for the Phase-II Upgrade of the CMS Detector}, 
+CERN-LHCC-2015-010, LHCC-P-008, CMS-TDR-15-02 (2015) (\href{https://cds.cern.ch/record/2020886}{Link}). 
+
+\bibitem{LHCb2017} 
+LHCb Collaboration, 
+\textit{Expression of Interest for a Phase-II LHCb Upgrade: Opportunities in flavour physics, and beyond, in the HL-LHC era},  
+CERN-LHCC-2017-003 (2017) (\href{https://cds.cern.ch/record/2244311}{Link}).
+  
+\bibitem{Ohnishi2013} 
+Y. Ohnishi, et. al., 
+\textit{Accelerator design at SuperKEKB}, 
+Prog. Theor. Exp. Phys. 2013 03A011 (2013) (\href{http://dx.doi.org/10.1093/ptep/pts083}{Link}). 
+
+\bibitem{BelleII2010} 
+Belle II Collaboration, 
+\textit{Belle II Technical Design Report}, 
+KEK Report 2010-1 (2010) (\href{https://arxiv.org/abs/1011.0352}{Link}).
+
+\bibitem{DUNE2016} 
+DUNE Collaboration, 
+\textit{Long-Baseline Neutrino Facility (LBNF) and Deep Underground Neutrino Experiment (DUNE) Conceptual Design Report Volume 1: The LBNF and DUNE Projects}, 
+arXiv:1601.05471 (2016) (\href{https://arxiv.org/abs/1601.05471}{Link}). 
+
+\bibitem{Ball2014} 
+A. Ball et al., 
+\textit{Future Circular Collider Study Hadron Collider Parameters}, 
+FCC-ACC-SPC-0001 1342402, CERN (2014) (\href{https://indico.cern.ch/event/298180/contributions/1658149/attachments/560575/772288/FCC-1401101315-DSC_HadronColliderParameters_V0.3.pdf}{Link}).
+
+\bibitem{Ilten2016} 
+P. Ilten, Y. Soreq, J. Thaler, M. Williams, and W. Xue, 
+\textit{Proposed inclusive dark photon search at LHCb}, 
+Phys. Rev. Lett. 116, 251803 (2016). 
+
+\bibitem{aTLAs2017}
+%ATLAS Collaboration, \textit{Performance of the ATLAS Trigger System in 2015} ,
+%Eur. Phys. J.C77 5 317 (2017),
+%\href{https://inspirehep.net/record/1500696}{Link}. 
+ATLAS Collaboration,
+\textit{Trigger-object Level Analysis with the ATLAS detector at the Large Hadron Collider: summary and perspectives}, 
+ATL-DAQ-PUB-2017-003 (2017) (\href{https://cds.cern.ch/record/2295739}{Link}).
+
+\bibitem{CMS2016}
+CMS Collaboration,
+\textit{Search for narrow resonances in dijet final states at s√= 8 TeV with the novel CMS technique of data scouting},
+Phys. Rev. Lett. 117 031802 (2016), (\href{https://cds.cern.ch/record/2149625}{Link}). 
+
+\bibitem{LHCb2014}
+LHCb Collaboration, 
+\textit{LHCb Trigger and Online Upgrade Technical Design Report},
+CERN-LHCC-2014-016 (2014) (\href{https://cds.cern.ch/record/1701361}{Link}).
+
+\bibitem{Marshall2015} The Pandora Software Development Kit for Pattern Recognition
+J.S. Marshall, M.A. Thomson (Cambridge U.). Jun 16, 2015. 15 pp.
+Published in Eur.Phys.J. C75 (2015) no.9, 439
+
+\bibitem{Gray2016} 
+L. Gray, 
+\textit{Challenges of Particle Flow reconstruction in the CMS High-Granularity Calorimeter at the High-Luminosity LHC}, 
+38th International Conference on High Energy Physics (ICHEP 2016), (\href{https://indico.cern.ch/event/432527/contributions/1071751/}{Link}). 
+
+\bibitem{Gray2017} 
+L. Gray, 
+\textit{4 Dimensional Trackers},
+(2017) (\href{https://indico.cern.ch/event/577003/contributions/2476434}{Link}).
+
+\bibitem{ATLAS2015} 
+ATLAS Collaboration, 
+\textit{ATLAS Phase-II Upgrade Scoping Document}, 
+CERN-LHCC-2015-020, LHCC-G-166 (2015) (\href{https://cds.cern.ch/record/2055248}{Link})
+
+\bibitem{ALICE2015}
+ALICE Collaboration, 
+\textit{Technical Design Report for the Upgrade of the Online-Offline Computing System}, 
+(\href{https://cds.cern.ch/record/2011297}{Link}).
+
+\bibitem{Abreu2014} 
+R. Abreu, 
+\textit{The upgrade of the ATLAS High Level Trigger and Data Acquisition systems and their integration}, 
+Proceedings of 19th IEEE-NPSS Real-Time conference 2014, pp.7097414 (2014) (\href{https://cds.cern.ch/record/1702466/}{Link}). 
+
+\bibitem{Petrucciani2015} 
+G. Petrucciani et. al., 
+\textit{Mini-AOD: A New Analysis Data Format for CMS}, Journal of Physics: Conference Series 664 7 072052 (2015) 
+
+\bibitem{Eifert2015} 
+T. Eifert, et. al., 
+\textit{Implementation of the ATLAS Run 2 event data model}, 
+Journal of Physics: Conference Series, Volume 664, Offline software (2015) (\href{http://iopscience.iop.org/article/10.1088/1742-6596/664/7/072045}{Link}).
+
+\bibitem{Aaij2016}
+R. Aaij, et. al., 
+\textit{Tesla : an application for real-time data analysis in High Energy Physics}, 
+Comput. Phys. Commun. 208 (2016) 35-42 (\href{https://cds.cern.ch/record/2147693}{Link}).
+
+\bibitem{Bird2014}
+I. Bird, et. al., 
+\textit{Update of the Computing Models of the WLCG and the LHC Experiments},
+CERN-LHCC-2014-014, (2014), (\href{http://cds.cern.ch/record/1695401/files/LCG-TDR-002.pdf}{Link}).
+
+\bibitem{Allton2017} 
+C. Allton, et. al.,  
+\textit{Computing Resources Scrutiny Group}, 
+CERN–RRB–2017–056 (2017) (\href{https://indico.cern.ch/event/617821/contributions/2493341/attachments/1446478/2233022/CERN-RRB-2017-056_V2.pdf}{Link}). 
+
+\bibitem{DUNE2015}, 
+Dune Collaboration, 
+\textit{LBNF/DUNE Conceptual Design Report, Annex 4B Expected Data Rates for the DUNE Detectors}, 
+(2015) (\href{http://lbne2-docdb.fnal.gov/cgi-bin/ShowDocument?docid=10720}{Link}). 
+
+\bibitem{DUNE2017}, 
+Dune Collaboration, 
+\textit{The Single-Phase ProtoDUNE Technical Design Report},
+(2017) (\href{https://arxiv.org/abs/1706.07081}{Link}). 
+
+\bibitem{Miyamoto2015} 
+A.Miyamoto et al., 
+\textit{Computing Requirements of the ILC Experiments}, 
+LCC-Note (2015), (\href{http://www-jlc.kek.jp/~miyamoto/SoftwareCommonTask/docs/ILCComputing-EDMS1130485.A.1.1.pdf}{Link})
+
+\bibitem{Richter2016} 
+M. Richter, 
+\textit{Online Data Compression in the ALICE O2 Facility}, 
+Presented at the Computing in High Energy and Nuclear Physics conference (2016),
+\href{https://indico.cern.ch/event/505613/contributions/2227264/}{Link}.
+
+\bibitem{ATLASTwiki} 
+\href{https://twiki.cern.ch/twiki/pub/AtlasPublic/TriggerOperationPublicResults/BandwidthPie2016.png}{BandwidthPie2016.png}, 
+\href{https://twiki.cern.ch/twiki/pub/AtlasPublic/TriggerOperationPublicResults/Time_HLTRate_Stack_2016_07.png}{Time\_HLTRate\_Stack\_2016\_07.png}
+
+\bibitem{CMS2014} 
+CMS Collaboration, 
+\textit{Description and performance of track and primary-vertex reconstruction with the CMS tracker},  
+JINST 9 (2014) 10009 (\href{http://cds.cern.ch/record/1704291}{Link}). 
+
+\bibitem{CMS2017} 
+CMS Collaboration, 
+\textit{Particle-flow reconstruction and global event description with the CMS detector}, 
+Submitted to JINST (2017) (\href{https://arxiv.org/abs/1706.04965}{Link}).
+
+\bibitem{LHCbRTCalib2016} 
+G. Dujani and B. Storaci, 
+\textit{Real-time alignment and calibration of the LHCb Detector in Run II}, 
+Journal of Physics: Conference Series, Volume 664, Online computing (\href{https://cds.cern.ch/record/2017839?ln=en}{Link}).
+
+ 
+
+%\bibitem{Brun1996}
+%R. Brun and F. Rademakers,
+%\textit{ROOT - An Object Oriented Data Analysis Framework}, 
+%Proceedings AIHENP'96 Workshop, Lausanne, Sep. 1996, Nucl. Inst. \& Meth. in Phys. Res. A 389 (1997) 81-86. See also \href{http://root.cern.ch}{ROOT homepage}.
+
+
+
+
+
+
+
+
+
+\end{thebibliography}
+
+\input{appendix.tex}
+
+\end{document}

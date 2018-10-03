@@ -1,0 +1,79 @@
+\section{Appendix}
+
+This section compiles short descriptions of some on-going projects within the community of relevance to the research and development roadmap identified by the working group. We provide short descriptions (typically taken from the project web page when available), and links to code and/or recent references. In some cases the code is part of a larger experiment framework, but we nevertheless felt it was important to identify these on-going projects.
+
+We do not attempt to cover two classes of software development projects. First, we do not include projects to develop new code or to improve the performance of existing code purely within a single experiment (or group of experiments) whose code is not easily shared with other parts of HEP either because it is not publically available, because it is strictly tied to use in the processing framework of a specific experiment, or for other reasons. Such projects are numerous in nature and are of critical importance to the success of future experiments, but  typically these works can not be easily made into a commonly available toolkit.
+
+Second are toolkits developed outside of the HEP community. Software trigger and event reconstruction algorithms leverage numerous toolkits developed outside of HEP. Such toolkits are frequently the basis of new research and development projects and are one mechanism to ensure both good community support and efficient code that is likely to evolve with computing technology. These include packages designed for linear algebra, machine learning and other mathematical libraries. It is important that the HEP community encourage the use of these toolkits for future development, but unfortunately the breath of these toolkits make them too numerous to include here. 
+
+On-going community software projects identified by the working group:
+
+\vskip 0.5 cm \noindent {\bf ACTS (A Common Tracking Software)}
+This project is supposed to be an experiment-independent set of track reconstruction tools. The main philosophy is to provide high-level track reconstruction modules that can be used for any tracking detector. The description of the tracking detector's geometry is optimized for efficient navigation and quick extrapolation of tracks. 
+\begin{itemize}
+\item Project homepage: \href{https://gitlab.cern.ch/acts/a-common-tracking-sw}{GitLab homepage} 
+\item References: ACTS-CDOT-Status-2017-03-07.pdf 
+\end{itemize}
+
+\vskip 0.5 cm \noindent {\bf AIDA Tracking Toolkit}
+A generic, mostly framework independent, tracking toolkit. Development of this software package  is in the process of being merged with the ACTS project.
+\begin{itemize}
+\item Project homepage: \href{https://github.com/AIDASoft/aidaTT}{GitHub/AIDASoft/aidaTT} 
+\item References: F. Gaede, et. al., “Software toolkit with tracking algorithms”, AIDA Delivery Report D2.8, (2015)  (http://cds.cern.ch/record/1982416). 
+\end{itemize}
+
+\vskip 0.5 cm \noindent {\bf Arbor}
+ArborPFA is a C++ implementation of a Particle Flow Algorithm developed with the PandoraSDK framework. The idea under this clustering algorithm is based on the topological development of hadronic showers in high granularity sampling calorimeters follows an oriented-tree structure.
+\begin{itemize}
+\item Project homepage: \href{http://arborpfa.github.io/ArborPFA/}{GitHub homepage} 
+\item References: M. Ruan and H. Videau, “Arbor, a new approach of the Particle Flow Algorithm”, in Proceedings, International Conference on Calorimetry for the High Energy Frontier (CHEF2013), p. 316. (2013) (https://arxiv.org/abs/1403.4784).
+\end{itemize}
+
+\vskip 0.5 cm \noindent {\bf Cross architecture Kalman Filter}
+The aim of this project is to produce a fast and efficient Kalman Filter, while preserving correctness of results, across a variety of architectures.
+\begin{itemize}
+\item Project homepage: \href{https://gitlab.cern.ch/dcampora/cross_kalman}{GitLab/dcampora/cross\_kalman} 
+\item References: D. H. C. Perez, Presentation at CHEP 2016: https://indico.cern.ch/event/505613/contributions/2227256/ 
+\end{itemize}
+
+\vskip 0.5 cm \noindent {\bf FastJet}
+A software package for jet finding in pp and e+e− collisions. It includes fast native implementations of many sequential recombination clustering algorithms, plugins for access to a range of cone jet finders and tools for advanced jet manipulation.
+\begin{itemize}
+\item Project homepage: \href{http://fastjet.fr/}{Homepage} 
+\item References: M. Cacciari, G.P. Salam and G. Soyez, Eur.Phys.J. C72 (2012) 1896 [arXiv:1111.6097].
+\end{itemize}
+
+\vskip 0.5 cm \noindent {\bf HEP.TrkX}
+Project to evaluate and broaden the range of computational techniques and algorithms utilized in addressing HEP tracking challenges. Specifically the project will provide a framework to develop and evaluate new algorithms for track finding and classification, that will be demonstrated by applying advanced pattern recognition techniques to track candidate formation. On-going research includes deep neural networks applied to HL-LHC online and offline tracking.
+\begin{itemize}
+\item Project homepage: \href{https://heptrkx.github.io/}{GitHub} 
+\item References: S. Farrell, et. al. “The HEP.TrkX project”, Presentation at the Connecting the Dots workshop, Orsay 2017 (Farrell\_HEPTrkX\_CTD2017.pdf). 
+\end{itemize}
+
+\vskip 0.5 cm \noindent {\bf Kalman-Filter tracking on parallel architectures}
+This project aims to develop tracking algorithms based on the Kalman Filter for use in a collider experiment that are fully vectorized and parallelized. These will be usable with parallel processor architectures such as Intel's Xeon Phi and GPUs, but yet maintain and extend the physics performance required for the challenges for the High Luminosity LHC (HL-LHC) planned for the 2020s.
+\begin{itemize}
+\item Project homepage: \href{http://trackreco.github.io}{GitHub} 
+\item References: Parallelized Kalman-Filter-Based Reconstruction of Particle Tracks on Many-Core Processors and GPUs - Submitted to proceedings of Connecting The Dots / Intelligent Trackers 2017 (Orsay) arXiv:1705.02876. Kalman filter tracking on parallel architectures - Proceedings of the 22nd International Conference on Computing in High Energy and Nuclear Physics (CHEP 2016) (San Francisco) arXiv:1702.06359.
+\end{itemize}
+
+\vskip 0.5 cm \noindent {\bf PandoraPFA}
+Toolkit of particle flow algorithms and a framework for developing particle flow based reconstruction approaches.
+\begin{itemize}
+\item Project homepage: \href{https://github.com/PandoraPFA}{GitHub/PandoraPFA} 
+\item References: M.A. Thomson, Particle Flow Calorimetry and the PandoraPFA Algorithm, Nucl. Instr. Meth. Phys. Res. A 611 (2009) 25; arXiv:0907.3577. 
+\end{itemize}
+
+\vskip 0.5 cm \noindent {\bf Pixel Tracking on GPUs} 
+Fast and parallelizable algorithms for track seeding (in particular for Cellular Automation algorithm).
+\begin{itemize}
+\item Project homepage: Currently part of \href{https://github.com/cms-sw/cmssw}{GitHub/cms-sw/cmssw}. To be integrated into ACTS project.
+\item References: \href{https://indico.cern.ch/event/567550/contributions/2627138/attachments/1512745/2359625/201708_Felice_ACAT17.pptx}{ACAT presentation} 
+\end{itemize}
+
+\vskip 0.5 cm \noindent {\bf PODIO}
+C++ library to support the creation and handling of data models in particle physics. It is based on the idea of employing plain-old-data (POD) data structures wherever possible, while avoiding deep-object hierarchies and virtual inheritance. This is to both improve runtime performance and simplify the implementation of persistency services.
+\begin{itemize}
+\item Project homepage: \href{https://github.com/hegner/podio}{GitHub/hegner/podio} 
+\item References: B. Hegner and F. Gaede, “PODIO: Design Document for the PODIO Event Data Model Toolkit”, AIDA-2020-NOTE-2016-004 (2016) (https://cds.cern.ch/record/2212785). 
+\end{itemize}
