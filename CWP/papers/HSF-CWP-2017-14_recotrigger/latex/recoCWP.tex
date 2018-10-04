@@ -1,0 +1,143 @@
+\documentclass[11pt,letterpaper,fleqn]{article}
+\usepackage{graphicx}
+\usepackage{lineno}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=blue,
+  citecolor=blue
+}
+\usepackage{subfigure}
+\usepackage{cite}
+\usepackage{xcolor,colortbl}
+\usepackage{wrapfig}
+\usepackage{enumitem} %%% uncommenting this line and associated
+%% options only saves about 1/4 page
+% enumitem options
+%\setlist{nosep}
+%\setitemize{wide}
+%\setlist[itemize]{leftmargin=*}
+%\setlist[enumerate]{leftmargin=*}
+
+\selectcolormodel{rgb}
+\definecolor{LHCb dark}{rgb}{0.0000,0.3412,0.6549}%From LHCb logo
+\definecolor{UC red}{rgb}{0.8196,0.1176,0.2314} % from logo
+\definecolor{brickred}{rgb}{0.8, 0.25, 0.33}
+\definecolor{Gray}{gray}{0.85}
+
+%KC see http://en.wikibooks.org/wiki/LaTeX/Page_Layout
+\textwidth      6.5 in
+\textheight     9.0 in
+\hoffset = 0 in
+\voffset = 0 in
+\headheight = 0 in
+\headsep = 0 in
+\topmargin = 0 in
+\oddsidemargin  = 0.0 in
+\evensidemargin = 0.0 in
+
+%KC For ~11 lines per 2 inches. smaller is not easily legible 
+\linespread{0.95}
+
+%adjust enumeration spacing
+% see http://en.wikibooks.org/wiki/LaTeX/List_Structures#Line_spacing
+\let\oldenumerate\itemize
+\renewcommand{\itemize}{
+  \oldenumerate
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{1pt}
+  \setlength{\parsep}{1pt}
+}
+
+\def\s2i2{$S^2 I^2$}
+
+\begin{document}
+%\linenumbers
+\thispagestyle{empty}
+
+\input{titlepage.tex}
+\newpage
+%\tableofcontents
+%\newpage
+\setcounter{page}{1}
+
+\input{all.tex}
+
+%\newpage 
+%\bibliographystyle{unsrt}
+%\bibliography{recoCWP}
+
+
+\begin{thebibliography}{9}
+
+\bibitem{HSF2017}
+HEP Software Foundation,
+\textit{A Roadmap for HEP Software and Computing R\&D for the 2020s},
+HSF-CWP-2017-01, arXiv:1712.06982v2 (\href{https://arxiv.org/abs/1712.06982}{Link}).
+%\url{http://hepsoftwarefoundation.org/activities/cwp.html}.
+%\href{http://hepsoftwarefoundation.org/activities/cwp.html}{HSF CWP page}.
+
+\bibitem{RECOCWP}
+Software trigger and event reconstruction CWP group, To be published as HSF-CWP-2017-16 (\href{https://github.com/HEP-SF/documents/tree/master/CWP/papers}{Link}).
+
+\bibitem{Campana2016}
+S. Campana,
+\textit{Presentation to the 2016 Aix-les-Bains ECFA HL-LHC workshop},
+Oct 3 2016 (\href{https://indico.cern.ch/event/524795/contributions/2236590/attachments/1347419/2032314/ECFA2016.pdf}{Link}).
+
+\bibitem{ATLAS2015} ATLAS Collaboration, \textit{ATLAS Phase-II Upgrade Scoping Document},
+CERN-LHCC-2015-020, LHCC-G-166 (2015) (\href{https://cds.cern.ch/record/2055248}{Link}).
+
+\bibitem{CMS2015}
+CMS Collaboration,
+\textit{Technical Proposal for the Phase-II Upgrade of the CMS Detector}, 
+CERN-LHCC-2015-010, LHCC-P-008, CMS-TDR-15-02 (2015) (\href{https://cds.cern.ch/record/2020886}{Link}). 
+
+\bibitem{LHCb2014}
+LHCb Collaboration, 
+\textit{LHCb Trigger and Online Upgrade Technical Design Report},
+CERN-LHCC-2014-016 (2014) (\href{https://cds.cern.ch/record/1701361}{Link}).
+
+\bibitem{ALICE2015}
+ALICE Collaboration, 
+\textit{Technical Design Report for the Upgrade of the Online-Offline Computing System}, 
+(\href{https://cds.cern.ch/record/2011297}{Link}).
+
+\bibitem{Bird2014}
+I. Bird, et. al., 
+\textit{Update of the Computing Models of the WLCG and the LHC Experiments},
+CERN-LHCC-2014-014, (2014), (\href{http://cds.cern.ch/record/1695401/files/LCG-TDR-002.pdf}{Link}).
+
+
+\bibitem{Brun1996}
+R. Brun and F. Rademakers,
+\textit{ROOT - An Object Oriented Data Analysis Framework}, 
+Proceedings AIHENP'96 Workshop, Lausanne, Sep. 1996, Nucl. Inst. \& Meth. in Phys. Res. A 389 (1997) 81-86. See also \href{http://root.cern.ch}{ROOT homepage}.
+
+
+\bibitem{Aaij2016}
+R. Aaij, et. al., 
+\textit{Tesla : an application for real-time data analysis in High Energy Physics}, 
+Comput. Phys. Commun. 208 (2016) 35-42 (\href{https://cds.cern.ch/record/2147693}{Link}).
+
+
+\bibitem{ATLAS2017}
+ATLAS Collaboration, \textit{Performance of the ATLAS Trigger System in 2015} ,
+Eur. Phys. J.C77 5 317 (2017),
+\href{https://inspirehep.net/record/1500696}. ATLAS Collaboration,
+\textit{Trigger-object Level Analysis with the ATLAS detector at the Large Hadron Collider: summary and perspectives}, 
+ATL-DAQ-PUB-2017-003 (2017) (\href{https://cds.cern.ch/record/2295739}{Link}).
+
+
+\bibitem{CMS2016}
+CMS Collaboration,
+\textit{Search for narrow resonances in dijet final states at s√= 8 TeV with the novel CMS technique of data scouting},
+Phys. Rev. Lett. 117 031802 (2016), (\href{https://cds.cern.ch/record/2149625}{Link}). 
+
+
+
+
+
+\end{thebibliography}
+
+\end{document}
