@@ -4,7 +4,7 @@
 % original source of this text was:
 %  https://docs.google.com/document/d/1DYEHGgB3fanhpYRDJblE9NicX0OK7BNsjTCrq7gY-sU/edit#
 %
-  
+
 % JHEP preprint template
 \documentclass[12pt,a4paper]{article}
 \usepackage{jheppub}
@@ -28,7 +28,22 @@
 \newcommand{\ifixme}[1]{{\slshape\color{cyan}\textbf{FIXME: } #1}}
 \newcommand{\etc}{\textit{etc}}
 
-\abstract{Abstract goes here.}
+\abstract{Data processing frameworks are an essential part of HEP
+experiments' software stacks. Frameworks provide a means by which code
+developers can undertake the essential tasks of physics data processing,
+accessing relevant inputs and storing their outputs, in a coherent way without
+needing to know the details of other domains. Frameworks provide essential
+core services for developers and help deliver a configurable working
+application to the experiments' production systems.
+Modern HEP processing frameworks are in the process of adapting to a new
+computing landscape dominated by parallel processing and heterogeneity,
+which pose many questions regarding enhanced functionality and scaling
+that must be faced without compromising the maintainability of the code.
+In this paper we identify a program of work that can help further clarify
+the key concepts of frameworks for HEP and then spawn R\&D activities that
+can focus the community's efforts in the most efficient manner to address
+the challenges of the upcoming experimental program.
+}
 
 \begin{document}
 
@@ -40,21 +55,22 @@
 \end{tabular*}
 \vspace{2.0cm}
 
-\title{HEP Software Foundation Community White Paper -- Data Processing Framework WG Report}
+\title{HEP Software Foundation Community White Paper Working Group -- Data Processing Frameworks}
 
 \author{HEP Software Foundation:}
 \author[d]{Paolo Calafiura}
 \author[a,1]{Benadikt Hegner}
 \author[c]{Chris Jones}
+\author[b]{Michel Jouvin}
 \author[c,1]{Jim Kowalkowski}
 \author[c,1]{Elizabeth Sexton-Kennedy}
-\author[b]{Michel Jouvin}
-\author[d]{Several Others}
+\author[a]{Graeme A Stewart}
+\author[d]{Several Others - Charles, Marco, ?}
 
 \affiliation[a]{CERN, Geneva, Switzerland}
 \affiliation[b]{LAL, Université Paris-Sud and CNRS/IN2P3, Orsay, France}
 \affiliation[c]{Fermi National Accelerator Laboratory, Batavia, Illinois, USA}
-\affiliation[d]{Lawence Berkeley National Laboratory, Berkeley, CA, USA}
+\affiliation[d]{Lawrence Berkeley National Laboratory, Berkeley, CA, USA}
 \affiliation[e]{Other Places}
 \affiliation[1]{Paper Editor}
 
@@ -71,7 +87,7 @@ domain and introduce the concepts and relationships needed to
 formulate common data processing framework solutions for the future.
 
 The time periods of interest for this document are DUNE and HL-LHC,
-which will deliver on the order of 50 PB data events per year per
+which will deliver on the order of 50 PB of data events per year per
 experiment. The results of the proposed R\&D ought to be used for
 building the final software systems that will be utilized in
 commissioning and operations of these experiments and the processing
@@ -83,7 +99,7 @@ of the data.
 Frameworks in HEP are used for the collaboration-wide data processing
 tasks of triggering, reconstruction, and simulation, as well as other tasks that
 subgroups of an experiment collaboration are responsible for, such as
-detector alignment and calibration. 
+detector alignment and calibration.
 Providing common framework services and libraries that will meet with
 compute and data needs for HL-LHC experiments and the Intensity Frontier
 experiments is a large challenge given the multi-decade legacy in this
@@ -96,10 +112,10 @@ coming decade:
 \item
     Changes needed in the programming model that are necessary to
     handle the massive parallelism that will be present throughout all
-    layers in the available compute facilities. This is necessary
+    layers in the available computing facilities. This is necessary
     because of the ever-increasing availability of specialized compute
-    resources, and includes GPGPUs, Tensor Processing Units (TPUs),
-    and tiered memory systems integrated with storage, and ultra
+    resources, including GPGPUs, Tensor Processing Units (TPUs),
+    tiered memory systems integrated with storage, and ultra
     high-speed network interconnects.
 \item
     Challenges related to advanced detector technology, like finer
@@ -191,12 +207,12 @@ use FairROOT, closely related to ALICE's AliROOT. The FAIR experiments
 and ALICE are now developing a new framework, which is called
 O2~\cite{O2},{[}75{]}. At the time of writing, most major frameworks support
 basic parallelisation, both within and across events, based on a
-task-based model~\cite{Jones:2015soc}~\cite{Clemencic:2015paa}. O2 already 
+task-based model~\cite{Jones:2015soc,Clemencic:2015paa}. O2 already
 includes additional multi-node setups and communication.
 
 The frameworks provide the necessary functionality like I/O,
-scheduling, configuration, logging, etc to support the execution of
-these processing components. The mentioned components provide
+scheduling, configuration, logging, etc.\ to support the execution of
+these processing components. The aforementioned components provide
 functionalities like pattern finding in a certain sub-detector or the
 high-level identification of a given particle type. This layout allows
 independent development and a high flexibility in the usage of physics
@@ -262,17 +278,17 @@ independently with a fixed size memory space on a fixed set of files
 tradition starting in the beginning of Run 2, by utilizing all cores
 on one virtual node in one process space using threading. ATLAS is
 currently using a multi-process fork-and-copy-on-write solution to
-remove the constraint of one core/process, and is now moving to the 
+remove the constraint of one core/process, and is now moving to the
 multithreading approach too. Both experiments were
-driven to solve this problem, by the ever growing needs for more
+driven to solve this problem by the ever growing needs for more
 memory per process brought on by the increasing complexity of LHC
 events. Current practice manages system-wide (or facility-wide)
 scaling by dividing up datasets, generating a framework application
-configuration, and scheduling jobs on nodes/cores to consume all
+configuration, and scheduling jobs on nodes/cores to utilize all
 available resources. Given anticipated changes in hardware
 (heterogeneity, connectivity, memory, storage) available at large
 computing facilities, the interplay between workflow/workload
-management systems and framework applications need to be carefully
+management systems and framework applications needs to be carefully
 examined. It may be advantageous to permit framework applications (or
 systems) to span resources, permitting them to be first-class
 participatents in the business of scaling within a facility. O2 provides
@@ -281,7 +297,7 @@ a successful proof-of-principle of this approach.
 
 \section{Roadmap}
 \label{sec:roadmap}
-Forward-looking work is underway as part of projects funded through government agencies, laboratories, and collaborations.  We want to be sure that relevant ideas and accomplishment are known, and that the groups doing this work have a place to report to and receive feedback for everyone’s benefit. 
+Forward-looking work is underway as part of projects funded through government agencies, laboratories, and collaborations.  We want to be sure that relevant ideas and accomplishment are known, and that the groups doing this work have a place to report to and receive feedback for everyone’s benefit.
 To organize the community, one needs to establish regular working group meetings, on a bi-monthly basis as we did with the concurrency forum. Face to face workshops after at least the 1st and the 3rd year can be co-hosted with events like CHEP and/or the WLCG workshops. A future planning workshop for transforming the results of the R\&D activities into a full development and deployment project plan should happen at the 5-year timescale.
 
 \subsection{One-year goals}
@@ -301,15 +317,15 @@ or integration of results into existing software components.
 \paragraph{Concept refinement} Jointly identify key abstractions that
 made frameworks good for HEP in detail beyond what can be described in
 this paper. Identify and describe where individual frameworks have
-similarly or uniquely implemented these concepts. It is important to 
-describe how these choices are connected to the concrete use-cases. A 
-publishable paper should come of this that will serve as an agreed-upon 
+similarly or uniquely implemented these concepts. It is important to
+describe how these choices are connected to the concrete use-cases. A
+publishable paper should come of this that will serve as an agreed-upon
 guide for where we can hope to go.
 
 \paragraph{Technology investigations} There are four key areas that
 ought to be explored to help determine future direction with regards
 to software technology. The areas are: (1) task-based programming tools,
-(2) inter-process and inter-node communication tools, (3) parallel number 
+(2) inter-process and inter-node communication tools, (3) parallel number
 crunching libraries, and (4) framework workflow management.
 
 \paragraph{Functional programming} Conduct a study describing where we
@@ -335,13 +351,13 @@ simulate and reconstruct physics events. By language, we mean the
 terms used to communicate and express how tasks are described and
 carried out within a framework. This includes not only expressing data
 dependencies, but also resource preferences and constraints, such as
-GPU. The goal here is to provide enough information for a group to
+GPUs. The goal here is to provide enough information for a group to
 take on development of domain-specific libraries components and tools
 that will increase the efficiency of carrying out physics. A good example
-is how ML toolkits have evolved over the past few years. The 
-abstractions that have been developed have greatly increased productivity 
-and growth in the ML space such as the abstractions in Tensor Flow that 
-allow a coding of the matrix algebra that then gets remapped internally to 
+is how ML toolkits have evolved over the past few years. The
+abstractions that have been developed have greatly increased productivity
+and growth in the ML space such as the abstractions in Tensor Flow that
+allow a coding of the matrix algebra that then gets remapped internally to
 match the shape of the data being operated on.  The user only has take care
 of getting the domain science functions correct.
 
