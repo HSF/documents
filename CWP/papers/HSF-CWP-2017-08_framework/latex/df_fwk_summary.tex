@@ -65,13 +65,13 @@ the challenges of the upcoming experimental program.
 \author[c,1]{Jim Kowalkowski}
 \author[c,1]{Elizabeth Sexton-Kennedy}
 \author[a]{Graeme A Stewart}
-\author[d]{Several Others - Charles, Marco, ?}
+%\author[e]{Several Others - Charles, Marco, ?}
 
 \affiliation[a]{CERN, Geneva, Switzerland}
 \affiliation[b]{LAL, Université Paris-Sud and CNRS/IN2P3, Orsay, France}
 \affiliation[c]{Fermi National Accelerator Laboratory, Batavia, Illinois, USA}
 \affiliation[d]{Lawrence Berkeley National Laboratory, Berkeley, CA, USA}
-\affiliation[e]{Other Places}
+%\affiliation[e]{Other Places}
 \affiliation[1]{Paper Editor}
 
 \maketitle
@@ -195,17 +195,17 @@ Although most frameworks used in HEP share common concepts, there are,
 for mainly historical reasons, a number of different implementations;
 some of these are shared between experiments. A complete description
 of framework use cases written for the Gaudi collaboration is
-described in {[}2.fixme{]} and these are sufficiently general to apply
-to all HEP experiments. The Gaudi framework {[}70{]} was originally
+described in \cite{Maley:684466} and these are sufficiently general to apply
+to all HEP experiments. The Gaudi framework \cite{Barrand:2001ny,1742-6596-219-4-042006} was originally
 developed by LHCb, but is also used by ATLAS and various non-LHC
-experiments. CMS uses its own CMSSW framework~\cite{Bayatian:2006nff},
-{[}71{]} which was forked to provide the art framework for the Fermilab
-Intensity Frontier experiments~\cite{Green:2012gv},{[}72{]}.  Belle II uses
-basf2~\cite{1742-6596-331-3-032024},{[}73{]}. The linear collider community
-developed and uses Marlin~\cite{Gaede:2006pj},{[}74{]}. The FAIR experiments
+experiments. CMS uses its own CMSSW framework~\cite{Bayatian:2006nff}
+which was forked to provide the art framework for the Fermilab
+Intensity Frontier experiments~\cite{Green:2012gv}.  Belle II uses
+basf2~\cite{1742-6596-331-3-032024}. The linear collider community
+developed and uses Marlin~\cite{Gaede:2006pj}. The FAIR experiments
 use FairROOT, closely related to ALICE's AliROOT. The FAIR experiments
 and ALICE are now developing a new framework, which is called
-O2~\cite{O2},{[}75{]}. At the time of writing, most major frameworks support
+O2~\cite{O2,1742-6596-664-8-082046}. At the time of writing, most major frameworks support
 basic parallelisation, both within and across events, based on a
 task-based model~\cite{Jones:2015soc,Clemencic:2015paa}. O2 already
 includes additional multi-node setups and communication.
