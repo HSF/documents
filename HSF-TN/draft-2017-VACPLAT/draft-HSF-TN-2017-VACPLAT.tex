@@ -1,0 +1,711 @@
+\documentclass[12pt,a4paper]{article}
+
+% Variables that controls behaviour
+\usepackage{ifthen} % for conditional statements
+\newboolean{pdflatex}
+\setboolean{pdflatex}{true} % False for eps figures 
+
+\newboolean{inbibliography}
+\setboolean{inbibliography}{false} %True once you enter the bibliography
+
+
+\textheight=230mm
+\textwidth=160mm
+\oddsidemargin=7mm
+\evensidemargin=-10mm
+\topmargin=-10mm
+\headsep=20mm
+\columnsep=5mm
+\addtolength{\belowcaptionskip}{0.5em}
+
+\renewcommand{\textfraction}{0.01}
+\renewcommand{\floatpagefraction}{0.99}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+
+\setlength{\hoffset}{-2cm}
+\setlength{\voffset}{-2cm}
+
+% Page defaults ...
+\topmargin=0.5cm
+\oddsidemargin=2.5cm
+\textwidth=16cm
+\textheight=22cm
+
+% Don't chase after perfection
+\raggedbottom
+\sloppy
+
+\usepackage{float}
+\usepackage{microtype}
+\usepackage{lineno}    % Line numbering during drafting
+\usepackage{xspace}    % Avoid problems with missing or double spaces after predefined symbold
+\usepackage{caption}   % These three command get the figure and table captions automatically small
+\renewcommand{\captionfont}{\small}
+\renewcommand{\captionlabelfont}{\small}
+
+%% Graphics
+\usepackage{graphicx}  % to include figures (can also use other packages)
+\usepackage{color}
+\usepackage{colortbl}
+
+%% Math
+\usepackage{amsmath} % Adds a large collection of math symbols
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{upgreek} % Adds in support for greek letters in roman typeset
+
+%% fix to allow peaceful coexistence of line numbering and
+%% mathematical objects
+%% http://www.latex-community.org/forum/viewtopic.php?f=5&t=163
+%%
+\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+\expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+\expandafter\let\csname oldend#1\expandafter\endcsname\csname
+end#1\endcsname
+ \renewenvironment{#1}%
+   {\linenomath\csname old#1\endcsname}%
+   {\csname oldend#1\endcsname\endlinenomath}%
+}
+\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+  \patchAmsMathEnvironmentForLineno{#1}%
+  \patchAmsMathEnvironmentForLineno{#1*}%
+}
+\AtBeginDocument{%
+\patchBothAmsMathEnvironmentsForLineno{equation}%
+\patchBothAmsMathEnvironmentsForLineno{align}%
+\patchBothAmsMathEnvironmentsForLineno{flalign}%
+\patchBothAmsMathEnvironmentsForLineno{alignat}%
+\patchBothAmsMathEnvironmentsForLineno{gather}%
+\patchBothAmsMathEnvironmentsForLineno{multline}%
+\patchBothAmsMathEnvironmentsForLineno{eqnarray}%
+}
+
+% Get hyperlinks to captions and in references.
+% These do not work with revtex. Use "hypertext" as class option instead.
+\usepackage{hyperref}    % Hyperlinks in references
+\usepackage[all]{hypcap} % Internal hyperlinks to floats.
+
+% Make this the last packages you include before the \begin{document}
+\usepackage{cite} % Allows for ranges in citations
+\usepackage{mciteplus}
+
+\usepackage{longtable} % only for template
+
+\begin{document}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{footnote}{1}
+
+\begin{titlepage}
+\pagenumbering{roman}
+
+
+\vspace*{-1.5cm}
+\centerline{\large THE HEP SOFTWARE FOUNDATION (HSF)}
+\vspace*{1.5cm}
+\noindent
+\begin{tabular*}{\linewidth}{lc@{\extracolsep{\fill}}r@{\extracolsep{0pt}}}
+
+\\
+ & & HSF-TN-2016-04 \\  % ID 
+ & & \today \\October 4, 2016 \\ % Date - Can also hardwire e.g.: 23 March 2010
+ & & \\
+% not in paper \hline
+\end{tabular*}
+
+\vspace*{4.0cm}
+
+% Title --------------------------------------------------
+{\bf\boldmath\huge
+\begin{center}
+  Vacuum Platform
+\end{center}
+}
+
+\vspace*{2.0cm}
+
+% Authors -------------------------------------------------
+\begin{center}
+A.~McNab$^1$
+\bigskip\\
+{\it\footnotesize
+$ ^1$University of Manchester
+}
+\end{center}
+
+\vspace{\fill}
+
+% Abstract -----------------------------------------------
+\begin{abstract}
+  \noindent
+
+This technical note describes components of the Vacuum Platform 2.0 developed by
+GridPP for managing VMs, including the \texttt{\$JOBOUTPUTS}, VacQuery, and 
+VacUserData interfaces. This updates the 1.0 specification explained in
+HSF-TN-2016-04\cite{HSFVACPLAT1}.
+
+\end{abstract}
+
+\vspace*{2.0cm}
+
+\vspace{\fill}
+
+{\footnotesize 
+\centerline{\copyright~Named authors on behalf of the HSF, licence \href{http://creativecommons.org/licenses/by/4.0/}{CC-BY-4.0}.}}
+\vspace*{2mm}
+
+\end{titlepage}
+
+\cleardoublepage
+
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\setcounter{footnote}{0}
+
+%%%% Uncomment next 2 lines if desired
+\tableofcontents
+%\cleardoublepage
+
+\pagestyle{plain} % restore page numbers for the main text
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+%% Uncomment during drafting and review.
+%% Comment before a final submission.
+%\linenumbers
+
+\section{Introduction}
+\label{sec:Introduction}
+
+This technical note describes components of GridPP's Vacuum Platform 2.0 for 
+managing virtual machines (VMs) to run jobs for WLCG and other HEP 
+experiments. It updates HSF-TN-2016-04\cite{HSFVACPLAT1} which described verison 1.0.
+
+The \texttt{\$JOBOUTPUTS}, VacQuery, and VacUserData interfaces are described, 
+which have been developed for managing the VM lifecycle. These are used 
+by two GridPP software systems, Vac and Vcycle, which can be described 
+as VM lifecycle managers (VMLMs).
+
+This note is written in terms of VMs, but the interfaces have been 
+designed to be generalise to other forms of logical machine in the
+future, such as Docker containers and unikernels.
+
+The term ``resource provider'' is used to refer to the entity which is 
+able to take the decision about creating each VM. That is, the decision 
+about whether resources will be provided or not. Typically, this is owner 
+of an OpenStack or other cloud tenancy managed by Vcycle or the manager of Vac VM 
+factories. The term is not used here to refer to higher or lower layers of resource
+provision in terms of legal owners of services and hardware, funding
+agencies, operators of the site infrastructure etc.
+
+A location at which VMs can be created managed by one or more VMLMs
+which are cooperating to achieve a set of target shares is referred to
+as a ``space''. This is equivalent to a Compute Element (CE) at a Grid site,
+and spaces must be given CE-style DNS names in DNS space available to the
+resource provider. However, it is not necessary to register the 
+space name in the corresponding DNS zone. For Vac, a space is a set
+of VM factory machines which are communicating via VacQuery and may
+be said to be neighbours. For Vcycle, a space corresponds to an 
+OpenStack or similar tenancy or project, with a specified endpoint to 
+contact and identity tokens to use.
+
+Each space is occupied by VMs which are instances of one or more 
+``machinetype'' that the VMLM is able to create. Each machinetype
+corresponds to a specific combination of VM boot image and 
+contextualization.
+
+\section{Environment}
+\label{sec:env}
+
+Where possible, an approximation of OpenStack's environment for VMs, which 
+is derived from EC2, should be provided. Any contexualization 
+user\_data file required and a metadata service should be provided via a 
+``Magic IP'' 
+HTTP service at 169.254.169.254 from the point of view of the VM. 
+Monolithic VM images which do not use a user\_data file require a 
+metadata service to be able to discover the 
+URLs of the \texttt{\$MACHINEFEATURES}, \texttt{\$JOBFEATURES}, and 
+\texttt{\$JOBOUTPUTS} locations.
+
+As not all IaaS cloud systems provide metadata services, VMs and VMLMs 
+should also implement the VacUserData substitutions described 
+in section~\ref{sec:vacuserdata}. These include substitutions giving the 
+URLs of the \texttt{\$MACHINEFEATURES}, \texttt{\$JOBFEATURES}, and 
+\texttt{\$JOBOUTPUTS} locations.
+
+VMLMs must ensure they support VMs which use Cloud Init contextualization.
+
+VMs must not block access to the address 169.254.169.253, which is used
+by Amazon for DNS and by Vac for the default route, the local DNS, and 
+for the Machine/Job Features HTTP service.
+
+\section{Machine/Job Features}
+\label{sec:mjf}
+
+The Machine/Job Features (MJF) mechanism described in \cite{HSFMJF} allows
+resource providers to communicate information to batch jobs and virtual
+machines, including the number of processors they are allocated and
+how long they may run for. The MJF terminology is derived from batch
+job environments, and job equates to virtual machine when applied to
+virtualized environments such as the Vacuum Platform. 
+
+Resource providers using the Vacuum Platform must make the MJF
+\texttt{\$MACHINEFEATURES} and \texttt{\$JOBFEATURES} locations
+available over HTTP(S) rather than through a shared filesystem, and
+should publish the URLs of these locations in OpenStack/EC2 
+\texttt{machinefeatures} and \texttt{jobfeatures} metadata 
+tags and using the VacUserData substitutions in the user\_data files
+supplied to VMs.
+
+The value of \texttt{\$JOBFEATURES/job\_id} should be set to the VM UUID by
+the VMLM as soon as it is known. For example, with Vac the UUID is
+chosen by VMLM and its value can be set when the first
+\texttt{\$JOBFEATURES}
+key/values are created. However with Vcycle managing OpenStack, the
+VM UUID is only available after the VM has been created, and is then
+recorded by Vcycle in the \texttt{\$JOBFEATURES} directory it provides.
+
+\section{\$JOBOUTPUTS}
+\label{sec:joboutputs}
+
+The \texttt{\$JOBOUTPUTS} mechanism is an extension to Machine/Job Features by
+which the URL of a location to which VMs can write status and log files
+is communicated to the VMs. This value of the \texttt{\$JOBOUTPUTS} URL should
+be given in the same way as the \texttt{\$MACHINEFEATURES} and 
+\texttt{\$JOBFEATURES} URLs, using a VacUserData substitution and an
+OpenStack/EC2 \texttt{joboutputs} metadata key. 
+
+Any log file which the VMs wish to make available to resource providers
+may be written to the \texttt{\$JOBOUTPUTS} location, for later examiniation
+in case of problems. All of these files must have unique names, and
+are all written to the same level (``directory'') of the URL
+space on the \texttt{\$JOBOUTPUTS} HTTP(S) server. This mechanism is also used 
+to provide the \texttt{shutdown\_message} file described in the next section.
+
+\subsection{Shutdown Messages}
+\label{sec:shutdownmessages}
+
+When VMs finish, they should write a \texttt{shutdown\_message} file to
+\texttt{\$JOBOUTPUTS/shutdown\_message} containing one line of text without
+a trailing newline character. This text consists of a
+three digit shutdown message code in the range 100-999, a space, 
+and then a human-readable description of the message code. 
+
+The message code (and not the human-readable description) will
+be used by the resource provider's software to determine why
+the VM finished and whether to create more VMs of this type in
+the immediate future as slots become available.
+
+\begin{center}
+\begin{table}[H]
+\label{table:shutdowncodes}
+\begin{center}
+\begin{tabular}{l}
+\\
+100 Shutdown as requested by the VM's host/hypervisor \\
+200 Intended work completed ok \\
+300 No more work available from task queue \\
+400 Site/host/VM is currently banned/disabled from receiving more work \\
+500 Problem detected with environment/VM provided by the site \\
+600 Grid-wide problem with job agent or application within VM \\
+700 Transient problem with job agent or application within VM \\
+\\
+\end{tabular}
+\caption{\label{opt}Shutdown codes and messages}
+\end{center}
+\end{table}
+\end{center}
+
+The shutdown codes are designed to be extensible by the insertion of 
+intermediate numbers for finer-grained reporting. This is similar to the
+three digit response codes of internet protcols such as SMTP and HTTP.
+
+\section{Image URLs}
+\label{sec:imageurls}
+
+Experiments should provide the HTTPS URL of the image file required to boot
+their VMs, which VMLMs should use. VMLMs should support both standard CAs
+and Internationl Grid Trust Federation (IGTF) endorsed CAs when verifying
+the X.509 certificates used by the relevant HTTPS webserver.
+
+To avoid overloading these webservers, VMLMs must cache images by 
+Last-Modified time, and should use the HTTP If-Modified-Since mechanism
+when fetching images. If this header is used, then it is acceptable to
+check the URL for updates each time a VM is created.
+
+Where the VMLM is unable to update the image used to boot the VMs itself, 
+it should attempt to verify that the image being used is current and refuse
+to create new VMs with an old image. Typically this applies to IaaS cloud
+systems where users are unable to upload new images, or a manual upload step
+is required. VMLM authors should consider how resource providers will be
+made aware of this situation when it arises, but for scalability reasons,
+the VMLM should not rely on the experiment suffering from VMs failing 
+due to an out of date VM image and then notifying resource providers.
+
+\section{VacUserData templates}
+\label{sec:vacuserdata}
+
+In most cases, a generic image such as CernVM is used which then
+requires further contextualization as the VM starts using a user\_data
+file supplied by VMLM. The VMLM must be able to retrieve a template for
+the user\_data file
+from an HTTPS URL nominated by the experiment each time a VM is to 
+be created. That is, without any caching. The VMLM must include an
+appropriate HTTP User-Agent header indicating the VMLM implementation
+and version when making this request to allow experiments to monitor
+which VMLM versions are in use. The VMLM should support both standard CAs
+and IGTF-endorsed CAs when verifying the X.509 certificates used by the
+relevant HTTPS webserver.
+
+The VMLM must apply the following pattern
+based substitutions to the user\_data template supplied by the experiment.
+These patterns are all in the form \texttt{\#\#user\_data\_XXX\#\#}.
+
+The following substitutions are performed automatically
+using data the VMLM holds internally:
+
+\begin{quote}
+\begin{description}
+\setlength{\parskip}{0pt}
+\item{\texttt{\#\#user\_data\_space\#\#}} Space name
+\item{\texttt{\#\#user\_data\_machinetype\#\#}} Name of the machinetype of this VM
+\item{\texttt{\#\#user\_data\_machine\_hostname\#\#}} Hostname assigned to the VM by the VMLM
+\item{\texttt{\#\#user\_data\_manager\_version\#\#}} A string giving the VMLM version
+\item{\texttt{\#\#user\_data\_manager\_hostname\#\#}} Hostname of the VMLM
+\item{\texttt{\#\#user\_data\_manager\_machinefeatures\_url\#\#}} \texttt{\$MACHINEFEATURES} URL (section~\ref{sec:mjf})
+\item{\texttt{\#\#user\_data\_manager\_jobfeatures\_url\#\#}} \texttt{\$JOBFEATURES} URL (section~\ref{sec:mjf})
+\item{\texttt{\#\#user\_data\_manager\_joboutputs\_url\#\#}} \texttt{\$JOBOUTPUTS} URL (section~\ref{sec:joboutputs})
+\end{description}
+\end{quote}
+
+The VMLM must also provide a mechanism for the resource provider
+to specify strings or files whose static values will be used in pattern 
+substitutions required by the VM. These patterns take the form
+\texttt{\#\#user\_data\_option\_XXX\#\#} where XXX is an arbitrary string
+consisting of letters, numbers, and underscores. 
+
+If the VM requires the address(es) of HTTP proxies to use with CernVM-FS,
+it must expect this value as the special pattern 
+\texttt{\#\#user\_data\_option\_cvmfs\_proxy\#\#} The VM must be able to
+accept compound CernVM-FS proxy expressions containing semicolon and pipe 
+characters. Typically this will involve placing the substitution pattern
+in appropriate quotation marks within the user\_data template.
+
+If the VM requires an X.509 proxy, it must expect that the special pattern
+\texttt{\#\#user\_data\_option\_x509\_proxy\#\#} will be replaced by the 
+PEM encoded X.509 certificates and RSA private key which compromise the
+proxy. VMLMs should provide a mechanism for creating X.509 proxies
+dynamically for each VM instance from a host or robot certificate owned
+by the resource provider, with an X.509 proxy lifetime reflecting
+the maximum VM lifetime. 
+
+The VM must not assume that any other grid, HEP middleware, or scripts
+are running as part of the VMLM and able to provide dynamic values for
+pattern substitutions. For example, it
+must not require that resource providers provide proxies with VOMS
+attributes to the VM. If this is needed, the VM should use
+the proxy provided to obtain the VOMS credentials itself, using software 
+managed by the experiment within the VM.
+
+\section{VacQuery}
+\label{sec:vacquery}
+
+The VacQuery protocol specifies queries and status messages
+which can be sent over UDP as short JSON documents.
+
+The principal use of the VacQuery protocol is to allow Vac factories to
+gather information from their neighbours about what VMs are running for
+what machinetypes. This is done using the machinetypes\_query and
+machinetype\_status UDP messages. Factory and machine message pairs
+are also supported which can be used for automated or manual 
+monitoring of Vac-based sites.
+
+VacQuery queries sent to Vac daemons take the form of JSON documents
+in packets directed to the unused UDP port 
+995.\footnote{In Roman numerals, V=5 and M=1000. 995 could be written
+as VM = 1000 - 5, although this violates conventions invented in 
+modern times.} Responses are sent to the UDP port from which the
+query was sent. The protocol has been designed to keep JSON messages and
+IP headers below the ethernet MTU of 1500 bytes to avoid fragmentation
+on local networks. 
+
+All dates/times in VacQuery messages are expressed as Unix seconds. That
+is, the integer number of seconds since 00:00:00 1st Jan 1970.
+
+\subsection{Factory messages}
+\label{sec:factorymessages}
+
+The factory messages factory\_query and factory\_status are intended
+for monitoring the state of the factories themselves, including
+generic Linux health metrics such as free disk and CPU load. As well
+as manual queries by administrators, these messages may also be
+used for automated Nagios-style monitoring and alarms.
+
+\subsubsection{factory\_query}
+\label{sec:factoryquery}
+
+The factory\_query message is sent to a factory to request a 
+factory\_status message in response.
+
+\begin{quote}
+\begin{description}
+\setlength{\parskip}{0pt}
+\item[message\_type] ``factory\_query''
+\item[vac\_version] Name and software version of Vac
+\item[vacquery\_version] Name and version of the VacQuery protocol
+\item[space] Vac space name
+\item[cookie] Freely chosen by the sender
+\end{description}
+\end{quote}
+
+\subsubsection{factory\_status}
+\label{sec:factorystatus}
+
+factory\_status messages are returned in response to 
+factory\_query messages directed to a factory. They may
+also be generated spontaneously and sent to a VacMon
+service as described in section~\ref{sec:vacmon}.
+
+The format and units of the disk and memory values are
+aligned with the values returned by the relevant system
+calls and the /proc interface.
+
+\begin{quote}
+\begin{description}
+\setlength{\parskip}{0pt}
+\item[message\_type] ``factory\_status''
+\item[vac\_version] Name and software version of Vac
+\item[vacquery\_version] Name and version of the VacQuery protocol
+\item[cookie] Matching the value supplied by the recipient
+\item[space] Vac space name
+\item[factory] FQDN of the factory
+\item[time\_sent] Time in Unix seconds
+\item[site] Name of the site registered in the GOCDB, or the Vac space name if the site is not registered
+\item[running\_cpus] Number of processors assigned to running VMs
+\item[running\_machines] Number of running VMs
+\item[running\_hs06] Total HS06 of running VMs
+\item[max\_cpus] Maximum number of (logical) processors available to VMs
+\item[max\_machines] Maximum possible number of VMs
+\item[max\_hs06] Maximum HS06 available to all VMs
+\item[boot\_time] The time when the factory booted up in Unix seconds
+\item[factory\_heartbeat\_time] Time of the last heartbeat created by the VM factory agent in Unix secconds
+\item[responder\_heartbeat\_time] Time of the last heartbeat created by the VacQuery responder service in Unix secconds
+\item[mjf\_heartbeat\_time] Time of the last heartbeat created by the HTTP Machine/Job Features service in Unix secconds
+\item[metadata\_heartbeat\_time] Time of the last heartbeat created by the HTTP Metadata service in Unix secconds
+\item[vac\_disk\_avail\_kb] Free space available in Vac's workspace, in units of 1024 bytes
+\item[root\_disk\_avail\_kb] Free space available on the root partition, in units of 1024 bytes
+\item[vac\_disk\_avail\_inodes] Free inodes available in Vac's workspace
+\item[root\_disk\_avail\_inodes] Free inodes available on the root partition
+\item[load\_average] The 15 minute load average on the factory
+\item[kernel\_version] The kernel version of the factory
+\item[os\_issue] A string identifying the operating system (typically the first line of /etc/issue)
+\item[swap\_used\_kb] Swap space in use on the factory, in units of 1024 bytes
+\item[swap\_free\_kb] Free swap space, in units of 1024 bytes
+\item[mem\_used\_kb] Physical memory in use on the factory, in units of 1024 bytes
+\item[mem\_total\_kb] Free physical memory, in units of 1024 bytes
+\end{description}
+\end{quote}
+
+\subsection{Machine messages}
+\label{sec:machinemessages}
+
+The machines\_query (plural) and machine\_status (singular) messages can
+be used to create views of the VMs running within a Vac space, similar to
+the views from the top command of running processes on a single host.
+
+\subsubsection{machines\_query}
+\label{sec:machinesquery}
+
+The machines\_query message is sent to a factory to request a 
+machine\_status message for each of its VM slots.
+
+\begin{quote}
+\begin{description}
+\setlength{\parskip}{0pt}
+\item[message\_type] ``machines\_query''
+\item[vac\_version] Name and software version of Vac
+\item[vacquery\_version] Name and version of the VacQuery protocol
+\item[space] Vac space name
+\item[cookie] Freely chosen by the sender
+\end{description}
+\end{quote}
+
+\subsubsection{machine\_status}
+\label{sec:machinestatus}
+
+machine\_status messages are returned in response to machines\_query messages directed to a factory.
+
+\begin{quote}
+\begin{description}
+\setlength{\parskip}{0pt}
+\item[message\_type] ``machine\_status''
+\item[daemon\_version] Name and software version of the factory daemon
+\item[vacquery\_version] Name and version of the VacQuery protocol
+\item[cookie] Matching the value supplied by the recipient
+\item[space] Vac space name
+\item[site] The site name, either as used by GOCDB or a string derived from the space name.
+\item[factory] FQDN of the factory
+\item[num\_machines] Number of machine\_status messages to expect from this factory
+\item[time\_sent] Time in Unix seconds
+\item[machine] Hostname of the VM slot
+\item[state] State of the current or most recent VM in this slot, as a string
+\item[uuid] Lowlevel UUID, as used by libvirtd
+\item[created\_time] Unix time of the VM's creation
+\item[started\_time] Unix time the VM entered the running state
+\item[heartbeat\_time] Unix time when the VM was last observed to be running (this is not the same as any heartbeat generated within the VM)
+\item[num\_processors] Number of logical or virtual processors assigned to this machine
+\item[cpu\_seconds] CPU seconds used by the VM
+\item[cpu\_percentage] Recent CPU percentage use. May be over 100\% for mulitprocessor VMs
+\item[hs06] Total HEPSPEC06 for the processors assigned to this VM
+\item[machinetype] Name of the machinetype
+\item[shutdown\_message] Any shutdown message given by the last VM to run in this slot
+\item[shutdown\_time] Unix time of the shutdown\_message
+\item[fqan] Fully Qualified Attribute Name associate with the VM, typically identifying a VO and perhaps a group or role within it.
+\end{description}
+\end{quote}
+
+\subsection{Machinetype messages}
+\label{sec:machinetypemessages}
+
+The machinetypes\_query (plural) and machinetype\_status (singular) messages 
+are used by factories to gather information from neighbours within the
+same Vac space about what they are running, and outcomes of recently started
+VMs which have finished.
+
+\subsubsection{machinetypes\_query}
+\label{sec:machinetypesquery}
+
+The machinetypes\_query message is sent to a factory to request a 
+machinetype\_status message for each of the machinetypes it supports.
+
+\begin{quote}
+\begin{description}
+\setlength{\parskip}{0pt}
+\item[message\_type] ``machinetypes\_query''
+\item[vac\_version] Name and software version of Vac
+\item[vacquery\_version] Name and version of the VacQuery protocol
+\item[space] Vac space name
+\item[cookie] Freely chosen by the sender
+\end{description}
+\end{quote}
+
+\subsubsection{machinetype\_status}
+\label{sec:machinetypestatus}
+
+machinetype\_status messages are returned in response to machinetypes\_query 
+messages directed to a factory. They may
+also be generated spontaneously and sent to a VacMon
+service as described in section~\ref{sec:vacmon}.
+
+\begin{quote}
+\begin{description}
+\setlength{\parskip}{0pt}
+\item[message\_type] ``machinetype\_status''
+\item[daemon\_version] Name and software version of the factory daemon
+\item[vacquery\_version] Name and version of the VacQuery protocol
+\item[cookie] Matching the value supplied by the recipient
+\item[space] Vac space name
+\item[site] The site name, either as used by GOCDB or a string derived from the space name.
+\item[factory] FQDN of the factory
+\item[num\_machinetypes] Number of machinetype\_status messages to expect from this factory
+\item[time\_sent] Time in Unix seconds
+\item[machinetype] Name of the machinetype
+\item[running\_hs06] Total HEPSPEC06 of all the processors allocated to running VMs for this machinetype on this factory
+\item[running\_machines] Number of running VMs for this machinetype on this factory
+\item[running\_processors] Number of logical or virtual processors allocated to running VMs for this machinetype on this factory
+\item[num\_before\_fizzle] Number of running VMs which have not yet reached fizzle\_seconds
+\item[shutdown\_message] Shutdown message given by the most recently created VM for this machinetype on this factory which has finished
+\item[shutdown\_time] Unix time of the shutdown\_message
+\item[shutdown\_machine] Name of the VM slot associated with the shutdown\_message
+\item[fqan] Fully Qualified Attribute Name associate with the VM, typically identifying a VO and perhaps a group or role within it.
+\end{description}
+\end{quote}
+
+\subsection{VacMon services}
+\label{sec:vacmon}
+
+VacMon services receive factory\_status and machinetype\_status
+messages from Vac daemons on UDP port 8884. These may be used for
+Ganglia-style monitoring of individual sites or groups of sites.
+As VacQuery messages are sent as JSON documents, they may be conveniently 
+recorded in NoSQL data stores such as ElasticSearch.
+
+\section{APEL}
+\label{sec:apel}
+
+VMLMs should support reporting of usage to the central APEL service
+with messages of the type ``APEL-individual-job-message''. These are
+the records used for conventional grid sites, rather than those developed
+for cloud resources. 
+
+VLMs must include the following in the messages:
+\begin{quote}
+\begin{description}
+\setlength{\parskip}{0pt}
+\item[FQAN] VOMS FQAN specified by the experiment when configuring the space
+\item[SubmitHost] Must be of the form 
+  \texttt{[space name] + "/" + [vmlm] + "-" + [VMLM host name]}, where
+  ``vmlm'' is a lowercase name for the VMLM software such as ``vac''
+\item[LocalJobId] VM UUID
+\item[LocalUserId] VMLM hostname
+\item[Queue] Name of the machinetype
+\item[GlobalUserName] The space name converted to an X.500 DN with DC
+  components. For example, vac01.example.com would become /DC=vac01/DC=example/DC=com
+\item[InfrastructureDescription] Such as APEL-VAC or APEL-VCYCLE, with APEL and then
+  an uppercase name for the VMLM software.
+\item[Processors] The number of logical or virtual processors assigned to the VM.
+\end{description}
+\end{quote}
+
+APEL Sync records must also be sent, and these can conveniently be
+generated by each VMLM instance from an archive of the individual
+job messages, as the SubmitHost is unique to the VMLM instance
+in both cases.
+
+In addition to grid-style APEL records generated by the VMLM, an underlying
+cloud infrastracture may also be instrumented to submit cloud-style APEL 
+usage records to the cental APEL service.
+This is especially likely at sites participating in the EGI Federated Cloud.
+In this case, resource providers must ensure that double counting is avoided
+by disabling reporting from the VMLM to the central APEL service. 
+
+\section{GOCDB}
+\label{sec:gocdb}
+
+Spaces should be registered in the GOCDB entries for the site, using 
+appropriate service types. The service types \texttt{uk.ac.gridpp.vac} and 
+\texttt{uk.ac.gridpp.vcycle} have been created for Vac and Vcycle
+spaces.
+
+Registration allows new Vacuum Platform resources to be discovered more easily
+by experiments, and permits the declaration of downtimes for these services.
+
+\section{Summary}
+\label{sec:Summary}
+
+This note has described the various interfaces between virtual machines and
+virtual machine lifecycle managers required by the Vacuum Platform. Three new
+interfaces (\$JOBOUTPUTS, VacQuery, and VacUserData) have been introduced,
+and requirements set out for the use of Machine/Job Features, APEL, and
+GOCDB with the platform. Procedures for how experiments providing VMs should
+present their VM boot images and contextualization are also explained.
+
+%\section*{Acknowledgments}
+
+%\section*{References}
+
+\begin{thebibliography}{9}
+%% Use references in the format expected by JPCS (as used for CHEP proceedings)
+
+%\bibitem{SHOULD-MUST} S. Bradner, RFC2119 ``Key words for use in RFCs to Indicate Requirement Levels'' (Internet Engineering Task Force)
+
+\bibitem{HSFMJF} M.~Alef et al, HSF-TN-2016-02 ``Machine/Job Features Specification'' (HEP Software Foundation)
+
+\bibitem{HSFVACPLAT1} A.~McNab, HSF-TN-2016-04 ``The Vacuum Platform'' (HEP Software Foundation)
+
+\end{thebibliography}
+
+
+%\addcontentsline{toc}{section}{References}
+
+\end{document}
