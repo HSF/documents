@@ -1,4 +1,3 @@
-
 # HSF Technical Note HSF-TN-2016-03
 
 How to cite:
