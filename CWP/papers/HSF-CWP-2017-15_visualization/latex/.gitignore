@@ -1,0 +1,13 @@
+*.aux
+*.log
+*.out
+*.toc
+*.sync*
+*.fls
+*.bcf
+*.blg
+*.fdb*
+*.bbl
+*.dvi
+*.run.xml
+/tmp/
