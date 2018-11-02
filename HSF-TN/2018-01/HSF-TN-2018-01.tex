@@ -3,7 +3,7 @@
 % Variables that controls behaviour
 \usepackage{ifthen} % for conditional statements
 \newboolean{pdflatex}
-\setboolean{pdflatex}{true} % False for eps figures 
+\setboolean{pdflatex}{true} % False for eps figures
 
 \newboolean{inbibliography}
 \setboolean{inbibliography}{false} %True once you enter the bibliography
@@ -47,7 +47,7 @@
 \usepackage{graphicx}  % to include figures (can also use other packages)
 \usepackage{color}
 \usepackage{colortbl}
-\usepackage[table]{xcolor} 
+\usepackage[table]{xcolor}
 
 %% Math
 \usepackage{amsmath} % Adds a large collection of math symbols
@@ -115,7 +115,8 @@ end#1\endcsname
 
 \\
  & & HSF-TN-2018-01 \\  % ID
- & & \today \\ % Date - Can also hardwire e.g.: 23 March 2010
+ & & 10.5281/zenodo.1472351 \\ % DOI
+ & & June 22, 2018 \\ % Date - Can also hardwire e.g.: 23 March 2010
  & & \\
 % not in paper \hline
 \end{tabular*}
@@ -136,7 +137,7 @@ end#1\endcsname
 B.~Hegner$^1$
 \bigskip\\
 {\it\footnotesize
-$ ^1$CERN 
+$ ^1$CERN
 }
 \end{center}
 
@@ -152,7 +153,7 @@ $ ^1$CERN
 
 \vspace{\fill}
 
-{\footnotesize 
+{\footnotesize
 \centerline{\copyright~Named authors on behalf of the HSF, licence \href{http://creativecommons.org/licenses/by/4.0/}{CC-BY-4.0}.}}
 \vspace*{2mm}
 
@@ -172,7 +173,7 @@ In the view of the fact that naming conventions are just agreements we propose t
 
 We consider the following pieces as part of the convention. A build configuration is denoted by the scheme
 \[architecture-OS-compiler-buildtype\]
-where \emph{architecture}, \emph{OS}, \emph{compiler}, and \emph{buildtype} are described in the following. Furthermore, we propose a common tool that helps identifying and building these strings. 
+where \emph{architecture}, \emph{OS}, \emph{compiler}, and \emph{buildtype} are described in the following. Furthermore, we propose a common tool that helps identifying and building these strings.
 
 \subsection{Architecture}
 
@@ -180,7 +181,7 @@ Different OSes may call the same \emph{architecture} by different names. We prop
 There exist no explicit conventions for the instruction set across operating systems, thus we propose to create ad-hoc conventions. In the Linux case the \emph{flags} field of \emph{/proc/cpuinfo} could be used. The instruction sets mentioned should be ordered alphabetically to ensure consistency.
 
 \subsection{Operating System}
-The operating system (\emph{OS}) is a combination of the name of the operating system itself and its major version, e.g. \emph{ubuntu15} or \emph{slc6} in case a canonical abbreviation exists. 
+The operating system (\emph{OS}) is a combination of the name of the operating system itself and its major version, e.g. \emph{ubuntu15} or \emph{slc6} in case a canonical abbreviation exists.
 
 
 \subsubsection{Linux}
@@ -196,12 +197,12 @@ The name is set to \emph{win} and the version as given by the first two parts of
 
 
 \subsection{Compiler}
-The \emph{compiler} is a combination of compiler name and compiler version. We propose to use the self-given names of the compilers like \emph{gcc, clang, msvc, icc} and adding the compiler version indicating feature relevant versions. That can be major, minor version, and patch version numbers for LLVM (e.g. \emph{clang350}) or just major and minor version for GCC (e.g. \emph{gcc73}). In case the system compiler is being used, the compiler should be denoted as \emph{native}. 
+The \emph{compiler} is a combination of compiler name and compiler version. We propose to use the self-given names of the compilers like \emph{gcc, clang, msvc, icc} and adding the compiler version indicating feature relevant versions. That can be major, minor version, and patch version numbers for LLVM (e.g. \emph{clang350}) or just major and minor version for GCC (e.g. \emph{gcc73}). In case the system compiler is being used, the compiler should be denoted as \emph{native}.
 
 
 \subsection{Buildtype}
 The \emph{buildtype} denotes whether there is a debug build, an optimized build, or any other special setting. We propose to use \emph{opt} for `optimized` and \emph{dbg} for debugging builds. The buildtype can be used to specify further custom build options, e.g. the used C++ standard, leading to \emph{opt+std14} or \emph{dbg+std18}.
-In general, any special compile time setting can be tracked in this name component.  
+In general, any special compile time setting can be tracked in this name component.
 
 \subsection{Generic Cases}
 In some cases the mentioned components do not influence the build-artifacts created or are not relevant. In those cases, the corresponding name component is replaced by the string \emph{all}. Examples are pure-Python packages that do not require compilation at install time.
@@ -221,7 +222,7 @@ As to simplify the adoption of these conventions, we provide a minimal command l
 \texttt{hsf\_get\_platform.py --get compiler $\rightarrow$ "gcc49"}.
 
 \section{Possible Extensions to denote Platform Compatibility}
-The proposed naming convention identifies a given platform. In many cases, different platforms, however, may behave the same or yield compatible binaries. 
+The proposed naming convention identifies a given platform. In many cases, different platforms, however, may behave the same or yield compatible binaries.
 
 For example, \emph{slc6} is compatible with \emph{sl6} and \emph{redhat6}. Similarly, patch versions of compilers are \emph{usually} compatible with each other.
 
@@ -229,11 +230,11 @@ We provide an additional tool \texttt{hsf\_platform\_compatibility} to tell the 
 \\
 \newline
 \texttt{hsf\_platform\_compatibility.py x86\_64-slc5-gcc481-opt x86\_64-slc6-gcc481-opt}
-\newline 
+\newline
 \texttt{$\rightarrow$ "OS'es slc5 and slc6 are incompatible"} + \emph{return code 1}
 
 \section{Resources}
-Both of the tools mentioned are available at \url{https://github.com/HEP-SF/tools}. 
+Both of the tools mentioned are available at \url{https://github.com/HEP-SF/tools}.
 
 \section*{Acknowledgements}
 We would like to thank Ben Couturier and Brett Viren for fruitful discussions and feedback on earlier drafts.
