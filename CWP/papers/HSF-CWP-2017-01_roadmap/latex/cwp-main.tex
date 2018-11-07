@@ -330,13 +330,13 @@ considerable: a factor 4 in CPU and a factor 7 in disk in 2027.
 While the density of transistors on silicon continues to increase
 following Moore's Law (albeit more slowly than in the past), power
 density constraints have limited the clock speed of processors for more
-than a decade. This has effectively stalled any progress in the
+than a decade~\cite{NAP12980}. This has effectively stalled any progress in the
 processing capacity of a single CPU core. Instead, increases in
 potential processing capacity come from increases in the core count of
 CPUs and wide CPU registers. Alternative processing architectures have
 become more commonplace. These range from the many-core architecture
 based on standard x86\_64 cores to numerous alternatives such as GPUs.
-For GPUs, the processing model is very different, allowing a much
+For GPUs, the processing model is very different~\cite{Cook:2012:CPD:2430671}, allowing a much
 greater fraction of the die to be dedicated to arithmetic calculations,
 but at a price in programming difficulty and memory handling for the
 developer that tends to be specific to each processor generation.
@@ -405,7 +405,8 @@ physicists who specialise in software development. This is an important
 issue that is treated in more detail later in the report.
 
 Particle physics is no longer alone in facing these massive data
-challenges. Experiments in other fields, from astronomy to genomics,
+challenges. Experiments in other fields, from astronomy~\cite{10.1371/journal.pbio.1002195} 
+to genomics~\cite{ijms18020412},
 will produce huge amounts of data in the future, and will need to
 overcome the same challenges that we face, i.e., massive data handling and
 efficient scientific programming. Establishing links with these fields
@@ -1028,7 +1029,7 @@ that it is possible to improve time performance without an unacceptable
 loss of physics accuracy. There has recently been a great deal of
 interest in the use of Machine Learning in Fast Simulation, most of
 which has focused on the use of multi-objective regression and
-generative adversarial networks (GANs). Since use of GANs allows for
+generative adversarial networks (GANs)~\cite{}. Since use of GANs allows for
 non-parametric learning in cases such as calorimetric shower
 fluctuations, it is a promising avenue for generating non-Gaussian and
 highly correlated physical effects. This is an obvious area for future
@@ -1187,7 +1188,7 @@ analysis.
 
 Current experiments have moved towards smaller, but still
 flexible, tiered data formats. These tiers are typically based on the
-ROOT~\cite{Brun1996} file format and constructed to
+ROOT file format and constructed to
 facilitate both skimming of interesting events and the selection of
 interesting pieces of events by individual analysis groups or through
 centralised analysis processing systems. Initial implementations of
@@ -1335,7 +1336,7 @@ data taken by the experiments, while retaining this essential ``time to
 insight'' optimisation.
 
 Over the past 20 years the HEP community has developed and gravitated
-around a single analysis ecosystem based on ROOT~\cite{Brun1996}. 
+around a single analysis ecosystem based on ROOT. 
 ROOT is a general-purpose object
 oriented framework that addresses the selection, integration,
 development, and support of a number of foundation and utility class
@@ -1447,10 +1448,12 @@ class supported language.
 One new model of data analysis, developed outside of HEP, maintains the
 concept of sequential reduction, but mixes interactivity with
 batch processing. These exploit new cluster management systems, most
-notably Apache Spark, which uses open-source tools contributed both by
+notably Apache Spark~\cite{Armbrust:2015:SSR:2723372.2742797}, which uses open-source tools contributed both by
 industry and the data-science community. Other products implementing the
-same analysis concepts and workflows are emerging, such as TensorFlow,
-Dask, Pachyderm, Blaze, Parsl, and Thrill. This approach can complement
+same analysis concepts and workflows are emerging, such as TensorFlow~\cite{tensorflow2015-whitepaper},
+Dask~\cite{dask_ref}, Pachyderm~\cite{thepachydermteam}, 
+Blaze~\cite{blaze}, Parsl~\cite{babuji_yadu_2017_853492}, 
+and Thrill~\cite{bingmann2016thrill}. This approach can complement
 the present and widely adopted Grid processing of datasets. It may
 potentially simplify the access to data and the expression of
 parallelism, thereby improving the exploitation of cluster resources.
@@ -1693,7 +1696,7 @@ By 2020:
   2020. Particle identification can also be explored to tag the flavour
   of jets in collider experiments (e.g., so-called b-tagging). The
   investigation of these concepts, which connect to Natural Language
-  Processing, has started at the LHC and is to be pursued on the same
+  Processing~\cite{Collobert:2011:NLP:1953048.2078186}, has started at the LHC and is to be pursued on the same
   timescale.
 \item
   \emph{ML middleware and data formats for offline usage:} HEP relies 
@@ -1744,8 +1747,9 @@ By 2022:
   used in industry.
 \item
   \emph{Simulation:} recent progress in high fidelity fast generative models,
-  such as Generative Adversarial Networks (GANs) and Variational
-  Autoencoders (VAEs), which are able to sample high dimensional feature
+  such as Generative Adversarial Networks (GANs)~\cite{NIPS2014_5423} and Variational
+  Autoencoders (VAEs)~\cite{2013arXiv1312.6114K}, 
+  which are able to sample high dimensional feature
   distributions by learning from existing data samples, offer a
   promising alternative for Fast Simulation. A simplified first attempt at
   using such techniques in simulation saw orders of magnitude increase
@@ -2073,7 +2077,7 @@ As outlined in Section \ref{software-and-computing-challenges},
 huge resource requirements are anticipated for
 HL-LHC running. These need to be deployed and managed across the WLCG
 infrastructure, which has evolved from the original ideas on deployment
-before LHC data-taking started~\cite{MONARC}, to be a mature and
+before LHC data-taking started~\cite{Aderholz:510694}, to be a mature and
 effective infrastructure that is now exploited by LHC experiments.
 Currently, hardware costs are dominated by disk storage, closely
 followed by CPU, followed by tape and networking. Naive estimates of
@@ -2654,7 +2658,8 @@ easier support for mobile or virtual reality devices), but at some cost
 of not supporting the most complex visualisations requiring heavy
 interaction with the experiments' data.
 
-In recent years, video game engines, such as Unity or the Unreal Engine,
+In recent years, video game engines, such as Unity~\cite{unity} or 
+the Unreal Engine~\cite{Sanders:2016:IUE:3099885},
 have become particularly popular in the game and architectural
 visualisation industry. They provide very sophisticated graphics engines
 and offer a lot of tools for user interaction, such as menu systems or
@@ -3509,7 +3514,7 @@ comments and more examples in a collaborative way. The HSF started to
 experiment with this approach with WikiToLearn~\cite{WikiToLearn}, a
 platform developed in Italy outside HEP that promotes this kind of
 training and collaborative enrichment of the training material. Projects
-such as ROOT~\cite{Brun1996} have also started to provide some
+such as ROOT have also started to provide some
 training material based
 on notebooks.
 
@@ -3525,7 +3530,7 @@ courses or initiatives.
 
 A model that emerged in recent years as a very valuable means of sharing
 expertise is to use Question and Answer (Q\&A) systems, such as Stack
-Overflow. A few such systems are run by experiments for their own needs,
+Overflow~\cite{Stackoverflow}. A few such systems are run by experiments for their own needs,
 but this is not necessarily optimal, as the value of these services is
 increased by a large number of contributors with diverse backgrounds.
 Running a cross-experiment Q\&A system has been discussed, but it has
