@@ -352,7 +352,7 @@ costs for the scale of HEP computing needs than Intel has achieved with its
 Xeon architecture. More extreme is an architecture that would see
 specialised processing units dedicated to particular tasks, but with
 possibly large parts of the device switched off most of the time,
-so-called dark silicon.
+so-called dark silicon~\cite{IntelCSA}.
 
 Limitations in affordable storage also pose a major challenge, as does
 the I/O rates of higher capacity hard disks. Network
@@ -2118,8 +2118,11 @@ evolution of the computing models would need to be more network centric.
 In the network domain, there are new technology developments, such as
 Software Defined Networks (SDNs), which enable user-defined high
 capacity network paths to be controlled via experiment software, and
-which could help manage these data flows. These new technologies require
-considerable R\&D to prove their utility and practicality. In addition,
+which could help manage these data flows~\cite{Blikra:2221659}.
+Some projects already started
+to explore the potential of these technologies~\cite{OSiRIS} but a
+considerable R\&D is required to prove their utility and practicality.
+In addition,
 the networks used by HEP are likely to see large increases in traffic
 from other science domains.
 
@@ -2223,6 +2226,10 @@ advanced prototypes during LHC Run 3.
   should be done in conjunction with the existing Data Organisation,
   Management and Access Working Group to evaluate the impact of the
   different access patterns and data organisations envisaged.
+\item
+  Building upon the experience of projects currently exploring SDN
+  potential, define the role for this technology in managing data transfers and
+  access and the integration strategy into experiment frameworks.
 \item
   Establish an agreement on the common data management functionality
   that is required by experiments, targeting a consolidation and a lower
@@ -3240,13 +3247,14 @@ authentication.
 The existing technologies leveraged by identity federations, e.g., the
 Security Assertion Markup Language (SAML), have not supported non-web
 applications historically. There is momentum within the wider community
-to develop next-generation identity federations that natively support a
+to develop next-generation identity federations~\cite{OICFederation}
+that natively support a
 wider range of clients. In the meantime there are several viable interim
 solutions that are able to provision users with the token required to
 access a service (such as X.509) transparently, translated from their
 home organisation identity.
 
-Although federated identity provides a potential solution for our
+Although non-X509 federated identity provides a potential solution for our
 challenges in Authentication, Authorisation should continue to be
 tightly controlled by the HEP community. Enabling Virtual Organisation
 (VO) membership for federated credentials and integrating such a
@@ -3371,7 +3379,7 @@ By 2020:
 \begin{itemize}
 \item
   Ensure that ongoing efforts in trust frameworks are sufficient to
-  raise the level of confidence in federated identities to the
+  raise the level of confidence in non-X509 federated identities to the
   equivalent of X.509, at which stage they could be a viable alternative
   to both grid certificates and CERN accounts.
 \item
