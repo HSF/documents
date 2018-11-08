@@ -32,9 +32,9 @@ scientific goals are:
 \end{itemize}
 
 The High-Luminosity Large Hadron Collider
-(HL-LHC)~\cite{HL-LHC,1742-6596-515-1-012012,Apollinari:2284929} 
+(HL-LHC)~\cite{HL-LHC,1742-6596-515-1-012012,Apollinari:2284929}
 will be a major
-upgrade of the current LHC~\cite{LHC} supporting the aim of 
+upgrade of the current LHC~\cite{LHC} supporting the aim of
 an in-depth investigation of the properties of the Higgs boson and its
 couplings to other particles (Figure~\ref{fig:hl-lhc}). The ATLAS~\cite{ATLAS} and CMS~\cite{CMS}
 collaborations will continue to make measurements in the Higgs sector,
@@ -253,7 +253,7 @@ simulation is supported by a wide range of event generators provided by
 the theory community (PYTHIA~\cite{PYTHIA}, SHERPA~\cite{Gleisberg:2008ta}, ALPGEN~\cite{Mangano:565290}, MADGRAPH~\cite{MADGRAPH}, HERWIG~\cite{HERWIG},
 amongst many others). There is also code developed to support the
 computing infrastructure itself, such as the CVMFS distributed caching
-filesystem~\cite{1742-6596-331-4-042003}, the Frontier database caching 
+filesystem~\cite{1742-6596-331-4-042003}, the Frontier database caching
 mechanism~\cite{Frontier}, the XRootD file access software~\cite{XRootD} and a
 number of storage systems (dCache, DPM, EOS). This list of packages is % REF?
 by no means exhaustive, but illustrates the range of software employed
@@ -288,8 +288,8 @@ is shown in Figures~\ref{fig:cms-resources} and~\ref{fig:atlas-resources}.
         \caption{}
         \label{fig:cms-disk}
     \end{subfigure}
-    \caption{CMS estimated CPU (\ref{fig:cms-cpu}) and disk space (\ref{fig:cms-disk}) 
-    resources required into the HL-LHC era, using the current computing model 
+    \caption{CMS estimated CPU (\ref{fig:cms-cpu}) and disk space (\ref{fig:cms-disk})
+    resources required into the HL-LHC era, using the current computing model
     with parameters projected out for the next 12 years.}
     \label{fig:cms-resources}
 \end{figure*}
@@ -310,7 +310,7 @@ is shown in Figures~\ref{fig:cms-resources} and~\ref{fig:atlas-resources}.
         \caption{Estimated total disk resources (in PB) needed for the years 2018 to 2028 for both data and simulation processing. The blue points are estimates based on the current event sizes estimates and using the ATLAS computing model parameters from 2017. The solid line shows the amount of resources expected to be available if a flat funding scenario is assumed, which implies an increase of 15\% per year, based on the current technology trends.}
         \label{fig:atlas-disk}
     \end{subfigure}
-    \caption{ATLAS resources required into the HL-LHC era, using the current computing model 
+    \caption{ATLAS resources required into the HL-LHC era, using the current computing model
     and software performance.\cite{ATLAS-HL-LHC-Plots}}
     \label{fig:atlas-resources}
 \end{figure*}
@@ -475,7 +475,7 @@ weights; and the fact that many terms in the integration cancel, so that
 a very high degree of accuracy of each term is required. Memory demands
 for generators have generally been low and initialisation times have
 been fast, but an increase in order means that memory consumption
-becomes important and initialisation times can become a significant 
+becomes important and initialisation times can become a significant
 fraction of the job's run time.
 
 For HEP experiments, in many cases, meaningful predictions can only be
@@ -521,7 +521,7 @@ budget for physics event simulation for ATLAS and CMS.
 The use of NLO generators by the experiments today is also limited because of
 the way the generators are implemented, producing significant numbers of
 negative event weights. This means that the total number of events the
-experiments need to generate, simulate, and reconstruct can be many 
+experiments need to generate, simulate, and reconstruct can be many
 times larger for NLO than for LO samples. At the same time, the
 experiments budget only a similar number of Monte Carlo simulation events as from the real data. Having large NLO samples is thus not consistent with
 existing computing budgets until a different scheme is developed that
@@ -534,7 +534,7 @@ W-boson + 5-jet events at the Argonne Mira HPC). However, scaling for
 efficient running on some of the existing HPC resources is not trivial
 and requires effort.
 
-Standard HEP libraries such as LHAPDF~\cite{LHAPDF}, HepMC\cite{HepMC}, 
+Standard HEP libraries such as LHAPDF~\cite{LHAPDF}, HepMC\cite{HepMC},
 and Rivet~\cite{Rivet} are used by the generators for integration into
 the experiments' event generation workflows. These require extensions
 and sustained maintenance that should be considered a shared
@@ -543,7 +543,7 @@ context of large-scale experiments. In practice, however, it has been
 difficult to achieve the level of support that is really needed as there
 has been a lack of recognition for this work. To help improve the
 capabilities and performance of generators as used by the experimental
-HEP programme, and to foster interaction between the communities, the 
+HEP programme, and to foster interaction between the communities, the
 MCnet~\cite{MCnet} short-term studentship programme has been very useful.
 Interested experimental PhD students can join a generator group for
 several months to work on improving a physics aspect of the simulation
@@ -585,7 +585,7 @@ projects as experiment service work --- a situation deserving of review
 in areas where external software tools are critical to experiment
 success.
 
-In the following we describe specific areas of R\&D for event generation 
+In the following we describe specific areas of R\&D for event generation
 up to 2022 and beyond.
 
 \begin{itemize}
@@ -1095,7 +1095,7 @@ Reconstruction}\label{software-trigger-and-event-reconstruction}}
 
 The reconstruction of raw detector data and simulated data, and its
 processing in real time, represent a major component of today's
-computing requirements in HEP. Advances in the capabilities of 
+computing requirements in HEP. Advances in the capabilities of
 facilities and future
 experiments bring the potential for a dramatic increase in physics
 reach, at the price of increased event complexities and rates. It is
@@ -1104,7 +1104,7 @@ triggers continue to evolve so that they are able to efficiently exploit
 future computing architectures, and deal with the increase in data rates
 without loss of physics. Projections into future, e.g., at HL-LHC conditions,
 show that without significant changes in approach or algorithms
-the increase in resources needed would be incompatible with the 
+the increase in resources needed would be incompatible with the
 the expected budget.
 
 At the HL-LHC, the central challenge for object reconstruction is to
@@ -1140,7 +1140,7 @@ or introducing biases.
 
 Evolutions in computing technologies are an opportunity to move
 beyond commodity x86\_64 technologies, which HEP has used very
-effectively over the past 20 years, but also represent a significant challenge 
+effectively over the past 20 years, but also represent a significant challenge
 if we are to
 derive sufficient event processing throughput per cost to reasonably
 enable our physics programmes~\cite{Bird:1695401}.
@@ -1318,7 +1318,7 @@ Scientific questions are answered by analysing the data obtained from
 suitably designed experiments and comparing measurements with
 predictions from models and theories. Such comparisons are typically
 performed long after data taking, but can sometimes also be executed in
-quasi-real time on selected samples of reduced size.
+near-real time on selected samples of reduced size.
 
 The final stages of analysis are undertaken by small groups or even
 individual researchers. The baseline analysis model utilises successive
@@ -1335,7 +1335,7 @@ data taken by the experiments, while retaining this essential ``time to
 insight'' optimisation.
 
 Over the past 20 years the HEP community has developed and gravitated
-around a single analysis ecosystem based on ROOT~\cite{Brun1996}. 
+around a single analysis ecosystem based on ROOT~\cite{Brun1996}.
 ROOT is a general-purpose object
 oriented framework that addresses the selection, integration,
 development, and support of a number of foundation and utility class
@@ -1351,8 +1351,8 @@ requirements, in both functionality and performance, and this is given
 a high priority by the HEP community.
 
 An important new development in the analysis domain has been the
-emergence of new analysis tools coming from industry and open source
-projects, and this presents new opportunities for improving the HEP
+emergence of new analysis tools coming from industry and open-source
+projects (e.g. Jupyter notebooks~\cite{http://jupyter.org/}, the scikit-learn package~\cite{scikit-learn}), and this presents new opportunities for improving the HEP
 analysis software ecosystem. The HEP community is very interested in
 using these software tools, together with established components, in an
 interchangeable way. The main challenge will be to enable new
@@ -1371,7 +1371,10 @@ number of scientists involved, the large number of steps in a typical
 HEP analysis workflow, and the complexity of the analyses themselves. A
 challenge specific to data analysis and interpretation is tracking the
 evolution of relationships between all the different components of an
-analysis.
+analysis, i.e. the provenance of each step.
+
+Reproducibility of scientific results goes in hand with the need to preserve both the data and the software.
+Section~\ref{data-and-software-preservation}} develops this latter topic where the FAIR principles of data management are embraced.
 
 Robust methods for data reinterpretation are also critical.
 Collaborations typically interpret results in the context of specific
@@ -1387,7 +1390,7 @@ fundamental component of the system as a whole.
 Adapting to the rapidly evolving landscape of software tools, as well as
 to methodological approaches to data analysis, requires effort in
 continuous training, both for novices as well as for experienced
-researchers, as detailed in the Section 
+researchers, as detailed in the Section
 \ref{training-and-careers}. The
 maintenance and sustainability of the current analysis ecosystem also
 present a major challenge, as currently this effort is provided by just
@@ -1447,11 +1450,11 @@ class supported language.
 One new model of data analysis, developed outside of HEP, maintains the
 concept of sequential reduction, but mixes interactivity with
 batch processing. These exploit new cluster management systems, most
-notably Apache Spark, which uses open-source tools contributed both by
+notably Apache Spark~\cite{Spark}, which uses open-source tools contributed both by
 industry and the data-science community. Other products implementing the
-same analysis concepts and workflows are emerging, such as TensorFlow,
-Dask, Pachyderm, Blaze, Parsl, and Thrill. This approach can complement
-the present and widely adopted Grid processing of datasets. It may
+same analysis concepts and workflows are emerging, such as
+TensorFlow~\cite{abadi2016tensorflow}, Dask~\cite{rocklin2015dask}, Pachyderm~\cite{thepachydermteam}, Blaze~\cite{wiebe2014blaze}, Parsl~\cite{babuji_yadu_2017_853492}, and Thrill~\cite{bingmann2016thrill}.
+This approach can complement the present and widely adopted Grid processing of datasets. It may
 potentially simplify the access to data and the expression of
 parallelism, thereby improving the exploitation of cluster resources.
 
@@ -1472,7 +1475,7 @@ resources required for the processing of raw data to analysis.
 
 Another active area regarding analysis in the world outside HEP is the
 switch to a functional or declarative programming model, as for example
-provided by Scala in the Spark environment. This allows scientists to
+provided by Scala~\cite{Scala} in the Spark environment. This allows scientists to
 express the intended data transformation as a query on data. Instead of
 having to define and control the ``how'', the analyst declares the
 ``what'' of their analysis, essentially removing the need to define the
@@ -1503,6 +1506,10 @@ accomplished. By 2020:
   Enable new open-source software tools to be plugged in dynamically to
   the existing ecosystem, and provide mechanisms to dynamically exchange
   parts of the ecosystem with new components.
+  \item
+    Prototype a comprehensive set of mechanisms for interacting and
+    exchanging data between new open-source tools and the existing
+    analysis ecosystem.
 \item
   Complete an advanced prototype of a low-latency response,
   high-capacity analysis facility, incorporating fast caching
@@ -1514,10 +1521,6 @@ accomplished. By 2020:
   Expand support of Python in our ecosystem with a strategy for ensuring
   long-term maintenance and sustainability. In particular in ROOT, the
   current Python bindings should evolve to reach the ease of use of native Python modules.
-\item
-  Prototype a comprehensive set of mechanisms for interacting and
-  exchanging data between new open-source tools and the existing
-  analysis ecosystem.
 \item
   Develop a prototype based on a functional or declarative programming
   model for data analysis.
@@ -1576,7 +1579,7 @@ particle identification algorithms, as well as the classification of
 reconstruction-level objects, such as jets.
 
 The abundance of, and advancements in, ML algorithms and implementations
-present both opportunities and challenges for HEP. 
+present both opportunities and challenges for HEP.
 The community
 needs to understand which are most appropriate for our use,
 tradeoffs for using one tool compared to another, and
@@ -1687,7 +1690,7 @@ By 2020:
   architectures for these tasks include convolutional, recurrent, and
   adversarial neural networks. A particularly important application is
   to Liquid Argon TPCs (LArTPCs), which is the chosen detection
-  technology for DUNE, the new flagship experiment in the neutrino programme. 
+  technology for DUNE, the new flagship experiment in the neutrino programme.
   A proof of
   concept and comparison of DL architectures should be finalised by
   2020. Particle identification can also be explored to tag the flavour
@@ -1696,7 +1699,7 @@ By 2020:
   Processing, has started at the LHC and is to be pursued on the same
   timescale.
 \item
-  \emph{ML middleware and data formats for offline usage:} HEP relies 
+  \emph{ML middleware and data formats for offline usage:} HEP relies
   on the ROOT format for its data, wheras the ML community
   has developed several other formats, often associated with specific ML
   tools. A desirable data format for ML applications should have the
@@ -1710,7 +1713,7 @@ By 2020:
 \item
   \emph{Computing resource optimisations:} managing large
   volume data transfers is one
-  of the challenges facing current computing facilities. Networks 
+  of the challenges facing current computing facilities. Networks
   play a crucial role in data exchange and so a
   network-aware application layer may significantly improve experiment
   operations. ML is a promising technology to identify anomalies in
@@ -1765,7 +1768,7 @@ By 2022:
   technique that can be utilised for making measurements of physical model
   parameters and direct searches for new phenomena. As it is
   very computationally intensive its use in HEP is limited.
-  Although the use of neural networks for numerical integration is not new, 
+  Although the use of neural networks for numerical integration is not new,
   it is a
   technical challenge to design a network sufficiently rich
   to encode the complexity of the ME calculation for a given process
@@ -1802,7 +1805,7 @@ storage, approximately half of which is archival, and half is
 traditional disk storage. Other experiments that will soon start data taking have
 similar needs, e.g., Belle II has the same data volumes as ATLAS. The
 HL-LHC storage requirements per year are expected to jump by a factor
-close to 10, which is a growth rate faster than can be 
+close to 10, which is a growth rate faster than can be
 accommodated by projected technology gains. Storage will remain one of the major
 cost drivers for HEP computing, at a level roughly equal to the cost
 of the computational resources. The combination of storage and analysis
@@ -1839,7 +1842,7 @@ The three main challenges for data management in the HL-LHC follow:
   availability and characteristics will require more dynamic data
   management and access systems.
 \item
-  Applications employing new techniques, such as 
+  Applications employing new techniques, such as
   training for machine learning or high rate data query systems, will likely be employed to
   meet the computational constraints and to extend physics reach.
   These new applications will place new requirements
@@ -1853,7 +1856,7 @@ The projected event complexity of data from future HL-LHC
 runs with high pileup and from high resolution Liquid Argon detectors at
 DUNE will require advanced reconstruction algorithms and analysis tools
 to interpret the data. The precursors of these tools, in the form of
-new pattern recognition and tracking algorithms, 
+new pattern recognition and tracking algorithms,
 are already proving to be drivers for the
 compute needs of the HEP community. The storage systems that are
 developed, and the data management techniques that are employed,
@@ -1914,7 +1917,7 @@ The original LHC computing models were based on simpler models used
 before distributed computing was a central part of HEP computing. This
 allowed for a reasonably clean separation between four different aspects
 of interacting with data, namely data organisation, data management,
-data access, and data granularity. The meaning of these terms may be 
+data access, and data granularity. The meaning of these terms may be
 summarised in what follows.
 
 \begin{itemize}
@@ -2069,7 +2072,7 @@ Computing}\label{facilities-and-distributed-computing}}
 
 \subsubsection*{Scope and Challenges}
 
-As outlined in Section \ref{software-and-computing-challenges}, 
+As outlined in Section \ref{software-and-computing-challenges},
 huge resource requirements are anticipated for
 HL-LHC running. These need to be deployed and managed across the WLCG
 infrastructure, which has evolved from the original ideas on deployment
@@ -2123,8 +2126,8 @@ the networks used by HEP are likely to see large increases in traffic
 from other science domains.
 
 Underlying storage system technology will continue to evolve, for
-example towards object stores, and, as proposed in  
-Data Organisation, Management and Access  
+example towards object stores, and, as proposed in
+Data Organisation, Management and Access
 (Section \ref{data-organisation-management-and-access}),
 R\&D is also necessary to understand their usability and their role in
 the HEP infrastructures. There is also the continual challenge of
@@ -2307,11 +2310,11 @@ for mainly historical reasons, a number of different implementations;
 some of these are shared between experiments. The Gaudi framework~\cite{Barrand:2001ny} was
 originally developed by LHCb, but is also used by ATLAS and various
 non-LHC experiments. CMS uses its own CMSSW framework~\cite{Bayatian:2006nff}, which was forked
-to provide the art framework for the Fermilab Intensity Frontier experiments~\cite{Green:2012gv}. 
+to provide the art framework for the Fermilab Intensity Frontier experiments~\cite{Green:2012gv}.
 Belle II uses basf2~\cite{1742-6596-331-3-032024}. The linear collider community developed and uses
 Marlin~\cite{Gaede:2006pj}. The FAIR experiments use FairROOT, closely related to ALICE's
 AliROOT. The FAIR experiments and ALICE are now developing a new
-framework, which is called O2~\cite{O2}. At the time of writing, most 
+framework, which is called O2~\cite{O2}. At the time of writing, most
 major frameworks support basic parallelisation, both within and across
 events, based on a task-based model~\cite{Jones:2015soc}\cite{Clemencic:2015paa}.
 
@@ -2460,7 +2463,7 @@ the conditions data storage infrastructure. Shortcomings in the initial
 approach used in LHC Run 1 and Run 2, leading to complex
 implementations, helped to identify the key requirements for an
 efficient and sustainable condition data handling infrastructure. There
-is now a consensus among experiments on these requirements~\cite{Laycock2017}: 
+is now a consensus among experiments on these requirements~\cite{Laycock2017}:
 ATLAS and CMS are working on a common next-generation
 conditions database~\cite{1742-6596-898-4-042047}.
 The Belle II experiment, which is about to start its data taking, has already
@@ -2799,7 +2802,7 @@ implementation of the code and do not have to spend a lot of time on
 technical issues. Clear procedures and policies must exist to perform
 administrative tasks in an easy and quick way. This starts with the
 setup of the development environment. Supporting different platforms not
-only allows developers to use their machines directly for 
+only allows developers to use their machines directly for
 development, it also provides a check of code portability. Clear
 guidance and support for good design must be available in advance of
 actual coding.
@@ -2811,7 +2814,7 @@ are usually well documented. For source control HEP has generally chosen
 to move to \emph{git}~\cite{git},
 which is very welcome, as it also brings an
 alignment with many open source projects and commercial organisations.
-Likewise, \emph{CMake}~\cite{CMake} 
+Likewise, \emph{CMake}~\cite{CMake}
 is widely used for the builds of software
 packages, both within HEP and outside. Packaging many build products
 together into a software stack is an area that still requires close
@@ -2828,7 +2831,7 @@ of the code at low human cost. Further validation on different platforms
 and at large scales must be as automated as possible, including the
 deployment of build artefacts for production.
 
-Training (Section \ref{training-and-careers}) and documentation 
+Training (Section \ref{training-and-careers}) and documentation
 are key to efficient use
 of developer effort. Documentation must cover best practices and
 conventions as well as technical issues. For documentation that has to
@@ -2998,7 +3001,7 @@ collaborations. Engagement of external communities, such as machine
 learning specialists, can be enhanced by providing the capability to
 process and understand low-level HEP data in portable and relatively
 platform-independent way, as happened with the Kaggle ML
-challenges~\cite{pmlr-v42-cowa14}. 
+challenges~\cite{pmlr-v42-cowa14}.
 This allows external users direct access to the same tools
 and data as the experimentalists working in the collaborations.
 Connections with industrial partners, such as those fostered by CERN
@@ -3016,7 +3019,7 @@ These would range from capture tools, that preserve the details of an
 analysis and its requirements, to ensuring that software and services
 needed for a workflow would continue to function as required.
 
-The above-mentioned steps can be considered to be consistent with the
+The above-mentioned steps are consistent with the
 FAIR data principles that are increasingly being mandated by funding
 agencies~\cite{FAIRdata}.
 
@@ -3043,7 +3046,7 @@ available additional material that allows reuse and reinterpretations of
 the data in the context of new theoretical models~\cite{ATL-CB-PUB-2015-001}.
 ATLAS is  exploring how
 to provide the capability for reinterpretation of searches in the future
-via a service such as 
+via a service such as
 RECAST~\cite{Cranmer:1299950}, in which the original internal analysis
 code (including full detector simulation and reconstruction) is
 preserved, as opposed to the re-coding approach with object-efficiency
@@ -3279,7 +3282,7 @@ security representatives at multiple e-infrastructures of interest to
 the HEP community.
 
 The evolution of Authentication and Authorisation is being evaluated in
-the recently created WLCG Working Group on Authorisation. 
+the recently created WLCG Working Group on Authorisation.
 In parallel, HEP is contributing to a wider effort
 to document requirements for multiple Research Communities through the
 work of FIM4R~\cite{FIM4R}. CERN's participation in the European
@@ -3305,7 +3308,7 @@ activities. The list below summarises the most important actions:
 
 \paragraph{Trust and Policies}
 \begin{itemize}
-\item 
+\item
 By 2020:
 \begin{itemize}
     \item
@@ -3353,7 +3356,7 @@ By 2022:
   respective home organisation, to ensure adequate integration of HEP
   security teams and site security teams.
 \end{itemize}
-\item 
+\item
 By 2025:
 \begin{itemize}
 \item
@@ -3457,13 +3460,13 @@ knowledge of the scientific and technical details, who prepare training
 material despite the many calls on their time. Training thus needs
 proper recognition to ensure that it happens and is carried out well.
 
-HEP is seen as an interesting, innovative, and challenging field. 
+HEP is seen as an interesting, innovative, and challenging field.
 This is a great advantage in attracting talented young people looking
 for experience in a challenging and diverse environment in which
 they can acquire skills that will be valuable, even in other fields.
 As discussed in Software Development (Section
 \ref{software-development-deployment-validation-and-verification}),
-using industry standard tools across different experiments, 
+using industry standard tools across different experiments,
 and training people in how to use them properly,
 helps with people's later career prospects
 and makes our field even more attractive.
@@ -3481,7 +3484,7 @@ To increase training activities in the community, whilst taking into
 account the constraints of both the attendees and the trainers, we should
 explore new approaches to training. The current ``school''
 model is well established, as exemplified by three well-known successful
-schools, the CERN School of Computing~\cite{CSC}, 
+schools, the CERN School of Computing~\cite{CSC},
 the Bertinoro School of Computing~\cite{ESC2017}
 and the GridKa School of Computing~\cite{GridKASchool}.
 They require a significant amount of
@@ -3491,16 +3494,16 @@ of students. In view of this, we should identify opportunities to work
 with HEP experiments and other training projects to provide accessible
 core skills training to the community by basing them at laboratories
 where students can easily travel. A number of highly successful
-experiment-specific examples exist, such as the LHCb StarterKit~\cite{LHCbStarterkit} 
+experiment-specific examples exist, such as the LHCb StarterKit~\cite{LHCbStarterkit}
 and ALICE Juniors~\cite{ALICEJuniors}, as well as
-established generic training initiatives, such as 
+established generic training initiatives, such as
 Software Carpentry~\cite{SoftwareCarpentry}. As with hands-on tutorials organised during
 conferences and workshops, the resulting networking is an important and
 distinctive benefit of these events, where people build relationships
 with other colleagues and experts.
 
 In recent years, several R\&D projects, such as DIANA-HEP~\cite{DIANA-HEP} and
-AMVA4\-New\-Physics~\cite{AMVA4NewPhysics}, have had training as one 
+AMVA4\-New\-Physics~\cite{AMVA4NewPhysics}, have had training as one
 of their core activities. This
 has provided an incentive to organise training events and has resulted
 in the spread of expertise on advanced topics. We believe that training
@@ -3602,9 +3605,9 @@ physicists are also vital for our success.
 
 We know that in any future scenario development effort will be
 constrained, so it is vital that successful R\&D projects provide
-sustainable software for the future. In many areas it is recognised 
-that different experiments could have adopted common solutions, 
-reducing overall development effort and increasing robustness and 
+sustainable software for the future. In many areas it is recognised
+that different experiments could have adopted common solutions,
+reducing overall development effort and increasing robustness and
 functionality. That model of duplicated development is not sustainable. We must
 endeavour to achieve better coherence within HEP for future developments
 to build advanced, open-source projects that can be shared and supported
@@ -3685,4 +3688,3 @@ we believe that the HSF, as a community effort, must be strongly
 supported as part of our roadmap to success.
 
 \onecolumn
-
