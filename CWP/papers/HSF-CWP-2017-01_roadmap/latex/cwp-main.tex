@@ -81,7 +81,7 @@ given in Figure~\ref{fig:fnal-if}.
 \vspace*{0.3cm}
     \centering
     \includegraphics[width=0.94\textwidth]{10yr-PLAN-9Feb-2017-V7a.pdf}
-    \caption{Run schedule for the Fermilab facility until 2026.}
+    \caption{Run schedule for the Fermilab facility until 2026~\cite{fnal-schedule}.}
     \label{fig:fnal-if}
 \end{figure*}
 
@@ -228,7 +228,7 @@ data management software to manage its share of WLCG resources.
 
 In order to process the data, the 4 largest LHC experiments have written
 tens of millions of lines of program code over the last 15 years
-\cite{1742-6596-898-7-072013,Elmer2014}. This
+\cite{1742-6596-898-7-072013,Elmer2014,OHAliRoot,OHAliPhysics}. This
 has involved contributions from thousands of physicists and many
 computing professionals, encompassing a wide range of skills and
 abilities. The majority of this code was written for a single
@@ -350,7 +350,8 @@ power remains a major issue. Low power architectures are in huge demand.
 At one level this might challenge the dominance of x86\_64 by simply
 replacing it with, for example, AArch64 devices that may achieve lower power
 costs for the scale of HEP computing needs than Intel has achieved with its
-Xeon architecture~\cite{1742-6596-608-1-012001}. More extreme is an architecture that would see
+Xeon architecture~\cite{1742-6596-608-1-012001,1742-6596-513-5-052014,2014arXiv1404.6929A}.
+More extreme is an architecture that would see
 specialised processing units dedicated to particular tasks, but with
 possibly large parts of the device switched off most of the time,
 so-called dark silicon~\cite{martin2014,IntelCSA}.
@@ -1353,7 +1354,7 @@ a high priority by the HEP community.
 
 An important new development in the analysis domain has been the
 emergence of new analysis tools coming from industry and open-source
-projects (e.g. Jupyter notebooks~\cite{http://jupyter.org/}, the scikit-learn package~\cite{scikit-learn}), and this presents new opportunities for improving the HEP
+projects (e.g. Jupyter notebooks~\cite{Jupyter}, the scikit-learn package~\cite{scikit-learn}), and this presents new opportunities for improving the HEP
 analysis software ecosystem. The HEP community is very interested in
 using these software tools, together with established components, in an
 interchangeable way. The main challenge will be to enable new
@@ -1375,7 +1376,7 @@ evolution of relationships between all the different components of an
 analysis, i.e. the provenance of each step.
 
 Reproducibility of scientific results goes in hand with the need to preserve both the data and the software.
-Section~\ref{data-and-software-preservation}} develops this latter topic where the FAIR principles of data management are embraced.
+Section~\ref{data-and-software-preservation} develops this latter topic where the FAIR principles of data management are embraced.
 
 Robust methods for data reinterpretation are also critical.
 Collaborations typically interpret results in the context of specific
