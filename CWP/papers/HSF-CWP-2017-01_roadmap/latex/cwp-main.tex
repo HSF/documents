@@ -227,7 +227,8 @@ the WLCG~\cite{WLCG}. Each experiment has developed its own workflow management 
 data management software to manage its share of WLCG resources.
 
 In order to process the data, the 4 largest LHC experiments have written
-more than 20 million lines of program code over the last 15 years. This
+tens of millions of lines of program code over the last 15 years
+\cite{1742-6596-898-7-072013,Elmer2014}. This
 has involved contributions from thousands of physicists and many
 computing professionals, encompassing a wide range of skills and
 abilities. The majority of this code was written for a single
@@ -349,10 +350,10 @@ power remains a major issue. Low power architectures are in huge demand.
 At one level this might challenge the dominance of x86\_64 by simply
 replacing it with, for example, AArch64 devices that may achieve lower power
 costs for the scale of HEP computing needs than Intel has achieved with its
-Xeon architecture. More extreme is an architecture that would see
+Xeon architecture~\cite{1742-6596-608-1-012001}. More extreme is an architecture that would see
 specialised processing units dedicated to particular tasks, but with
 possibly large parts of the device switched off most of the time,
-so-called dark silicon~\cite{IntelCSA}.
+so-called dark silicon~\cite{martin2014,IntelCSA}.
 
 Limitations in affordable storage also pose a major challenge, as does
 the I/O rates of higher capacity hard disks. Network
@@ -416,7 +417,8 @@ research problems that are of academic interest to that community and
 provide practical solutions to ours. The efficient processing of massive
 data volumes is also a challenge faced by industry, in particular the
 internet economy, which developed novel and major new technologies under
-the banner of \emph{Big Data} that may be applicable to our use cases.
+the banner of \emph{Big Data} that may be applicable to our use cases
+\cite{47224,Shanahan:2015:LSD:2783258.2789993,Armbrust:2015:SSR:2723372.2742797}.
 
 Establishing a programme of investment in software for the HEP
 community, with a view to ensuring effective and sustainable software
@@ -688,10 +690,13 @@ and software performance goals are to be achieved are:
 
 \begin{itemize}
 \item
-  Reviewing the physics models' assumptions, approximations, and
-  limitations in order to achieve higher precision, and to extend the
-  validity of models up to energies of the order of 100 TeV foreseen
-  with the Future Circular Collider (FCC) project~\cite{FCC}.
+  Review the implementations of physics models, including the
+  assumptions, approximations, and
+  limitations. In the best cases this can achieve higher precision and
+  improve runtime performance through code modernisation\cite{Novak2018}.
+  The extension of the validity of models up to energies of 100 TeV is foreseen
+  for the Future Circular Collider (FCC) project~\cite{FCC} and provides
+  a good opportunity for this modernisation.
 \item
   Redesigning, developing, and commissioning detector simulation
   toolkits to be more efficient when executed on current vector CPUs and
@@ -715,10 +720,6 @@ and software performance goals are to be achieved are:
 \item
   Revisiting digitisation algorithms to improve performance and
   exploring opportunities for code sharing among experiments.
-\item
-  Recruiting, training, retaining human resources in all areas of
-  expertise pertaining to the simulation domain, including software and
-  physics.
 \end{itemize}
 
 It is obviously of critical importance that the whole community of
@@ -1104,7 +1105,7 @@ triggers continue to evolve so that they are able to efficiently exploit
 future computing architectures, and deal with the increase in data rates
 without loss of physics. Projections into future, e.g., at HL-LHC conditions,
 show that without significant changes in approach or algorithms
-the increase in resources needed would be incompatible with the
+the increase in resources needed would be incompatible with
 the expected budget.
 
 At the HL-LHC, the central challenge for object reconstruction is to
@@ -1129,7 +1130,7 @@ increased by an order of magnitude over the current capability, up to 1
 MHz~\cite{CERN-LHCC-2015-020,CMSCollaboration:2015zni}. In LHCb~\cite{CERN-LHCC-2014-016}
 and ALICE~\cite{Buncic:2011297}, the full collision
 rate (between 30 to 40 MHz for typical LHC proton-proton operations)
-will be streamed to real-time or quasi-real-time software trigger
+will be streamed to real-time or near-real-time software trigger
 systems. The increase in event complexity also brings a ``problem'' of
 an overabundance of signals to the experiments, and specifically to the
 software trigger algorithms. The evolution towards a genuine real-time
@@ -1594,7 +1595,8 @@ deploy experiment-specific ML-based algorithms in their software stacks.
 It should provide training to those developing new ML-based algorithms,
 as well as those planning to use established ML tools.
 
-With the advent of more powerful hardware and more performant ML
+With the advent of more powerful hardware, particularly GPUs and ML dedicated
+processors, as well as more performant ML
 algorithms, the ML toolset will be used to develop application software
 that could potentially, amongst other things:
 
@@ -1672,7 +1674,7 @@ collaborations in the ML field.
 \subsubsection*{Research and Development Roadmap and Goals}
 
 The R\&D roadmap presented here is based on the preliminary work done in
-recent years, coordinated by the HSF IML, which will remain the main
+recent years, coordinated by the IML, which will remain the main
 forum to coordinate work in ML in HEP and ensure the proper links
 with the data science communities. The following programme of work is
 foreseen.
@@ -2111,7 +2113,7 @@ suitable network infrastructure for delivering this data to where it
 will be processed. While CPU and disk capacity is expected to increase
 by respectively 15\% and 25\% per year for the same cost~\cite{CERN-COST-EST}, the trends of
 research network capacity increases show a much steeper growth, such as
-two orders of magnitude from now to HL-LHC times. Therefore, the
+two orders of magnitude from now to HL-LHC times~\cite{Roberts:17}. Therefore, the
 evolution of the computing models would need to be more network centric.
 
 In the network domain, there are new technology developments, such as
@@ -2211,7 +2213,7 @@ advanced prototypes during LHC Run 3.
   Understand better the relationship between the performance and costs
   of the WLCG system, and how it delivers the necessary functionality to
   support LHC physics. This will be an ongoing process, started by the
-  recently formed System Performance and Cost Modeling Working Group,
+  recently formed System Performance and Cost Modeling Working Group~\cite{SPCMWG},
   and aims to provide a quantitative assessment for any proposed
   changes.
 \item
@@ -2223,7 +2225,7 @@ advanced prototypes during LHC Run 3.
   distributed implementations, including the ability to flexibly respond
   to model changes in the balance between disk and tape. This work
   should be done in conjunction with the existing Data Organisation,
-  Management and Access Working Group to evaluate the impact of the
+  Management and Access Working Group~\cite{WLCG-DOMA} to evaluate the impact of the
   different access patterns and data organisations envisaged.
 \item
   Building upon the experience of projects currently exploring SDN
@@ -2260,7 +2262,7 @@ advanced prototypes during LHC Run 3.
   analysis facility that would offer a different model for physics
   analysis, but would also need to be integrated into the data and
   workload management of the experiments. This is work to be done in
-  collaboration with the Data Analysis and Interpretation Working Group.
+  collaboration with groups working on new data analysis models.
 \end{itemize}
 
 
@@ -2708,7 +2710,7 @@ get a final design of those tools so that the experiments can depend on
 them in their future developments.
 
 The working group will also work towards a more convenient access to geometry and
-event data, through a client-server interface. In collaboration with the
+event data, through a client-server interface~\cite{1742-6596-898-7-072015}. In collaboration with the
 Data Access and Management Working Group, an API or a service to deliver streamed
 event data would be designed.
 
@@ -2719,10 +2721,12 @@ community-driven tools, to be used by the experiments for their
 visualisation needs in production, potentially taking advantage of new
 data access services.
 
-The workshop that was held as part of the CWP process was felt to be
+The workshops that were held as part of the CWP process
+(\emph{HSF Visualization Workshop}, see Appendix \ref{appendix-a---list-of-workshops})
+were felt to be
 extremely useful for exchanging knowledge between developers in
 different experiments, fostering collaboration and in bringing in ideas
-from outside the community. This will now be held as an annual event and
+from outside the community. These will now be held as an annual events and
 will facilitate work on the common R\&D plan.
 
 \hypertarget{software-development-deployment-validation-and-verification}{%
@@ -2814,6 +2818,11 @@ are usually well documented. For source control HEP has generally chosen
 to move to \emph{git}~\cite{git},
 which is very welcome, as it also brings an
 alignment with many open source projects and commercial organisations.
+A major benefit that has come with this technical choice is the use
+of social coding sites, such as \emph{GitHub}~\cite{GitHub}
+and \emph{GitLab}~\cite{GitLab}, where
+code sharing and code review are far superior compared to previous
+solutions.
 Likewise, \emph{CMake}~\cite{CMake}
 is widely used for the builds of software
 packages, both within HEP and outside. Packaging many build products
@@ -2878,7 +2887,8 @@ as demonstrator projects where clear metrics for success in a reasonable
 time should be established to avoid wasting community effort on
 initially promising products that fail to live up to expectations.
 
-Ongoing activities and short-term projects, include the following:
+Ongoing activities and short-term projects, to complete by 2020,
+include the following:
 
 \begin{itemize}
 \item
@@ -2921,7 +2931,7 @@ Ongoing activities and short-term projects, include the following:
   records (such as DOIs obtained via Zenodo~\cite{Zenodo}).
 \end{itemize}
 
-Medium term projects include the following:
+Longer term projects, to conclude by 2022, include the following:
 
 \begin{itemize}
 \item
@@ -3138,6 +3148,11 @@ There are three key areas:
   identity federation, access control.
 \end{itemize}
 
+The evolution in the security domain requires the HEP community to work in
+collaboration with the various national security organisations and
+policy groups, building on many relationships that are already
+established.
+
 \paragraph{Trust and Policies}
 
 Data Protection defines the boundaries that enable HEP work to be
@@ -3304,7 +3319,8 @@ made to address security in the domains highlighted above. The
 individual groups, in particular those mentioned above, working in the
 areas of trust and policies, operational security, authentication and
 authorisation, and technology evolutions, are driving the R\&D
-activities. The list below summarises the most important actions:
+activities. These groups are generally much broader than just the HEP
+community. The list below summarises the most important actions:
 
 \paragraph{Trust and Policies}
 \begin{itemize}
@@ -3419,8 +3435,8 @@ the following specific objectives in its mission:
 \item
   To increase the visibility of the value of software developers in HEP,
   recognising that it has scientific research value on an equal footing
-  with other activities, and acknowledging and promoting specific
-  ``champions'' in the field.
+  with other activities, and acknowledging and advocating for researchers
+  who choose this as their speciality.
 \end{itemize}
 
 \subsection{Training Challenges}
@@ -3436,10 +3452,9 @@ paradigms. Specific solutions and optimisations must be implemented by
 the HEP community itself, since many advanced requirements are unique to
 our field.
 
-Unlike the situation that is traditional in some other fields, in
-which users express their requirements and computer specialists
-implement solutions, there is a close collaboration, even overlap,
-in HEP between users and developers that is essential for our success.
+There is a very close collaboration, even overlap,
+in HEP between users of software and developers. This has given experiments
+an agility that was often essential for success in the past.
 Many details of experiment data
 cannot be known before data taking has started, and each change in
 detector technology or machine performance improvement can have
@@ -3605,7 +3620,10 @@ physicists are also vital for our success.
 
 We know that in any future scenario development effort will be
 constrained, so it is vital that successful R\&D projects provide
-sustainable software for the future. In many areas it is recognised
+sustainable software for the future. It is important to emphasise that the goal
+is to support the HEP physics programme in a cost effective manner, so the
+deployment consequences of a particular technology choice or direction must be
+understood with partners in distributed computing. In many areas it is recognised
 that different experiments could have adopted common solutions,
 reducing overall development effort and increasing robustness and
 functionality. That model of duplicated development is not sustainable. We must
