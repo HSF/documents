@@ -407,7 +407,7 @@ physicists who specialise in software development. This is an important
 issue that is treated in more detail later in the report.
 
 Particle physics is no longer alone in facing these massive data
-challenges. Experiments in other fields, from astronomy~\cite{10.1371/journal.pbio.1002195} 
+challenges. Experiments in other fields, from astronomy~\cite{10.1371/journal.pbio.1002195}
 to genomics~\cite{ijms18020412},
 will produce huge amounts of data in the future, and will need to
 overcome the same challenges that we face, i.e., massive data handling and
@@ -695,7 +695,7 @@ and software performance goals are to be achieved are:
   Review the implementations of physics models, including the
   assumptions, approximations, and
   limitations. In the best cases this can achieve higher precision and
-  improve runtime performance through code modernisation\cite{Novak2018}.
+  improve runtime performance through code modernisation~\cite{Novak2018}.
   The extension of the validity of models up to energies of 100 TeV is foreseen
   for the Future Circular Collider (FCC) project~\cite{FCC} and provides
   a good opportunity for this modernisation.
@@ -1309,7 +1309,7 @@ signatures.
   toolkits and algorithms focused on their physics and technical
   performance at high event complexity, e.g., high pileup at HL-LHC.
   Most important targets are those which limit expected throughput
-  performance at future facilities, most significantly 
+  performance at future facilities, most significantly
   charged-particle tracking. A
   number of efforts in this area are already in progress~\cite{recocwp}.
 \end{itemize}
@@ -1341,7 +1341,7 @@ data taken by the experiments, while retaining this essential ``time to
 insight'' optimisation.
 
 Over the past 20 years the HEP community has developed and gravitated
-around a single analysis ecosystem based on ROOT. 
+around a single analysis ecosystem based on ROOT.
 
 ROOT is a general-purpose object
 oriented framework that addresses the selection, integration,
@@ -1359,7 +1359,7 @@ a high priority by the HEP community.
 
 An important new development in the analysis domain has been the
 emergence of new analysis tools coming from industry and open-source
-projects (e.g. Jupyter notebooks~\cite{Jupyter}, the scikit-learn package~\cite{scikit-learn}), and this presents new opportunities for improving the HEP
+projects (e.g. Jupyter notebooks~\cite{Jupyter}, the scikit-learn package~\cite{Pedregosa:2011:SML:1953048.2078195}), and this presents new opportunities for improving the HEP
 analysis software ecosystem. The HEP community is very interested in
 using these software tools, together with established components, in an
 interchangeable way. The main challenge will be to enable new
@@ -1457,12 +1457,11 @@ class supported language.
 One new model of data analysis, developed outside of HEP, maintains the
 concept of sequential reduction, but mixes interactivity with
 batch processing. These exploit new cluster management systems, most
-
 notably Apache Spark~\cite{Spark,Armbrust:2015:SSR:2723372.2742797}, which uses open-source tools contributed both by
 industry and the data-science community. Other products implementing the
 same analysis concepts and workflows are emerging, such as TensorFlow~\cite{tensorflow2015-whitepaper},
-Dask~\cite{rocklin2015dask,dask_ref}, Pachyderm~\cite{thepachydermteam}, 
-Blaze~\cite{wiebe2014blaze}, Parsl~\cite{babuji_yadu_2017_853492}, 
+Dask~\cite{rocklin2015dask,dask_ref}, Pachyderm~\cite{thepachydermteam},
+Blaze~\cite{wiebe2014blaze}, Parsl~\cite{babuji_yadu_2017_853492},
 and Thrill~\cite{bingmann2016thrill}. This approach can complement
 the present and widely adopted Grid processing of datasets. It may
 
@@ -1648,7 +1647,7 @@ The use of ML in HEP analyses has become commonplace over the past two
 decades, and the most common use case has been in signal/background
 classification. The vast majority of HEP analyses published in recent
 years have used the HEP-specific software package TMVA~\cite{TMVA} included in ROOT. Recently, however, many HEP analysts have begun
-migrating to non-HEP ML packages such as scikit-learn~\cite{scikit-learn}
+migrating to non-HEP ML packages such as scikit-learn~\cite{Pedregosa:2011:SML:1953048.2078195}
 and Keras~\cite{Keras}, although these efforts have yet to result
 in physics publications from major collaborations. Data scientists at
 Yandex created a Python package that provides a consistent API to most
@@ -1760,7 +1759,7 @@ By 2022:
 \item
   \emph{Simulation:} recent progress in high fidelity fast generative models,
   such as Generative Adversarial Networks (GANs)~\cite{NIPS2014_5423} and Variational
-  Autoencoders (VAEs)~\cite{2013arXiv1312.6114K}, 
+  Autoencoders (VAEs)~\cite{2013arXiv1312.6114K},
   which are able to sample high dimensional feature
   distributions by learning from existing data samples, offer a
   promising alternative for Fast Simulation. A simplified first attempt at
@@ -2677,7 +2676,7 @@ easier support for mobile or virtual reality devices), but at some cost
 of not supporting the most complex visualisations requiring heavy
 interaction with the experiments' data.
 
-In recent years, video game engines, such as Unity~\cite{unity} or 
+In recent years, video game engines, such as Unity~\cite{unity} or
 the Unreal Engine~\cite{Sanders:2016:IUE:3099885},
 have become particularly popular in the game and architectural
 visualisation industry. They provide very sophisticated graphics engines
