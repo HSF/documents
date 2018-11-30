@@ -47,8 +47,8 @@ Data Organization, Management and Access (DOMA)}
 \section{Introduction}\label{introduction}
 
 The coming decade will bring HEP to the exabyte scale with the expected data
-volumes of the HL-LHC experiments, the DUNE experiment, and even non-HEP
-experiments such as the Square Kilometre Array (SKA) entering this
+volumes of the HL-LHC~\cite{HL-LHC,1742-6596-515-1-012012,Apollinari:2284929} experiments, the DUNE~\cite{Acciarri:2015uup} experiment, and even non-HEP
+experiments such as the Square Kilometre Array (SKA)~\cite{SKA} entering this
 regime. In devising computing models for this era, many
 factors have to be taken into account. In particular, the increasing
 availability of very high-speed networks may reduce the need for
@@ -120,7 +120,7 @@ management and access.
 
 \begin{itemize}
 \item \textbf{Data Organization:} This is essentially how data is structured
-  as it is written. Most data is written in the ROOT file format. ROOT serializes data objects, compresses, and writes them in a column-wise manner. The data written in this way can only be meaningfully read by a software that includes data object libraries.
+  as it is written. Most data is written in the ROOT~\cite{Brun1996} file format. ROOT serializes data objects, compresses, and writes them in a column-wise manner. The data written in this way can only be meaningfully read by a software that includes data object libraries.
 \item \textbf{Data Management:} The key challenge here was the transition to
   the use of distributed computing in the form of the grid. To tackle this, the
   experiments developed dedicated data catalog,  transfer and placement systems. To first
@@ -136,7 +136,7 @@ management and access.
 Before the LHC turn-on and in the first years of data taking, these three
 areas were, to first order, optimized independently. Many of the
 challenges were in the area of ``Data Management'' (DM) as the Worldwide
-LHC Computing Grid was commissioned. As the LHC experiments' computing matured
+LHC Computing Grid~\cite{WLCG} was commissioned. As the LHC experiments' computing matured
 through Run1 and Run2, interest has turned to optimizations spanning
 these three areas. For example, the recent use of ``Data Federations''
 must consider together both Data Management and Access. As we will see below, some of the
@@ -282,7 +282,7 @@ systems}\label{object-and-cloud-storage-systems}
 
 Decisions on granularity and structure have the potential of broadening
 the scope of technologies that can be used to store the data; for
-example, exploiting object stores (such as AWS S3 or Ceph) as event stores. Such an approach
+example, exploiting object stores (such as AWS S3 or Ceph~\cite{Weil:2006:CSH:1298455.1298485}) as event stores. Such an approach
 would support parallel reading and writing of events as
 event objects from applications. This could allow applications to better
 scale to large numbers of CPU cores whereas in current models application
