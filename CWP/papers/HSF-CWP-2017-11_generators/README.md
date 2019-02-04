@@ -9,6 +9,6 @@ which is the date of the last modification on Overleaf.
 
 The generator CWP chapter has not been published in arXiv.
 
-The name of the directory is HSF-CWP-2017-11_generators,
+The name of this directory is HSF-CWP-2017-11_generators,
 to be consistent with the numbering scheme defined in
 [/CWP/papers/HSF-CWP-2017-01_roadmap/latex/cwp-chapters.bib](/CWP/papers/HSF-CWP-2017-01_roadmap/latex/cwp-chapters.bib).
