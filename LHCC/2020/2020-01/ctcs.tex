@@ -1,24 +1,26 @@
-% This is the styling for submission to arXiv using JHEP Preprint Style
-
 % Copyright (C) 2020, the authors, licence CC-BY-4.0.
 
 % JHEP preprint template
 \documentclass[10pt,a4paper]{article}
 \usepackage{jheppub}
-\notoc
+%\notoc
+
+\usepackage[utf8]{inputenc}
 
 \usepackage{graphicx}
 \usepackage{subcaption}
-%\usepackage[titletoc]{appendix}
+\usepackage[titletoc]{appendix}
 \usepackage{xspace}
 
 % Stop lists from using so much space
 \usepackage{enumitem}
 \setlist{noitemsep}
 
-\usepackage[utf8]{inputenc}
+% References
+\usepackage[style=numeric-comp,sorting=none]{biblatex}
+\addbibresource{ctcs.bib}
 
-%% Comment out before final submission
+%% Comment out before final submission %%
 \usepackage{lineno}  % for line numbering during review
 \linenumbers
 
@@ -46,7 +48,7 @@
 Common and community software packages, such as ROOT, Geant4 and event
 generators have been a key part of the LHC's success so far and
 continued development and optimisation will be critical in the future
-\textbackslash cite\{HSF-EPPSU-Document, EPPSU-Briefingbook\}. The
+\cite{stewart_graeme_a_2018_2413005, Ellis:2691414}. The
 challenges are driven by an ambitious physics programme, notably the LHC
 accelerator upgrade to high-luminosity, HL-LHC, and the corresponding
 detector upgrades of ATLAS and CMS. The General Purpose Detectors
@@ -69,14 +71,14 @@ resources. Current CMOS microprocessor technology is clock speed limited
 per-integrated circuit still keeps rising, Moore's Law is expected to
 stall during the 2020s. More importantly, the effective runtime related
 improvements in computing from CPU servers at sites is likely to be only
-in the 5-10\% per year range, making the shortfall in processing
-resources more severe. As manufacturers struggle to deliver ever-more
-effective computing through CPUs the drive to different architectures
-intensifies, with GPUs becoming commonplace and increasing interest in
-even more specialised architectures, such as TPUs, IPUs and developments
-that make FPGA devices more user friendly. These pose huge challenges
-for our community as the programming models and APIs vary widely here
-and possible lock-in to a particular vendor's devices is a significant
+about 10\% per year, making the shortfall in processing resources more
+severe. As manufacturers struggle to deliver ever-more effective
+computing through CPUs the drive to different architectures intensifies,
+with GPUs becoming commonplace and increasing interest in even more
+specialised architectures, such as TPUs, IPUs and developments that make
+FPGA devices more user friendly. These pose huge challenges for our
+community as the programming models and APIs vary widely here and
+possible lock-in to a particular vendor's devices is a significant
 problem for code sustainability and preservation. Huge work has been
 done already to adapt to this changing landscape, e.g. multi-threading
 software and GPU codes have been used in production by some experiments
@@ -256,13 +258,13 @@ modules and overall data/control flow.
 
 - {Career challenges}. Those working in the development, optimization or
 execution of generator software provide essential contributions to the
-success of the HL-LHC physics programme and it is critical that they get
-the right recognition and motivation. However, theorists get recognition
-on published papers, and may not be motivated to work on software
-optimisations that are not "theoretical" enough to advance their
-careers. Generator support tasks in the experiments may also not be
-enough to secure jobs/funding to experimentalists pursuing a career in
-research.
+success of the (HL-)LHC physics programme and it is critical that they
+get the right recognition and motivation. However, theorists get
+recognition on published papers, and may not be motivated to work on
+software optimisations that are not "theoretical" enough to advance
+their careers. Generator support tasks in the experiments may also not
+be enough to secure jobs/funding to experimentalists pursuing a career
+in research.
 
 - {Mismatch in usage patterns and optimisation focus}. The way
 generators are built and used by their authors is often different from
@@ -278,9 +280,8 @@ generated per unit time on a given node.
 - {Programming languages}: Attracting collaborators with a computer
 science background to work on generators, especially students, may also
 be complicated by the fact that critical components of some generator
-packages are written in Fortran. In some cases, alternative
-implementations of these components in other languages exist, but their
-speed is significantly lower than the optimized Fortran version. Some of
+packages are written in Fortran, which is rarely used in industry and
+less popular among developers than other programming languages. Some of
 the generators also do not use industry standard version control
 systems, making it harder to contribute code.
 
@@ -314,9 +315,9 @@ Gao20, Kli18{]}.
 - {Merging inefficiency}. Merging prescriptions (e.g. MLM {[}Man02{]},
 CKKW-L {[}Lon05{]} at LO and FxFx {[}Fre12{]}, MEPS@NLO {[}Hoe14{]} at
 NLO) imply the rejection of some events, to avoid double counting
-between events produced with n\textsubscript{jets}+1 MEs and with
-n\textsubscript{jets} MEs plus parton showers. The resulting
-inefficiencies can be relatively low depending on the process, but they
+between events produced with n\textsubscript{jets}+1 matrix elements and
+with n\textsubscript{jets} MEs plus parton showers. The resulting
+inefficiencies can be relatively high depending on the process, but they
 are unavoidable in the algorithmic strategy used by the underlying
 physics modeling {[}Alw08{]}. However, a method like shower-kt MLM can
 reduce the merging inefficiency of MLM {[}Alw09{]}.
@@ -353,18 +354,19 @@ samples must be generated and passed through the experiment simulation,
 reconstruction and analysis codes, increasing the compute and storage
 requirements. For a fraction r of negative weight events, the number of
 events to generate increases by a factor 1/(1-2r)\^{}2: for instance,
-with r=25\% (which may be regarded as a worst-case scenario in ttbar
-production {[}Fre20{]}), one needs to generate 4 times as many events.
-Negative weights can instead be almost completely avoided, by design, in
-another popular matching prescription, POWHEG, which however is only
-available for a limited number of processes and describes the relevant
-physics to a different degree of precision than MC@NLO (see {[}Fre20{]}
-for a more in-depth discussion). Progress in this area can only be
-achieved by theorists: for instance, a new approach for MC@NLO-type
-matching with reduced negative weights has recently been proposed
-{[}Fre20{]}. It should be noted that negative weights can also happen at
-LO because of not-positive-definite parton density function sets and
-interference terms, e.g. in effective field theory calculations.
+with r=25\% (which may be regarded as a worst-case scenario in top quark
+pair production {[}Fre20{]}), one needs to generate 4 times as many
+events. Negative weights can instead be almost completely avoided, by
+design, in another popular matching prescription, POWHEG, which however
+is only available for a limited number of processes and describes the
+relevant physics to a different degree of precision than MC@NLO (see
+{[}Fre20{]} for a more in-depth discussion). Progress in this area can
+only be achieved by theorists: for instance, a new approach for
+MC@NLO-type matching with reduced negative weights has recently been
+proposed {[}Fre20{]}. It should be noted that negative weights can also
+happen at LO because of not-positive-definite parton density function
+sets and interference terms, e.g. in effective field theory
+calculations.
 
 2. While progress has been made to better understand which areas of
 generator software have the highest computational cost, more detailed
@@ -471,19 +473,146 @@ NNLO would not be an acceptable cheaper alternative to address the
 experimental needs.
 
 3. {Size of unweighted event samples required for experimental analysis
-at HL-LHC}. Another question is in which regions of phase space the
-number of unweighted events must be strictly proportional to the
-luminosity. For example, in the low pT regions of W boson production it
-is probably impossible to keep up with the data, due to the huge cross
-section. Alternative techniques should be investigated, to avoid the
-generation of huge event samples.
+at HL-LHC}. Another question, unrelated to NNLO, is in which regions of
+phase space the number of unweighted events must be strictly
+proportional to the luminosity. For example, in the low pT regions of W
+boson production it is probably impossible to keep up with the data, due
+to the huge cross section. Alternative techniques should be
+investigated, to avoid the generation of huge event samples.
 
-\hypertarget{summary---generator-community-current-priorities}{%
-\subsection{Summary - generator community current
-priorities}\label{summary---generator-community-current-priorities}}
+\subsection{Generator References}\label{references}
 
-{[}Text moved to final summary{]}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TO BE CONVERTED TO BibTeX, but left here for "working" %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+{[}Alb19{]} J. Albrecht et al. ``A Roadmap for HEP Software and
+Computing R\&D for the 2020s'' Comput Softw Big Sci (2019) 3, 7,
+\href{https://doi.org/10.1007/s41781-018-0018-8}{{doi:10.1007/s41781-018-0018-8}},
+\href{https://arxiv.org/abs/1712.06982}{{arXiv:1712.06982}}
+
+{[}Alw08{]} J. Alwall et al. ``Comparative study of various algorithms
+for the merging of parton showers and matrix elements in hadronic
+collisions'', Eur. Phys. J. C 53 (2008) 53,
+\href{https://doi.org/10.1140/epjc/s10052-007-0490-5}{{doi:10.1140/epjc/s10052-007-0490-5}}
+
+{[}Alw09{]} J. Alwall, S. de Visscher, F. Maltoni, ``QCD radiation in
+the production of heavy colored particles at the LHC'', JHEP 0902 (2009)
+017,
+\href{https://doi.org/10.1088/1126-6708/2009/02/017}{{doi:10.1088/1126-6708/2009/02/017}}
+
+{[}Alw14{]} J. Alwall et al. ``The automated computation of tree-level
+and next-to-leading order differential cross sections, and their
+matching to parton shower simulations'', JHEP 07 (2014) 079,
+\href{https://doi.org/10.1007/JHEP07(2014)079}{{doi:10.1007/JHEP07(2014)079}}
+
+{[}Bau13{]} C. Bauer et al., "Computing for perturbative QCD - a
+Snowmass White Paper",
+\href{https://arxiv.org/abs/1309.3598}{{arxiv:1309.3598}}
+
+{[}Ben17{]} J. Bendavid, ``Efficient Monte Carlo Integration Using
+Boosted Decision Trees and Generative Deep Neural Networks'',
+\href{https://arxiv.org/abs/1707.00028}{{arXiv:1707.00028}}
+
+{[}Bot19{]} E. Bothmann et al., ``Event generation with Sherpa 2.2'',
+\href{https://scipost.org/SciPostPhys.7.3.034}{{SciPost Phys. 7 (2019)
+034}}
+
+{[}Bot20{]} E. Bothmann et al. ``Exploring phase space with Neural
+Importance Sampling'',
+\href{https://arxiv.org/abs/2001.05478}{{arXiv:2001.05478}}
+
+{[}Chi17{]} J. T. Childers et al., "Adapting the serial Alpgen
+parton-interaction generator to simulate LHC collisions on millions of
+parallel threads", Comp. Phys. Comm. 210 (2017) 5154.
+\href{https://doi.org/10.1016/j.cpc.2016.09.0135286}{{https://doi.org/10.1016/j.cpc.2016.09.0135286}}.
+
+{[}Fre12{]} R. Frederix, S. Frixione, "Merging meets matching in
+MC@NLO", JHEP 2012 (2012) 61.
+\href{https://doi.org/10.1007/JHEP12(2012)061}{{doi:10.1007/JHEP12(2012)061}}
+
+{[}Fre20{]} R. Frederix, S. Frixione, S. Prestel. P. Torrielli, ``On the
+reduction of negative weights in MC@NLO-type matching procedures'',
+\href{https://arxiv.org/abs/2002.12716}{{arXiv:2002.12716}}
+
+{[}Fri17{]} S. Frixione, P. Nason, C. Oleari, "Matching NLO QCD
+computations with parton shower simulations: the POWHEG method", JHEP11
+(2007) 070,
+\href{https://doi.org/10.1088/1126-6708/2007/11/070}{{doi:10.1088/1126-6708/2007/11/070}}
+
+{[}Gao20{]} C. Gao. et al. ``Event Generation with Normalizing Flows'',
+\href{https://arxiv.org/abs/2001.10028}{{arXiv:2001.10028}}
+
+{[}Gen18{]} HSF Physics Event Generator Computing Workshop, CERN,
+November 2018,
+\href{https://indico.cern.ch/event/751693}{{https://indico.cern.ch/event/751693}}
+
+{[}Gen19{]} HSF Physics Generators Working Group,
+\href{https://hepsoftwarefoundation.org/workinggroups/generators.html}{{https://hepsoftwarefoundation.org/workinggroups/generators.html}}
+
+{[}Gen20{]} HSF Physics Generators Working Group, "Challenges in Monte
+Carlo event generator software for High-Luminosity LHC", in preparation
+(2020).
+
+{[}Gle08{]} T. Gleisberg, S. Hoeche, "Comix, a new matrix element
+generator", JHEP 12 (2008) 039.
+\href{https://doi.org/10.1088/1126-6708/2008/12/039}{{doi:10.1088/1126-6708/2008/12/039}}
+
+{[}Hoe14{]} S. Hoeche, F. Krauss, M. Schoenherr, "Uncertainties in
+MEPS@NLO calculations of h+jets", Phys. Rev. D 90 (2014) 014012.
+\href{https://doi.org/10.1103/PhysRevD.90.014012}{{doi:10.1103/PhysRevD.90.014012}}
+
+{[}Hoe19{]} S. Hoeche, S. Prestel, H. Schulz, "Simulation of vector
+boson plus many final jets at the high luminosity LHC", Phys. Rev. D
+100, 0140124 (2019).
+\href{http://dx.doi.org/10.1103/PhysRevD.100.014024}{{doi:10.1103/PhysRevD.100.014024}}
+
+{[}Jad03{]} S. Jadach, Foam: a general-purpose cellular Monte Carlo
+event generator, Comp. Phys. Comm. 152 (2003) 55.
+\href{https://doi.org/10.1016/S0010-4655(02)00755-5}{{doi:10.1016/S0010-4655(02)00755-5}}
+
+{[}Kaw86{]} S.Kawabata, A new Monte Carlo event generator for high
+energy physics, Comp. Phys. Comm. 41 (1986) 127.
+\href{https://doi.org/10.1016/0010-4655(86)90025-1}{{doi:10.1016/0010-4655(86)90025-1}}
+
+{[}Kli18{]} M.D. Klimek, M. Perelstein, ``Neural Network-Based Approach
+to Phase Space Integration'',
+\href{https://arxiv.org/abs/1810.11509}{{arXiv:1810.11509}}
+
+{[}Kon20{]} D. Konstantinov, "Optimization of Pythia8", EP-SFT group
+meeting, CERN, January 2020,
+\href{https://indico.cern.ch/event/890670}{{https://indico.cern.ch/event/890670}}
+
+{[}Lep80{]} G. P. Lepage, "VEGAS: an adaptive multi-dimensional
+integration program", Cornell report CLNS-447 (1980).
+\href{https://cds.cern.ch/record/123074}{{https://cds.cern.ch/record/123074}}
+
+{[}Lon05{]} L. Lonnblad, "Correcting the colour-dipole cascade model
+with fixed order matrix elements", JHEP 05 (2002) 046.
+\href{https://doi.org/10.1088/1126-6708/2002/05/046}{{doi:10.1088/1126-6708/2002/05/046}}
+
+{[}Mal03{]} F. Maltoni, T. Stelzer, "MadEvent: automatic event
+generation with MadGraph", JHEP 02 (2003) 027.
+\href{https://doi.org/10.1088/1126-6708/2003/02/027}{{doi:10.1088/1126-6708/2003/02/027}}
+
+{[}Man02{]} M. L. Mangano, M. Moretti, R. Pittau, "Multijet matrix
+elements and shower evolution in hadronic collisions: Wbb + n-jets as a
+case study", Nucl. Phys. B 632 (2002) 343.
+\href{https://doi.org/10.1016/S0550-3213(02)00249-3}{{doi:10.1016/S0550-3213(02)00249-3}}
+
+{[}Mat16{]} O. Mattelaer, "On the maximal use of Monte Carlo samples:
+re-weighting events at NLO accuracy", \emph{Eur. Phys. J. C}
+76\textbf{,} 674 (2016),
+\href{https://doi.org/10.1140/epjc/s10052-016-4533-7}{{doi:10.1140/epjc/s10052-016-4533-7}}
+
+{[}Mat18{]} O. Mattelaer, "MG5aMC status and plans", in {[}Gen19{]}
+
+{[}Nas07{]} P. Nason, MINT: a Computer Program for Adaptive Monte Carlo
+Integration and Generation of Unweighted Distributions Bicocca-FT-07-13
+(2007). \href{https://arxiv.org/abs/0709.2085}{{arxiv:0709.2085}}
+
+{[}SKe18{]} L. Sexton-Kennedy, G. Stewart, "CWP challenges and workshop
+aims", in {[}Gen19{]}
 
 \hypertarget{detector-simulation}{%
 \section{Detector Simulation}\label{detector-simulation}}
@@ -569,27 +698,27 @@ geometrical description of the detectors. The toolkit design principles
 were to allow flexibility in future extensions of its own code, as well
 as choices for particular applications. It is clear that this
 flexibility comes at the price of a performance penalty. We observe that
-writing more compact and more specialised code can lead to several
-percent speed-up {[}GeantV RD{]}. The technical improvements to explore
-here consist of avoiding too many virtual layers and improving the
-instruction and data locality, leading to better cache use. Going even
-further as far as specialisation is concerned, studies suggest that
-implementing compact, self-contained transport libraries with a minimal
-set of physics models (for instance only electromagnetic interaction for
-selected particles) with predefined scoring (to simulate, for instance,
-the response of an EM calorimeter) can also bring speed-ups to the
-complete application {[}GeantV RD{]}. As far as architectural
-modifications are concerned, the design of the Geant4 track-status
-machinery prevents the introduction of fine-grained track parallelism.
-It is still not clear whether this kind of parallelism can bring any
-substantial speed-up, due to the overheads; however, making the Geant4
-kernel and physics processes stateless would certainly provide the
-necessary starting points for further R\&D in that direction. Most of
-these investigations have started and it is hoped to see some first
-results on a year time-scale. More effort, however, will be required to
-integrate any eventual changes in the production code in a timely
-manner. The GeantV Vector prototype has allowed the assessment of the
-achievable speedup using a novel, vectorized approach to particle
+writing more compact and more specialised code can lead in certain
+places to up to several tens percent speed-up {[}GeantV RD{]}. The
+technical improvements to explore here consist of avoiding too many
+virtual layers and improving the instruction and data locality, leading
+to better cache use. Going even further as far as specialisation is
+concerned, studies suggest that implementing compact, self-contained
+transport libraries with a minimal set of physics models (for instance
+only electromagnetic interaction for selected particles) with predefined
+scoring (to simulate, for instance, the response of an EM calorimeter)
+can also bring speed-ups to the complete application {[}GeantV RD{]}. As
+far as architectural modifications are concerned, the design of the
+Geant4 track-status machinery prevents the introduction of fine-grained
+track parallelism. It is still not clear whether this kind of
+parallelism can bring any substantial speed-up, due to the overheads;
+however, making the Geant4 kernel and physics processes stateless would
+certainly provide the necessary starting points for further R\&D in that
+direction. Most of these investigations have started and it is hoped to
+see some first results on a year time-scale. More effort, however, will
+be required to integrate any eventual changes in the production code in
+a timely manner. The GeantV Vector prototype has allowed the assessment
+of the achievable speedup using a novel, vectorized approach to particle
 transport. The demonstrator of a full electromagnetic shower in
 realistic (CMS) geometry has been implemented and the comparison to a
 similar Geant4 application has been performed. The conclusion of that
@@ -652,31 +781,31 @@ tracking of individual particles through (a part of) the detector,
 including all the physics processes they would undergo, by a
 parameterization where the detector response is produced directly as a
 function of the incoming particle type and energy. An example of such a
-parameterization was implemented several years ago in the context of the
-H1 experiment. This parameterization, available within the Geant4
-toolkit under the name of the GFLASH library, became the starting idea
-for several `custom' implementations, specific for other calorimeters.
-Those were interfaced to experiments' simulation applications through
-the available `hook' in the Geant4 toolkit. The LHC experiments
-implemented, for example, dedicated parametrized response libraries for
-some of their calorimeters. Recently, an effort has been invested in
-Geant4 to generalize the parameterization formulae, and to implement
-automatic procedures of tuning the parameters for specific detector
-geometries. This kind of `classical' fast simulation, which describes
-the particle shower shape using some complex mathematical functions with
-several parameters, will remain an important tool; however, it is also
-clear that their overall precision for the different energy values,
-especially for highly granular and complex calorimeters will always be
-relatively low. The recent developments of Deep Learning-based
-techniques have opened an exciting possibility of replacing those
-`classical' parameterisations by trained neural networks that would
-reproduce the detector response. This approach consists of training
-generative models such as Generative Adversarial Networks (GAN),
-Variational Auto-Encoders (VAE) or Autoregressive Generative Networks on
-the `images' of particle showers {[}ML001{]}. The energy deposition
-values in the calorimeter cells are considered as `pixels' of the images
-that the network is supposed to reproduce. The first studies and
-prototypes have shown very promising results, however, the
+parameterization was implemented many years ago in the context of the H1
+experiment {[}H1Ref{]}. This parameterization, available within the
+Geant4 toolkit under the name of the GFLASH library, became the starting
+idea for several `custom' implementations, specific for other
+calorimeters. Those were interfaced to experiments' simulation
+applications through the available `hook' in the Geant4 toolkit. The LHC
+experiments implemented, for example, dedicated parametrized response
+libraries for some of their calorimeters. Recently, an effort has been
+invested in Geant4 to generalize the parameterization formulae, and to
+implement automatic procedures of tuning the parameters for specific
+detector geometries. This kind of `classical' fast simulation, which
+describes the particle shower shape using some complex mathematical
+functions with several parameters, will remain an important tool;
+however, it is also clear that their overall precision for the different
+energy values, especially for highly granular and complex calorimeters
+will always be relatively low. The recent developments of Deep
+Learning-based techniques have opened an exciting possibility of
+replacing those `classical' parameterisations by trained neural networks
+that would reproduce the detector response. This approach consists of
+training generative models such as Generative Adversarial Networks
+(GAN), Variational Auto-Encoders (VAE) or Autoregressive Generative
+Networks on the `images' of particle showers {[}ML001{]}. The energy
+deposition values in the calorimeter cells are considered as `pixels' of
+the images that the network is supposed to reproduce. The first studies
+and prototypes have shown very promising results, however, the
 generalization of the developed models (for different calorimeters, with
 different particles incident at different angles with different
 energies), still requires further effort. Detailed physics validation of
@@ -701,10 +830,10 @@ established in production of samples when appropriate, with particular
 care paid to ensure keeping under control bias on statistical
 uncertainties {[}LHCb02{]}, its applicability in ATLAS and CMS could be
 explored for specific cases. Similarly, the re-use of simulated or real
-events to mimic the background to hard-scatter events is also under
-investigation, where additional challenges exist concerning storage and
-I/O due to the handling of the large minimum bias samples needed to
-model the additional interactions.
+events to mimic the background to hard-scatter events is also exploited,
+where additional challenges exist concerning storage and I/O due to the
+handling of the large minimum bias samples needed to model the
+additional interactions.
 
 All LHC experiments have explored the use of multi-objective regression
 and generative adversarial networks (GANs) {[}GAN-ATLAS, GAN-CMS,
@@ -864,6 +993,83 @@ emerges that could do so it should be pursued and carefully evaluated in
 terms of gains against the disruption of a complete reimplementation of
 how events are simulated.
 
+\subsection{Simulation References}\label{references-1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TO BE CONVERTED TO BibTeX, but left here for "working" %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{[}CMS01{]} V. Ivanchenko and S. Banerjee on behalf of the CMS
+Collaboration, EPJ Web of Conferences 214, 02012 (2019), The PDF is
+here:
+\url{https://www.epj-conferences.org/articles/epjconf/pdf/2019/19/epjconf_chep2018_02012.pdf}
+
+{[}CMS02{]} M Hildreth et al 2015 J. Phys.: Conf. Ser. 664 072022
+
+{[}CMS03{]} M Hildreth et al 2017 J. Phys.: Conf. Ser. 898 042040
+
+{[}GPU-``MPEXS-DNA{]} S. Okada et al. ``MPEXS-DNA: a new GPU-based Monte
+Carlo simulator for track structures and radiation chemistry at
+subcellular scale,'' Med Phys. vol 46 no. 3, pp. 1483-1500 (2019)
+
+{[}Hybrid-Gate{]} J. Bert et al., "Hybrid GATE: A GPU/CPU implementation
+for imaging and therapy applications," 2012 IEEE Nuclear Science
+Symposium and Medical Imaging Conference Record (NSS/MIC), Anaheim, CA,
+pp. 2247-2250 (2012)
+
+{[}G4CU{]}
+\url{https://kds.kek.jp/indico/event/15926/session/30/contribution/110/material/slides/0.pdf}
+
+{[}Opticks{]} S. Blyth, ``Opticks : GPU Optical Photon Simulation for
+Particle Physics using NVIDIA® OptiXTM,'' EPJ Web Conf., 214, pp. 02027
+(2019) 02027
+
+{[}LHCb01{]} D. Muller, ``Adopting new technologies in the LHCb Gauss
+simulation framework'', EPJ Web of Conferences \textbf{214}, 02004
+(2019); B.Siddi and D. Muller, ``Gaussino a Gaudi-based core simulation
+framework'', CERN-LHCb-PROC-2019-010;
+
+{[}ML001{]} Adversarial Networks (GAN) (3DGAN reference), Variational
+Auto-Encoders (VAE) or Autoregressive Generative Networks on the
+`images' of particle showers
+
+{[}GAN-ATLAS, GAN-CMS, GAN-LHCb{]} Reference to GAN calorimeters for
+ATLAS, CMS and LHCb
+
+{[}LHCb02{]} D. Muller et al. ``ReDecay: A novel approach to speed up
+the simulation at LHCb'' , Eur. Phys. J. C 78 (2018)
+
+{[}GeantV RD{]}
+\href{https://indico.cern.ch/event/818702/}{{https://indico.cern.ch/event/818702/}}
+
+{[}CHEP-Juno{]} S. Blyth, ``Meeting the challenge of JUNO simulation
+with Opticks GPU Optical Photon Accelerator'', presented at CHEP 2019 in
+Adelaide, Australia
+
+{[}SHIFT01{]} Hamilton, S.P., Evans, T.M., 2019. Continuous-energy Monte
+Carlo neutron transport on GPUs in the Shift code. \emph{Annals of
+Nuclear Energy} \textbf{128}, 236--247.
+\url{https://doi.org/10.1016/j.anucene.2019.01.012}
+
+{[}DELPHES{]} de Favereau, J., Delaere, C., Demin, P. \emph{et al.}
+DELPHES 3: a modular framework for fast simulation of a generic collider
+experiment. \emph{J. High Energ. Phys.} 2014, 57 (2014).
+\href{https://doi.org/10.1007/JHEP02(2014)057}{{https://doi.org/10.1007/JHEP02(2014)057}}
+
+{[}PGS4{]} J. Conway, R. Culbertson, R. Demina, B. Kilminster, M. Kruse,
+S. Mrenna, J. Nielsen, M. Roco, A. Pierce, J. Thaler, T. Wizansky,
+``Pretty Good Simulation'',
+\href{http://conway.physics.ucdavis.edu/research/software/pgs/pgs4-general.htm}{{http://conway.physics.ucdavis.edu/research/software/pgs/pgs4-general.htm}}
+
+{[}LAMARR{]} A.Davis, ``Fast simulations in LHCb'', CHEP 2019,
+\href{https://indico.cern.ch/event/773049/contributions/3474742/attachments/1937708/3211775/davis_fast_simulations_at_lhcb_v3.pdf}{{https://indico.cern.ch/event/773049/contributions/3474742/attachments/1937708/3211775/davis\_fast\_simulations\_at\_lhcb\_v3.pdf}}
+
+{[}ALICE01{]} B. Volker, HSF Simulation Working Group meeting,
+\href{https://indico.cern.ch/event/782507/contributions/3293465/}{{https://indico.cern.ch/event/782507/contributions/3293465/}}
+
+{[}H1Ref{]} G. Grindhammer, M. Rudowicz and S. Peters, NIM A290 (1990)
+469-488
+
 \hypertarget{reconstruction-and-software-triggers}{%
 \section{Reconstruction and Software
 Triggers}\label{reconstruction-and-software-triggers}}
@@ -890,13 +1096,7 @@ This section focuses on the challenges identified in the Community White
 Paper {[}1{]} and the development of solutions that. It also includes
 mentions of open source software efforts that have developed within or
 outside LHC collaborations that could be adapted by the LHC community to
-improve trigger and reconstruction algorithms. Nearly all software
-solutions presented in this chapter are tailored to a specific
-experiment, and would require additional work to be adapted to different
-environments. Nevertheless, it is still useful to maintain open
-communication channels to discuss design choices and compare performance
-assessments of different solutions to guide future software and
-reconstruction design choices.
+improve trigger and reconstruction algorithms.
 
 \hypertarget{the-evolution-of-triggers-and-real-time-analysis}{%
 \subsection{\texorpdfstring{The evolution of triggers and real-time
@@ -908,14 +1108,15 @@ to select a wider range of events of interest for the physics program of
 their experiment, and their ability to stream a larger rate of events
 for further processing. The event rates that will be processed by
 experiments at the HL-LHC will increase by up to a factor 10 with
-respect to Run-3, owing to upgraded trigger systems. ATLAS and CMS plan
-to maintain a two-tiered trigger system, where a hardware trigger makes
-use of coarse event information to reduce the event rate to 10x over the
-current capability, up to 1 MHz {[}cite TDR{]}. The high level trigger
-system, implemented in software, selects up to 100 kHz of events to be
-saved in full for subsequent analysis\footnote{LHCb {[}cite TDR{]} and
-  ALICE {[}cite TDR{]} will both stream the full collision rate to
-  real-time or quasi-realtime software trigger systems.}.
+respect to Run-3, owing to upgraded trigger systems and expanded physics
+programs. ATLAS and CMS plan to maintain a two-tiered trigger system,
+where a hardware trigger makes use of coarse event information to reduce
+the event rate to 10x over the current capability, up to 1 MHz {[}cite
+TDR{]}. The high level trigger system, implemented in software, selects
+up to 100 kHz of events to be saved in full for subsequent
+analysis\footnote{LHCb {[}cite TDR{]} and ALICE {[}cite TDR{]} will both
+  stream the full collision rate to real-time or quasi-realtime software
+  trigger systems.}.
 
 Experiments have also been working towards minimizing the differences
 between trigger (online) and offline software for reconstruction and
@@ -928,7 +1129,7 @@ analysing more events than what can be written out in full with
 traditional data processing.
 
 Implementations of real-time analysis systems, where raw data is
-processed in its final form as close as possible to the detector (e.g.
+processed into its final form as close as possible to the detector (e.g.
 in the high-level trigger farm), are in use within several experiments.
 These approaches remove the detector data that typically makes up the
 raw data tier kept for offline reconstruction, and keep only a limited
@@ -941,7 +1142,12 @@ widespread by enabling only the parts of an event associated with the
 signal candidates to be saved, reducing the required disk space. The
 experiments are focusing on the technological developments that make it
 possible to do this with acceptable reduction of the analysis
-sensitivity and with minimal biases.
+sensitivity and with minimal biases. The HSF trigger and reconstruction
+group has been encouraging cross-talk between LHC experiments and beyond
+on real-time analysis, as these kinds of non-standard trigger and
+reconstruction workflows increase the physics output for selected
+physics cases without adding significant overhead to the current
+resources.
 
 Active research topics include compression and custom data formats;
 toolkits for real-time detector calibration and validation which will
@@ -1093,9 +1299,14 @@ computing architectures. Since the CWP, algorithm development projects
 (e.g. {[}cite
 \url{https://lhcbproject.web.cern.ch/lhcbproject/Publications/f/p/LHCb-FIGURE-2019-002.html}
 and mkfit{]}) have demonstrated success in increasing the use of vector
-units. In addition, industry developed software, including machine
-learning toolkits (e.g., tensorflow) typically make excellent use of
-vector units.
+units. In addition, HEP has increasingly benefited from industry
+developed software, including machine learning toolkits (e.g.,
+tensorflow), that typically make excellent use of vector units.
+Challenges remain in this area. For example, full exploitation of this
+must also account for many generations of hardware that experiments must
+exploit on the grid. In addition, to realize full performance gains, a
+large fraction of the application must be improved to use SIMD processor
+capabilities (partly due to turbo-boost capabilities of processors)
 
 \hypertarget{use-of-machine-learning-for-software-trigger-and-reconstruction-algorithms}{%
 \subsubsection{Use of machine learning for software trigger and
@@ -1118,7 +1329,8 @@ especially in persistifying models and running inferences in production
 and \href{https://onnx.ai}{{https://onnx.ai}}}) and in enhancing the
 training capacities of collaborations by submitting jobs to the grid and
 to facilities offering large CPU/GPU resources. One can also foresee
-that HEP will benefit from techniques and cross-talk from industry.
+that HEP will increase the benefit from techniques and cross-talk from
+industry.
 
 \hypertarget{algorithms-and-data-structures-to-efficiently-exploit-many-core-and-non-x86-architectures-e.g.-gpus-fpgas}{%
 \subsubsection{\texorpdfstring{Algorithms and data structures to
@@ -1199,6 +1411,80 @@ software to use heterogeneous computing resources as a service targeting
 next-generation facilities at the energy and intensity frontier (HL-LHC,
 LBNF).
 
+\hypertarget{general-remarks-on-trigger-and-reconstruction-software-sharing}{%
+\subsection{General remarks on trigger and reconstruction software
+sharing}\label{general-remarks-on-trigger-and-reconstruction-software-sharing}}
+
+Nearly all software solutions presented in this chapter are tailored to
+a specific experiment, and would require additional work to be adapted
+to different environments. Nevertheless, it is still useful to maintain
+open communication channels to discuss design choices and compare
+performance assessments of different solutions to guide future software
+and reconstruction design choices.
+
+The use of open-source elements of the LHC software stack for trigger
+and reconstruction by smaller experiments, especially in case of common
+experimental design\footnote{An example of software sharing happens in
+  the case of the FASER experiment, whose offline software
+  (\href{https://gitlab.cern.ch/faser/calypso}{{https://gitlab.cern.ch/faser/calypso}})
+  is based on a derivative of the ATLAS Athena open-source software
+  {[}ref{]}, which in turn uses the Gaudi framework {[}ref{]}. FASER
+  also shares tracking detector components with ATLAS, facilitating the
+  adoption of software relying on similar detector descriptions.}, is
+still worthwhile This benefits experiments with a smaller developer base
+than LHC experiments, and increases the return on investment for LHC
+experiment software. For this reason, we also encourage the addition of
+common open software projects to the ESCAPE software catalogue {[}ref
+ESCAPE{]}.
+
+\subsection{Reconstruction and Software Trigger References}\label{references-rst}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TO BE CONVERTED TO BibTeX, but left here for "working" %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\emph{{[}1{]}
+\href{https://arxiv.org/abs/1802.08640}{{https://arxiv.org/abs/1802.08640}}}
+
+\emph{{[}2{]}
+\href{https://cds.cern.ch/record/2693670}{{https://cds.cern.ch/record/2693670}}}
+
+\emph{{[}3{]}} - Andrea Bocci \emph{at al.}, ``\emph{Heterogeneous
+online reconstruction at CMS}'', presented at CHEP 2019\\
+- Andrea Bocci \emph{at al.}, ``\emph{Heterogeneous reconstruction:
+combining ARM processors with GPUs}'', presented at CHEP 2019
+
+{[}3a{]}
+\href{https://indico.cern.ch/event/773049/contributions/3473268/attachments/1937520/3211376/GPU_Usage_in_ATLAS_Reconstruction_and_Analysis_2019.11.04..pdf}{{https://indico.cern.ch/event/773049/contributions/3473268/attachments/1937520/3211376/GPU\_Usage\_in\_ATLAS\_Reconstruction\_and\_Analysis\_2019.11.04..pdf}}
+
+\emph{{[}4{]}}
+\href{https://arxiv.org/abs/1912.09161}{{https://arxiv.org/abs/1912.09161}}
+
+\emph{{[}5{]}}
+\href{http://dx.doi.org/10.1088/1742-6596/898/4/042011}{{http://dx.doi.org/10.1088/1742-6596/898/4/042011}},
+\href{https://arxiv.org/abs/1910.03128}{{https://arxiv.org/abs/1910.03128}},
+The ACTS project: track reconstruction software for HL-LHC and beyond,
+Proceedings of CHEP2019, in progress
+
+{[}6{]} Xiangyang Ju et al, "Graph Neural Networks for Particle
+Reconstruction in High Energy Physics Detectors"
+\href{https://arxiv.org/abs/2003.11603}{{(arxiv link}})
+(\href{https://github.com/exatrkx/exatrkx-neurips19}{{Software and
+documentation}})
+
+{[}7{]} J. Duarte \emph{et al}, ``Fast inference of deep neural networks
+in FPGAs for particle physics'', \emph{JINST} \textbf{13} P07027, 2018,
+doi:
+\href{https://iopscience.iop.org/article/10.1088/1748-0221/13/07/P07027/meta}{{10.1088/1748-0221/13/07/P07027}}\\
+S. Summers \emph{et al}, ``Fast inference of Boosted Decision Trees in
+FPGAs for particle physics'', 2020, {[}Online{]} available:
+\href{https://arxiv.org/abs/2002.02534}{{arXiv:2002.02534}}\\
+G. Gi Guglielmo \emph{et al}, ``Compressing deep neural networks on
+FPGAs to binary and ternary precision with HLS4ML'', 2020, {[}Online{]}
+available: \href{https://arxiv.org/abs/2003.06308}{{arXiv:2003.06308}}
+
+{[}8{]} SONIC:
+\href{https://arxiv.org/abs/1904.08986}{{https://arxiv.org/abs/1904.08986}}
 
 \hypertarget{data-analysis}{%
 \section{Data Analysis}\label{data-analysis}}
@@ -1225,7 +1511,7 @@ share of disk resources, filling approximately 80\% of the total data
 volume for both ATLAS and CMS {[}1,2{]}. To serve precision analyses
 that require large event statistics, the HL-LHC will increase the
 recorded event rate by an order of magnitude, compared with a projected
-5-10\% annual growth of storage resources. The large pile-up in HL-LHC
+\textasciitilde 10\% annual growth of storage resources. The large pile-up in HL-LHC
 collisions will compound the storage challenge by inflating the data
 size per event. Reducing the storage footprint of data analysis is
 therefore of paramount importance.
@@ -1405,35 +1691,32 @@ HL-LHC.
 A first branch of new technologies is that of efficient data analysis
 processing in the last steps of the analysis, i.e. when event data needs
 to be selected, derived and aggregated into histograms. Several
-platforms developed by industry or data science have emerged in the past
+platforms developed by industry or data science have emerged in recent
 years to quickly aggregate large datasets with parallel execution
 (either on clusters of computers or simply on multi-core servers). Many
 of those tools have been tested to understand the feasibility of usage
-in the HEP context.
+in the HEP context providing fresh ideas and new paradigms that have
+stimulated development within the HEP toolkit.
 
 In particular, the Python ecosystem, implementing many such solutions
 (e.g. numpy, pandas dataframes), is emerging as a possible alternative
 to HEP's traditional C++ environment. This is thanks largely to a
 combination of its versatility as a language, allowing rapid
 proto-typing, and the ability to out-source compute-intensive work to
-more performant languages like C and C++. In fact this is similar to the
+more performant languages like C and C++. This is similar to the
 experimental software frameworks where Python is used as steering code
-and C/C++ is used as an efficient backend implementation for the Python
-modules. The typical Belle II analysis starts with Python using a custom
-DSL to specify particle selections and algorithms implemented in C++ and
-output ntuple content. The ntuple is typically analysed by the PyHEP
-toolkit {[}6{]}, and also benefits from leveraging packages from the
-wider data science community. Deeper integration with python tools is
-also particularly important for enabling state-of-the-art machine
-learning frameworks such as PyTorch and TensorFlow, whose relevance in
-analysis is likely to grow in the long term. It is important to provide
-enough usable functionality in the optimised layer to avoid the use of
-slow loops in Python, which would cripple performance. Tools like
-PyROOT, which allows the use of any C++ class from Python, can play an
-instrumental role in enlarging the whole analysis ecosystem with an
-effortless integration of Python and C++ components, in particular
-consolidating HEP specific tools written in C++ with industry python big
-data functionality.
+and C/C++ is used as an efficient backend implementation. The typical
+Belle II analysis starts with Python using a custom DSL to specify
+particle selections and algorithms implemented in C++ and define output
+ntuples. The ntuples are typically analysed by the PyHEP toolkit
+{[}6{]}, and packages from the wider data science community. Deeper
+integration with external python tools is also particularly important
+for enabling state-of-the-art machine learning frameworks such as
+PyTorch and TensorFlow, whose relevance in analysis is likely to grow in
+the long term. Meanwhile PyROOT, which allows the use of any C++ class
+from Python, has the potential to provide a coherent analysis ecosystem
+with an effortless integration of HEP specific tools written in C++ with
+industry python big data toolkits.
 
 The ROOT package, i.e. the foundation and workhorse for LHC analysis,
 has been the focus of substantial development. On the data storage
@@ -1447,18 +1730,21 @@ significant storage space (10-20\%) for the HL-LHC. Another area of
 progress, and potential consolidation in ROOT I/O, is lossy compression,
 where the number of significant bits for a quantity may be far fewer
 than a standard storage type's mantissa, enabling further savings in
-storage space. The event processing framework was extended with
-DataFrame-like functionality (RDataFrame) implementing a declarative
-approach to analysis processing in either Python or C++ (always executed
-in C++), which natively exploits multi-core architectures {[}7{]} and
-could be extended to accelerators. Used from Python, it allows to
-pre-process data in C++, and export to numpy. Flexibility in interfacing
-RDataFrame to non-ROOT data formats has allowed the ALICE collaboration
-to prototype its Run 3 analysis model on this new technology. Growing
-use of Machine Learning was also anticipated, and the TMVA toolkit has
-been improved with substantial optimisations, more complex deep learning
-models and enhanced interoperability with common data science tools
-{[}14,15{]} which is of particular importance for inference.
+storage space.
+
+Inspired by data science tools, the event processing framework was
+extended with DataFrame-like functionality (RDataFrame) implementing a
+declarative approach to analysis processing in either Python or C++
+(always executed in C++), which natively exploits multi-core
+architectures {[}7{]} and could be extended to accelerators. Used from
+Python, it allows to pre-process data in C++, and export to numpy.
+Flexibility in interfacing RDataFrame to non-ROOT data formats has
+allowed the ALICE collaboration to prototype its Run 3 analysis model on
+this new technology. Growing use of Machine Learning was also
+anticipated, and the TMVA toolkit has been improved with substantial
+optimisations, more complex deep learning models and enhanced
+interoperability with common data science tools {[}14,15{]} which is of
+particular importance for inference.
 
 A complementary approach provided in Python is the toolchain of uproot,
 awkward arrays and coffea {[}8{]} for efficient columnar operations and
@@ -1491,7 +1777,7 @@ of tools running on ever more heterogeneous hardware becomes more and
 more difficult. In addition, analysis code is typically reimplemented by
 tens of individuals, in different experiments, analysis teams or
 institutes mostly performing the same kind of operations, i.e. data
-reduction, plotting, variation of systematic uncertainty, fitting etc.
+reduction, plotting, variation of systematic uncertainty, fitting, etc.
 It is clear that tools and frameworks for performing these repeated
 operations need to provide very efficient interfaces to avoid analysis
 code bloat. Declarative rather than imperative programming is becoming
@@ -1560,12 +1846,118 @@ will make database-like interfaces seem less scary than they once were
 and may finally allow a more complete integration with analysis code. I
 have a dream.
 
+One final comment in reviewing recent developments is worth noting.
+Exposure of the HEP community to industry-standard data science tools
+has undoubtedly been a force for good and a net gain for the community,
+providing fresh ideas and new ways of working - RDataFrame is an
+excellent example. It is clear that the larger and better-supported data
+science community will continue to innovate and produce tools that HEP
+will benefit from, both by using directly and by borrowing their ideas
+for our own tools. Taking machine learning as an example, it is
+extremely likely that industry will blaze a trail that HEP would do well
+to follow and we should continue to build bridges to those tools.
+Equally though, HEP will continue to have its own unique challenges and
+it's less likely that ultra-performant machine learning inference will
+be top of the data scientists wishlist. Given the challenges presented
+by extreme-throughput analysis at the HL-LHC, the right balance must be
+found between software development within the community and relying on
+external toolkits.
+
 Finally, attention must be given to ensuring the longevity of any
 projects that the HEP community decides to adopt en masse. Whether by
 specific institutes, funding schemes or other collective programmes,
 responsibility for key software will need to be ensured in the long
 term. The development of a secure support base will therefore need to be
 considered for emerging projects that show significant promise.
+
+\subsection{Analysis References}\label{references-2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TO BE CONVERTED TO BibTeX, but left here for "working" %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{[}1{]} *ATLAS Collaboration, \emph{Evolution of the ATLAS analysis
+model for Run-3 and prospects for HL-LHC}, ATL-SOFT-PROC-2020-002,
+\href{https://cds.cern.ch/record/2708664/}{{https://cds.cern.ch/record/2708664/}}
+
+{[}2{]} CMS Collaboration, HL-LHC resource projections,
+\href{https://twiki.cern.ch/twiki/bin/view/CMSPublic/CMSOfflineComputingResults}{{https://twiki.cern.ch/twiki/bin/view/CMSPublic/CMSOfflineComputingResults}}
+
+{[}3{]} *ALICE Collaboration, \emph{The ALICE analysis train system},
+J.Phys.Conf.Ser. 608 (2015) no.1, 012019,
+\href{http://arxiv.org/abs/arXiv:1502.06381}{{http://arxiv.org/abs/arXiv:1502.06381}}
+
+{[}4{]} *ATLAS Collaboration, \emph{A new petabyte-scale data derivation
+framework for ATLAS. Journal of Physics: Conference Series}, 664.
+072007.
+
+{[}5{]} *CMS Collaboration, \emph{A further reduction in CMS event data
+for analysis: the NANOAOD format}, EPJ Web of Conferences. 214. 06021.
+
+{[}6{]}
+\href{https://github.com/hsf-training/PyHEP-resources}{{https://github.com/hsf-training/PyHEP-resources}}
+
+{[}7{]} D Piparo et al, \emph{RDataFrame: Easy Parallel ROOT Analysis at
+100 Threads}, EPJ Web of Conferences 214, 06029 (2019),
+\href{https://www.epj-conferences.org/articles/epjconf/abs/2019/19/epjconf_chep2018_06029/epjconf_chep2018_06029.html}{{https://www.epj-conferences.org/articles/epjconf/abs/2019/19/epjconf\_chep2018\_06029/epjconf\_chep2018\_06029.html}}
+
+{[}8{]}
+\href{https://github.com/scikit-hep/uproot}{{https://github.com/scikit-hep/uproot}},
+\href{https://github.com/scikit-hep/awkward-array}{{https://github.com/scikit-hep/awkward-array}},
+\href{https://github.com/CoffeaTeam}{{https://github.com/CoffeaTeam}},
+\href{https://github.com/diana-hep/pyhf}{{https://github.com/diana-hep/pyhf}}
+
+{[}9{]} J Blomer et al, \emph{Evolution of the ROOT Tree I/O},
+\href{https://arxiv.org/abs/2003.07669}{{https://arxiv.org/abs/2003.07669}}
+
+{[}10{]} ADL Workshop at Fermilab,
+\href{https://indico.cern.ch/event/769263/timetable/?view=standard}{{https://indico.cern.ch/event/769263/}},
+Gordon's CHEP talk (good overview of links, is there something more
+official?)
+\href{https://indico.cern.ch/event/773049/contributions/3476174/attachments/1938123/3220511/Declarative.pdf}{{https://indico.cern.ch/event/773049/contributions/3476174/attachments/1938123/3220511/Declarative.pdf}}
+
+{[}11{]}
+\href{https://github.com/iris-hep/adl-benchmarks-index}{{https://github.com/iris-hep/adl-benchmarks-index}}
+
+{[}12{]} L Heinrich \& R Rocha, \emph{Reperforming a Nobel Prize
+discovery on Kubernetes}, talk at CHEP 2019,
+\href{https://indico.cern.ch/event/773049/contributions/3581373}{{https://indico.cern.ch/event/773049/contributions/3581373}}
+(originally at KubeCon)
+
+{[}13{]} *ALICE Collaboration, \emph{The ALICE analysis framework for
+LHC Run 3}, EPJ Web Conf. 214 (2019) 05045
+\href{http://cds.cern.ch/record/2699856}{{http://cds.cern.ch/record/2699856}}
+
+{[}14{]} \href{http://paperpile.com/b/2mqsuS/IDej}{L Moneta et al,
+\emph{Machine Learning with ROOT/TMVA}, EPJ Web of Conferences;
+Proceedings of CHEP 2019 (in print). 2020.}
+
+{[}15{]} \href{http://paperpile.com/b/2mqsuS/6uIv}{K Albertsson et al,
+\emph{Fast Inference for Machine Learning in ROOT/TMVA}, EPJ Web of
+Conferences; Proceedings of CHEP 2019 (in print). 2020.}
+
+{[}16{]} J Blomer, \emph{A quantitative review of data formats for HEP
+analyses}, Journal of Physics: Conference Series. 2018. p. 032020.
+
+{[}17{]} HEP Software Foundation Collaboration, \emph{HEP Software
+Foundation Community White Paper Working Group - Data Analysis and
+Interpretation},
+\href{https://arxiv.org/abs/1804.03983}{{arXiv:1804.03983}}
+
+{[}18{]} M Rieger et al, \emph{Design and Execution of make-like,
+distributed Analyses based on Spotify's Pipelining Package Luigi},
+\href{https://arxiv.org/abs/1706.00955}{{arXiv:1706.00955}}
+
+{[}19{]} T Kuhr et al, \emph{The Belle II Core Software},
+\href{https://docs.belle2.org/record/1044}{{BELLE2-PUB-TE-2018-002}}
+
+{[}20{]} Swan homepage:
+\href{https://swan.web.cern.ch/}{{https://swan.web.cern.ch/}}
+
+{[}21{]} Reana homepage:
+\href{http://reanahub.io/}{{http://reanahub.io/}}
+
+Proceedings marked `*' will be credited to the shorter author lists
 
 \hypertarget{summary}{%
 \section{Summary}\label{summary}}
@@ -1629,15 +2021,23 @@ for Run 4 of the LHC.
   \end{quote}
 \item
   \begin{quote}
-  Develop generic fast simulation models and techniques, including
+  Develop further fast simulation models and techniques, including
   machine learning based options in addition to optimised parametric
-  approaches.
+  approaches as well as common frameworks for their tuning and
+  validation.
   \end{quote}
 \item
   \begin{quote}
   Develop GPU codes for tackling very specific, time consuming, parts of
   the simulation for HEP. Specifically calorimetry, including geometry,
   field and electro-magnetic physics processes.
+  \end{quote}
+\item
+  \begin{quote}
+  Develop integration prototypes to exercise and benchmark the
+  simultaneous use of GPU specific libraries with CPU-based software
+  (e.g. Geant4) to cover all particles and processes required in
+  experiments simulation frameworks.
   \end{quote}
 \end{enumerate}
 
@@ -1649,27 +2049,21 @@ Triggers}\label{reconstruction-and-software-triggers-1}}
 \def\labelenumi{\arabic{enumi}.}
 \item
   \begin{quote}
-  Support uniformity between online and offline software wherever
-  possible, so the experiments can benefit from consistent event
-  selection between trigger and final analysis.
-  \end{quote}
-\item
-  \begin{quote}
-  Continue encouraging cross-talk between LHC experiments (as well as
-  with other disciplines) on use cases for real-time analysis, as it
-  enables ATLAS and CMS to increase the physics output for selected
-  physics cases without adding significant overhead to the current
-  resources.
-  \end{quote}
-\item
-  \begin{quote}
-  Develop fast and performant tracking solutions (including timing
+  Develop fast and performant reconstruction software, making optimal
+  use of hardware resources. A particularly crucial development for
+  HL-LHC is that of pattern recognition solutions (including timing
   information, if available) that can withstand the increase of pile-up
-  at HL-LHC.
+  at HL-LHC. Wherever possible, solutions should be uniform for online
+  and offline software, so the experiments can benefit from consistent
+  event selection between trigger and final analysis and from more
+  effective real-time analysis results.
   \end{quote}
 \item
   \begin{quote}
-  Vectorisation (is this bundled with vectorisation?)
+  Develop solutions that can exploit accelerators (FPGA, GPU) for
+  trigger and reconstruction, including general-purpose interoperability
+  libraries with a focus to generalizing and mitigating their
+  dependencies on architecture-specific codes.
   \end{quote}
 \item
   \begin{quote}
@@ -1682,30 +2076,6 @@ Triggers}\label{reconstruction-and-software-triggers-1}}
   Support efforts towards the implementation of machine learning models
   in experimental framework (C++) to enable more widespread use in
   trigger and reconstruction software.
-  \end{quote}
-\item
-  \begin{quote}
-  Develop solutions that can exploit accelerators and HPCs for trigger
-  and reconstruction, with a focus to mitigating their dependencies on
-  architecture-specific codes.
-  \end{quote}
-\item
-  \begin{quote}
-  Encourage the use of open-source elements of the LHC software stack
-  for trigger and reconstruction by smaller experiments, especially in
-  case of common experimental design\footnote{An example of software
-    sharing happens in the case of the FASER experiment, whose offline
-    software
-    (\href{https://gitlab.cern.ch/faser/calypso}{{https://gitlab.cern.ch/faser/calypso}})
-    is based on a derivative of the ATLAS Athena open-source software
-    {[}ref{]}, which in turn uses the Gaudi framework {[}ref{]}. FASER
-    also shares tracking detector components with ATLAS, facilitating
-    the adoption of software relying on similar detector descriptions.}.
-  This benefits experiments with a smaller developer base than LHC
-  experiments, and increases the return on investment for LHC experiment
-  software. For this reason, we also encourage the addition of common
-  open software projects to the ESCAPE software catalogue {[}ref
-  ESCAPE{]}.
   \end{quote}
 \end{enumerate}
 
@@ -1759,5 +2129,11 @@ area, this is an obvious area in which expertise should be developed.
 The stakeholders in HEP must be able to give their priorities and
 feedback on R\&D areas. Each project has mechanisms for doing this,
 while the HSF can help to provide overall input on prioritisation.
+
+
+\sloppy
+\raggedright
+\clearpage
+\printbibliography[title={References},heading=bibintoc]
 
 \end{document}
