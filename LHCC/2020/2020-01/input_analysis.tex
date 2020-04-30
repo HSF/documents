@@ -6,15 +6,15 @@
 \subsection{Key Analysis Computing Challenges at the
 HL-LHC}\label{key-analysis-computing-challenges-at-the-hl-lhc}}
 
-Examination of collision data is in essence the primary objective of the
-experimental collaborations, coming at the end of the data
-preparation/simulation and reconstruction chain. The stage of analysis,
+Examination of collision data is, in essence, the primary objective of the
+experiment collaborations, coming at the end of the data
+preparation, simulation and reconstruction chain. The stage of analysis,
 starting in most cases from a standard data format generically referred
 to as ``Analysis Object Data'' (AOD) containing reconstructed physics
 object data, and producing physics results as the end product, poses
 unique computing challenges. The scope of analysis data processing is
 broad, encompassing the production of derived data formats as well as
-end stage analysis actions such as producing histograms from those
+end stage analysis actions, such as producing histograms from those
 intermediate datasets and visualising the final results. In the
 following, attention is focused on the computing challenges related to
 analysis for the ATLAS and CMS experiments.
@@ -22,9 +22,9 @@ analysis for the ATLAS and CMS experiments.
 Today, ROOT format AOD files and derived datasets take up the lion's
 share of disk resources, filling approximately 80\% of the total data
 volume for both ATLAS and CMS \cite{Ref1,Ref2}. To serve precision analyses
-that require large event statistics, the HL-LHC will increase the
+that require large event statistics experiments will increase the
 recorded event rate by an order of magnitude, compared with a projected
-\textasciitilde 10\% annual growth of storage resources. The large pile-up in HL-LHC
+\textasciitilde10\% annual growth of storage resources. The large pile-up in HL-LHC
 collisions will compound the storage challenge by inflating the data
 size per event. Reducing the storage footprint of data analysis is
 therefore of paramount importance.
@@ -91,8 +91,8 @@ centralised execution, amortising data staging costs and sharing some
 common processing steps \cite{Ref3}. Standardised event contents are instead
 common reductions that satisfy the needs of the bulk of analyses,
 avoiding duplication of commonly selected events in multiple datasets.
-Neither of these approaches provides exhaustive coverage of analysis use
-cases on the experiments and alternative data formats are needed for a
+Neither of these approaches provides exhaustive coverage of all the analysis use
+cases for the experiments and alternative data formats are needed for the
 small but significant (10-20\%) fraction of analyses requiring custom
 reconstruction that may be CPU-intensive. These exceptions to the rule
 are expected to remain at the HL-LHC.
@@ -105,7 +105,7 @@ comparison, a reduced DAOD\_PHYSLITE format (10 kB/event) made from the AOD woul
 result in 0.5 PB/year for data and 2 PB/year for MC. Production of this
 reduced format using a Data Carousel model \cite{Ref1} allows the much
 larger AOD to reside on tape, providing significant savings in disk
-storage. Experience on CMS shows that further reduction (down to
+storage. Experience from CMS shows that further reduction (down to
 \textasciitilde2 kB/event for the nano-AOD) could be possible while
 still supporting a majority of physics analyses \cite{Ref5}. File size
 reductions also permit multiple copies to be held on disk for more
@@ -115,7 +115,7 @@ pipeline if analysis computing resources are to be kept under control.
 Nevertheless, analysis trains or any similar means of synchronising data
 access could be applied to this highly reduced format. It is worth
 noting the LHCb analysis model already in Run 3 has to forego the luxury
-of reprocessing Raw data. This constraint from sheer event rate is not
+of reprocessing raw data. This constraint from sheer event rate is not
 without merit as it greatly simplifies the data processing and analysis
 models and removes one tier of offline data products.
 
@@ -135,10 +135,10 @@ of performance.
 Access to metadata, defined as cross-event information, is clearly a
 weak point in the handling of the multiple analysis datasets originating
 from the LHC. Metadata may include information such as book-keeping of
-processed events, detector conditions and data quality, \emph{a
-posteriori} measured scale factors, and software versioning. This
+processed events, detector conditions and data quality, a
+posteriori measured scale factors, and software versioning. This
 information is often scattered in multiple locations such as:
-``in-file'' data, remote database resources, shared-area text or ROOT files,
+in-file metadata, remote database resources, shared-area text or ROOT files,
 TWiki pages or even in e-mail. The lack of proper metadata integration
 and a coherent interface leaves analyses exposed to any problems in data
 processing. This in turn results in data completeness demands that
@@ -168,7 +168,7 @@ are based on a snapshot of the full analysis setup that can ensure the
 possibility to re-run the code on the original dataset in a few years.
 This may allow a future analyser to reproduce previous results, but will
 likely not provide any understanding, for the future analyser, about
-what the analysis was effectively doing. Another use case is to re-use
+what the analysis was effectively doing. Another use case is to reuse
 the analysis code on new data, be that the same dataset with improved
 calibrations or additional data that will improve the precision of the
 measurement. This brings significant additional challenges, not least
@@ -223,23 +223,23 @@ Belle II analysis starts with Python using a custom DSL to specify
 particle selections and algorithms implemented in C++ and define output
 ntuples. The ntuples are typically analysed by the PyHEP toolkit
 \cite{Ref6}, and packages from the wider data science community. Deeper
-integration with external python tools is also particularly important
+integration with external Python tools is also particularly important
 for enabling state-of-the-art machine learning frameworks such as
 PyTorch and TensorFlow, whose relevance in analysis is likely to grow in
 the long term. Meanwhile PyROOT, which allows the use of any C++ class
 from Python, has the potential to provide a coherent analysis ecosystem
 with an effortless integration of HEP specific tools written in C++ with
-industry python big data toolkits.
+industry Python big data toolkits.
 
-The ROOT package, i.e. the foundation and workhorse for LHC analysis,
+The ROOT package, which is the foundation and workhorse for LHC analysis,
 has been the focus of substantial development. On the data storage
 front, the ROOT team demonstrated better data compression and
 accelerated reading for a wide variety of data formats. Information
 density drives compression and this can vary massively between
-experiments and analyses. This new format called RNTuple \cite{Ref9, ROOT-2020-HL-LHC}, an
+experiments and analyses. This new RNTuple format \cite{Ref9, ROOT-2020-HL-LHC}, an
 evolution of the TTree file format, shows robust and significant
-performance improvements (1-5x faster), which could potentially save
-significant storage space (10-20\%) for the HL-LHC. Another area of
+performance improvements ($1-5\times$ faster), which could potentially save
+significant storage space ($10-20\%$) for the HL-LHC. Another area of
 progress, and potential consolidation in ROOT I/O, is lossy compression,
 where the number of significant bits for a quantity may be far fewer
 than a standard storage type's mantissa, enabling further savings in
@@ -248,15 +248,15 @@ storage space~\cite{ROOT-2020-HL-LHC}.
 Inspired by data science tools, the event processing framework was
 extended with DataFrame-like functionality (RDataFrame) implementing a
 declarative approach to analysis processing in either Python or C++
-(always executed in C++), which natively exploits multi-core
+(but always executed in C++), which natively exploits multi-core
 architectures \cite{Ref7} and could be extended to accelerators. Used from
-Python, it allows to pre-process data in C++, and export to numpy.
+Python, it allows pre-processing data in C++, and exporting to numpy.
 Flexibility in interfacing RDataFrame to non-ROOT data formats has
-allowed the ALICE collaboration to prototype its Run 3 analysis model on
+allowed the ALICE collaboration to prototype its Run-3 analysis model on
 this new technology. Growing use of Machine Learning was also
 anticipated, and the TMVA toolkit has been improved with substantial
 optimisations, more complex deep learning models and enhanced
-interoperability with common data science tools \cite{Ref14,Ref15}  which is of
+interoperability with common data science tools \cite{Ref14,Ref15}, which is of
 particular importance for inference.
 
 A complementary approach provided in Python is the toolchain of uproot,
@@ -270,12 +270,12 @@ extension with other Python tools. Good performance appears to have been
 achieved within the scope of these projects, which has been kept
 focused, but for the purposes of fair comparison with other existing or
 emerging options, defining clear benchmarks for I/O and processing speed
-would be beneficial.
+is essential.
 
 A further feature linked to the growing use of Python is the use of
 ``notebook'' technology such as Jupyter. This permits quasi-interactive
-exploration where the annotated history including formatted outputs and
-graphics can be saved and shared with collaborators for reproduction and
+exploration where the annotated history, including formatted outputs and
+graphics, can be saved and shared with collaborators for reproduction and
 adaptation. Although not a substitute for command line scripts in
 well-tested and complex workflows, notebooks make an effective vessel
 for software education and have been leveraged as a powerful frontend
@@ -310,7 +310,7 @@ experimental frameworks to perform high-level analysis \cite{Ref19}. Similar
 efforts can also be investigated in the context of data interpretation
 and statistical analysis and an interesting example here is the so
 called ``combine tools'' developed by CMS and based on RooFit for the
-Higgs discovery). Descriptions of a full analysis in terms of %% Missing reference?
+Higgs discovery. Descriptions of a full analysis in terms of %% Missing reference?
 workflows could then tie together the analysis at the top level \cite{Ref18,Ref21}. With some effort, the HEP community may be able to converge on
 effective tools that provide a common solution, ideally across
 experiments.
@@ -321,7 +321,7 @@ the analysis process, interactivity or fast turn-around is needed. While
 typical grid task completion has a time scale of one day to one week,
 fast turn-around exploration requires answers within a few seconds up to
 perhaps a few hours in order to keep people productive. As analysis
-tasks are often IO-intensive and not necessarily-CPU intensive, the
+tasks are often I/O-intensive and not necessarily-CPU intensive, the
 right trade off between CPU and high bandwidth storage should be
 carefully studied. More detailed studies of resource usage and its
 evolution, especially as pertains to the need for heterogeneous compute,
@@ -355,8 +355,8 @@ challenge, making it critical to begin addressing this problem promptly.
 Nevertheless, the drive to capture a complete analysis must drag
 metadata with it, and the gleeful adoption of the declarative paradigm
 will make database-like interfaces seem less scary than they once were
-and may finally allow a more complete integration with analysis code. I
-have a dream.
+and may finally allow a more complete integration with analysis code. 
+% I have a dream. (We all do, but much too chatty for this document!)
 
 One final comment in reviewing recent developments is worth noting.
 Exposure of the HEP community to industry-standard data science tools
@@ -369,7 +369,7 @@ for our own tools. Taking machine learning as an example, it is
 extremely likely that industry will blaze a trail that HEP would do well
 to follow and we should continue to build bridges to those tools.
 Equally though, HEP will continue to have its own unique challenges and
-it's less likely that ultra-performant machine learning inference will
+it is less likely that ultra-performant machine learning inference will
 be top of the data scientists wishlist. Given the challenges presented
 by extreme-throughput analysis at the HL-LHC, the right balance must be
 found between software development within the community and relying on
