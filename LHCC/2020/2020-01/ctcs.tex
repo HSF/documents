@@ -1,5 +1,10 @@
 % Copyright (C) 2020, the authors, licence CC-BY-4.0.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Document now locked in Overleaf, transition to GitHub in progress %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 % JHEP preprint template
 \documentclass[11pt,a4paper]{article}
 \usepackage{jheppub}
@@ -10,6 +15,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage[titletoc]{appendix}
+\setcounter{tocdepth}{2} % Only to subsection level in ToC
 \usepackage{xspace}
 
 % Stop lists from using so much space
@@ -219,9 +225,11 @@ contribution, including a more complete list of references, is
 uploaded on arXiv and will be submitted for publication~\cite{Gen20}.
 
 \hypertarget{collaboration-challenges}{%
-\subsection{Collaborative challenges}\label{collaboration-challenges}}
+\subsection{Collaborative Challenges}\label{collaboration-challenges}}
 
-1. {The landscape of generator software is extremely varied}. Different
+\subsubsection{Generator Software Landscape} 
+
+The landscape of generator software is extremely varied. Different
 generators are used for different processes. Generating a sample also
 involves choices of precision (e.g. Leading Order, LO, or
 Next-to-Leading-Order, NLO), hadronisation and Parton Shower (PS)
@@ -241,7 +249,10 @@ inefficiencies. Other packages are also absolutely critical for the
 whole generator community and must be maintained, even if their CPU cost
 is relatively low (LHAPDF, Rivet, HepMC, etc.).
 
-2. {A very diverse combination of skills/profiles are needed}: theorists
+\subsubsection{Skills and Profiles}
+
+A very diverse combination of skills are needed in generator software,
+thus people with many distinct profiles need to contribute. Theorists
 (who create fundamental physics models, and design, develop and optimise
 most generator code), experimentalists working in research (who request
 types/sizes of samples) and in computing (who implement, monitor and
@@ -250,19 +261,19 @@ engineers and system performance experts. This is a richness and
 opportunity, as some technical problems are best addressed by people
 with specific skills, but it also poses some challenges:
 
-- {Training challenges}\textbf{.} Theorists and experimentalists often
+\paragraph{Training challenges.} Theorists and experimentalists often
 lack formal training in software development and optimisation. Software
 engineers and experimentalists are often not experts in the theoretical
 physics models implemented in MC codes.
 
-- {Communication challenges}. It is difficult to find a shared
+\paragraph{Communication challenges.} It is difficult to find a shared
 terminology and set of concepts to understand one another: notions and
 practices that are taken for granted in one domain may be obscure for
 others. As an example, there are many articles about the physics in
 generators, but software engineers need papers describing the software
 modules and overall data/control flow.
 
-- {Career challenges}. Those working in the development, optimisation or
+\paragraph{Career challenges.} Those working in the development, optimisation or
 execution of generator software provide essential contributions to the
 success of the (HL-)LHC physics programme and it is critical that they
 get the right recognition and motivation. However, theorists get
@@ -272,7 +283,7 @@ their careers. Generator support tasks in the experiments may also not
 be enough to secure jobs/funding to experimentalists pursuing a career
 in research.
 
-- {Mismatch in usage patterns and optimisation focus}. The way
+\paragraph{Mismatch in usage patterns and optimisation focus.} The way
 generators are built and used by their authors is often different from
 the way in which they are deployed and integrated by the experiments in
 their software frameworks and computing infrastructure.The goals and
@@ -283,7 +294,7 @@ LHC experiments run large scale productions of unweighted event
 generation, and mainly need to maximise the throughput of events
 generated per unit time on a given node.
 
-- {Programming languages}: Attracting collaborators with a computer
+\paragraph{Programming languages.} Attracting collaborators with a computer
 science background to work on generators, especially students, may also
 be complicated by the fact that critical components of some generator
 packages are written in Fortran, which is rarely used in industry and
@@ -292,16 +303,14 @@ the generators also do not use industry standard version control
 systems, making it harder to contribute code.
 
 \hypertarget{technical-challenges-software-and-computing}{%
-\subsection{Technical challenges (software and
-computing)}\label{technical-challenges-software-and-computing}}
+\subsection{Technical Challenges}\label{technical-challenges-software-and-computing}}
 
 The event generation workflow presents several challenges and
 opportunities for improvement.
 
-1. There are many sources of inefficiency in unweighted event
-generation:
+\subsubsection{Inefficiency in Unweighted Event Generation}
 
-- {Phase space sampling inefficiency}. Efficient sampling is the most
+\paragraph{Phase space sampling inefficiency.} Efficient sampling is the most
 critical ingredient for efficient unweighted event generation. Many
 generic algorithms exist (e.g. VEGAS~\cite{Lep80}, BASES / SPRING~\cite{Kaw86}, 
 MINT~\cite{Nas07}, FOAM~\cite{Jad03}), as well as others
@@ -317,7 +326,7 @@ this area can only start from physics-motivated approaches based on the
 knowledge of phase space peaks, but they can be complemented by
 brute-force machine learning (ML) algorithmic methods~\cite{Ben17,Bot20,Gao20,Kli18}.
 
-- {Merging inefficiency}. Merging prescriptions (e.g. MLM~\cite{Man02},
+\paragraph{Merging inefficiency.} Merging prescriptions (e.g. MLM~\cite{Man02},
 CKKW-L~\cite{Lon02} at LO and FxFx~\cite{Fre12}, MEPS@NLO~\cite{Hoe14} at
 NLO) imply the rejection of some events, to avoid double counting
 between events produced with n\textsubscript{jets}+1 matrix elements and
@@ -327,7 +336,7 @@ are unavoidable in the algorithmic strategy used by the underlying
 physics modeling~\cite{Alw08}. However, a method like shower-kt MLM can
 reduce the merging inefficiency of MLM~\cite{Alw09}.
 
-- {Filtering inefficiency}. An additional large source of inefficiency
+\paragraph{Filtering inefficiency.} An additional large source of inefficiency
 is due to the way the experiments simulate some processes, where they
 generate large inclusive event samples, which are then ﬁltered on
 ﬁnal-state criteria to decide which events are passed on to detector
@@ -341,7 +350,7 @@ experience and already obtained significant speedups through various
 techniques. The speed of colour reconnection algorithms is a limiting
 factor for simulating rare hadron decays in LHCb.
 
-- {Sample sharing and reweighting}. In addition to removing
+\paragraph{Sample sharing and reweighting.} In addition to removing
 inefficiencies, other ways could be explored to make maximal use of the
 CPU spent for generation by reusing samples for more than one purpose.
 Sharing parton-level samples between ATLAS and CMS is being discussed
@@ -350,7 +359,7 @@ for some physics analyses. Event reweighting is already commonly used
 calculations) and could be explored further, though this may require
 more theoretical work for samples involving merging or NLO matching~\cite{Mat16}.
 
-- {Negative weights}. Matching prescriptions, like MC@NLO, are required
+\paragraph{Negative weights.} Matching prescriptions, like MC@NLO, are required
 in (N)NLO calculations to avoid double counting between (N)NLO matrix
 elements and parton showers, leading to the appearance of events with
 negative weights. This causes a large inefficiency, as larger event
@@ -372,13 +381,15 @@ happen at LO because of not-positive-definite parton density function
 sets and interference terms, e.g. in effective field theory
 calculations.
 
-2. While progress has been made to better understand which areas of
+\subsubsection{Accounting and Profiling}
+
+While progress has been made to better understand which areas of
 generator software have the highest computational cost, more detailed
 accounting of the experiment workloads and profiling of the main
 generator software packages would help to further refine R\&D
 priorities:
 
-- {Accounting of CPU budgets for generators in ATLAS/CMS}. Thanks to a
+\paragraph{Accounting of CPU budgets for generators in ATLAS/CMS.} Thanks to a
 lot of effort from the generator teams in both experiments, a lot of
 insight into the settings used to support each experiment's physics
 programme was gained within the WG, and it is now clear that the
@@ -391,7 +402,7 @@ extract the required information. It is important to establish better
 mechanisms to collect this information, to allow for an easy comparison
 between different experiments.
 
-- {Profiling of the generator software setups used for production}.
+\paragraph{Profiling of the generator software setups used for production.}
 Another area where the WG has been active is the definition and
 profiling of standard generator setups, reproducing those used in
 production. Detailed profiling could also be useful to assess the CPU
@@ -399,12 +410,14 @@ cost of external parton distribution function libraries~\cite{Kon20}, or
 the memory requirements of the software (which may motivate a move to
 multithreading or multiprocessing approaches).
 
-3. More generally, as is the case in other areas of HEP, some R\&D on
+\subsubsection{Software Modernisation}
+
+More generally, as is the case in other areas of HEP, some R\&D on
 generator software would certainly be needed to modernise it and make it
 more efficient, or even port it to more modern computing 
 architectures~\cite{Bau13,Alves:2017she}:
 
-- {Data parallelism, GPUs and vectorisation}. The data flow of an MC
+\paragraph{Data parallelism, GPUs and vectorisation.} The data flow of an MC
 generator, where the same (matrix element) function is computed
 repeatedly at many phase space points, lends itself naturally to the
 data parallel approaches found in CPU vectorised code and in GPU compute
@@ -419,7 +432,7 @@ be investigated. GPUs may also be relevant to ML-based sampling
 algorithms and to the pseudo-random number generation libraries used in
 all MC generators.
 
-- {Task parallelism, multithreading and multiprocessing}. Generators are
+\paragraph{Task parallelism, multithreading and multiprocessing.} Generators are
 generally executed as single threaded software units. In most cases,
 this is not a problem, as the memory footprint of unweighted event
 generation is small and usually fits within the 2 GB per core available
@@ -442,14 +455,13 @@ for MG5\_aMC~\cite{Mat18}. It should also be noted that, even if HPCs
 offer extremely high-speed inter-node connectivity, it is perfectly ok
 for WLCG workflows to use these systems as clusters of unrelated nodes.
 
-- {Generic code optimisations}. A speedup of generators may also be
+\paragraph{Generic code optimisations.} A speedup of generators may also be
 achievable by more generic optimisations, not involving concurrency. It
 should be studied, for instance, if data caching~\cite{Kon20} or
 different compilers and build strategies may lead to any improvements.
 
-\hypertarget{physics-challenges-e.g.-nnlo}{%
-\subsection{Physics challenges (e.g.
-NNLO)}\label{physics-challenges-e.g.-nnlo}}
+\hypertarget{physics-challenges}{%
+\subsection{Physics Challenges}\label{physics-challenges}}
 
 In addition to software issues, important physics questions should also
 be addressed about more accurate theoretical predictions (above all NNLO
@@ -459,7 +471,7 @@ specific NNLO calculations are already available and used today by the
 LHC experiments in their data analysis. With a view to HL-LHC, however,
 some open questions remain to be answered, in particular:
 
-1. {NNLO: status of theoretical physics research}. The first question is
+\paragraph{NNLO: status of theoretical physics research.} The first question is
 for which processes NNLO precision will be available at the time of the
 HL-LHC. For example, when would NNLO be expected for 2-\textgreater3 or
 even higher multiplicity final states? And for lower multiplicity final
@@ -469,15 +481,15 @@ clarify the theoretical and more practical challenges in these
 calculations, and the corresponding computational strategies and impact
 on CPU time needs.
 
-2. {NNLO: experimental requirements for data analysis at HL-LHC}. The
+\paragraph{NNLO: experimental requirements for data analysis at HL-LHC.} The
 second question is for which final states unweighted event generation
 with NNLO precision would actually be required, and how many events
 would be needed. One should also ask if reweighting LO event samples to
 NNLO would not be an acceptable cheaper alternative to address the
 experimental needs.
 
-3. {Size of unweighted event samples required for experimental analysis
-at HL-LHC}. Another question, unrelated to NNLO, is in which regions of
+\paragraph{Size of unweighted event samples required for experimental analysis
+at HL-LHC.} Another question, unrelated to NNLO, is in which regions of
 phase space the number of unweighted events must be strictly
 proportional to the luminosity. For example, in the low pT regions of W
 boson production it is probably impossible to keep up with the data, due
@@ -623,7 +635,7 @@ exploit it. As a result investing in the optimisation and modernisation
 of the Geant4 code has gained even more relevance.
 
 \hypertarget{experiments-applications-and-optimisation-of-the-use-of-geant4}{%
-\subsection{Experiments applications and optimisation of the use of
+\subsection{Experiment Applications and Optimised Use of
 Geant4}\label{experiments-applications-and-optimisation-of-the-use-of-geant4}}
 
 All LHC experiments have dedicated simulation frameworks making use of
@@ -749,8 +761,7 @@ should continue to be pursued with Geant4 supporting hooks for such
 integrations.
 
 \hypertarget{technical-challenges-software-and-computing-1}{%
-\subsection{Technical Challenges (Software and
-Computing)}\label{technical-challenges-software-and-computing-1}}
+\subsection{Technical Challenges}\label{technical-challenges-software-and-computing-1}}
 
 The hardware landscape has been always setting direction as far as
 software evolution was concerned. The recent adaptation of the
@@ -882,7 +893,7 @@ how events are simulated.
 \section{Data Analysis}\label{data-analysis}}
 
 \hypertarget{key-analysis-computing-challenges-at-the-hl-lhc}{%
-\subsection{Key analysis computing challenges at the
+\subsection{Key Analysis Computing Challenges at the
 HL-LHC}\label{key-analysis-computing-challenges-at-the-hl-lhc}}
 
 Examination of collision data is in essence the primary objective of the
@@ -950,8 +961,8 @@ an outlook on R\&D prospects that would more significantly transform the
 HL-LHC analysis model for major resource savings.
 
 \hypertarget{analysis-processing-and-workflows-current-problems-and-solutions}{%
-\subsection{Analysis processing and workflows: current problems and
-solutions}\label{analysis-processing-and-workflows-current-problems-and-solutions}}
+\subsection{Analysis Processing and Workflows: Current Problems and
+Solutions}\label{analysis-processing-and-workflows-current-problems-and-solutions}}
 
 To make data analysis tractable, AOD data are typically reduced both by
 saving only relevant information for each event, which may require
@@ -1073,7 +1084,7 @@ first had to structure their analysis and capture their workflows before
 they started submitting jobs.
 
 \hypertarget{plans-and-recent-progress}{%
-\subsection{Plans and recent progress}\label{plans-and-recent-progress}}
+\subsection{Plans and Recent Progress}\label{plans-and-recent-progress}}
 
 Most of the problems identified above were already identified in the
 community white paper \cite{Ref17} from 2017 and since then some progress

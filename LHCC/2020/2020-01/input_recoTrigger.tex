@@ -27,9 +27,7 @@ outside LHC collaborations that could be adapted by the LHC community to
 improve trigger and reconstruction algorithms.
 
 \hypertarget{the-evolution-of-triggers-and-real-time-analysis}{%
-\subsection{\texorpdfstring{The evolution of triggers and real-time
-analysis
-}{The evolution of triggers and real-time analysis }}\label{the-evolution-of-triggers-and-real-time-analysis}}
+\subsection{Evolution of Triggers and Real-Time Analysis}\label{the-evolution-of-triggers-and-real-time-analysis}}
 
 Trigger systems are evolving to be more capable, both in their ability
 to select a wider range of events of interest for the physics program of
@@ -89,8 +87,8 @@ of the data taking rate as possible from selected regions and
 sub-detectors, even up to the 40 MHz bunch crossing rate~\cite{hannes_sakulin_2019_3598769}.
 
 \hypertarget{challenges-and-improvements-foreseen-in-event-reconstruction}{%
-\subsection{Challenges and improvements foreseen in event
-reconstruction}\label{challenges-and-improvements-foreseen-in-event-reconstruction}}
+\subsection{Challenges and Improvements Foreseen in
+Reconstruction}\label{challenges-and-improvements-foreseen-in-event-reconstruction}}
 
 Processing and reducing raw data into analysis-level formats, event
 reconstruction, is a major component of offline computing resource
@@ -107,8 +105,8 @@ including the use of high-granularity calorimetry; and the use of
 precision timing detectors.
 
 \hypertarget{tracking-in-high-pile-up-environments}{%
-\subsubsection{Tracking in high pile-up
-environments}\label{tracking-in-high-pile-up-environments}}
+\subsubsection{Tracking in High Pile-up
+Environments}\label{tracking-in-high-pile-up-environments}}
 
 The CPU needed for event reconstruction in Run-2 and Run-3 has been
 dominated by charged particle reconstruction (tracking). This is still a
@@ -160,8 +158,8 @@ Networks (GNN) on HPCs, and the deployment of GNNs with microsecond
 latencies on Level-1 trigger systems.
 
 \hypertarget{addition-of-timing-information-in-reconstruction}{%
-\subsubsection{Addition of timing information in
-reconstruction}\label{addition-of-timing-information-in-reconstruction}}
+\subsubsection{Adding Timing Information to
+Reconstruction}\label{addition-of-timing-information-in-reconstruction}}
 
 Physics performance in very high pileup environments, such as the HL-LHC
 or FCC-hh, may also benefit from adding timing information to the
@@ -178,9 +176,7 @@ within time slices are employed by the CBM experiment~\cite{Akishina:2015ghv,Aki
   investigating 4D reconstruction.}.
 
 \hypertarget{enhanced-data-quality-and-software-monitoring-for-trigger-and-reconstruction}{%
-\subsection{Enhanced data quality and software monitoring for trigger
-and
-reconstruction}\label{enhanced-data-quality-and-software-monitoring-for-trigger-and-reconstruction}}
+\subsection{Enhanced Data Quality and Software Monitoring}\label{enhanced-data-quality-and-software-monitoring-for-trigger-and-reconstruction}}
 
 At HL-LHC, the development, automation, and deployment of extended and
 efficient monitoring tools for software trigger and event reconstruction
@@ -198,8 +194,8 @@ Since the CWP, experiments have started making limited use of machine
 learning algorithms for anomaly detection \cite{Adinolfi:2298467,CMSMonitoring}.
 
 \hypertarget{general-reconstruction-software-improvements-vectorisation}{%
-\subsubsection{General reconstruction software improvements:
-vectorisation}\label{general-reconstruction-software-improvements-vectorization}}
+\subsubsection{General Reconstruction Software Improvements:
+Vectorisation}\label{general-reconstruction-software-improvements-vectorization}}
 
 Improving the ability of HEP developed toolkits to use vector units on
 commodity hardware will bring speedups to applications running on both
@@ -219,9 +215,7 @@ large fraction of the application must be improved to use SIMD processor
 capabilities (partly due to turbo-boost capabilities of processors)
 
 \hypertarget{use-of-machine-learning-for-software-trigger-and-reconstruction-algorithms}{%
-\subsubsection{Use of machine learning for software trigger and
-reconstruction
-algorithms}\label{use-of-machine-learning-for-software-trigger-and-reconstruction-algorithms}}
+\subsubsection{Use of Machine Learning}\label{use-of-machine-learning-for-software-trigger-and-reconstruction-algorithms}}
 
 It may be desirable or even necessary to deploy new algorithms,
 including advanced machine learning techniques, in order to face the
@@ -240,20 +234,17 @@ to facilities offering large CPU/GPU resources~\cite{LWTNN, ONNX}. One can also 
 that HEP will increase the benefit from techniques and cross-talk from
 industry.
 
-\hypertarget{algorithms-and-data-structures-to-efficiently-exploit-many-core-and-non-x86-architectures-e.g.-gpus-fpgas}{%
-\subsubsection{\texorpdfstring{Algorithms and data structures to
-efficiently exploit many-core and non-x86 architectures (e.g. GPUs,
-FPGAs):
-}{Algorithms and data structures to efficiently exploit many-core and non-x86 architectures (e.g. GPUs, FPGAs): }}\label{algorithms-and-data-structures-to-efficiently-exploit-many-core-and-non-x86-architectures-e.g.-gpus-fpgas}}
+\hypertarget{algorithms-and-data-structures}{%
+\subsubsection{Algorithms and Data Structures}\label{algorithms-and-data-structures}}
 
 Computing platforms are generally evolving towards having more cores in
-order to increase processing capability. The goal is to evolve current
-event models, toolkits and algorithm implementations, and best
-programming techniques to improve the throughput of multithreaded
-software trigger and event reconstruction applications. Additionally,
-computing architectures using technologies beyond CPUs offer an
-interesting alternative for increasing the throughput of the most time
-consuming trigger or reconstruction algorithms.
+order to increase processing capability. In addition different
+architectural models, e.g. GPUs, FPGAs are available.
+The goal is to improve the throughput of multithreaded
+software trigger and event reconstruction applications, so current
+event models, toolkits and algorithm implementations have to evolve to
+efficiently exploit these opportunities. The first algorithms that should be
+targetted are those which are most time consuming.
 
 Since the CWP, HEP now has a number of algorithmic projects that are
 designed for, or have successfully adapted to, hardware accelerators,
@@ -318,9 +309,9 @@ software to use heterogeneous computing resources as a service targeting
 next-generation facilities at the energy and intensity frontier (HL-LHC,
 LBNF).
 
-\hypertarget{general-remarks-on-trigger-and-reconstruction-software-sharing}{%
-\subsection{General remarks on trigger and reconstruction software
-sharing}\label{general-remarks-on-trigger-and-reconstruction-software-sharing}}
+\hypertarget{trigger-and-reconstruction-software-sharing}{%
+\subsection{Trigger and Reconstruction Software
+Sharing}\label{trigger-and-reconstruction-software-sharing}}
 
 Nearly all software solutions presented in this chapter are tailored to
 a specific experiment, and would require additional work to be adapted
