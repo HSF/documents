@@ -45,7 +45,7 @@ analysis\footnote{LHCb \cite{Aaij:2019uij} and ALICE \cite{Buncic:2011297} will 
   stream the full collision rate to real-time or quasi-realtime software
   trigger systems.}.
 
-Experiments have also been working towards minimizing the differences
+Experiments have also been working towards minimising the differences
 between trigger (online) and offline software for reconstruction and
 calibration, so that more refined physics objects can be obtained
 directly within the HLT farm for a more efficient event selection. This
@@ -118,7 +118,7 @@ particles is considered.
 
 The huge increase in the number of charged particles and hence the
 combinatorial load for tracking algorithms at future colliders will put
-great strain on compute resources. To minimize the memory footprint,
+great strain on compute resources. To minimise the memory footprint,
 tracking software needs to be thread-safe to support multi-threaded
 execution per core. At the same time, the software has to be efficient
 and accurate to meet the physics requirements.
@@ -145,7 +145,7 @@ tracking algorithms using highly parallel architectures and to deliver
 track building (and possibly fitting) software for the HL-LHC. Recent
 activities focused on delivering a production quality software setup to
 perform track building in the context of the LHC Run-3 (or Run-2). The
-implementation relies on single-precision floating point math and is
+implementation relies on single-precision floating point mathematics and is
 available for multicore CPUs and achieves significant gains in compute
 performance from the use of vector instructions set extending to
 AVX-512, based on Matriplex library (a part of the mkFIt project).
@@ -155,7 +155,7 @@ and computational physicists from ATLAS, CMS and DUNE. It develops
 production-quality deep neural network models, in particular Graph
 Neural Networks, for charged particle tracking on diverse detectors
 employing next-generation computing architectures such as HPCs. It is
-also exploring distributed training and optimization of Graph Neural
+also exploring distributed training and optimisation of Graph Neural
 Networks (GNN) on HPCs, and the deployment of GNNs with microsecond
 latencies on Level-1 trigger systems.
 
@@ -197,9 +197,9 @@ DQ{]}.
 Since the CWP, experiments have started making limited use of machine
 learning algorithms for anomaly detection \cite{Adinolfi:2298467,CMSMonitoring}.
 
-\hypertarget{general-reconstruction-software-improvements-vectorization}{%
+\hypertarget{general-reconstruction-software-improvements-vectorisation}{%
 \subsubsection{General reconstruction software improvements:
-vectorization}\label{general-reconstruction-software-improvements-vectorization}}
+vectorisation}\label{general-reconstruction-software-improvements-vectorization}}
 
 Improving the ability of HEP developed toolkits to use vector units on
 commodity hardware will bring speedups to applications running on both
@@ -211,10 +211,10 @@ computing architectures. Since the CWP, algorithm development projects
 as well as mkFit) have demonstrated success in increasing the use of vector
 units. In addition, HEP has increasingly benefited from industry
 developed software, including machine learning toolkits (e.g.,
-tensorflow), that typically make excellent use of vector units.
+TensorFlow), that typically make excellent use of vector units.
 Challenges remain in this area. For example, full exploitation of this
 must also account for many generations of hardware that experiments must
-exploit on the grid. In addition, to realize full performance gains, a
+exploit on the grid. In addition, to realise full performance gains, a
 large fraction of the application must be improved to use SIMD processor
 capabilities (partly due to turbo-boost capabilities of processors)
 
@@ -234,11 +234,9 @@ performance at high event complexity (e.g. high pileup at HL-LHC), and
 efforts in this area have expanded. Cross-collaboration developments are
 focusing on the availability of ML algorithms for experimental software,
 especially in persistifying models and running inferences in production
-(e.g.
-\emph{\href{https://github.com/lwtnn/lwtnn}{{https://github.com/lwtnn/lwtnn}}
-and \href{https://onnx.ai}{{https://onnx.ai}}}) and in enhancing the
+and in enhancing the
 training capacities of collaborations by submitting jobs to the grid and
-to facilities offering large CPU/GPU resources. One can also foresee
+to facilities offering large CPU/GPU resources~\cite{LWTNN, ONNX}. One can also foresee
 that HEP will increase the benefit from techniques and cross-talk from
 industry.
 
@@ -277,7 +275,7 @@ may come pairing one or more high end GPUs with a low power ARM system.
 
 \textbf{Allen} is a data processing framework for GPUs, as well as a
 specific implementation of a first-level trigger for LHCb Run 3
-data-taking. Allen is optimized for sustaining the rate required by
+data-taking. Allen is optimised for sustaining the rate required by
 real-time processing in LHCb, but can be used as a more general GPU data
 processing as it includes a scheduler and a memory manager that can be
 integrated into Gaudi. This permits the extension and implementation of
@@ -305,7 +303,7 @@ field. The burden of writing architecture-specific code repeatedly will
 certainly exceed the available effort from the experiments. Efforts are
 ongoing in this direction, since the CWP, trying to take advantage of
 the latest development in synergy with industry and attempting to
-increase the use of centers with heterogeneous resources by experiments.
+increase the use of centres with heterogeneous resources by experiments.
 
 The \textbf{HLS4ML} project \cite{Duarte:2018ite,Summers:2020xiy,DiGuglielmo:2020eqx} targets the implementation of
 machine learning algorithms on FPGA for low-latency applications useful

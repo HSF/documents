@@ -38,7 +38,7 @@
 \end{tabular*}
 \vspace{2.0cm}
 
-\title{Common Tools and Community Software}
+\title{HL-LHC Computing Review:\\Common Tools and Community Software}
 
 \author{High-Energy Physics Software Foundation}
 
@@ -116,7 +116,7 @@ technology, through the software layers, to processing resources that
 may well span multiple nodes. Other workflows, which are less dependent
 on I/O rates will, nevertheless, have to be adapted to using remote data
 where the I/O layer must optimise data transfers and hide latency, e.g.
-taking advantage of xrootd's single column streaming ability \cite{xrootd}.
+taking advantage of XRootD's single column streaming ability \cite{xrootd}.
 
 In this increasingly complex environment in which to write software,
 there are important problems where sharing information at the community
@@ -207,7 +207,7 @@ supporting the efforts for porting generators to modern architectures
 as it has become increasingly clear that being able to run
 compute-intensive WLCG software workloads on GPUs would allow the
 exploitation of modern GPU-based supercomputers at High Performance
-Computing (HPC) centers, and generators look like a natural candidate
+Computing (HPC) centres, and generators look like a natural candidate
 for this.
 
 This section gives an overview of the many technical and non-technical
@@ -215,8 +215,8 @@ challenges in the generator area and of the work that can be done to
 address them. This is finally condensed into a list of a few
 high-priority items, for the next 18 months before the LHCC review that
 is currently scheduled for fall 2021. A more detailed version of this
-contribution, including a more complete list of references, will soon be
-uploaded on arxiv and submitted for publication~\cite{Gen20}.
+contribution, including a more complete list of references, is
+uploaded on arXiv and will be submitted for publication~\cite{Gen20}.
 
 \hypertarget{collaboration-challenges}{%
 \subsection{Collaborative challenges}\label{collaboration-challenges}}
@@ -224,7 +224,7 @@ uploaded on arxiv and submitted for publication~\cite{Gen20}.
 1. {The landscape of generator software is extremely varied}. Different
 generators are used for different processes. Generating a sample also
 involves choices of precision (e.g. Leading Order, LO, or
-Next-to-Leading-Order, NLO), hadronization and Parton Shower (PS)
+Next-to-Leading-Order, NLO), hadronisation and Parton Shower (PS)
 models, underlying event tunes, prescriptions for matching/merging and
 simulating particle decays, and other input parameters, chiefly among
 them the parton density functions, for which different interfaces exist.
@@ -242,7 +242,7 @@ whole generator community and must be maintained, even if their CPU cost
 is relatively low (LHAPDF, Rivet, HepMC, etc.).
 
 2. {A very diverse combination of skills/profiles are needed}: theorists
-(who create fundamental physics models, and design, develop and optimize
+(who create fundamental physics models, and design, develop and optimise
 most generator code), experimentalists working in research (who request
 types/sizes of samples) and in computing (who implement, monitor and
 account execution of workflows on computing resources), software
@@ -251,7 +251,7 @@ opportunity, as some technical problems are best addressed by people
 with specific skills, but it also poses some challenges:
 
 - {Training challenges}\textbf{.} Theorists and experimentalists often
-lack formal training in software development and optimization. Software
+lack formal training in software development and optimisation. Software
 engineers and experimentalists are often not experts in the theoretical
 physics models implemented in MC codes.
 
@@ -262,7 +262,7 @@ others. As an example, there are many articles about the physics in
 generators, but software engineers need papers describing the software
 modules and overall data/control flow.
 
-- {Career challenges}. Those working in the development, optimization or
+- {Career challenges}. Those working in the development, optimisation or
 execution of generator software provide essential contributions to the
 success of the (HL-)LHC physics programme and it is critical that they
 get the right recognition and motivation. However, theorists get
@@ -280,7 +280,7 @@ metrics of software optimisation work may also differ. Theorists are
 mainly interested in calculating cross sections and focus on minimising
 the phase space integration time for a given statistical precision. The
 LHC experiments run large scale productions of unweighted event
-generation, and mainly need to maximize the throughput of events
+generation, and mainly need to maximise the throughput of events
 generated per unit time on a given node.
 
 - {Programming languages}: Attracting collaborators with a computer
@@ -338,7 +338,7 @@ inefficiency could be reduced by developing ﬁltering tools within the
 generators themselves, designed for compatibility with the requirements
 of the experiments. Filtering is an area where LHCb has a lot of
 experience and already obtained significant speedups through various
-techniques. The speed of color reconnection algorithms is a limiting
+techniques. The speed of colour reconnection algorithms is a limiting
 factor for simulating rare hadron decays in LHCb.
 
 - {Sample sharing and reweighting}. In addition to removing
@@ -357,7 +357,7 @@ negative weights. This causes a large inefficiency, as larger event
 samples must be generated and passed through the experiment simulation,
 reconstruction and analysis codes, increasing the compute and storage
 requirements. For a fraction r of negative weight events, the number of
-events to generate increases by a factor 1/(1-2r)\^{}2: for instance,
+events to generate increases by a factor $1/(1-2r)^2$: for instance,
 with r=25\% (which may be regarded as a worst-case scenario in top quark
 pair production~\cite{Fre20}), one needs to generate 4 times as many
 events. Negative weights can instead be almost completely avoided, by
@@ -404,7 +404,7 @@ generator software would certainly be needed to modernise it and make it
 more efficient, or even port it to more modern computing 
 architectures~\cite{Bau13,Alves:2017she}:
 
-- {Data parallelism, GPUs and vectorization}. The data flow of an MC
+- {Data parallelism, GPUs and vectorisation}. The data flow of an MC
 generator, where the same (matrix element) function is computed
 repeatedly at many phase space points, lends itself naturally to the
 data parallel approaches found in CPU vectorised code and in GPU compute
@@ -442,8 +442,8 @@ for MG5\_aMC~\cite{Mat18}. It should also be noted that, even if HPCs
 offer extremely high-speed inter-node connectivity, it is perfectly ok
 for WLCG workflows to use these systems as clusters of unrelated nodes.
 
-- {Generic code optimizations}. A speedup of generators may also be
-achievable by more generic optimizations, not involving concurrency. It
+- {Generic code optimisations}. A speedup of generators may also be
+achievable by more generic optimisations, not involving concurrency. It
 should be studied, for instance, if data caching~\cite{Kon20} or
 different compilers and build strategies may lead to any improvements.
 
@@ -497,8 +497,8 @@ choices rely on detailed detector simulation. Since the start of the
 first run the LHC experiments have produced, reconstructed, stored,
 transferred and analysed hundreds of billions of simulated events. This
 effort required a major fraction of the WLCG computing 
-resources~\cite{ALICE-TDR-12, ATLAS-TDR-17, CMS-TDR-7, LHCb-TDR-11, WLCG-CM-Update, ALICE-TDR-019, 
-LHCb-TDR-018}
+resources~\cite{ALICE-TDR-12, ATLAS-TDR-17, CMS-TDR-7, LHCb-TDR-11, WLCG-CM-Update, 
+ALICE-TDR-019, LHCb-TDR-018, ATLAS-LHCC-2019-02, CMS-LHCC-2019-09}
 
 The increase in delivered luminosity in future LHC runs, in particular
 with the HL-LHC, will create unique research opportunities by collecting
@@ -517,7 +517,7 @@ negligible or acceptable loss in physics accuracy.
 The Geant4 simulation toolkit has been the de facto standard for HEP
 experiment simulation for physics studies over the last two decades~\cite{Geant4-2003, Geant4-2006, Geant4-2016}.
 Designed in the late 1990s to cope with the simulation challenges of the
-LHC era, Geant4 introduced flexible physics modeling, exploiting layers
+LHC era, Geant4 introduced flexible physics modelling, exploiting layers
 of virtuality. This fostered progress in physics by comparison of
 competing models on same energy ranges, and allowed complementary models
 to be combined to cover large energy ranges. The simulation applications
@@ -563,7 +563,7 @@ more and more significant and will need to be seamlessly integrated with
 the detailed simulation provided by Geant4. 
 
 Finally, the use of compute
-accelerators (like GPUs or FPGAa) is the third emerging path that needs
+accelerators (like GPUs or FPGAs) is the third emerging path that needs
 to be undertaken and that requires intense R\&D effort. We will discuss
 more in detail those three development axes in the following sections.
 
@@ -600,7 +600,7 @@ direction. Most of these investigations have started and it is hoped to
 see some first results on a year time-scale. More effort, however, will
 be required to integrate any eventual changes in the production code in
 a timely manner. The GeantV Vector prototype has allowed the assessment
-of the achievable speedup using a novel, vectorized approach to particle
+of the achievable speedup using a novel, vectorised approach to particle
 transport. The demonstrator of a full electromagnetic shower in
 realistic (CMS) geometry has been implemented and the comparison to a
 similar Geant4 application has been performed. The conclusion of that
@@ -615,7 +615,7 @@ vectorisation where some bottleneck (for example geometry navigation)
 could not be tackled without a major additional long term effort~\cite{GeantV}.
 At the same time libraries developed in the context of the
 GeantV R\&D, e.g. VecGeom, have been successfully integrated in Geant4
-and ROOT benefitting the whole HEP software community~\cite{CMS01}. The
+and ROOT benefiting the whole HEP software community~\cite{CMS01}. The
 cost-over-benefit of more vectorisation of the code has not been deemed
 worth the necessary investment also due to the speculation that a
 complete rewrite of the physics base could become necessary to fully
@@ -628,7 +628,7 @@ Geant4}\label{experiments-applications-and-optimisation-of-the-use-of-geant4}}
 
 All LHC experiments have dedicated simulation frameworks making use of
 the Geant4 toolkit for modelling their detectors and the physics
-processes occuring in the experimental setups. Every experiment
+processes occurring in the experimental setups. Every experiment
 configures and uses what is provided by Geant4 for their specific needs.
 Effort has been spent by each experiment since the publication of the
 Community White Paper~\cite{Albrecht2019, SimFoundation2018hep} to benchmark their 
@@ -638,15 +638,15 @@ performance of their applications~\cite{ATLAS-G4OPT}. All of the various handles
 are being continuously explored and adopted when deemed useful: range
 and physics cuts have been reviewed and customised by all experiments,
 shower libraries adopted as baseline in the forward region by ATLAS and
-CMS, stepping granularity optimized, magnetic field caching
-investigated, neutron russian roulette used for dedicated simulations.
+CMS, stepping granularity optimised, magnetic field caching
+investigated, neutron Russian roulette used for dedicated simulations.
 All of them can have major impacts on simulation time and sharing
 knowledge and experience between experiments can be of high benefit even
 if each experiment has to find its optimal solution.
 
 ATLAS, CMS and LHCb have integrated the Geant4 event-based
 multi-threading features within their own multi-threaded frameworks,
-harmonizing their different architectural choices with the Geant4
+harmonising their different architectural choices with the Geant4
 implementation~\cite{CMS02, LHCb01, ATLAS01}, and have or are planning to
 use them in their production environment to gain access to a larger set
 of distributed resources. ATLAS has been running their multi-process
@@ -663,17 +663,17 @@ resources by gaining access to systems with limited memory.
 The so-called `fast simulation' techniques consist of replacing the
 tracking of individual particles through (a part of) the detector,
 including all the physics processes they would undergo, by a
-parameterization where the detector response is produced directly as a
+parameterisation where the detector response is produced directly as a
 function of the incoming particle type and energy. An example of such a
-parameterization was implemented many years ago in the context of the H1
-experiment~\cite{H1Gflash}. This parameterization, available within the
+parameterisation was implemented many years ago in the context of the H1
+experiment~\cite{H1Gflash}. This parameterisation, available within the
 Geant4 toolkit under the name of the GFLASH library, became the starting
 idea for several `custom' implementations, specific for other
 calorimeters. Those were interfaced to experiments' simulation
 applications through the available `hook' in the Geant4 toolkit. The LHC
-experiments implemented, for example, dedicated parametrized response
+experiments implemented, for example, dedicated parametrised response
 libraries for some of their calorimeters. Recently, an effort has been
-invested in Geant4 to generalize the parameterization formulae, and to
+invested in Geant4 to generalise the parameterisation formulae, and to
 implement automatic procedures of tuning the parameters for specific
 detector geometries. This kind of `classical' fast simulation, which
 describes the particle shower shape using some complex mathematical
@@ -691,7 +691,7 @@ showers~\cite{ML001-GAN, aishik_ghosh_2019_3599705, GAN-ATLAS}. The energy
 deposition values in the calorimeter cells are considered as `pixels' of
 the images that the network is supposed to reproduce. The first studies
 and prototypes have shown very promising results, however, the
-generalization of the developed models (for different calorimeters, with
+generalisation of the developed models (for different calorimeters, with
 different particles incident at different angles with different
 energies), still requires further effort. Detailed physics validation of
 those tools and understanding of the capability to reproduce the
@@ -736,7 +736,7 @@ frameworks for fast simulation of typical collider detectors being used~\cite{bi
 The advantage of such frameworks is to allow
 simultaneous studies for different experiments as well as their
 potential use by the theory community. Experiments specific fully
-parameterized simulations providing reconstructed objects compatible
+parameterised simulations providing reconstructed objects compatible
 with the experiment's analysis frameworks for systematic verifications
 have also been emerging~\cite{Lamarr} .
 
@@ -759,10 +759,10 @@ straightforward, but still took several years to adopt and validate.
 Geant4 can now run in the MT mode efficiently, distributing the events
 between the threads and sharing resources like the geometry description
 or physics data and thus reduce the memory footprint of a simulation
-while maintaining its throughput performance. The efficient utilization
+while maintaining its throughput performance. The efficient utilisation
 of Single Instruction Multiple Data (SIMD) architectures, on the other
 hand turned out to be more challenging. Not only was a limited part of
-the code `vectorizable' but also, as the already mentioned GeantV R\&D
+the code `vectorisable' but also, as the already mentioned GeantV R\&D
 has shown, overheads related to gathering the data for vector processing
 presented a significant challenges (tail handling, work balancing across
 threads, etc.) to efficiently (development time wise and run time wise)
@@ -791,7 +791,7 @@ simulation application on GPUs does not seem to be efficient either, as
 gathering data and transferring it from the host to the device and back
 may strongly limit any possible performance gain, similarly to what was
 seen with the GeantV vectorisation R\&D. The most plausible approaches
-seem therefore to lead in the direction of specialized libraries (like
+seem therefore to lead in the direction of specialised libraries (like
 those described above in the context of speeding up Geant4 simulation on
 the CPUs) that would perform the complete simulation of specific
 sub-detectors (for instance EM calorimeter, for specific incoming
@@ -807,10 +807,10 @@ consist of implementing, on GPUs, prototypes based on VecGeom geometry
 and navigation capabilities. If those prototypes turn out to be
 successful, the next challenge will consist of adding tracking and
 eventually a limited subset of physics models. While Geant4 is a toolkit
-capable of addressing different modeling and simulation problems and
+capable of addressing different modelling and simulation problems and
 contains many features and capabilities allowing for user access to
 detailed information for a large variety of use cases and scientific
-communities, this GPU development might turn into specialized transport
+communities, this GPU development might turn into specialised transport
 modules, stripped of some features which would be expensive to implement
 or support efficiently on GPUs. Another interesting avenue consists of
 exploring the application of some vendor libraries (like Nvidia Optix).
@@ -834,7 +834,7 @@ Simulated samples are often processed through the reconstruction as real
 data. As such in some cases they require the emulation of hardware
 triggers. Hardware triggers are based on very specific custom devices
 and a general approach does not seem feasible even if some
-parametrization could be generalised.
+parametrisation could be generalised.
 
 \hypertarget{outlook}{%
 \subsection{Outlook}\label{outlook}}
@@ -872,7 +872,7 @@ improvements to existing applications.
 No single solution appears at the moment to provide by itself the
 processing gains required by HL-LHC, nevertheless if a novel approach
 emerges that could do so it should be pursued and carefully evaluated in
-terms of gains against the disruption of a complete reimplementation of
+terms of gains against the disruption of a complete re-implementation of
 how events are simulated.
 
 
@@ -937,7 +937,7 @@ mostly optimised and developed under greater scrutiny, analysis code is
 often produced with emphasis on quick results and less emphasis on code
 quality or performance. Over time, this may result in inefficient,
 under-documented code that exacerbates the disk and CPU shortfall and
-poses a major difficulty when software is repurposed for a new analysis.
+poses a major difficulty when software is re-purposed for a new analysis.
 Add to this a growing array of alternative toolkits from the data
 science community, in particular for machine learning, and it is clear
 that the entropy of the analysis code ecosystem has become a major
@@ -959,7 +959,7 @@ transformations (object calibration, computation of derived variables)
 beyond simply discarding information, and by skimming out only events
 that are interesting. In post-reconstruction data formats, lossy
 compression is also in use and being optimised. Coordination of the data
-reduction phase is a key point for the organization of data analysis
+reduction phase is a key point for the organisation of data analysis
 processing at HL-LHC.
 
 Two approaches have been followed during LHC Run 2 by ATLAS and CMS:
@@ -979,8 +979,8 @@ are expected to remain at the HL-LHC.
 It is worth considering the viability of the arguably more flexible
 option to have analysis trains run over the reconstruction output at the
 HL-LHC. Extrapolating using a simple model, ATLAS finds that they would
-produce 35 PB/year of data AOD and 215 PB/year of MC \cite{Ref1}. In
-comparison, a reduced format (10 kB/event) made from the AOD would
+produce 35 PB/year of data AOD and 213 PB/year of MC \cite{Ref1}. In
+comparison, a reduced DAOD\_PHYSLITE format (10 kB/event) made from the AOD would
 result in 0.5 PB/year for data and 2 PB/year for MC. Production of this
 reduced format using a Data Carousel model \cite{Ref1} allows the much
 larger AOD to reside on tape, providing significant savings in disk
@@ -989,7 +989,7 @@ storage. Experience on CMS shows that further reduction (down to
 still supporting a majority of physics analyses \cite{Ref5}. File size
 reductions also permit multiple copies to be held on disk for more
 efficient parallel processing. It is clear that as many analyses as
-possible need to be fed into this standardized analysis event-content
+possible need to be fed into this standardised analysis event-content
 pipeline if analysis computing resources are to be kept under control.
 Nevertheless, analysis trains or any similar means of synchronising data
 access could be applied to this highly reduced format. It is worth
@@ -1017,8 +1017,8 @@ from the LHC. Metadata may include information such as book-keeping of
 processed events, detector conditions and data quality, \emph{a
 posteriori} measured scale factors, and software versioning. This
 information is often scattered in multiple locations such as:
-``in-file'' data, remote database resources, shared-area txt/root files,
-twiki pages or even in e-mail. The lack of proper metadata integration
+``in-file'' data, remote database resources, shared-area text or ROOT files,
+TWiki pages or even in e-mail. The lack of proper metadata integration
 and a coherent interface leaves analyses exposed to any problems in data
 processing. This in turn results in data completeness demands that
 simply will not work at the HL-LHC, where the huge datasets all but
@@ -1027,7 +1027,7 @@ given point in time.
 
 At the HL-LHC, as energy and luminosity conditions are quasi stable
 across the years, datasets from multiple years with different conditions
-will need to be analyzed in a coherent way. The analysis software will
+will need to be analysed in a coherent way. The analysis software will
 then need to be able to fetch and use the proper metadata automatically
 while today's analysis software often requires dedicated configuration
 and tuning for each data-taking period. Belle II have taken some steps
@@ -1065,7 +1065,7 @@ optimisation to a backend. Thus analysis design could be quickly
 understood and shared, sidestepping the usual dearth of documentation,
 while simultaneously isolating analysis design from implementation and
 hardware, providing a natural means of analysis preservation. An
-interesting development in this direction is the Reana platform \cite{Ref21}
+interesting development in this direction is the REANA platform \cite{Ref21}
 that supports multiple backends and uses a DSL to provide a framework to
 run an analysis. Already a valuable resource as a tool for analysing
 open data, it is interesting to ask what would happen if every analyst
@@ -1094,7 +1094,7 @@ In particular, the Python ecosystem, implementing many such solutions
 (e.g. numpy, pandas dataframes), is emerging as a possible alternative
 to HEP's traditional C++ environment. This is thanks largely to a
 combination of its versatility as a language, allowing rapid
-proto-typing, and the ability to out-source compute-intensive work to
+prototyping, and the ability to out-source compute-intensive work to
 more performant languages like C and C++. This is similar to the
 experimental software frameworks where Python is used as steering code
 and C/C++ is used as an efficient backend implementation. The typical
@@ -1115,14 +1115,14 @@ has been the focus of substantial development. On the data storage
 front, the ROOT team demonstrated better data compression and
 accelerated reading for a wide variety of data formats. Information
 density drives compression and this can vary massively between
-experiments and analyses. This new format called RNTuple \cite{Ref9}, an
+experiments and analyses. This new format called RNTuple \cite{Ref9, ROOT-2020-HL-LHC}, an
 evolution of the TTree file format, shows robust and significant
 performance improvements (1-5x faster), which could potentially save
 significant storage space (10-20\%) for the HL-LHC. Another area of
 progress, and potential consolidation in ROOT I/O, is lossy compression,
 where the number of significant bits for a quantity may be far fewer
 than a standard storage type's mantissa, enabling further savings in
-storage space.
+storage space~\cite{ROOT-2020-HL-LHC}.
 
 Inspired by data science tools, the event processing framework was
 extended with DataFrame-like functionality (RDataFrame) implementing a
@@ -1166,7 +1166,7 @@ for access to facilities including CERN's SWAN \cite{Ref20}.
 As the complexity of analysis data handling and processing grows,
 developing efficient and robust code using a steadily increasing number
 of tools running on ever more heterogeneous hardware becomes more and
-more difficult. In addition, analysis code is typically reimplemented by
+more difficult. In addition, analysis code is typically re-implemented by
 tens of individuals, in different experiments, analysis teams or
 institutes mostly performing the same kind of operations, i.e. data
 reduction, plotting, variation of systematic uncertainty, fitting, etc.
@@ -1177,7 +1177,7 @@ visibly more prevalent both in and outside of the field as it naturally
 provides efficient syntax.
 
 DSLs are a generalisation of this declarative concept and have already
-demonstrated their ability to simplify analysis code {[}{]}. Not only do
+demonstrated their ability to simplify analysis code. Not only do %% Missing reference?
 they allow users to express operations concisely, improving
 comprehension and reusability, DSLs provide a natural layer of
 insulation against hardware evolution as low-level, optimised code
@@ -1189,7 +1189,7 @@ experimental frameworks to perform high-level analysis \cite{Ref19}. Similar
 efforts can also be investigated in the context of data interpretation
 and statistical analysis and an interesting example here is the so
 called ``combine tools'' developed by CMS and based on RooFit for the
-Higgs discovery) {[}ref{]}. Descriptions of a full analysis in terms of
+Higgs discovery). Descriptions of a full analysis in terms of %% Missing reference?
 workflows could then tie together the analysis at the top level \cite{Ref18,Ref21}. With some effort, the HEP community may be able to converge on
 effective tools that provide a common solution, ideally across
 experiments.
@@ -1201,14 +1201,14 @@ typical grid task completion has a time scale of one day to one week,
 fast turn-around exploration requires answers within a few seconds up to
 perhaps a few hours in order to keep people productive. As analysis
 tasks are often IO-intensive and not necessarily-CPU intensive, the
-right tradeoff between CPU and high bandwidth storage should be
+right trade off between CPU and high bandwidth storage should be
 carefully studied. More detailed studies of resource usage and its
 evolution, especially as pertains to the need for heterogeneous compute,
 is needed to ensure the right resource balance is available in the
 HL-LHC computing infrastructure. This will require more interaction
 between the analysis and infrastructure communities.
 
-As a proof of principle, an unoptimized Higgs discovery analysis has
+As a proof of principle, an unoptimised Higgs discovery analysis has
 been rerun on Google Cloud in a few minutes as the infrastructure was
 able to quickly provide tens of thousands of CPUs with guaranteed
 bandwidth to storage of 2 Gb/coresec \cite{Ref12}. Scaling this to
@@ -1285,12 +1285,12 @@ for Run 4 of the LHC.
 \item
   \begin{quote}
   Survey generator codes to understand the best way to move to GPUs and
-  vectorized code, and prototype the port of the software to GPUs using
+  vectorised code, and prototype the port of the software to GPUs using
   data-parallel paradigms.
   \end{quote}
 \item
   \begin{quote}
-  Support efforts to optimize phase space sampling and integration
+  Support efforts to optimise phase space sampling and integration
   algorithms, including the use of Machine Learning techniques such as
   neural networks.
   \end{quote}
@@ -1365,7 +1365,7 @@ Triggers}\label{reconstruction-and-software-triggers-1}}
   \begin{quote}
   Develop solutions that can exploit accelerators (FPGA, GPU) for
   trigger and reconstruction, including general-purpose interoperability
-  libraries with a focus to generalizing and mitigating their
+  libraries with a focus to generalising and mitigating their
   dependencies on architecture-specific codes.
   \end{quote}
 \item
