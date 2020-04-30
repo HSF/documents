@@ -1,0 +1,329 @@
+\hypertarget{reconstruction-and-software-triggers}{%
+\section{Reconstruction and Software
+Triggers}\label{reconstruction-and-software-triggers}}
+
+Software trigger and event reconstruction techniques in HEP face a
+number of new challenges in the next decade. Advances in facilities and
+future experiments bring a dramatic increase in physics reach, as well
+as increased event complexity and rates.
+
+At the HL-LHC, the central challenge for high-level triggers (e.g.
+software triggers) and object reconstruction is to maintain excellent
+efficiency and resolution in the face of high pileup values, especially
+at low transverse momenta. Detector upgrades, such as increases in
+channel density, high precision timing and improved detector layouts are
+essential to overcome these problems. The subsequent increase of event
+complexity at the HL-LHC also requires the development of software
+algorithms that can process events with a similar cost per-event to
+Run-2 and Run-3. At the same time, algorithmic approaches need to
+effectively take advantage of evolutions in computing technologies,
+including increased SIMD capabilities, increased core counts in CPUs,
+and heterogeneous hardware.
+
+This section focuses on the challenges identified in the Community White
+Paper~\cite{Alves:2017she,albrecht2018hepexec,albrecht2018hep} and the
+development of solutions since then. It also includes
+mentions of open source software efforts that have developed within or
+outside LHC collaborations that could be adapted by the LHC community to
+improve trigger and reconstruction algorithms.
+
+\hypertarget{the-evolution-of-triggers-and-real-time-analysis}{%
+\subsection{Evolution of Triggers and Real-Time Analysis}\label{the-evolution-of-triggers-and-real-time-analysis}}
+
+Trigger systems are evolving to be more capable, both in their ability
+to select a wider range of events of interest for the physics program of
+their experiment, and their ability to stream a larger rate of events
+for further processing. The event rates that will be processed by
+experiments at the HL-LHC will increase by up to a factor 10 with
+respect to Run-3, owing to upgraded trigger systems and expanded physics
+programs. ATLAS and CMS plan to maintain a two-tiered trigger system,
+where a hardware trigger makes use of coarse event information to reduce
+the event rate to 10x over the current capability, up to 1 MHz \cite{ATLAS-TDR-29,collaboration:2714892}. The high level trigger system, implemented in software, selects
+up to 100 kHz of events to be saved in full for subsequent
+analysis\footnote{LHCb \cite{Aaij:2019uij} and ALICE \cite{Buncic:2011297} will both
+  stream the full collision rate to real-time or quasi-real-time software
+  trigger systems.}.
+
+Experiments have also been working towards minimising the differences
+between trigger (online) and offline software for reconstruction and
+calibration, so that more refined physics objects can be obtained
+directly within the HLT farm for a more efficient event selection. This
+is also in-line with enhancing the experiment's capabilities for
+real-time data analysis of events accepted by the hardware trigger
+system, driven by use cases where the physics potential improves when
+analysing more events than can be written out in full with
+traditional data processing.
+
+Implementations of real-time analysis systems, where raw data is
+processed into its final form as close as possible to the detector (e.g.
+in the high-level trigger farm), are in use within several experiments.
+These approaches remove the detector data that typically makes up the
+raw data kept for offline reconstruction, and keep only a limited
+set of analysis objects reconstructed within the high level trigger or
+keepig only the parts of an event associated with the
+signal candidates, reducing the required disk space.
+The experiments are focusing on the technological developments that make it
+possible to do this with acceptable reduction of the analysis
+sensitivity and with minimal biases. The HSF Reconstruction and Software Trigger
+group has been encouraging cross-talk between LHC experiments and beyond
+on real-time analysis, as these kinds of workflows increase the physics output for selected
+physics cases without adding significant overhead to the current
+resources.
+
+Active research topics also include compression and custom data formats;
+toolkits for real-time detector calibration and validation which will
+enable full offline analysis chains to be ported into real-time; and
+frameworks which will enable non-expert offline analysts to design and
+deploy real-time analyses without compromising data taking quality.
+Use cases for real-time analysis techniques have expanded during the
+last years of Run 2 and their use appears likely to
+grow already during Run 3 data taking for all experiments owing to
+improvements in the HLT software and farms. % Missing reference to CMS and ATLAS CDRs
+Further ideas include retaining high-rate, but very reduced data, from selected regions and
+sub-detectors, even up to the 40 MHz bunch crossing rate~\cite{hannes_sakulin_2019_3598769}.
+
+\hypertarget{challenges-and-improvements-foreseen-in-event-reconstruction}{%
+\subsection{Challenges and Improvements Foreseen in
+Reconstruction}\label{challenges-and-improvements-foreseen-in-event-reconstruction}}
+
+Processing and reducing raw data into analysis-level formats, event
+reconstruction, is a major component of offline computing resource
+needs, and in light of the previous section it is relevant for online
+resources as well. This is an essential step towards precision
+reconstruction, identification and measurement of physics-objects at
+HL-LHC.
+
+Algorithmic areas of particular importance for HL-LHC experiments are
+charged-particle trajectory reconstruction (\textit{tracking}), including
+hardware triggers based on tracking information which may seed later
+software trigger and reconstruction algorithms; jet reconstruction,
+including the use of high-granularity calorimetry; and the use of
+precision timing detectors.
+
+\hypertarget{tracking-in-high-pile-up-environments}{%
+\subsubsection{Tracking in High Pile-up
+Environments}\label{tracking-in-high-pile-up-environments}}
+
+The CPU needed for event reconstruction in Runs 2 and 3 is
+dominated by charged particle reconstruction (tracking). This is still a
+focus for HL-LHC triggering and event reconstruction, especially when
+the need to efficiently reconstruct low transverse momentum
+particles is considered.
+
+The huge increase in the number of charged particles, and hence the
+combinatorial load for tracking algorithms, at future colliders will put
+great strain on compute resources. To minimise the memory footprint,
+tracking software needs to be thread-safe and to support multi-threaded
+execution per core. At the same time, the software has to be efficient
+and accurate to meet the physics requirements.
+
+Since the CWP, experiments have made progress towards improving software
+tracking efficiency in HL-LHC simulation, e.g. \cite{ATL-PHYS-PUB-2019-041}. A
+number of collaboration and community initiatives have been focusing on
+tracking, targeting both offline and online, and these are listed below.
+
+The \textbf{ACTS} project \cite{Ai:2019kze,Gumpert_2017} is an attempt to encapsulate
+the current ATLAS track reconstruction software into an
+experiment-independent and framework-independent tracking software,
+designed to fully exploit modern computing architectures. It builds on
+the tracking experience already obtained at the LHC, and targets the
+HL-LHC as well as future hadron colliders. ACTS provides a set of track
+reconstruction tools designed for parallel architectures, with a
+particular emphasis on thread-safety and concurrent event
+reconstruction. ACTS has active collaborators from other HEP
+experiments, such as FASER, and provides support to Belle-II, EIC and CEPC.
+
+
+The aim of the \textbf{mkFit} \cite{cerati2019speeding} project is to speed up Kalman filter (KF)
+tracking algorithms using highly parallel architectures and to deliver
+track building (and possibly fitting) software for the HL-LHC. Recent
+activities focused on delivering a production quality software setup to
+perform track building in the context of LHC Runs 2 and 3. The
+implementation relies on single-precision floating point mathematics and is
+available for multicore CPUs. It achieves significant gains in compute
+performance from the use of vector instructions, extending to
+AVX-512, based on Matriplex library (a part of the mkFit project).
+
+\textbf{Exa.TrkX}~\cite{Ju:2020xty} is a cross-experiment collaboration of data scientists
+and computational physicists from ATLAS, CMS and DUNE. It develops
+production-quality deep neural network models, in particular Graph
+Neural Networks, for charged particle tracking on diverse detectors
+employing next-generation computing architectures such as HPCs. It is
+also exploring distributed training and optimisation of Graph Neural
+Networks (GNN) on HPCs, and the deployment of GNNs with microsecond
+latencies on Level-1 trigger systems.
+
+\hypertarget{addition-of-timing-information-in-reconstruction}{%
+\subsubsection{Adding Timing Information to
+Reconstruction}\label{addition-of-timing-information-in-reconstruction}}
+
+Physics performance in very high pileup environments, such as the HL-LHC
+or FCC-hh, may also benefit from adding timing information to the
+reconstruction. This allows the mitigation of the effects of pile-up by
+exploiting the time-separation of collision products~\cite{Collaboration:2623663,CMS:2667167}
+
+Experiment communities have been working on timing detector
+reconstruction and object identification techniques in complex
+environments. Since the CWP, initial tracking and vertexing algorithms
+that include timing information have been developed and incorporated
+into experimental software stacks \cite{LindseyGreyMIPCTD}\footnote{Tracking algorithms where events overlap in time
+within time slices are employed by the CBM experiment~\cite{Akishina:2015ghv,AkishinaThesis}. The use of a cellular automaton makes the
+  algorithm less dependent on the specific detector geometry, and there
+  may be the possibility of cross-talk with LHC experiments that are
+  investigating 4D reconstruction.}.
+
+\hypertarget{enhanced-data-quality-and-software-monitoring-for-trigger-and-reconstruction}{%
+\subsection{Enhanced Data Quality and Software Monitoring}\label{enhanced-data-quality-and-software-monitoring-for-trigger-and-reconstruction}}
+
+At HL-LHC, the development, automation, and deployment of extended and
+efficient monitoring tools for software trigger and event reconstruction
+algorithms will be crucial for the success of the experimental physics
+programme.
+
+HEP experiments have extensive continuous integration systems, including
+code regression checks that have enhanced the monitoring procedures for
+software development in recent years. They also have automated
+procedures to check trigger rates as well as the performance of the low-
+and high-level physics objects in the data. % Missing reference {[}ref ATLAS DQ and CMS DQ{]}.
+
+Since the CWP, experiments have started making limited use of machine
+learning algorithms for anomaly detection \cite{Adinolfi:2298467,CMSMonitoring}.
+
+\hypertarget{general-reconstruction-software-improvements-vectorisation}{%
+\subsubsection{General Reconstruction Software Improvements:
+Vectorisation}\label{general-reconstruction-software-improvements-vectorization}}
+
+Improving the ability of HEP developed toolkits to use vector units on
+commodity hardware will bring speedups to applications running on both
+current and future hardware. The goal for work in this area is to evolve
+current toolkit and algorithm implementations, and develop best programming
+techniques to better use the SIMD capabilities of current and future
+computing architectures. Since the CWP, algorithm development projects
+have demonstrated success in increasing the use of vector
+units~\cite{cerati2019speeding, LHCB-FIGURE-2019-002}. In addition, HEP has increasingly benefited from industry
+developed software, including machine learning toolkits (e.g.,
+TensorFlow), that typically make excellent use of vector units.
+Challenges remain in this area: for example, full exploitation
+must also account for many generations of hardware that experiments must
+exploit on the grid. In addition, to realise full performance gains, a
+large fraction of the application must be improved to use SIMD processing
+capabilities (partly due to turbo-boost capabilities of processors).
+
+\hypertarget{use-of-machine-learning-for-software-trigger-and-reconstruction-algorithms}{%
+\subsubsection{Use of Machine Learning}\label{use-of-machine-learning-for-software-trigger-and-reconstruction-algorithms}}
+
+It may be desirable, or even necessary, to deploy new algorithms that
+include advanced machine learning techniques to manage the
+increase in event complexity without increasing per-event
+reconstruction resource needs.
+
+Work is already ongoing in the collaborations to evolve or rewrite
+existing toolkits and algorithms focused on their physics and technical
+performance at high event complexity (e.g. high pileup at HL-LHC), and
+efforts in this area have expanded. Cross-collaboration developments are
+focusing on the availability of ML algorithms for experimental software,
+especially in persistifying models and running inferences in production
+and in enhancing the
+training capacities of collaborations by submitting jobs to the grid and
+to facilities offering large CPU/GPU resources~\cite{LWTNN, ONNX}. One can also foresee
+that HEP will increase the benefit from techniques and cross-talk from
+industry.
+
+\hypertarget{algorithms-and-data-structures}{%
+\subsubsection{Algorithms and Data Structures}\label{algorithms-and-data-structures}}
+
+Computing platforms are generally evolving towards having more cores
+or to adopt different
+architectural models (GPUs, FPGAs) to increase processing capability~\cite{acm10.1145/3282307}.
+The goal for HEP is to improve the throughput of
+software trigger and event reconstruction applications, so current
+event models, toolkits and algorithm implementations have to evolve to
+efficiently exploit these opportunities. The first algorithms that should be
+targeted are those which are most time consuming.
+
+Since the CWP, HEP now has a number of algorithmic projects that are
+designed for, or have successfully adapted to, hardware accelerators,
+most notably to NVIDIA GPUs using CUDA. Two projects targeting Run-3 and
+with prospects for use in Run-4 are Patatrack (from CMS) \cite{andrea_bocci_2019_3598824} and
+Allen (from LHCb) \cite{Aaij:2019zbu}.
+
+\textbf{Patatrack} is a CMS initiative aimed at using heterogeneous
+computing for charged particle reconstruction. Within the CMS
+codebase (CMSSW), this project has demonstrated that physics
+reconstruction code can be written to leverage heterogeneous
+architectures, like GPUs, and achieve a significant speed-up, while
+reducing the overall cost and power consumption of a system. An example
+is the CMS Pixel local reconstruction and the track and vertex
+reconstruction: these algorithms can run on an NVIDIA T4 GPU with the
+same performance as 52-56 Xeon cores, at a fraction of the cost and
+power consumption of an equivalent CPU-only system; further improvements
+may come pairing one or more high end GPUs with a low power ARM system.
+
+\textbf{Allen} is a data processing framework for GPUs, as well as a
+specific implementation of a first-level trigger for LHCb Run-3
+data-taking. Allen is optimised for sustaining the rate required by
+real-time processing in LHCb, but can be used as a more general GPU data
+processing system as it includes a scheduler and a memory manager that can be
+integrated into Gaudi~\cite{gaudi_paper}. This permits the extension and implementation of
+Allen within other experimental software using the same underlying
+framework.
+
+ATLAS is also investigating GPU solutions for reconstruction software
+and its acceleration at HL-LHC, in particular in terms of highly
+parallel algorithms \cite{attila_krasznahorkay_2019_3599103} and to enable the use of machine learning
+algorithms in object reconstruction and identification. % Missing references {[}\emph{waiting for an email from ATLAS with references}{]}.
+
+The experience acquired with these projects shows that GPUs can be used
+for increasing the throughput in cases of large-size (ALICE)
+\cite{david_rohr_2019_3599418} and small-size events per second (LHCb), and to speed up
+specific parts of the data processing (CMS Patatrack).
+
+It is clear that the technology is improving rapidly in this area. The
+adoption of portability toolkits is needed to avoid vendor lock-in
+and/or the need to evolve algorithms by hand to adapt to each new type
+of computing architecture, as well as to increase the sustainability of
+the codebase avoiding multiple implementations of the same algorithm.
+
+%Heterogeneous computing is still a rapidly developing and changing
+%field. The burden of writing architecture-specific code repeatedly will
+%certainly exceed the available effort from the experiments. Efforts are
+%ongoing in this direction, since the CWP, trying to take advantage of
+%the latest development in synergy with industry and attempting to
+%increase the use of centres with heterogeneous resources by experiments.
+
+The \textbf{HLS4ML} project \cite{Duarte:2018ite,Summers:2020xiy,DiGuglielmo:2020eqx} targets the implementation of
+machine learning algorithms on FPGA for low-latency applications useful
+for e.g. Level-1 triggers. The aim of the HLS4ML project is the
+translation of trained ML models into FPGA firmware. HLS4ML also extends
+to the production of coprocessor kernels for FPGAs for longer latency
+applications, and can be used as a tool to design AI-powered ASICs. The
+\textbf{SONIC} application \cite{Duarte:2019fta} is being developed in parallel, with
+the goal of facilitating and accelerating the inference of deep neural
+networks for triggering, reconstruction, and analysis, by providing
+software to use heterogeneous computing resources as a service targeting
+next-generation facilities at the energy and intensity frontier (HL-LHC,
+LBNF).
+
+\hypertarget{trigger-and-reconstruction-software-sharing}{%
+\subsection{Trigger and Reconstruction Software
+Sharing}\label{trigger-and-reconstruction-software-sharing}}
+
+Nearly all software solutions presented in this chapter are tailored to
+a specific experiment, and would require additional work to be adapted
+to different environments. Nevertheless, it is still useful to maintain
+open communication channels to discuss design choices and compare
+performance assessments of different solutions to guide future software
+and reconstruction design choices.
+
+The use of open-source elements of the LHC software stacks for trigger
+and reconstruction by smaller experiments, especially in case of common
+experimental design\footnote{An example of software sharing happens in
+  the case of the FASER experiment, whose offline software
+  (\href{https://gitlab.cern.ch/faser/calypso}{{https://gitlab.cern.ch/faser/calypso}})
+  is based on a derivative of the ATLAS Athena open-source software, which in turn uses the Gaudi framework. FASER
+  also shares tracking detector components with ATLAS, facilitating the
+  adoption of software relying on similar detector descriptions.}, is
+still worthwhile This benefits smaller experiments
+and increases the return on investment for LHC
+experiment software. For this reason, we also encourage the addition of
+common open software projects to the \href{https://projectescape.eu/services/open-source-scientific-software-and-service-repository}{ESCAPE software catalogue}.

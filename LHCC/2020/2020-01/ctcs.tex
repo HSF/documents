@@ -1,0 +1,71 @@
+% Copyright (C) 2020, the authors, licence CC-BY-4.0.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Document now locked in Overleaf, transition to GitHub in progress %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% JHEP preprint template
+\documentclass[11pt,a4paper]{article}
+\usepackage{jheppub}
+%\notoc
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[titletoc]{appendix}
+\setcounter{tocdepth}{2} % Only to subsection level in ToC
+\usepackage{xspace}
+
+% Stop lists from using so much space
+\usepackage{enumitem}
+\setlist{noitemsep}
+
+% References
+\usepackage[style=numeric-comp,sorting=none]{biblatex}
+\addbibresource{ctcs.bib}
+
+%% Comment out before final submission %%
+\usepackage{lineno}  % for line numbering during review
+%\linenumbers
+
+\usepackage{comment}
+
+\begin{document}
+
+% HSF Document Number (only for arXiv)
+\noindent
+\begin{tabular*}{\linewidth}{lc@{\extracolsep{\fill}}r@{\extracolsep{0pt}}}
+ & & HSF-DOC-2020-01 \\
+ & & 10.5281/zenodo.3779250 \\
+ & & May 1, 2020 \\ % use \date or hardwire e.g. December 15, 2017
+ & & \\
+\end{tabular*}
+\vspace{2.0cm}
+
+\title{HL-LHC Computing Review:\\Common Tools and Community Software}
+
+\author{High-Energy Physics Software Foundation}
+
+\maketitle
+
+% Content is stored in separate TeX files for managability
+\input{input_introduction}
+
+\input{input_generators}
+
+\input{input_simulation}
+
+\input{input_recoTrigger}
+
+\input{input_analysis}
+
+\input{input_summary}
+
+\sloppy
+\raggedright
+\clearpage
+\printbibliography[title={References},heading=bibintoc]
+
+\end{document}

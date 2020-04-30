@@ -1,0 +1,324 @@
+
+\hypertarget{physics-event-generators}{%
+\section{Physics Event Generators}\label{physics-event-generators}}
+
+\hypertarget{introduction-1}{%
+\subsection{Introduction}\label{introduction-1}}
+
+Physics event generators are essential in HEP. All of the LHC scientific
+results, both precision measurements or searches for new physics, depend
+significantly on the comparison of experimental measurements to
+theoretical predictions computed using generator software.
+
+Using Monte Carlo (MC) techniques, generators allow both the generation
+of unweighted events for experimental studies of differential
+distributions and the prediction of total cross sections. The
+large-scale event generation campaigns of the LHC experiments have
+significant computational costs, mainly in terms of CPU resources. The
+limited size of simulated samples is a source of major uncertainty in
+many analyses and is therefore a limiting factor on the potential
+physics output of the LHC programme. This situation will get
+significantly worse for 
+HL-LHC. The fraction of the CPU resources used for event generation today is approximately 5-15\%. 
+As is the case for the other big
+consumers of CPU (detector simulation and reconstruction), speedups in generator software are
+needed to address the overall resource problem expected at the HL-LHC,
+compounded because more accurate predictions, requiring more complex
+calculations will be
+needed (e.g. beyond NLO or with higher jet multiplicities). Many other issues, both technical and
+non-technical exist, e.g. funding, training, careers for those working in this
+area~\cite{Alves:2017she,Gen18}.
+
+A HSF Working Group (WG) on generators~\cite{Gen19} was set up at the
+beginning of 2019. The main focus of the WG so far has been on gaining a
+better understanding of the current situation, and identifying and
+prioritising the areas where computing costs can be reduced. In
+particular, the WG has been active in analysing the ATLAS and CMS
+compute budgets in detail, in profiling MG5\_aMC~\cite{Alw14}, 
+Sherpa~\cite{Bot19} and Powheg~\cite{Fri07}, in discussing the possible sharing
+of common parton-level samples by ATLAS and CMS, and in reviewing and
+supporting the efforts for porting generators to modern architectures
+(e.g., MG5\_aMC to GPUs). This last activity is particularly important,
+as it has become increasingly clear that being able to run
+compute-intensive WLCG software workloads on GPUs would allow the
+exploitation of modern GPU-based supercomputers at High Performance
+Computing (HPC) centres, and generators look like a natural candidate
+for this, as they are smaller code bases without complex dependencies.
+
+This section gives an overview of the many technical and non-technical
+challenges in the generator area and of the work that can be done to
+address them. This is finally condensed into a list of a few
+high-priority items, for the next 18 months. A more detailed version of this
+contribution, including a more complete list of references, is
+uploaded to arXiv and will be submitted for publication~\cite{Gen20}.
+
+\hypertarget{collaboration-challenges}{%
+\subsection{Collaborative Challenges}\label{collaboration-challenges}}
+
+\subsubsection{Generator Software Landscape} 
+
+The landscape of generator software is extremely varied. Different
+generators are used for different processes. Generating a sample also
+involves choices of precision (e.g. Leading Order, LO, or
+Next-to-Leading-Order, NLO), hadronisation and Parton Shower (PS)
+models, underlying event tunes, prescriptions for matching/merging and
+simulating particle decays, and other input parameters, chiefly among
+them the parton density functions, for which different interfaces exist.
+Various combinations of software libraries are thus possible, often
+written by different authors and frequently many years old. For a
+given process the LHC experiments often use different software packages
+and settings from each other, and a single experiment can generate
+events using more than one choice. Many different packages and
+configurations may therefore need to be worked on to get cumulative CPU
+cost reductions. The large number of external packages also complicates
+their long-term maintenance and integration in the experiments' software
+and workflows, sometimes leading to job failures and computing
+inefficiencies. Other packages are also absolutely critical for the
+whole generator community and must be maintained, even if their CPU cost
+is relatively low (LHAPDF, Rivet, HepMC, etc.).
+
+\subsubsection{Skills and Profiles}
+
+A very diverse combination of skills and profiles are needed for generator software.
+Theorists
+(who create fundamental physics models, and design, develop and optimise
+most generator code), experimentalists working in research (who request
+different samples) and in computing (who implement, monitor and
+account execution of workflows on computing resources), software
+engineers and system performance experts. This is a richness and
+opportunity, as some technical problems are best addressed by people
+with specific skills, but it also poses some challenges:
+
+\paragraph{Training challenges.} Theorists and experimentalists often
+lack formal training in software development and optimisation. Software
+engineers and experimentalists are often not experts in the theoretical
+physics models implemented in MC codes.
+
+\paragraph{Communication challenges.} It is difficult to find a shared
+terminology and set of concepts to understand one another: notions and
+practices that are taken for granted in one domain may be obscure for
+others. As an example, there are many articles about the physics in
+generators, but software engineers need papers describing the software
+modules and overall control and data flow.
+
+\paragraph{Career challenges.} Those working in the development, optimisation or
+execution of generator software provide essential contributions to the
+success of the (HL-)LHC physics programme and it is critical that they
+get the right recognition and motivation. However, theorists get
+recognition on published papers, and may not be motivated to work on
+software optimisations that are not ``theoretical'' enough to advance
+their careers. Generator support tasks in the experiments may also not
+be enough to secure jobs or funding for experimentalists pursuing a career
+in research.
+
+\paragraph{Mismatch in usage patterns and optimisation focus.} The way
+generators are built and used by their authors is often different from
+the way in which they are deployed and integrated by the experiments in
+their software frameworks and computing infrastructure. The goals and
+metrics of software optimisation work may also differ. Theorists are
+mainly interested in calculating cross sections and focus on minimising
+the phase space integration time for a given statistical precision. The
+LHC experiments run large scale productions of unweighted event
+generation, and mainly need to maximise the throughput of events
+generated per unit time on a given node.
+
+\paragraph{Programming languages.} Attracting collaborators with a computer
+science background to work on generators, especially students, may also
+be complicated by the fact that critical components of some generator
+packages are written in Fortran, which is rarely used in industry and
+less popular among developers than other programming languages. Some of
+the generators also do not use industry standard version control
+systems, making it harder to contribute code.
+
+\hypertarget{technical-challenges-software-and-computing}{%
+\subsection{Technical Challenges}\label{technical-challenges-software-and-computing}}
+
+The event generation workflow presents several challenges and
+opportunities for improvement.
+
+\subsubsection{Inefficiency in Unweighted Event Generation}
+
+\paragraph{Phase space sampling inefficiency.} Efficient sampling is the most
+critical ingredient for efficient unweighted event generation. Many
+generic algorithms exist (e.g. VEGAS~\cite{Lep80}, BASES / SPRING~\cite{Kaw86}, 
+MINT~\cite{Nas07}, FOAM~\cite{Jad03}), as well as others
+developed specifically for a given generator (e.g. MadEvent~\cite{Mal03},
+itself based on a modified version of VEGAS, in MG5\_aMC, or COMIX~\cite{Gle08} 
+in Sherpa). In general, the larger the dimensionality of the
+phase space, the lower the unweighting efficiency that can be achieved:
+in W+jets, for instance, the Sherpa efficiency is 30\% for W+0 jets and
+0.08\% for W+3jets~\cite{Gao20}. This is an area where research is very
+active, and should be actively encouraged, as significant cost
+reductions in WLCG compute budgets could be achieved. Improvements in
+this area can only start from physics-motivated approaches based on the
+knowledge of phase space peaks, but they can be complemented by
+brute-force machine learning (ML) algorithmic methods~\cite{Ben17,Bot20,Gao20,Kli18}.
+
+\paragraph{Merging inefficiency.} Merging prescriptions (e.g. MLM~\cite{Man02},
+CKKW-L~\cite{Lon02} at LO and FxFx~\cite{Fre12}, MEPS@NLO~\cite{Hoe14} at
+NLO) imply the rejection of some events, to avoid double counting
+between events produced with n\textsubscript{jets}+1 matrix elements and
+with n\textsubscript{jets} MEs plus parton showers. The resulting
+inefficiencies can be relatively high, depending on the process, but they
+are unavoidable in the algorithmic strategy used by the underlying
+physics modeling~\cite{Alw08}. However, a method like shower-kt MLM can
+reduce the merging inefficiency of MLM~\cite{Alw09}.
+
+\paragraph{Filtering inefficiency.} An additional large source of inefficiency
+is due to the way the experiments simulate some processes, where they
+generate large inclusive event samples, which are then ﬁltered on
+ﬁnal-state criteria to decide which events are passed on to detector
+simulation and reconstruction (e.g. CMS simulations of specific
+$\Lambda_{B}$ decays have a 0.01\% efficiency and ATLAS B-hadron
+filtering has \textasciitilde10\% efficiency for V+jets). This
+inefficiency could be reduced by developing ﬁltering tools within the
+generators themselves, designed for compatibility with the requirements
+of the experiments. Filtering is an area where LHCb has a lot of
+experience and already obtained significant speedups through various
+techniques. The speed of colour reconnection algorithms is a limiting
+factor for simulating rare hadron decays in LHCb.
+
+\paragraph{Sample sharing and reweighting.} In addition to removing
+inefficiencies, other ways could be explored to make maximal use of the
+CPU spent for generation by reusing samples for more than one purpose.
+Sharing parton-level samples between ATLAS and CMS is being discussed
+for some physics analyses. Event reweighting is already commonly used
+(e.g. for new physics searches and some systematic uncertainty
+calculations) and could be explored further, though this may require
+more theoretical work for samples involving merging or NLO matching~\cite{Mat16}.
+
+\paragraph{Negative weights.} Matching prescriptions, like MC@NLO, are required
+in (N)NLO calculations to avoid double counting between (N)NLO matrix
+elements and parton showers, leading to the appearance of events with
+negative weights. This causes a large inefficiency, as larger event
+samples must be generated and passed through the experiment simulation,
+reconstruction and analysis codes, increasing the compute and storage
+requirements. For a fraction $r$ of negative weight events, the number of
+events to generate increases by a factor $1/(1-2r)^2$: for instance,
+with $r=25\%$ (which may be regarded as a worst-case scenario in top quark
+pair production~\cite{Fre20}), one needs to generate 4 times as many
+events. Negative weights can instead be almost completely avoided, by
+design, in another popular matching prescription, POWHEG; however, this
+is only available for a limited number of processes and describes the
+relevant physics to a different degree of precision than MC@NLO 
+(see~\cite{Fre20} for a more in-depth discussion). Progress in this area can
+only be achieved by theorists: for instance, a new approach for
+MC@NLO-type matching with reduced negative weights has recently been
+proposed~\cite{Fre20}. It should be noted that negative weights can also
+happen at LO because of not-positive-definite parton density function
+sets and interference terms, e.g. in effective field theory
+calculations.
+
+\subsubsection{Accounting and Profiling}
+
+While progress has been made to better understand which areas of
+generator software have the highest computational cost, more detailed
+accounting of the experiment workloads and profiling of the main
+generator software packages would help to further refine R\&D
+priorities.
+
+\paragraph{Accounting of CPU budgets for generators in ATLAS/CMS.} Thanks to a
+lot of effort from the generator teams in both experiments, a lot of
+insight into the settings used to support each experiment's physics
+programme was gained within the WG, and it is now clear that the
+fraction of CPU that ATLAS spends for event generation is somewhat
+higher than that in CMS. More detailed analysis of the different
+strategies is ongoing. These figures had to be
+harvested from logs and production system databases, which was
+particularly difficult for CMS, requiring significant person hours.
+It is important to establish better
+mechanisms to collect this information, to allow for an easy comparison
+between different experiments.
+
+\paragraph{Profiling of the generator software setups used for production.}
+Another area where the WG has been active is the definition and
+profiling of standard generator setups, reproducing those used in
+production. Detailed profiling could also be useful to assess the CPU
+cost of external parton distribution function libraries~\cite{Kon20}, or
+the memory requirements of the software (which may motivate a move to
+multithreading or multiprocessing approaches).
+
+\subsubsection{Software Modernisation}
+
+More generally, as is the case in other areas of HEP, some R\&D on
+generator software is certainly be needed to modernise it and make it
+more efficient, or even port it to more modern computing 
+architectures~\cite{Bau13,Alves:2017she}:
+
+\paragraph{Data parallelism, GPUs and vectorisation.} The data flow of an MC
+generator, where the same (matrix element) function is computed
+repeatedly at many phase space points, lends itself naturally to the
+data parallel approaches found in CPU vectorised code and in GPU compute
+kernels. Porting and optimising generators on GPUs is essential to be
+able to use modern GPU-based HPCs. The work done in this direction in
+the past on MG5\_aMC, that never reached production quality, is now
+being reinvigorated by the WG, in collaboration with the MG5\_aMC team, and
+represents one of the main R\&D priorities of the WG. This work is
+presently focusing on Nvidia CUDA, but abstraction libraries will also
+be investigated. GPUs may also be relevant to ML-based sampling
+algorithms and to the pseudo-random number generation libraries used in
+all MC generators.
+
+\paragraph{Task parallelism, multithreading and multiprocessing.} Generators are
+generally executed as single threaded software units. In most cases,
+this is not a problem, as the memory footprint of unweighted event
+generation is small and usually fits within the 2 GB per core available
+on WLCG nodes. However, there are cases where memory is higher than 2 GB
+(e.g. DY+jets using Sherpa); this leads to inefficiencies as some
+processor cores remain unused, which could be avoided using
+multithreading approaches. The fact that some generators are not even
+thread safe may also be a problem, for instance to embed them in
+multi-threaded event processing frameworks, such as that of CMS.
+Multi-processing approaches may also be useful to speed up the
+integration and optimisation step for complex high-dimensional final
+states. In particular, a lot of work has been done to implement
+MPI-based multi-processing workflows for generators in recent years. For
+instance, the scaling of LO-based generation of merged many-jet samples
+has been successfully tested and benchmarked on HPC architectures using
+both Alpgen~\cite{Chi17} and Sherpa~\cite{Hoe19}; in the latter case, new
+event formats based on HDF5, replacing LHEF, have also been instrumental
+in the success of these tests. MPI integration has also been completed
+for MG5\_aMC~\cite{Mat18}. It should also be noted that, even if HPCs
+offer extremely high-speed inter-node connectivity, it is perfectly ok
+for WLCG workflows to use these systems as clusters of unrelated nodes.
+
+\paragraph{Generic code optimisations.} A speedup of generators may also be
+achievable by more generic optimisations, not involving concurrency. It
+should be studied, for instance, if data caching~\cite{Kon20} or
+different compilers and build strategies may lead to any improvements.
+
+\hypertarget{physics-challenges}{%
+\subsection{Physics Challenges}\label{physics-challenges}}
+
+In addition to software issues, important physics questions should also
+be addressed about more accurate theoretical predictions (above all NNLO
+QCD calculations, but also electroweak corrections) and their potential
+impact on the computational cost of event generators at HL-LHC. Some
+specific NNLO calculations are already available and used today by the
+LHC experiments in their data analysis. With a view to HL-LHC, however,
+some open questions remain to be answered, in particular:
+
+\paragraph{NNLO: status of theoretical physics research.} The first question is,
+for which processes NNLO precision will be available at the time of the
+HL-LHC? For example, when would NNLO be expected for $2 \rightarrow 3$ or
+even higher multiplicity final states? And for lower multiplicity final
+states, where differential NNLO predictions exist but the generation of
+unweighted NNLO+PS events is not yet possible. It is important to
+clarify the theoretical and more practical challenges in these
+calculations, and the corresponding computational strategies and impact
+on CPU time needs.
+
+\paragraph{NNLO: experimental requirements for data analysis at HL-LHC.} The
+second question is, for which final states unweighted event generation
+with NNLO precision would actually be required? and how many events
+would be needed? One should also ask if reweighting LO event samples to
+NNLO would not be an acceptable cheaper alternative to address the
+experiment's needs.
+
+\paragraph{Size of unweighted event samples required for experimental analysis
+at HL-LHC.} Another question, unrelated to NNLO, is in which regions of
+phase space the number of unweighted events must be strictly
+proportional to the luminosity? For example, in the low $p_\text{T}$ regions of W
+boson production it is probably impossible to keep up with the data, due
+to the huge cross section. Alternative techniques should be
+investigated, to avoid the generation of huge event samples.
