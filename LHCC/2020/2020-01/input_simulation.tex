@@ -1,0 +1,388 @@
+
+\hypertarget{detector-simulation}{%
+\section{Detector Simulation}\label{detector-simulation}}
+
+\hypertarget{introduction-2}{%
+\subsection{Introduction}\label{introduction-2}}
+
+In HEP, data analysis, theory model evaluation and detector design
+choices rely on detailed detector simulation. Since the start of the
+first run the LHC experiments have produced, reconstructed, stored,
+transferred and analysed hundreds of billions of simulated events. This
+effort required a major fraction of the WLCG computing 
+resources~\cite{ALICE-TDR-12, ATLAS-TDR-17, CMS-TDR-7, LHCb-TDR-11, WLCG-CM-Update, 
+ALICE-TDR-019, LHCb-TDR-018, ATLAS-LHCC-2019-02, CMS-LHCC-2019-09}
+
+The increase in delivered luminosity in future LHC runs, in particular
+with the HL-LHC, will create unique research opportunities by collecting
+an order of magnitude more data. At the same time, the demand for
+detector simulation will grow accordingly, in order to keep the
+statistical uncertainties as low as possible. However, the expected
+computing resources will not suffice if current detector simulation is
+to be used; the availability of simulated samples of sufficient size
+will soon become a major limiting factor as far as new physics
+discoveries, for example through precision measurements, are concerned.
+Development of faster simulation, therefore, is of crucial importance
+and different techniques need to be explored under the assumption that
+they will provide a sufficient gain in time performance with a
+negligible or acceptable loss in physics accuracy.
+
+The Geant4 simulation toolkit has been the de facto standard for HEP
+experiment simulation for physics studies over the last two decades~\cite{Geant4-2003, Geant4-2006, Geant4-2016}.
+Designed in the late 1990s to cope with the simulation challenges of the
+LHC era, Geant4 introduced flexible physics modelling, exploiting layers
+of virtuality. This fostered progress in physics by comparison of
+competing models on same energy ranges, and allowed complementary models
+to be combined to cover large energy ranges. The simulation applications
+of the LHC experiments make use of this toolkit and, as such, most of
+the LHC physics program relies on it. It has delivered a physics
+precision that allows the experiments to perform precision analysis of
+the collected data and to produce new results pushing the boundaries of
+our understanding in HEP. At the same time, the code of the toolkit is
+becoming old, with some parts written almost thirty years ago, making it
+more and more difficult to run efficiently on modern computing
+architectures. Any improvement in the critical elements of Geant4 can be
+leveraged by the applications that use it. 
+Improvements of physics models need to continue to take place to prevent
+systematic uncertainties from the simulation from becoming a dominant
+factor, however, their exact influence on the precision of physics
+analysis is not always easy to quantify. On the other hand, the overall
+CPU performance of the current code will not improve drastically just by
+relying on modern hardware or better compilers. 
+
+Taking all those elements into account, three main development paths have emerged to be
+undertaken simultaneously: these have started to be pursued, however,
+effort in any one of them is far from sufficient to exploit their
+individual potential. 
+
+On one hand, it is needed to continue to modernise
+and refactor the simulation code by using more optimal, modern
+programming techniques. Those improvements, requiring considerable
+effort but no major paradigm changes, can reasonably bring several tens
+of percent of speed-up, by improving the throughput on modern CPUs,
+avoiding constant churn in data and instruction caches. This will
+certainly help to produce more simulated events, but it will not be
+sufficient to meet the high luminosity needs of the LHC experiments. 
+
+On the other hand, different fast simulation techniques, where tracking of
+individual particles in given detectors is replaced by some sort of
+parameterisation, have already been extensively used for LHC simulation
+campaigns, where some precision is traded to achieve higher event
+throughput (thus lowering the cost of samples overall). Techniques to
+re-use part of the simulated events multiple times have also emerged.
+New technologies (like Machine Learning), should certainly be
+investigated as fast simulation approaches. All of these will become
+more and more significant and will need to be seamlessly integrated with
+the detailed simulation provided by Geant4. 
+
+Finally, the use of compute
+accelerators (like GPUs or FPGAs) is the third emerging path that needs
+to be undertaken and that requires intense R\&D effort. We will discuss
+more in detail those three development axes in the following sections.
+
+In this section we will outline the developments identified in and since the
+Community White Paper~\cite{Albrecht2019, SimFoundation2018hep} focusing
+in particular in these three area. 
+
+\hypertarget{geant4-rd}{%
+\subsection{Geant4 R\&D}\label{geant4-rd}}
+
+The Geant4 particle transport toolkit contains advanced models for
+electromagnetic and hadronic physics processes, as well as the
+geometrical description of the detectors. The toolkit design principles
+were to allow flexibility in future extensions of its own code, as well
+as choices for particular applications. It is clear that this
+flexibility comes at the price of a performance penalty. It was observed that
+writing more compact and more specialised code can lead in certain
+places to up to several tens percent speed-up~\cite{GeantV}. The
+technical improvements to explore here consist of avoiding too many
+virtual layers and improving the instruction and data locality, leading
+to better cache use. Going even further as far as specialisation is
+concerned, studies suggest that implementing compact, self-contained
+transport libraries with a minimal set of physics models (for instance
+only electromagnetic interaction for selected particles) with predefined
+scoring (to simulate, for instance, the response of an EM calorimeter)
+can also bring speed-ups to the complete application~\cite{GeantV}. As
+far as architectural modifications are concerned, the design of the
+Geant4 track-status machinery prevents the introduction of fine-grained
+track parallelism. It is still not clear whether this kind of
+parallelism can bring any substantial speed-up, due to the overheads;
+however, making the Geant4 kernel and physics processes stateless would
+certainly provide the necessary starting points for further R\&D in that
+direction. Most of these investigations have started and it is hoped to
+see some first results on a year time-scale. More effort, however, will
+be required to integrate any eventual changes in the production code in
+a timely manner. The GeantV Vector prototype has allowed the assessment
+of the achievable speedup using a novel, vectorised approach to particle
+transport. The demonstrator of a full electromagnetic shower in
+realistic (CMS) geometry has been implemented and the comparison to a
+similar Geant4 application has been performed. The conclusion of that
+work showed that the main factors in the speedup seem to include better
+cache use and tighter code, while the vectorisation impact was much
+smaller than hoped for. This unimpressive impact is due to a set of
+factors, including the fraction of the current algorithms that could be
+vectorised, unresolved challenges for the gather/scatter and tail
+handling (to keep the number of events in flight within bound) needed
+for large number of shapes, and of course Amdahl's Law applied to
+vectorisation where some bottleneck (for example geometry navigation)
+could not be tackled without a major additional long term effort~\cite{GeantV}.
+At the same time libraries developed in the context of the
+GeantV R\&D, e.g. VecGeom, have been successfully integrated in Geant4
+and ROOT benefiting the whole HEP software community~\cite{CMS01}. The
+cost-over-benefit of more vectorisation of the code has not been deemed
+worth the necessary investment also due to the speculation that a
+complete rewrite of the physics base could become necessary to fully
+exploit it. As a result investing in the optimisation and modernisation
+of the Geant4 code has gained even more relevance.
+
+\hypertarget{experiments-applications-and-optimisation-of-the-use-of-geant4}{%
+\subsection{Experiment Applications and Optimised Use of
+Geant4}\label{experiments-applications-and-optimisation-of-the-use-of-geant4}}
+
+All LHC experiments have dedicated simulation frameworks making use of
+the Geant4 toolkit for modelling their detectors and the physics
+processes occurring in the experimental setups. Every experiment
+configures and uses what is provided by Geant4 for their specific needs.
+Effort has been spent by each experiment since the publication of the
+Community White Paper~\cite{Albrecht2019, SimFoundation2018hep} to benchmark their 
+simulation code and to maximally
+exploit the options provided by the Geant4 toolkit to optimise the
+performance of their applications~\cite{ATLAS-G4OPT}. All of the various handles provided
+are being continuously explored and adopted when deemed useful: range
+and physics cuts have been reviewed and customised by all experiments,
+shower libraries adopted as baseline in the forward region by ATLAS and
+CMS, stepping granularity optimised, magnetic field caching
+investigated, neutron Russian roulette used for dedicated simulations.
+All of them can have major impacts on simulation time and sharing
+knowledge and experience between experiments can be of high benefit even
+if each experiment has to find its optimal solution.
+
+ATLAS, CMS and LHCb have integrated the Geant4 event-based
+multi-threading features within their own multi-threaded frameworks,
+harmonising their different architectural choices with the Geant4
+implementation~\cite{CMS02, LHCb01, ATLAS01}, and have or are planning to
+use them in their production environment to gain access to a larger set
+of distributed resources. ATLAS has been running their multi-process
+simulation framework on HPCs systems for production in the
+last years~\cite{ATLAS02, Benjamin:2696330} 
+while CMS has pioneered the use of their multi-threaded
+simulation on available resources including HPCs~\cite{CMS03}. Both
+approaches have allowed to exploit a higher number of computing
+resources by gaining access to systems with limited memory.
+
+\hypertarget{fast-simulations}{%
+\subsection{Fast Simulations}\label{fast-simulations}}
+
+The so-called `fast simulation' techniques consist of replacing the
+tracking of individual particles through (a part of) the detector,
+including all the physics processes they would undergo, by a
+parameterisation where the detector response is produced directly as a
+function of the incoming particle type and energy. An example of such a
+parameterisation was implemented many years ago in the context of the H1
+experiment~\cite{H1Gflash}. This parameterisation, available within the
+Geant4 toolkit under the name of the GFLASH library, became the starting
+idea for several `custom' implementations, specific for other
+calorimeters. Those were interfaced to experiments' simulation
+applications through the available `hook' in the Geant4 toolkit. The LHC
+experiments implemented, for example, dedicated parametrised response
+libraries for some of their calorimeters. Recently, an effort has been
+invested in Geant4 to generalise the parameterisation formulae, and to
+implement automatic procedures of tuning the parameters for specific
+detector geometries. This kind of `classical' fast simulation, which
+describes the particle shower shape using some complex mathematical
+functions with several parameters, will remain an important tool;
+however, it is also clear that their overall precision for the different
+energy values, especially for highly granular and complex calorimeters
+will always be relatively low. The recent developments of Deep
+Learning-based techniques have opened an exciting possibility of
+replacing those `classical' parameterisations by trained neural networks
+that would reproduce the detector response. This approach consists of
+training generative models such as Generative Adversarial Networks
+(GAN), Variational Auto-Encoders (VAE) or Autoregressive Generative
+Networks on the `images' of particle 
+showers~\cite{ML001-GAN, aishik_ghosh_2019_3599705, GAN-ATLAS}. The energy
+deposition values in the calorimeter cells are considered as `pixels' of
+the images that the network is supposed to reproduce. The first studies
+and prototypes have shown very promising results, however, the
+generalisation of the developed models (for different calorimeters, with
+different particles incident at different angles with different
+energies), still requires further effort. Detailed physics validation of
+those tools and understanding of the capability to reproduce the
+fluctuations is a prerequisite towards `production-quality' fast
+simulation libraries. This work is already ongoing, but will require,
+over the next few years, more effort to be invested combining the
+physics and Machine Learning expertise. Given that the training of the
+deep learning algorithms usually requires using sufficiently large MC
+samples produced using standard techniques, the development of the novel
+tools does not necessarily remove the need to speed up Geant4.
+
+It is worth pointing out that different fast simulation techniques have
+already been extensively used for LHC simulation campaigns. Effort has
+been spent in the experiments frameworks to combine as much as possible
+fast and detailed implementation. In particular ATLAS and CMS are using
+in their baseline production shower libraries for the modelling of
+calorimeters in the forward region in combination with the detailed
+simulation of the rest of the sub-detectors. In LHCb the re-use of part
+of the underlying events for specific signals of interest has been
+established in production of samples when appropriate, with particular
+care paid to ensure keeping under control bias on statistical
+uncertainties~\cite{LHCb02}, its applicability in ATLAS and CMS could be
+explored for specific cases. Similarly, the re-use of simulated or real
+events to mimic the background to hard-scatter events is also exploited,
+where additional challenges exist concerning storage and I/O due to the
+handling of the large minimum bias samples needed to model the
+additional interactions.
+
+All LHC experiments have explored the use of multi-objective regression
+and generative adversarial networks (GANs)~\cite{GAN-ATLAS, GAN-LHCb}, they are now in the process of investigating the use of
+fast simulations for other types of detectors than calorimeters, e.g.
+Cerenkov based systems~\cite{Lamarr} and Time Projection Chambers~\cite{ALICE-TPC}. While implementations of fast simulations of given
+sub-detectors is specific to their technology and experimental
+environment and as such the responsibility of each LHC experiment, an
+area of potential common investigation is frameworks for fast tuning and
+validation.
+
+The use of fully parametric response of experimental setups at the level
+of reconstructed objects (tracks and clusters) for rapid evaluation of
+physic's reach is also exploited by the experiments with generic
+frameworks for fast simulation of typical collider detectors being used~\cite{bib-Delphes, PGS4}. 
+The advantage of such frameworks is to allow
+simultaneous studies for different experiments as well as their
+potential use by the theory community. Experiments specific fully
+parameterised simulations providing reconstructed objects compatible
+with the experiment's analysis frameworks for systematic verifications
+have also been emerging~\cite{Lamarr} .
+
+It is reasonable to expect that the full variety of simulation options,
+from `smeared reconstructed quantities' to parameterisation for specific
+detectors to the detailed Geant4, will need to be exploited by the
+experiments for different tasks. Seamless ways of providing them in a
+transparent integrated way in the experiments' simulation frameworks
+should continue to be pursued with Geant4 supporting hooks for such
+integrations.
+
+\hypertarget{technical-challenges-software-and-computing-1}{%
+\subsection{Technical Challenges}\label{technical-challenges-software-and-computing-1}}
+
+The hardware landscape has been always setting direction as far as
+software evolution was concerned. The recent adaptation of the
+simulation code to multithreading (MT) turned out to be relatively
+straightforward, but still took several years to adopt and validate.
+Geant4 can now run in the MT mode efficiently, distributing the events
+between the threads and sharing resources like the geometry description
+or physics data and thus reduce the memory footprint of a simulation
+while maintaining its throughput performance. The efficient utilisation
+of Single Instruction Multiple Data (SIMD) architectures, on the other
+hand turned out to be more challenging. Not only was a limited part of
+the code `vectorisable' but also, as the already mentioned GeantV R\&D
+has shown, overheads related to gathering the data for vector processing
+presented a significant challenges (tail handling, work balancing across
+threads, etc.) to efficiently (development time wise and run time wise)
+profit from it~\cite{GeantV}.
+
+The most recent `revolution' in the computing hardware systems consists
+of using Graphics Processing Units (GPUs) for general computing. Several
+attempts have been made to port specific simulation code to GPUs. A few
+of them turned out to be successful leading to factors of several
+hundred or thousand of speedup~\cite{GPU-MPEXS-DNA, Hybrid-Gate, Opticks}, however, they were always
+limited to a very specific simulation problem, far from what is
+addressed by a general HEP simulation. The application of GPUs has been
+very successful in restricted domains like medical physics simulation,
+neutron transport~\cite{SHIFT01} or optical photon transport~\cite{CHEP-Juno}. 
+In those applications, the type of particles considered
+is very limited (often just one type, with no secondary particle
+production), the set of physics processes is reduced and the geometry is
+often extremely simple compared to the LHC detectors. A natural
+`extrapolation' of those approaches to a general HEP simulation is very
+difficult to imagine, because the stochasticity of the simulated events
+would immediately lead to divergences as far as different GPU threads
+are concerned, not to mention, simply the feasibility of porting the
+whole simulation to the GPU code for which specific expertise would be
+needed. On the other hand, running only very small pieces of the
+simulation application on GPUs does not seem to be efficient either, as
+gathering data and transferring it from the host to the device and back
+may strongly limit any possible performance gain, similarly to what was
+seen with the GeantV vectorisation R\&D. The most plausible approaches
+seem therefore to lead in the direction of specialised libraries (like
+those described above in the context of speeding up Geant4 simulation on
+the CPUs) that would perform the complete simulation of specific
+sub-detectors (for instance EM calorimeter, for specific incoming
+particles or Cherenkov-based detectors for the optical processes) on the
+device. Such libraries could be the right compromise between the
+complexity of the algorithm that needs to be ported to the device and
+the overall time that is now spent (and could be gained) on the
+corresponding of the full simulation on the CPU. The investigation in
+those directions are starting now, but will certainly require a
+considerable effort to be further invested before being able to judge
+their real impact. The first steps that are currently being undertaken
+consist of implementing, on GPUs, prototypes based on VecGeom geometry
+and navigation capabilities. If those prototypes turn out to be
+successful, the next challenge will consist of adding tracking and
+eventually a limited subset of physics models. While Geant4 is a toolkit
+capable of addressing different modelling and simulation problems and
+contains many features and capabilities allowing for user access to
+detailed information for a large variety of use cases and scientific
+communities, this GPU development might turn into specialised transport
+modules, stripped of some features which would be expensive to implement
+or support efficiently on GPUs. Another interesting avenue consists of
+exploring the application of some vendor libraries (like Nvidia Optix).
+Those libraries, originally developed for ray tracing, have several
+similarities with general particle transport and if applied
+successfully, could lead to major speed-ups. All those efforts certainly
+require a major investment and new developers, expert in those
+technologies, to join the R\&D work.
+
+\hypertarget{other-activities}{%
+\subsection{Other Activities}\label{other-activities}}
+
+Common digitisation efforts would be desirable among experiments, with
+advanced high-performance generic examples, which experiments could use
+as a basis to develop their own code. Nevertheless the large variety of
+detectors' technologies used by the experiments reduces its
+applicability. Digitisation not yet being a limiting factor in terms of
+CPU requirements also does not urge developments in this area.
+
+Simulated samples are often processed through the reconstruction as real
+data. As such in some cases they require the emulation of hardware
+triggers. Hardware triggers are based on very specific custom devices
+and a general approach does not seem feasible even if some
+parametrisation could be generalised.
+
+\hypertarget{outlook}{%
+\subsection{Outlook}\label{outlook}}
+
+To conclude, it is important to realise that there is a considerable
+risk for the simulation to become a major limiting factor as far as new
+physics discoveries are concerned if no serious effort is invested in
+R\&D. We need the concerted effort of different experts in physics,
+Machine Learning and GPUs. There are too many unknowns to focus on only
+one direction, so a lot of different prototyping is needed. We need to
+further develop Geant4 while working on fast simulation algorithms and
+doing extensive R\&D on leveraging compute accelerators. While the R\&D
+activities are taking place, one can not forget that it is still
+necessary to support the existing code and make sure that sufficient
+funding and staffing is provided for maintenance and development of the
+physics algorithms, as well as for adapting the code to the ongoing
+hardware, operating system and compiler evolution.
+
+It is also important to stress once again the need of not only ongoing
+R\&D investigations and independent prototyping to explore novel ideas,
+but also a continuous integration activity of new runtime performance
+improvements and solutions into the Geant4 code base and experiments
+applications to profit from each improvement as quickly as possible. An
+effort needs to be invested into making it possible to evolve it to meet
+the HL-LHC needs without compromising the production quality of the
+Geant4 code used by the experiments. We need to ensure that new
+developments resulting from the R\&D programs can be tested with
+realistic prototypes and, if successful, then integrated, validated, and
+deployed in a timely fashion in Geant4 and adopted by the experiments.
+The strategy adopted in the successful integration in Geant4 of VecGeom
+libraries developed in the context of the GeantV R\&D can provide a
+working example of how to proceed to provide some incremental
+improvements to existing applications.
+
+No single solution appears at the moment to provide by itself the
+processing gains required by HL-LHC, nevertheless if a novel approach
+emerges that could do so it should be pursued and carefully evaluated in
+terms of gains against the disruption of a complete re-implementation of
+how events are simulated.

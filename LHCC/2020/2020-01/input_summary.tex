@@ -1,0 +1,172 @@
+
+
+\hypertarget{summary}{%
+\section{Summary}\label{summary}}
+
+The main challenges and R\&D lines of interest have been discussed
+above. There are clearly identified priority topics for the different
+areas in the next few years. We note that longer term R\&D, into areas
+such as quantum or neuromorphic computing, should happen at a low level,
+but are almost certainly too far from production to deliver improvements
+for Run 4 of the LHC.
+
+\hypertarget{physics-event-generators-1}{%
+\subsection{Physics Event Generators}\label{physics-event-generators-1}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \begin{quote}
+  Gain a more detailed understanding of current CPU costs by accounting
+  and profiling.
+  \end{quote}
+\item
+  \begin{quote}
+  Survey generator codes to understand the best way to move to GPUs and
+  vectorised code, and prototype the port of the software to GPUs using
+  data-parallel paradigms.
+  \end{quote}
+\item
+  \begin{quote}
+  Support efforts to optimise phase space sampling and integration
+  algorithms, including the use of Machine Learning techniques such as
+  neural networks.
+  \end{quote}
+\item
+  \begin{quote}
+  Promote research on how to reduce the cost associated with negative
+  weight events, using new theoretical or experimental approaches.
+  \end{quote}
+\item
+  \begin{quote}
+  Promote collaboration, training, funding and career opportunities in
+  the generator area.
+  \end{quote}
+\end{enumerate}
+
+\hypertarget{detector-simulation-1}{%
+\subsection{Detector Simulation}\label{detector-simulation-1}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \begin{quote}
+  Undertake a detailed performance analysis of current production
+  detector simulation code, to better understand where performance
+  limitations in data and cache locality arise from.
+  \end{quote}
+\item
+  \begin{quote}
+  Improve current codes through refactoring and specialised HEP models
+  to avoid bottlenecks identified,
+  \end{quote}
+\item
+  \begin{quote}
+  Develop further fast simulation models and techniques, including
+  machine learning based options in addition to optimised parametric
+  approaches as well as common frameworks for their tuning and
+  validation.
+  \end{quote}
+\item
+  \begin{quote}
+  Develop GPU codes for tackling very specific, time consuming, parts of
+  the simulation for HEP. Specifically calorimetry, including geometry,
+  field and electro-magnetic physics processes.
+  \end{quote}
+\item
+  \begin{quote}
+  Develop integration prototypes to exercise and benchmark the
+  simultaneous use of GPU specific libraries with CPU-based software
+  (e.g. Geant4) to cover all particles and processes required in
+  experiments simulation frameworks.
+  \end{quote}
+\end{enumerate}
+
+\hypertarget{reconstruction-and-software-triggers-1}{%
+\subsection{Reconstruction and Software
+Triggers}\label{reconstruction-and-software-triggers-1}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \begin{quote}
+  Develop fast and performant reconstruction software, making optimal
+  use of hardware resources. A particularly crucial development for
+  HL-LHC is that of pattern recognition solutions (including timing
+  information, if available) that can withstand the increase of pile-up
+  at HL-LHC. Wherever possible, solutions should be uniform for online
+  and offline software, so the experiments can benefit from consistent
+  event selection between trigger and final analysis and from more
+  effective real-time analysis results.
+  \end{quote}
+\item
+  \begin{quote}
+  Develop solutions that can exploit accelerators (FPGA, GPU) for
+  trigger and reconstruction, including general-purpose interoperability
+  libraries with a focus to generalising and mitigating their
+  dependencies on architecture-specific codes.
+  \end{quote}
+\item
+  \begin{quote}
+  Further promote activities in the area of data quality and software
+  monitoring, as the quality of the recorded/reconstructed data is
+  paramount for all physics analysis.
+  \end{quote}
+\item
+  \begin{quote}
+  Support efforts towards the implementation of machine learning models
+  in experimental framework (C++) to enable more widespread use in
+  trigger and reconstruction software.
+  \end{quote}
+\end{enumerate}
+
+\hypertarget{data-analysis-1}{%
+\subsection{Data Analysis}\label{data-analysis-1}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \begin{quote}
+  Identify a CPU-efficient data reduction and storage model that serves
+  the majority of analyses with a footprint of O(1kb/event), retaining
+  the flexibility to accommodate the needs of specialised analyses.
+  \end{quote}
+\item
+  \begin{quote}
+  Streamline analysis metadata access and calibration schemes, and
+  provide effective book-keeping for fractional datasets.
+  \end{quote}
+\item
+  \begin{quote}
+  Develop cross-experimental tools establishing declarative syntax
+  and/or languages for analysis description, interfaced with distributed
+  computing backends.
+  \end{quote}
+\item
+  \begin{quote}
+  Define and improve schemes for interoperability of end-stage
+  experimental software with data science/machine learning frameworks.
+  \end{quote}
+\end{enumerate}
+
+Undertaking this programme of priority topics and R\&D requires, first
+and foremost, investment from funding agencies to support developments.
+A new generation of developers is also needed to refresh and regenerate
+the long lived software projects on which the field so heavily relies.
+The transition from R\&D to production ready software is usually long
+and so it is urgent to undertake this investment now, with the positive
+outcomes ready to become integrated in time for HL-LHC. Regenerating the
+cadre of software developers in HEP also requires support for realistic
+long term career prospects for those who specialise in this vital area.
+Collaboration with industry can certainly be fruitful and is to be
+encouraged to allow early access to technology and communication of HEP
+problems and priorities.
+
+Almost all the domain areas identify the use of compute accelerators,
+particularly GPUs, as being a priority item, which matches our
+expectation of how computing hardware will evolve. As a common problem
+area, this is an obvious area in which expertise should be developed.
+
+The stakeholders in HEP must be able to give their priorities and
+feedback on R\&D areas. Each project has mechanisms for doing this,
+while the HSF can help to provide overall input on prioritisation.

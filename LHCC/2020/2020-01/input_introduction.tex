@@ -1,0 +1,118 @@
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+Common and community software packages, such as ROOT, Geant4 and event
+generators have been a key part of the LHC's success so far and
+continued development and optimisation will be critical in the future
+\cite{stewart_graeme_a_2018_2413005, Ellis:2691414, Albrecht2019}. The
+challenges are driven by an ambitious physics programme, notably the LHC
+accelerator upgrade to high-luminosity, HL-LHC, and the corresponding
+detector upgrades of ATLAS and CMS. The General Purpose Detectors
+describe their specific challenges elsewhere; in this document we
+address the issues for software that is used in multiple experiments
+(usually even more widely than ATLAS and CMS) and maintained by teams of
+developers who are either not linked to a particular experiment or who
+contribute to common software within the context of their experiment
+activity. We also give space to general considerations for future
+software and projects that tackle upcoming challenges, no matter who
+writes it, which is an area where community convergence on best practice
+is extremely useful.
+
+ATLAS and CMS will undergo major detector upgrades and will also
+increase their trigger rates for HL-LHC by about a factor of 10; event
+complexity will rise, with peak pile-up of 200, far higher than in
+Run-2. This places an enormous burden on storage and processing
+resources. Current CMOS microprocessor technology is clock speed limited
+(due to the failure of Dennard scaling) and, while processors
+per-integrated circuit still keeps rising, Moore's Law is expected to
+stall during the 2020s. More importantly, the effective runtime related
+improvements in computing from CPU servers at sites is likely to be only
+about 10\% per year, making the shortfall in processing resources more
+severe. As manufacturers struggle to deliver ever-more effective
+computing through CPUs the drive to different architectures intensifies,
+with GPUs becoming commonplace and increasing interest in even more
+specialised architectures, such as TPUs, IPUs and developments that make
+FPGA devices more user friendly \cite{acm10.1145/3282307}.
+These pose huge challenges for our
+community as the programming models and APIs vary widely here and
+possible lock-in to a particular vendor's devices is a significant
+problem for code sustainability and preservation. Huge work has been
+done already to adapt to this changing landscape, e.g. multi-threading
+software and GPU codes have been used in production by some experiments
+for years~\cite{calafiura2018hep, albrecht2018hepexec}.
+In other areas migration is still ongoing. In others it is
+not even yet started. Generic heterogeneous programming models have
+existed for some time, and new ones are arising, but there is, as yet,
+no clear winner, in-part because the performance obtained can be highly
+application-dependent. HEP itself will not drive the success of one
+model or another, so even if the community converged on a preferred
+model, its long term success would not be assured. The C++ standard
+itself is likely to lag for many years behind what is required by us in
+the area of heterogeneous or even distributed computing. Further,
+experiment frameworks (and with knock-on effects to systems like
+workload management) will need to adapt to sites that provide
+heterogeneous resources. How to do this, and make effective use of
+different heterogeneous resources across different sites, remains far
+from settled.
+
+For storage systems (see the DOMA and WLCG documents) the pressure on
+software is to store as much physics information in as few bytes as
+possible, but also to be able to read at very high rates to deliver data
+from modern storage technologies into the processing hardware. This
+requires critical developments in the storage formats and libraries used
+in HEP, e.g. developments like RNTuple for ROOT I/O is likely to be of
+great importance for the community \cite{ROOT-2020-HL-LHC}. The likelihood of finding an
+off-the-shelf compact and efficient storage format for HEP data is
+remote, so investment in smart software to support our PB sized science
+data is simply cost effective. Particularly for analysis, which is
+usually I/O bound, we have an end-to-end problem from storage
+technology, through the software layers, to processing resources that
+may well span multiple nodes. Other workflows, which are less dependent
+on I/O rates will, nevertheless, have to be adapted to using remote data
+where the I/O layer must optimise data transfers and hide latency, e.g.
+taking advantage of XRootD's single column streaming ability \cite{xrootd}.
+
+In this increasingly complex environment in which to write software,
+there are important problems where sharing information at the community
+level is far more efficient. Providing a high level of support in the
+build environment for developers, sharing knowledge about how to
+measure, and then improve, performance (especially on multiple different
+architectures) and sharing best practice for code development can have a
+large integrated benefit \cite{couturier2017hep}. This requires improved training and the
+development of a curriculum for all developer levels. In the field, such
+initiatives are often warmly received, but real support is needed for
+those who can put this into practice, also ensuring that their work in
+training contributes to their career development and a long term future
+in the field \cite{foundation2018hep}. HEP software stacks are already deep and wide and building
+these consistently and coherently is also an area where knowledge can be
+shared. Support is needed for multiple architectural targets and
+ensuring the correct runtime on heterogeneous environments.
+
+This brings up the important question of validation and the need to
+improve the security of physics results, which is even more complicated
+on heterogeneous platforms, when exact binary compatibility often cannot
+be assured. Currently almost every experiment and project has its own
+infrastructure for this.
+
+Once software is built, it needs to be shipped worldwide so that the
+production workflows can run. CernVM-FS was a huge leap forward for
+software distribution and has even been widely adopted outside HEP 
+\cite{Blomer_2011, 7310920}.
+However, new challenges arise, with container based payloads, scaling
+issues and disconnected supercomputer sites. So maintenance and
+development needs to be undertaken to support and extend this key
+supporting infrastructure for software.
+
+Finally, over the multi-decade lifetimes of HEP experiments, we need to
+preserve both the core and analysis software so that results can be
+confirmed and updated as the field moves on. There are many exciting
+developments based around CernVM-FS
+\cite{10.1007/978-3-319-67630-2_52, serverless-cvmfs}, containers and things like analysis
+description languages \cite{Ref10}, but these are not yet at the stage of being
+settled nor integrated into our day-to-day workflows.
+
+In the rest of this document the main issues associated with the key
+parts of the software workflow in high-energy physics are presented,
+focusing on those that dominate current resource consumption: physics
+event generation, detector simulation, reconstruction and analysis.
