@@ -98,7 +98,7 @@ were to allow flexibility in future extensions of its own code, as well
 as choices for particular applications. It is clear that this
 flexibility comes at the price of a performance penalty. It was observed that
 writing more compact and more specialised code can lead in certain
-places to up to several tens of percent speed-up~\cite{GeantV}. The
+places to up to several tens of percent speed-up~\cite{GeantV-2019, GeantV-2020}. The
 technical improvements to explore here consist of avoiding too many
 virtual layers and improving the instruction and data locality, leading
 to better cache use.
@@ -108,7 +108,7 @@ concerned, studies suggest that implementing compact, self-contained
 transport libraries with a minimal set of physics models (for instance
 only electromagnetic interaction for selected particles) with predefined
 scoring (to simulate, for instance, the response of an EM calorimeter)
-can also bring speed-ups to the complete application~\cite{GeantV}.
+can also bring speed-ups to the complete application~\cite{GeantV-2019, GeantV-2020}.
 
 As
 far as architectural modifications are concerned, the design of the
@@ -137,7 +137,7 @@ vectorised, unresolved challenges for the gather/scatter and tail
 handling (to keep the number of events in flight within bound) needed
 for large number of shapes, and of course Amdahl's Law applied to
 vectorisation where some bottleneck (for example geometry navigation)
-could not be tackled without a major additional long term effort~\cite{GeantV}.
+could not be tackled without a major additional long term effort~\cite{GeantV-2019, GeantV-2020}.
 
 At the same time libraries developed in the context of the
 GeantV R\&D, e.g. VecGeom, have been successfully integrated in Geant4
@@ -293,7 +293,7 @@ the code vectorisable but also, as the already mentioned GeantV R\&D
 has shown, overheads related to gathering the data for vector processing
 presented a significant challenges (tail handling, work balancing across
 threads, etc.) to efficiently (development time wise and run time wise)
-profit from it~\cite{GeantV}.
+profit from it~\cite{GeantV-2019, GeantV-2020}.
 
 The most recent revolution in computing hardware is the
 use of Graphics Processing Units (GPUs) for general purpose computing. Several
