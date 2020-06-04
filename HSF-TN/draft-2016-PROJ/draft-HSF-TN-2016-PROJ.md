@@ -20,7 +20,7 @@ Afterwards we provide a checklist of the proposals you may want to use for your 
 
 On starting a project, make sure you have an idea of the project's scope and goals. Try to pick a name that is suitable for that. You need to ensure uniqueness, as the name will be used to name software artifacts like libraries, code namespaces, error messages, etc. In addition, have a look around whether it conflicts with pre-existing trademarks for software products or services.
 
-Though it sounds like a triviality, your project should be made known to the community. For this, having a *dedicated project website* or another entry point for information is essential. It should concentrate all the information useful for users and developers. If possible, it should point at all the other information listed in this document. It is important to find the right place to put information. Try not to repeat yourself, as duplicated documentation can easily get out of sync. Access to all sources of project information should be granted to search engine spiders. The HSF provides a knowledge-base, where your project could be announced. Furthermore, the HSF software development forum allows you to present your project or ideas at any stage in its project lifecycle.
+Though it sounds like a triviality, your project should be made known to the community. For this, having a *dedicated project website* or another entry point for information is essential. It should concentrate all the information useful for users and developers. If possible, it should point at all the other information listed in this document. It is important to find the right place to put information. Try not to repeat yourself, as duplicated documentation can easily get out of sync. Access to all sources of project information should be granted to search engine spiders. Furthermore, the HSF software development forum allows you to present your project or ideas at any stage in its project lifecycle.
 
 
 
@@ -28,10 +28,10 @@ Though it sounds like a triviality, your project should be made known to the com
 The following sections discuss points mainly relevant for project developers and potential new contributors.
 
 ## Code repository
-The first requirement for an open-source project is fully versioned code in a *public repository*. The code should be accessible in anonymous read-only mode by everybody. Services like [GitHub](https://github.com) or [GitLab](https://gitlab.com) provide it for free. In addition efforts like [hepforge](https://www.hepforge.org/) or labs like CERN or DESY may host HEP-specific packages. Services supporting a clone plus *merge-request/pull-request workflow* can be helpful to attract new contributors.
+The first requirement for an open-source project is fully versioned code in a *public repository*. The code should be accessible in anonymous read-only mode by everybody. Services like [GitHub](https://github.com) or [GitLab](https://gitlab.com) provide it for free. In addition efforts like [hepforge](https://www.hepforge.org/) or labs like CERN or DESY may host HEP-specific packages. Services supporting a clone plus *merge-request/pull-request workflow* can be helpful to attract new contributors, as it is the current de-facto standard of open software development.
 
-## License
-The code and software provided should be properly licensed in order to be able to use code provided by others, and to allow people to re-use, update, or improve the software you provide. The [HSF technical note](http://hepsoftwarefoundation.org/technical_notes.html) *HSF-TN-2016-01* (*Software Licence Agreements HSF Policy Guidelines*) discusses various options. This is one of the topics that is typically ignored at the beginning of a project and hard to fix afterwards.
+## License and Copyright
+The ownership and copyright of the code has to be well defined and understood. In a second step, the code and software provided should be properly licensed in order to be able to use code provided by others, and to allow people to re-use, update, or improve the software you provide. The [HSF technical note](http://hepsoftwarefoundation.org/technical_notes.html) *HSF-TN-2016-01* (*Software Licence Agreements HSF Policy Guidelines*) discusses various options. This is one of the topics that is typically ignored at the beginning of a project and hard to fix afterwards.
 
 ## Compilation and other commands
 Compiling, installing and testing should each be - if possible - single-command actions for building, installing and testing. In particular, making testing easy is important. A good place to put the necessary information is a *README* file in the repository. Relying on community standards like [*CMake*](https://www.cmake.org) make it easier for others to use and understand the setup.
@@ -45,14 +45,16 @@ For *unit tests* plenty of software packages exist, of which [*gtest*](https://g
 A mailing list to contact developers is always useful. Better to have publicly and anonymously accessible archives and be open for subscription and posting by the public.
 
 ## Issue tracking 
-It is useful to provide an issue (bug) tracker for users and developers to interact with, allowing to view of both open and closed tickets anonymously by the public. Possible solutions here are the issue tracking capabilities of GitHub or GitLab projects or CERN's [JIRA](https://www.atlassian.com/software/jira) service. It turned out that solutions which integrate directly with the code repository are much easier to use.
+It is useful to provide an issue (bug) tracker for users and developers to interact with, allowing to view of both open and closed tickets anonymously by the public. Possible solutions here are the issue tracking capabilities of GitHub or GitLab projects or CERN's [JIRA](https://www.atlassian.com/software/jira) service. It turned out that solutions which integrate directly with the code repository are much easier to use for both users and developers.
 
 ## Reference Guide
 For developers it is important to have a good overview of provided interfaces, existing classes, and implementation details. For this a reference guide is a helpful tool. A de-facto standard for creating reference guides in C++ projects is [*Doxygen*](http://www.doxygen.org/). 
 
 ## Conventions and Workflows
-Every project choses certain (coding) conventions and workflows. While there is a plethora of possibilities, the concretely chosen conventions and workflows should be documented visibly. A *How to contribute* document is a good practice. This is as well a nice place to add information where contributions by others would be possible and desired.
+Every project choses certain (coding) conventions and integration workflows. While there is a plethora of possibilities, the concretely chosen conventions and workflows should be documented visibly. A *How to contribute* document is a good practice. This is as well a nice place to add information where contributions by others would be possible and desired.
 
+## Be prepared for using external (cloud) services
+The project should be careful in its assumptions about the environment available for development and testing, like access to extra storage or connections. Make it easy to integrate your software into e.g. a container. 
 
 # End-users and client projects
 
@@ -70,6 +72,9 @@ Often a project has to be integrated into bigger software stacks. Being relocata
 
 ## Usability and run-time settings
 It should be straight forward for a user to set up and run your project. This can for example be ensured by providing environment setup scripts, but the number of environment variables required should be limited as far as possible. 
+
+## Be prepared for using external (cloud) services
+The project should be careful in its assumptions about the user environment, like having access to extra storage or network connections. Like for the development process, make it easy to integrate your software into e.g. a container. 
 
 ## Publications and References
 Users of your software should be able to give credit to your work. Try to publish your work in conference proceedings or journals such as *Computing and Software for Big Science* so that it can be properly cited.
