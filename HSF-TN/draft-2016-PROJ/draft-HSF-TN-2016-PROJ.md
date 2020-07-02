@@ -22,7 +22,7 @@ On starting a project, make sure you have an idea of the project's scope and goa
 
 Though it sounds like a triviality, your project should be made known to the community. For this, having a *dedicated project website* or another entry point for information is essential. It should concentrate all the information useful for users and developers. If possible, it should point at all the other information listed in this document. It is important to find the right place to put information. Try not to repeat yourself, as duplicated documentation can easily get out of sync. Access to all sources of project information should be granted to search engine spiders. Furthermore, the HSF working groups and software forum allows you to present your project or ideas at any stage in its project lifecycle.
 
-
+There is an excellent open source [general guide](https://opensource.guide/) that covers community interactions, getting your project known and helping find new contributors, particularly helpful for the sociology of successful open source projects.
 
 # Supporting Developers and Contributors
 The following sections discuss points mainly relevant for project developers and potential new contributors.
