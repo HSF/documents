@@ -203,7 +203,8 @@ $endfor$
 \fontfamily{phv}\selectfont
 \begin{center}
 $TN-ID$ \\
-$date$
+$date$ \\
+$doi$
 \end{center}
 \vspace*{3.0cm}
 }
