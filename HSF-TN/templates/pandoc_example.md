@@ -2,6 +2,7 @@
 title: HSF Technical Notes with Pandoc Example
 TN-ID: TN-number
 author: "Benedikt Hegner"
+doi: my doi
 institutes: CERN
 date: 25 April 2016
 abstract: This is example for a markdown text being transformed into an HSF technical note.
@@ -13,6 +14,7 @@ This document serves as an example for how to create an HSF technical note with 
 title: HSF Technical Notes with Pandoc Example
 TN-ID: TN-number
 author: "Benedikt Hegner"
+doi: my	doi
 institutes: CERN
 date: 25 April 2016
 abstract: This is example for a markdown text being transformed into an HSF technical note.
