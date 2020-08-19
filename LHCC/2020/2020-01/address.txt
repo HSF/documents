@@ -97,6 +97,7 @@ UGlasgow: SUPA - School of Physics and Astronomy, University of Glasgow, Glasgow
 UEDINBURGH: SUPA - School of Physics and Astronomy, University of Edinburgh, Edinburgh, United Kingdom
 UGeneva: Section de Physique, Université de Genève, Geneva, Switzerland
 UHeidelberg: Physikalisches Institut, Ruprecht-Karls-Universitat Heidelberg, Heidelberg, Germany
+UHumboldt: Institut für Physik, Humboldt Universität zu Berlin, Berlin, Germany
 UInnsbruck: Institut für Astro- und Teilchenphysik, Leopold-Franzens-Universität, Innsbruck, Austria
 UKentucky: Department of Physics and Astronomy, University of Kentucky, Lexington, KY, USA
 ULancaster: Physics Department, Lancaster University, Lancaster, United Kingdom
