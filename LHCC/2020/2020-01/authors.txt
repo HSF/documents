@@ -1,30 +1,40 @@
-Bozzi, Concezio - INFNFerrara
-Britton, David - UGlasgow
 Buckley, Andy - UGlasgow
-Campana, Simone - CERN
+Canal, Philippe - Fermilab (1)
 Corti, Gloria - CERN (1)
 Costanzo, Davide - USheffield
 Doglioni, Caterina - ULund (1)
-Dziurda, Agnieszka - CERN
+Dziurda, Agnieszka - HNINP (1)
 Elmer, Peter - UPrinceton
+Elvira, V. Daniel - Fermilab
 Eulisse, Giulio - CERN
 Hegner, Benedikt - CERN
-Heinrich, Lukas - NYU
-Jouvin, Michel - LAL
+Heinrich, Lukas - CERN
+Jones, Chris - Fermilab
+Jouvin, Michel - IJCLab
+Khoo, Teng Jian - UInnsbruck (1)
+Krikler, Benjamin Edward - UBristol
+Knoepfel, Kyle - Fermilab
+Krasznahorkay, Attila - CERN
 Lange, David - UPrinceton
-Laycock, Paul - CERN
+Laycock, Paul - BNL (1)
+Lieret, Kilian - LMU
 Martin-Haugh, Stewart - RAL
 Mato, Pere - CERN
-McFayden, Josh - UBerkeley (1)
+McFayden, Joshua Angus - LBNL (1)
+Meehan, Samuel - CERN
+Mete, Alaettin Serhan - ANL
+Morgan, Ben - UWarwick
 Neubauer, Mark S. - UChampaign (1)
-Piparo, Danilo - CERN
 Pivarski, Jim - UPrinceton
-Pokorski, Witold - CERN
+Pokorski, Witold - CERN (1)
 Ritter, Martin - LMU
-Rodrigues, Eduardo - UCincinnati
+Rizzi, Andrea - UPisa (1)
+Rodrigues, Eduardo - ULiverpool
 Roiser, Stefan - CERN
 Sexton-Kennedy, Elizabeth - Fermilab
 Stewart, Graeme A - CERN (1)
+Sudhir, Malik - UPuertoRico
 Valassi, Andrea - CERN (1)
 Watts, Gordon T. - USeattle
+Wenaus, Torre - BNL
 Yazgan, Efe - IHEP (1)

@@ -16,6 +16,7 @@ ETHZurich: ETH Zürich - Institute for Particle Physics and Astrophysics (IPA), 
 Fermilab: Fermi National Accelerator Laboratory, Batavia, IL, USA
 HAMBURG: University of Hamburg, Hamburg, Germany
 HIP: Helsinki Institute of Physics, Helsinki, Finland
+HNINP: The Henryk Niewodniczański Institute of Nuclear Physics, Polish Academy of Sciences, ul. Radzikowskiego 152, 31-342 Kraków, Poland
 ICTP: International Center for Theoretical Physics, Trieste, Italy
 IFAE: Institut de Física d’Altes Energies and Departament de Física de la Universitat Autònoma de Barcelona and ICREA, Barcelona, Spain
 IFCA: Instituto de Física de Cantabria (IFCA), CSIC-Universidad de Cantabria, Santander, Spain
@@ -42,7 +43,7 @@ KIT: Karlsruhe Institute of Technology, Karlsruhe, Germany
 KRAKOWUST: AGH University of Science and Technology, Faculty of Physics and Applied Computer Science, Krakow, Poland
 KYUNGPOOK: Kyungpook National University, Daegu, Republic of Korea
 Imperial: Imperial College London, London, United Kingdom
-LAL: LAL, Université Paris-Sud and CNRS/IN2P3, Orsay, France
+IJCLab: IJCLab, CNRS, Université Paris-Saclay and Université de Paris, Orsay, France
 LBNL: Lawrence Berkeley National Laboratory and University of California, Berkeley, CA, USA
 LIP: Laboratório de Instrumentação e Física Experimental de Partículas (LIP), Lisboa, Portugal
 LLR: Laboratoire Leprince-Ringuet, École Polytechnique, CNRS/IN2P3, Université Paris-Saclay, Palaiseau, France
@@ -86,8 +87,10 @@ UGlasgow: SUPA - School of Physics and Astronomy, University of Glasgow, Glasgow
 UEDINBURGH: SUPA - School of Physics and Astronomy, University of Edinburgh, Edinburgh, United Kingdom
 UGeneva: Section de Physique, Université de Genève, Geneva, Switzerland
 UHeidelberg: Physikalisches Institut, Ruprecht-Karls-Universitat Heidelberg, Heidelberg, Germany
+UInnsbruck: Institut für Astro- und Teilchenphysik, Leopold-Franzens-Universität, Innsbruck, Austria
 UKentucky: Department of Physics and Astronomy, University of Kentucky, Lexington, KY, USA
 ULancaster: Physics Department, Lancaster University, Lancaster, United Kingdom
+ULiverpool: Oliver Lodge Laboratory, University of Liverpool, Liverpool, United Kingdom
 ULjubljana: Department of Physics, Jožef Stefan Institute and University of Ljubljana, Ljubljana, Slovenia
 ULund: Fysiska institutionen, Lunds Universitet, Lund, Sweden
 UManchester: School of Physics and Astronomy, University of Manchester, Manchester, United Kingdom
@@ -103,8 +106,10 @@ UNotreDame: University of Notre Dame, Notre Dame, IN, USA
 UNewMexico: Department of Physics and Astronomy, University of New Mexico, Albuquerque, NM, USA
 UOviedo: Universidad de Oviedo, Oviedo, Spain
 UOxford: Department of Physics, Oxford University, Oxford, UK
+UPisa: INFN Sezione di Pisa, Dipartimento di Fisica E. Fermi, Università di Pisa, Pisa, Italy
 UPittsburgh: Department of Physics and Astronomy, University of Pittsburgh, Pittsburgh, PA, USA
 UPrinceton: Princeton University, Princeton, NJ, USA
+UPuertoRico: University of Puerto Rico, Mayaguez, USA
 URice: Rice University, Houston, TX, USA
 USaoPaulo: Universidade Estadual Paulista, São Paulo, Brazil
 USapienza: Dipartimento di Fisica, Università La Sapienza, Roma, Italy
