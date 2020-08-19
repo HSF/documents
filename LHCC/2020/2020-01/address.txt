@@ -65,6 +65,7 @@ OREGON: Center for High Energy Physics, University of Oregon, Eugene, OR, USA
 PIC: Port d’Informació Científica (PIC), Universitat Autònoma de Barcelona (UAB), Barcelona, Spain
 Protvino: High Energy Physics (IHEP), Protvino, Russia
 RAL: STFC Rutherford Appleton Laboratory, Didcot, United Kingdom
+RAS: P.N. Lebedev Physical Institute of the Russian Academy of Sciences, Moscow, Russia
 RHU: Department of Physics, Royal Holloway University of London, Surrey, United Kingdom
 SimonsFoundation: Simons Foundation, New York, NY, USA
 SLAC: SLAC National Accelerator Laboratory, Menlo Park, CA, USA

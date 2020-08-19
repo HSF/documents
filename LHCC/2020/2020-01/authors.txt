@@ -12,10 +12,13 @@ Costanzo, Davide - USheffield
 Doglioni, Caterina - ULund (1)
 Dziurda, Agnieszka - HNINP (1)
 Elmer, Peter - UPrinceton
+Elsing, Markus - CERN
 Elvira, V. Daniel - Fermilab
 Eulisse, Giulio - CERN
 Frederix, Rikkert - ULund
 Frixione, Stefano - INFNGenova
+Genser, Krzysztof L - Fermilab
+Gheata, Andrei - CERN
 Giuli, Francesco - INFNTV
 Grohsjean, Alexander - DESY
 Gütschow, Christian - UCL
@@ -24,6 +27,7 @@ Hegner, Benedikt - CERN
 Heinrich, Lukas - CERN
 Höche, Stefan - Fermilab
 Hopkins, Walter - ANL
+Ivantchenko, Vladimir - RAS
 Jones, Chris - Fermilab
 Jouvin, Michel - IJCLab
 Khoo, Teng Jian - UInnsbruck (1)
@@ -68,6 +72,7 @@ Siegert, Frank - TUDresden
 Siódmok, Andrzej - HNINP
 Stewart, Graeme A - CERN (1)
 Sudhir, Malik - UPuertoRico
+Thais, Savannah Jennifer - Princeton
 Valassi, Andrea - CERN (1)
 Watts, Gordon T. - USeattle
 Wenaus, Torre - BNL
