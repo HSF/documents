@@ -1,7 +1,12 @@
+Amoroso, Simone - DESY
+Bendavid, Joshua - CERN
 Boccali, Tommaso - INFNPISA
 Buckley, Andy - UGlasgow
 Canal, Philippe - Fermilab (1)
 Carminati, Federico - CERN
+Cacciari, Matteo - LPNHE
+Childers, Taylor - ANL
+Ciulli, Vitaliano - INFNFirenze
 Corti, Gloria - CERN (1)
 Costanzo, Davide - USheffield
 Doglioni, Caterina - ULund (1)
@@ -9,34 +14,58 @@ Dziurda, Agnieszka - HNINP (1)
 Elmer, Peter - UPrinceton
 Elvira, V. Daniel - Fermilab
 Eulisse, Giulio - CERN
+Frederix, Rikkert - ULund
+Frixione, Stefano - INFNGenova
+Giuli, Francesco - INFNTV
+Grohsjean, Alexander - DESY
+Gütschow, Christian - UCL
 Hageboeck, Stephan - UBonn
 Hegner, Benedikt - CERN
 Heinrich, Lukas - CERN
+Höche, Stefan - Fermilab
+Hopkins, Walter - ANL
 Jones, Chris - Fermilab
 Jouvin, Michel - IJCLab
 Khoo, Teng Jian - UInnsbruck (1)
 Krikler, Benjamin Edward - UBristol
 Knoepfel, Kyle - Fermilab
+Konstantinov, Dmitri - Kurchatov
 Krasznahorkay, Attila - CERN
+Krauss, Frank - UDurham
 Lange, David - UPrinceton
 Laycock, Paul - BNL (1)
+Li, Qiang - UPeking
 Lieret, Kilian - LMU
+Lönnblad, Leif - ULund
 Marshall, Zachary Louis - LBNL
-Martin-Haugh, Stewart - RAL
+Maltoni, Fabio - INFNBOLOGNA & ULouvaine
+Mangano, Michelangelo - CERN
 Mato, Pere - CERN
+Mattelaer, Olivier - ULouvaine
 McFayden, Joshua Angus - LBNL (1)
 Meehan, Samuel - CERN
+Fernandez Menendez, Javier - UOviedo
 Mete, Alaettin Serhan - ANL
 Morgan, Ben - UWarwick
+Mrenna, Stephen - Fermilab
+Muralidharan, Servesh - CERN & ANL
+Neumann, Tobias - UCL & IIT
 Neubauer, Mark S. - UChampaign (1)
 Pivarski, Jim - UPrinceton
 Piparo, Danilo - CERN
+Plätzer, Simon - UVienna
 Pokorski, Witold - CERN (1)
+Prestel, Stefan - ULund
 Ritter, Martin - LMU
 Rizzi, Andrea - INFNPISA (1)
 Rodrigues, Eduardo - ULiverpool
 Roiser, Stefan - CERN
 Sexton-Kennedy, Elizabeth - Fermilab
+Schönherr, Marek - UDurham
+Schulz, Holger - UCincinnati
+Schulz, Markus - CERN
+Siegert, Frank - TUDresden
+Siódmok, Andrzej - HNINP
 Stewart, Graeme A - CERN (1)
 Sudhir, Malik - UPuertoRico
 Valassi, Andrea - CERN (1)
