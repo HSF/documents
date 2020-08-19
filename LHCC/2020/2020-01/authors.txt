@@ -1,5 +1,7 @@
+Boccali, Tommaso - INFNPISA
 Buckley, Andy - UGlasgow
 Canal, Philippe - Fermilab (1)
+Carminati, Federico - CERN
 Corti, Gloria - CERN (1)
 Costanzo, Davide - USheffield
 Doglioni, Caterina - ULund (1)
@@ -7,6 +9,7 @@ Dziurda, Agnieszka - HNINP (1)
 Elmer, Peter - UPrinceton
 Elvira, V. Daniel - Fermilab
 Eulisse, Giulio - CERN
+Hageboeck, Stephan - UBonn
 Hegner, Benedikt - CERN
 Heinrich, Lukas - CERN
 Jones, Chris - Fermilab
@@ -18,6 +21,7 @@ Krasznahorkay, Attila - CERN
 Lange, David - UPrinceton
 Laycock, Paul - BNL (1)
 Lieret, Kilian - LMU
+Marshall, Zachary Louis - LBNL
 Martin-Haugh, Stewart - RAL
 Mato, Pere - CERN
 McFayden, Joshua Angus - LBNL (1)
@@ -26,9 +30,10 @@ Mete, Alaettin Serhan - ANL
 Morgan, Ben - UWarwick
 Neubauer, Mark S. - UChampaign (1)
 Pivarski, Jim - UPrinceton
+Piparo, Danilo - CERN
 Pokorski, Witold - CERN (1)
 Ritter, Martin - LMU
-Rizzi, Andrea - UPisa (1)
+Rizzi, Andrea - INFNPISA (1)
 Rodrigues, Eduardo - ULiverpool
 Roiser, Stefan - CERN
 Sexton-Kennedy, Elizabeth - Fermilab

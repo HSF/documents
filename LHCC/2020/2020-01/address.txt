@@ -71,6 +71,7 @@ TUDortmund: Technische Universit\"at Dortmund, Dortmund, Germany
 UAlberta: Department of Physics, University of Alberta, Edmonton, AB, Canada
 UArizona: Department of Physics, University of Arizona, Tucson, AZ, USA
 UBerkeley: Physics Division, Lawrence Berkeley National Laboratory and University of California, Berkeley CA, USA
+UBonn: Physikalisches Institut, Universität Bonn, Bonn, Germany
 UBristol: H.H. Wills Physics Laboratory, University of Bristol, Bristol, United Kingdom
 UBritishColumbia: Department of Physics, University of British Columbia, Vancouver, BC, Canada
 UCambridge: Cavendish Laboratory, University of Cambridge, Cambridge, United Kingdom
@@ -106,7 +107,6 @@ UNotreDame: University of Notre Dame, Notre Dame, IN, USA
 UNewMexico: Department of Physics and Astronomy, University of New Mexico, Albuquerque, NM, USA
 UOviedo: Universidad de Oviedo, Oviedo, Spain
 UOxford: Department of Physics, Oxford University, Oxford, UK
-UPisa: INFN Sezione di Pisa, Dipartimento di Fisica E. Fermi, Università di Pisa, Pisa, Italy
 UPittsburgh: Department of Physics and Astronomy, University of Pittsburgh, Pittsburgh, PA, USA
 UPrinceton: Princeton University, Princeton, NJ, USA
 UPuertoRico: University of Puerto Rico, Mayaguez, USA
