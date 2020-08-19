@@ -117,7 +117,11 @@ def read_kv_file(file, separator=":", referenced_keys=None):
             kv_line = kv_line.strip()
             if kv_line.startswith("#") or kv_line == "":
                 continue
-            k, v = kv_line.split(separator, 1)
+            try:
+                k, v = kv_line.split(separator, 1)
+            except Exception:
+                print(f"In file {file} problem splitting this line:\n{kv_line}")
+                raise
             v = v.strip()
             if k in kv_map:
                 raise Exception("Duplicated key ({}) found in {}".format(k, file))
@@ -149,13 +153,6 @@ def main():
         dest="footnotes",
         default=FOOTNOTE_FILE_DEFAULT,
         help="File containining footnote list (D: {})".format(FOOTNOTE_FILE_DEFAULT),
-    )
-    parser.add_argument(
-        "--jhep",
-        dest="jhep",
-        action="store_true",
-        default=False,
-        help="Produce an author list that can be used in jheppub.sty",
     )
     parser.add_argument(
         "--output",
@@ -196,7 +193,7 @@ def main():
     for footnote_mark, affiliation in enumerate(sorted_affiliations, start=1):
         affiliation_map[affiliation].set_mark(footnote_mark)
 
-    # Parse and assign footnotes: interprete the first field as a footnote key
+    # Parse and assign footnotes: interpret the first field as a footnote key
     # matched against author footnotes rather than the real mark
     footnote_map = read_kv_file(
         options.footnotes, separator=". ", referenced_keys=referenced_foonotes
@@ -251,73 +248,42 @@ def main():
                 )
                 affiliation_list = affiliation_list + "," + footnote_str
 
-            if options.jhep:
-                formatted_name = "{} {}".format(author.forename, author.surname)
-                author_position = author_list.index(author) - len(author_list)
-                # The fiddly bit to get "a, b, c and d" as in JHEP style
-                # N.B. For position -2 doing nothing *is correct*
-                if author_position < -2:
-                    formatted_name += ","
-                elif author_position == -1:
-                    formatted_name = "and {}".format(formatted_name)
-                print(
-                    "\\author[{}]{{{}}}".format(affiliation_list, formatted_name),
-                    file=output,
-                )
+            if author == author_list[-1]:
+                eol_str = ""
             else:
-                if author == author_list[-1]:
-                    eol_str = ""
-                else:
-                    eol_str = ";"
-                print(
-                    "{}, {}$^{{{}}}${}".format(
-                        author.surname, author.forename, affiliation_list, eol_str
-                    ),
-                    file=output,
-                )
+                eol_str = ";"
+            print(
+                "{}, {}$^{{{}}}${}".format(
+                    author.surname, author.forename, affiliation_list, eol_str
+                ),
+                file=output,
+            )
 
-        # In JHEP style, space between authors and affiliations is managed by the style
-        if not options.jhep:
-            print("\\bigskip", file=output)
+        print("\\bigskip", file=output)
 
         for affiliation in sorted_affiliations:
-            if options.jhep:
-                print(
-                    "\\affiliation[{}]{{{}}}".format(
-                        str(affiliation_map[affiliation].mark),
-                        latex_escape(affiliation_map[affiliation].text),
-                    ),
-                    file=output,
-                )
-            else:
+            print(
+                "\\par {{\\footnotesize $^{{{}}}$ {}}}".format(
+                    str(affiliation_map[affiliation].mark),
+                    latex_escape(affiliation_map[affiliation].text),
+                ),
+                file=output,
+            )
+
+        if len(sorted_note_keys) > 0:
+            print("\\bigskip", file=output)
+            for note_key in sorted_note_keys:
                 print(
                     "\\par {{\\footnotesize $^{{{}}}$ {}}}".format(
-                        str(affiliation_map[affiliation].mark),
-                        latex_escape(affiliation_map[affiliation].text),
+                        footnote_map[note_key].mark,
+                        latex_escape(footnote_map[note_key].text),
                     ),
                     file=output,
                 )
 
-        if len(sorted_note_keys) > 0:
-            if options.jhep:
-                for note_key in sorted_note_keys:
-                    print(
-                        "\\note[{}]{{{}}}".format(
-                            footnote_map[note_key].mark,
-                            latex_escape(footnote_map[note_key].text),
-                        ),
-                        file=output,
-                    )
-            else:
-                print("\\bigskip", file=output)
-                for note_key in sorted_note_keys:
-                    print(
-                        "\\par {{\\footnotesize $^{{{}}}$ {}}}".format(
-                            footnote_map[note_key].mark,
-                            latex_escape(footnote_map[note_key].text),
-                        ),
-                        file=output,
-                    )
+        print(
+            f"Processed {len(author_list)} authors from {len(sorted_affiliations)} institutes"
+        )
 
 
 if __name__ == "__main__":
