@@ -30,7 +30,7 @@ Hopkins, Walter - ANL
 Ivantchenko, Vladimir - RAS
 Jones, Chris - Fermilab
 Jouvin, Michel - IJCLab
-Khoo, Teng Jian - UInnsbruck (1)
+Khoo, Teng Jian - UInnsbruck & UHumboldt (1)
 Krikler, Benjamin Edward - UBristol
 Knoepfel, Kyle - Fermilab
 Konstantinov, Dmitri - Kurchatov
