@@ -31,6 +31,7 @@ Gray, Lindsey - Fermilab
 Grohsjean, Alexander - DESY
 Gütschow, Christian - UCL
 Gligorov, Vladimir V. - LPNHE
+Grasland, Hadrien Benjamin - IJCLab
 Hageboeck, Stephan - UBonn
 Harris, Philip Coleman - MIT
 Hegner, Benedikt - CERN
