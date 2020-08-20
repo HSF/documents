@@ -1,15 +1,21 @@
+Aarrestad, Thea - CERN
 Amoroso, Simone - DESY
+Atkinson, Markus Julian - UChampaign
 Bendavid, Joshua - CERN
 Boccali, Tommaso - INFNPISA
+Bocci, Andrea - CERN
 Buckley, Andy - UGlasgow
 Canal, Philippe - Fermilab (1)
 Carminati, Federico - CERN
 Cacciari, Matteo - LPNHE
+Calafiura, Paolo - LBNL
 Childers, Taylor - ANL
 Ciulli, Vitaliano - INFNFirenze
 Corti, Gloria - CERN (1)
 Costanzo, Davide - USheffield
+Dezoort, Justin Gage - UPrinceton
 Doglioni, Caterina - ULund (1)
+Duarte, Javier Mauricio - UCSD
 Dziurda, Agnieszka - HNINP (1)
 Elmer, Peter - UPrinceton
 Elsing, Markus - CERN
@@ -20,16 +26,23 @@ Frixione, Stefano - INFNGenova
 Genser, Krzysztof L - Fermilab
 Gheata, Andrei - CERN
 Giuli, Francesco - INFNTV
+Gray, Heather - LBNL & UBerkeley
+Gray, Lindsey - Fermilab
 Grohsjean, Alexander - DESY
 Gütschow, Christian - UCL
+Gligorov, Vladimir V. - LPNHE
 Hageboeck, Stephan - UBonn
+Harris, Philip Coleman - MIT
 Hegner, Benedikt - CERN
 Heinrich, Lukas - CERN
 Höche, Stefan - Fermilab
+Holzman, Burt - Fermilab
 Hopkins, Walter - ANL
+Hsu, Shih-Chieh - USeattle
 Ivantchenko, Vladimir - RAS
 Jones, Chris - Fermilab
 Jouvin, Michel - IJCLab
+Kisel, Ivan - FIAS
 Khoo, Teng Jian - UInnsbruck & UHumboldt (1)
 Krikler, Benjamin Edward - UBristol
 Knoepfel, Kyle - Fermilab
@@ -40,7 +53,9 @@ Lange, David - UPrinceton
 Laycock, Paul - BNL (1)
 Li, Qiang - UPeking
 Lieret, Kilian - LMU
+Liu, Miaoyuan - UPurdue
 Lönnblad, Leif - ULund
+Loncar, Vladimir - CERN & IPB
 Marshall, Zachary Louis - LBNL
 Maltoni, Fabio - INFNBOLOGNA & ULouvaine
 Mangano, Michelangelo - CERN
@@ -53,12 +68,17 @@ Mete, Alaettin Serhan - ANL
 Morgan, Ben - UWarwick
 Mrenna, Stephen - Fermilab
 Muralidharan, Servesh - CERN & ANL
+Ngadiuba, Jennifer - Caltech
 Neumann, Tobias - UCL & IIT
-Neubauer, Mark S. - UChampaign (1)
+Neubauer, Mark S. - UChampaign
+Ojalvo, Isobel - UPrinceton
+Pedro, Kevin - Fermilab
+Perini, Maurizio - CERN
 Pivarski, Jim - UPrinceton
 Piparo, Danilo - CERN
 Plätzer, Simon - UVienna
 Pokorski, Witold - CERN (1)
+Pol, Adrian Alan - CERN
 Prestel, Stefan - ULund
 Ritter, Martin - LMU
 Rizzi, Andrea - INFNPISA (1)
@@ -72,8 +92,11 @@ Siegert, Frank - TUDresden
 Siódmok, Andrzej - HNINP
 Stewart, Graeme A - CERN (1)
 Sudhir, Malik - UPuertoRico
+Summers, Sioni Paris - CERN
 Thais, Savannah Jennifer - UPrinceton
+Tran, Nhan Viet - Fermilab
 Valassi, Andrea - CERN (1)
+Vom Bruch, Dorothea - LPNHE
 Watts, Gordon T. - USeattle
 Wenaus, Torre - BNL
 Yazgan, Efe - NTU (1)
