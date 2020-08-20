@@ -9,7 +9,7 @@
 #    - address.txt: the affiliation list with the following format: AffilitationKey: Affiliation text
 #      AffiliationKey must not contain any spaces.
 #
-# Note: this script requires Python >= 3.5
+# Note: this script requires Python >= 3.6
 #
 # Initial version written by Graeme A Stewart (graeme.andrew.stewart@cern.ch) and Michel Jouvin (jouvin@lal.in2p3.fr)
 # The script is formatted with black <https://pypi.org/project/black/>
