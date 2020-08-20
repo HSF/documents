@@ -14,6 +14,7 @@ DESY: Deutsches Elektronen-Synchrotron, Hamburg, Germany
 EPFL: Institute of Physics, École Polytechnique Fédérale de Lausanne (EPFL), Lausanne, Switzerland
 ETHZurich: ETH Zürich - Institute for Particle Physics and Astrophysics (IPA), Zürich, Switzerland
 Fermilab: Fermi National Accelerator Laboratory, Batavia, IL, USA
+FIAS: Frankfurt Institute for Advanced Studies, Johann Wolfgang Goethe-Universität Frankfurt, Frankfurt,Germany
 HAMBURG: University of Hamburg, Hamburg, Germany
 HIP: Helsinki Institute of Physics, Helsinki, Finland
 HNINP: The Henryk Niewodniczański Institute of Nuclear Physics, Polish Academy of Sciences, ul. Radzikowskiego 152, 31-342 Kraków, Poland
@@ -37,6 +38,7 @@ INFNRoma: INFN Sezione di Roma I, Università La Sapienza, Roma, Italy
 INFNTorino: INFN Sezione di Torino, Torino, Italy
 INFNTV: INFN Sezione di Roma Tor Vergata, Roma, Italy
 INFNTRIESTE: INFN Sezione di Trieste, Università di Trieste, Trieste, Italy
+IPB: Institute of Physics Belgrade, Pregrevica 118, Belgrade, Serbia
 IPHC: Université de Strasbourg, CNRS, IPHC UMR 7178, F-67000 Strasbourg, France
 Irfu: DSM/IRFU (Institut de Recherches sur les Lois Fondamentales de l’Univers), CEA Saclay (Commissariat à l’Énergie Atomique), Gif-sur-Yvette, France
 JLab: Thomas Jefferson National Accelerator Facility, Newport News, Virginia, VA, USA
@@ -122,6 +124,7 @@ UPeking: Peking University, Beijing, China
 UPittsburgh: Department of Physics and Astronomy, University of Pittsburgh, Pittsburgh, PA, USA
 UPrinceton: Princeton University, Princeton, NJ, USA
 UPuertoRico: University of Puerto Rico, Mayaguez, USA
+UPurdue: Purdue University, West Lafayette, USA
 URice: Rice University, Houston, TX, USA
 USaoPaulo: Universidade Estadual Paulista, São Paulo, Brazil
 USapienza: Dipartimento di Fisica, Università La Sapienza, Roma, Italy
