@@ -1,5 +1,11 @@
 # HL-LHC Computing Review: Common Tools and Community Software
 
+## How to Cite
+
+Stewart, Graeme Andrew *et al*. (2020, May 1). HL-LHC Computing Review: Common Tools and Community Software (Version v1.0). Zenodo. <http://doi.org/10.5281/zenodo.3779250>
+
+## Contents
+
 This directory contains the sources of the HSF submission to the May 2020 HL-LHC
 Computing and Software review by the LHCC.
 
