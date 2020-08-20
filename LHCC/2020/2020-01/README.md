@@ -15,6 +15,8 @@ To regenerate this document:
     3. `pdflatex ctcs`
     4. `pdflatex ctcs` (if references/labels change)
 
+There is a simple `Makefile` provided that will do this.
+
 ### Dependencies
 
 The `a2tex.py` script needs Python3.
