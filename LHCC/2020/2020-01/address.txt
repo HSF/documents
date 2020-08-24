@@ -80,6 +80,7 @@ TUDresden: Technische Universität Dresden, Dresden, Germany
 UAlberta: Department of Physics, University of Alberta, Edmonton, AB, Canada
 UArizona: Department of Physics, University of Arizona, Tucson, AZ, USA
 UBerkeley: Physics Division, Lawrence Berkeley National Laboratory and University of California, Berkeley CA, USA
+UBirmingham: University of Birmingham, Birmingham, United Kingdom
 UBonn: Physikalisches Institut, Universität Bonn, Bonn, Germany
 UBristol: H.H. Wills Physics Laboratory, University of Bristol, Bristol, United Kingdom
 UBritishColumbia: Department of Physics, University of British Columbia, Vancouver, BC, Canada

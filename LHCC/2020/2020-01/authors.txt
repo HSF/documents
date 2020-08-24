@@ -21,6 +21,7 @@ Elmer, Peter - UPrinceton
 Elsing, Markus - CERN
 Elvira, V. Daniel - Fermilab
 Eulisse, Giulio - CERN
+Fitzpatrick, Conor - UManchester
 Frederix, Rikkert - ULund
 Frixione, Stefano - INFNGenova
 Genser, Krzysztof L - Fermilab
@@ -40,6 +41,7 @@ Höche, Stefan - Fermilab
 Holzman, Burt - Fermilab
 Hopkins, Walter - ANL
 Hsu, Shih-Chieh - USeattle
+Ilten, Philip James - UBirmingham
 Ivantchenko, Vladimir - RAS
 Jones, Chris - Fermilab
 Jouvin, Michel - IJCLab
@@ -69,6 +71,7 @@ Mete, Alaettin Serhan - ANL
 Morgan, Ben - UWarwick
 Mrenna, Stephen - Fermilab
 Muralidharan, Servesh - CERN & ANL
+Nachman, Ben - UBerkeley
 Ngadiuba, Jennifer - Caltech
 Neumann, Tobias - UCL & IIT
 Neubauer, Mark S. - UChampaign
@@ -81,6 +84,7 @@ Plätzer, Simon - UVienna
 Pokorski, Witold - CERN (1)
 Pol, Adrian Alan - CERN
 Prestel, Stefan - ULund
+Ribon, Alberto - CERN
 Ritter, Martin - LMU
 Rizzi, Andrea - INFNPISA (1)
 Rodrigues, Eduardo - ULiverpool
@@ -97,6 +101,7 @@ Summers, Sioni Paris - CERN
 Thais, Savannah Jennifer - UPrinceton
 Tran, Nhan Viet - Fermilab
 Valassi, Andrea - CERN (1)
+Verderi, Marc - LLR
 Vom Bruch, Dorothea - LPNHE
 Watts, Gordon T. - USeattle
 Wenaus, Torre - BNL
