@@ -32,7 +32,7 @@ Grohsjean, Alexander - DESY
 Gütschow, Christian - UCL
 Gligorov, Vladimir V. - LPNHE
 Grasland, Hadrien Benjamin - IJCLab
-Hageboeck, Stephan - UBonn
+Hageboeck, Stephan - CERN
 Harris, Philip Coleman - MIT
 Hegner, Benedikt - CERN
 Heinrich, Lukas - CERN
