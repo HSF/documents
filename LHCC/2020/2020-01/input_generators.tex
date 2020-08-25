@@ -150,9 +150,9 @@ in W+jets, for instance, the Sherpa efficiency is 30\% for W+0 jets and
 0.08\% for W+3jets~\cite{Gao20}. This is an area where research is very
 active, and should be actively encouraged, as significant cost
 reductions in WLCG compute budgets could be achieved. Improvements in
-this area can only start from physics-motivated approaches based on the
-knowledge of phase space peaks, but they can be complemented by
-brute-force machine learning (ML) algorithmic methods~\cite{Ben17,Bot20,Gao20,Kli18}.
+this area start from physics-motivated approaches based on the
+knowledge of phase space peaks and are complemented by
+machine learning (ML) algorithmic methods~\cite{Ben17,Bot20,Gao20,Kli18}.
 
 \paragraph{Merging inefficiency.} Merging prescriptions (e.g. MLM~\cite{Man02},
 CKKW-L~\cite{Lon02} at LO and FxFx~\cite{Fre12}, MEPS@NLO~\cite{Hoe14} at
@@ -202,12 +202,13 @@ design, in another popular matching prescription, POWHEG; however, this
 is only available for a limited number of processes and describes the
 relevant physics to a different degree of precision than MC@NLO 
 (see~\cite{Fre20} for a more in-depth discussion). Progress in this area can
-only be achieved by theorists: for instance, a new approach for
+only be achieved with physics knowledge: for instance, a new approach for
 MC@NLO-type matching with reduced negative weights has recently been
-proposed~\cite{Fre20}. It should be noted that negative weights can also
-happen at LO because of not-positive-definite parton density function
-sets and interference terms, e.g. in effective field theory
-calculations.
+proposed~\cite{Fre20} and some recent papers show how to lessen the impact of
+negative weights in a secondary step~\cite{andersen2020positive,
+nachman2020neural}. It should be noted that negative weights can also happen at
+LO because of not-positive-definite parton density function sets and
+interference terms, e.g. in effective field theory calculations.
 
 \subsubsection{Accounting and Profiling}
 
