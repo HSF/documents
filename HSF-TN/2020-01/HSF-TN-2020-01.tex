@@ -1,0 +1,505 @@
+\documentclass[12pt,a4paper]{article}
+
+% Variables that controls behaviour
+\usepackage{ifthen} % for conditional statements
+\newboolean{pdflatex}
+\setboolean{pdflatex}{true} % False for eps figures 
+
+\newboolean{inbibliography}
+\setboolean{inbibliography}{false} %True once you enter the bibliography
+
+
+\textheight=230mm
+\textwidth=160mm
+\oddsidemargin=7mm
+\evensidemargin=-10mm
+\topmargin=-10mm
+\headsep=20mm
+\columnsep=5mm
+\addtolength{\belowcaptionskip}{0.5em}
+
+\renewcommand{\textfraction}{0.01}
+\renewcommand{\floatpagefraction}{0.99}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+
+\setlength{\hoffset}{-2cm}
+\setlength{\voffset}{-2cm}
+
+% Page defaults ...
+\topmargin=0.5cm
+\oddsidemargin=2.5cm
+\textwidth=16cm
+\textheight=22cm
+
+% Don't chase after perfection
+\raggedbottom
+\sloppy
+
+\usepackage{float}
+\usepackage{microtype}
+\usepackage{lineno}    % Line numbering during drafting
+\usepackage{xspace}    % Avoid problems with missing or double spaces after predefined symbold
+\usepackage{caption}   % These three command get the figure and table captions automatically small
+\renewcommand{\captionfont}{\small}
+\renewcommand{\captionlabelfont}{\small}
+
+\usepackage{booktabs}
+
+%% Graphics
+\usepackage{graphicx}  % to include figures (can also use other packages)
+\usepackage{color}
+\usepackage{colortbl}
+
+%% Math
+\usepackage{amsmath} % Adds a large collection of math symbols
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{upgreek} % Adds in support for greek letters in roman typeset
+
+%% fix to allow peaceful coexistence of line numbering and
+%% mathematical objects
+%% http://www.latex-community.org/forum/viewtopic.php?f=5&t=163
+%%
+\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+\expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+\expandafter\let\csname oldend#1\expandafter\endcsname\csname
+end#1\endcsname
+ \renewenvironment{#1}%
+   {\linenomath\csname old#1\endcsname}%
+   {\csname oldend#1\endcsname\endlinenomath}%
+}
+\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+  \patchAmsMathEnvironmentForLineno{#1}%
+  \patchAmsMathEnvironmentForLineno{#1*}%
+}
+\AtBeginDocument{%
+\patchBothAmsMathEnvironmentsForLineno{equation}%
+\patchBothAmsMathEnvironmentsForLineno{align}%
+\patchBothAmsMathEnvironmentsForLineno{flalign}%
+\patchBothAmsMathEnvironmentsForLineno{alignat}%
+\patchBothAmsMathEnvironmentsForLineno{gather}%
+\patchBothAmsMathEnvironmentsForLineno{multline}%
+\patchBothAmsMathEnvironmentsForLineno{eqnarray}%
+}
+
+% Get hyperlinks to captions and in references.
+% These do not work with revtex. Use "hypertext" as class option instead.
+\usepackage{hyperref}    % Hyperlinks in references
+\usepackage[all]{hypcap} % Internal hyperlinks to floats.
+
+% Make this the last packages you include before the \begin{document}
+\usepackage{cite} % Allows for ranges in citations
+\usepackage{mciteplus}
+
+\usepackage{longtable} % only for template
+
+% Pandoc
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{footnote}{1}
+
+\begin{titlepage}
+\pagenumbering{roman}
+
+\vspace*{-1.5cm}
+\centerline{\large THE HEP SOFTWARE FOUNDATION (HSF)}
+\vspace*{1.5cm}
+\noindent
+\begin{tabular*}{\linewidth}{lc@{\extracolsep{\fill}}r@{\extracolsep{0pt}}}
+
+\\
+ & & HSF-TN-2020-01 v2.0 \\  % ID 
+ & & 10.5281/zenodo.1469634 \\ % DOI
+ & & Original Date: 4 October 2016 \\ % Date - Can also hardwire e.g.: 23 March 2010
+ & & Last Update: 12 October 2023 \\ % Date - Can also hardwire e.g.: 23 March 2010
+ & & \\
+% not in paper \hline
+\end{tabular*}
+
+\vspace*{2.0cm}
+
+\begin{center}
+  \includegraphics*[width=4cm]{hsf_logo_angled.png}
+\end{center}
+
+\vspace*{2.0cm}
+
+
+% Title --------------------------------------------------
+{\bf\boldmath\huge
+\begin{center}
+  Proposal for HSF Project Best Practices
+\end{center}
+}
+
+\vspace*{2.0cm}
+
+% Authors -------------------------------------------------
+\begin{center}
+Benedikt Hegner$^1$, Benjamin Morgan$^2$, Graeme A Stewart$^1$
+\bigskip\\
+{\it\footnotesize
+$ ^1$CERN\\
+$ ^2$University of Warwick
+}
+\end{center}
+
+\vspace{\fill}
+
+\end{titlepage}
+
+\section{Proposal for HSF Project Best
+Practices}\label{proposal-for-hsf-project-best-practices}
+
+\subsection{Introduction}\label{introduction}
+
+This technical note is a proposed list of best practices for HSF and
+other HEP open source projects. The main motivation is to ensure
+interoperability and usability of a given project by other projects and
+being able to build consistent software stacks. In addition, it should
+make it easier for other developers to contribute to existing projects.
+In the following we discuss different practices and conventions that
+ease the life of
+
+\begin{itemize}
+\tightlist
+\item
+  developers and new contributors,
+\item
+  end-users and other client projects.
+\end{itemize}
+
+Afterwards we provide a checklist of the proposals you may want to use
+for your project. The proposals are mainly based on experience with the
+LCG software projects and releases. You may find many of the points
+discussed here trivial. However, people usually differ in what they
+consider trivial. The technical recommendations in this document are
+tailored towards C++-based projects, but can easily be mapped onto,
+e.g., Python-based projects.
+
+\subsection{Project Scope, Name and
+Visibility}\label{project-scope-name-and-visibility}
+
+On starting a project, make sure you have an idea of the project's scope
+and goals. Try to pick a name that is suitable for that. You need to
+ensure uniqueness, as the name will be used to name software artifacts,
+like libraries, code namespaces, error messages, etc. In addition, have
+a look around to see if it conflicts with pre-existing trademarks for
+software products or services.
+
+Though it sounds like a triviality, your project should be made known to
+the community. For this, having a \emph{dedicated project website} or
+another entry point for information is essential. It should concentrate
+all the information useful for users and developers. If possible, it
+should point at all the other information listed in this document. It is
+important to find the right place to put information. Try not to repeat
+yourself, as duplicated documentation can easily get out of sync. Access
+to all sources of project information should be granted to search engine
+spiders. Furthermore, the HSF working groups and software forums allow
+you to present your project or ideas at any stage in its project
+lifecycle.
+
+There is an excellent open source
+\href{https://opensource.guide/}{general guide} that covers community
+interactions, getting your project known and helping find new
+contributors, particularly helpful for the sociology of successful open
+source projects.
+
+\subsection{Supporting Developers and
+Contributors}\label{supporting-developers-and-contributors}
+
+The following sections discuss points mainly relevant for project
+developers and potential new contributors.
+
+\subsubsection{Code repository}\label{code-repository}
+
+The first requirement for an open-source project is fully versioned code
+in a \emph{public repository}. The code should be accessible in
+anonymous read-only mode by everybody. Services like
+\href{https://github.com}{GitHub} or \href{https://gitlab.com}{GitLab}
+provide it for free. In addition efforts like
+\href{https://www.hepforge.org/}{hepforge} or labs like CERN or DESY may
+host HEP-specific packages. Services supporting a clone plus
+\emph{merge-request/pull-request workflow} can be extremely helpful to
+attract new contributors, as it is the current de-facto standard for
+open software development. Try to make sure there are no barriers to
+contributing in this way, e.g., lab hosted services may be more
+difficult for users without accounts to use for merge requests.
+
+\subsubsection{License and Copyright}\label{license-and-copyright}
+
+The ownership and copyright of the code has to be well defined and
+understood. Host labs for experiments will often hold copyright on
+behalf of experiments and projects that are not legal entities and this
+can simplify future life enormously. In a second step, the code and
+software provided should be properly licensed in order to be able to use
+code provided by others, and to allow people to re-use, update, or
+improve the software you provide. The
+\href{http://hepsoftwarefoundation.org/technical_notes.html}{HSF
+technical note} \emph{HSF-TN-2016-01} (\emph{Software Licence Agreements
+HSF Policy Guidelines}) discusses various options. This is one of the
+topics that is \emph{typically ignored at the beginning of a project and
+hard to fix afterwards}.
+
+\subsubsection{Compilation and other
+commands}\label{compilation-and-other-commands}
+
+Compiling, installing and testing should each be - if possible -
+single-command actions. In particular, making testing easy is important.
+A good place to put the necessary information is a \emph{README} file in
+the repository. Relying on community standards like
+\href{https://www.cmake.org}{\emph{CMake}} make it easier for others to
+use and understand the setup.
+
+\subsubsection{Testing}\label{testing}
+
+To improve on the quality of software, unit and integration testing are
+essential. Having well-documented tests makes it as well easier for
+contributors to participate. They can check whether they break old
+features and can, with new tests, document what their addition is
+supposed to do. Testing can also assist in the triage and fixing of
+bugs. Tests can be written to reproduce reported issues and fail when
+they occur, with subsequent fixes validated by the tests passing.
+
+For \emph{unit tests} plenty of software packages exist, of which
+\href{https://github.com/google/googletest}{\emph{gtest}} and
+\href{https://github.com/philsquared/Catch}{\emph{catch}} are two good
+choices for C++ projects. Integration tests running a software project
+in a certain setup can take advantage of \emph{CTest} (supplied as part
+of \emph{CMake}) and \href{http://www.cdash.org}{\emph{CDash}} or be
+driven by shell scripts. Ease of use is again important here, otherwise
+tests tend not to be run. For example, \emph{CMake}/\emph{CTest} add
+dedicated \emph{test} targets to buildscripts so that running the tests
+is a simple matter of ``building'' the target, e.g.~\texttt{make\ test}
+when using Makefiles.
+
+\paragraph{Continuous integration}\label{continuous-integration}
+
+As well as being available from the command line, tests of the code
+should run on all pull/merge requests so that reviewers can immediately
+see if the proposed changes break any known functionality. There are
+many options to do this, well integrated with modern code repositories.
+
+\subsubsection{Communication and
+Reporting}\label{communication-and-reporting}
+
+A mailing list to contact developers is always useful, even as issue
+trackers become also more capable of supporting discussions. It is
+better to have publicly and anonymously accessible archives and to be
+open for subscription and posting by the public.
+
+\subsubsection{Issue tracking}\label{issue-tracking}
+
+It is useful to provide an issue (bug) tracker for users and developers
+to interact with, allowing a view of both open and closed tickets
+anonymously by the public. Optimal solutions here are the issue tracking
+capabilities the code repository itself (such as GitLab or GitHub), as
+solutions which integrate directly with the code repository are much
+easier to use for both users and developers. CERN's
+\href{https://www.atlassian.com/software/jira}{JIRA} service is an
+alternative.
+
+\subsubsection{Reference Guide}\label{reference-guide}
+
+For developers it is important to have a good overview of provided
+interfaces, existing classes, and implementation details. For this a
+reference guide is a helpful tool. The de-facto standard for creating
+reference guides in C++ projects is
+\href{http://www.doxygen.org/}{\emph{Doxygen}}.
+
+\subsubsection{Conventions and
+Workflows}\label{conventions-and-workflows}
+
+Every project choses certain (coding) conventions and integration
+workflows. While there is a plethora of possibilities, the concretely
+chosen conventions and workflows should be documented visibly. A
+\emph{How to contribute} document is good practice. This is, as well, a
+nice place to add information where contributions by others would be
+possible and desired.
+
+\subsubsection{Be prepared for using external (cloud)
+services}\label{be-prepared-for-using-external-cloud-services}
+
+The project should be careful in its assumptions about the environment
+available for development and testing, like access to extra storage or
+connections. Make it easy to integrate your software into e.g.~a
+container. Containers also help greatly in deploying a continuous
+integration system, e.g., testing the build on different Linux flavours.
+
+\subsection{End-users and client
+projects}\label{end-users-and-client-projects}
+
+\subsubsection{Documentation}\label{documentation}
+
+In addition to the already mentioned documentation, end-user focused
+documentation is important. A little checklist further below summarizes
+the most important information to be given as part of the documentation.
+
+\subsubsection{Release Information}\label{release-information}
+
+While developers (most of the time) know the changes between various
+releases, it is important to document changes between releases for
+end-users. It turned out to be a good policy to have multiple categories
+of releases, like production releases, development releases, bug fix
+releases, etc. While each project may have different conventions here,
+the chosen convention should be explained, including its meaning in
+terms of changes to the project's
+\href{https://en.wikipedia.org/wiki/Application_programming_interface}{\emph{API}}
+and
+\href{https://en.wikipedia.org/wiki/Application_binary_interface}{\emph{ABI}}.
+A clear numbering scheme like ``major.minor.patch'' can support this
+(also known as \href{https://semver.org/}{semantic versioning}). For
+each release the \emph{supported compilers}, \emph{supported operating
+systems} and \emph{required dependencies} should be listed. This helps
+avoiding frustrations on the user side.
+
+\subsubsection{Interaction with
+developers}\label{interaction-with-developers}
+
+To be able to interact with developers, both the already mentioned
+\emph{mailing list} and \emph{issue tracker} are important and helpful.
+The required permissions to post there should be as low as possible.
+Make it easy for people to give feedback and to contribute.
+
+\subsubsection{Relocatability and co-existence of
+versions}\label{relocatability-and-co-existence-of-versions}
+
+Often a project has to be integrated into bigger software stacks. Being
+relocatable, i.e.~having no hard-coded absolute paths in any build
+artifact, is often a necessity to deploy and distribute these stacks. To
+enable your project to become part of such a software stack, try to make
+it relocatable. In addition your software should not make too strong
+assumptions about its own location.
+
+\subsubsection{Usability and run-time
+settings}\label{usability-and-run-time-settings}
+
+It should be straight forward for a user to set up and run your project.
+This can for example be ensured by providing environment setup scripts,
+but the number of environment variables required should be limited as
+far as possible.
+
+\subsubsection{Be prepared for using external (cloud)
+services}\label{be-prepared-for-using-external-cloud-services-1}
+
+The project should be careful in its assumptions about the user
+environment, like having access to extra storage or network connections.
+Like for the development process, make it easy to integrate your
+software into e.g.~a container.
+
+\subsubsection{Publications and
+References}\label{publications-and-references}
+
+Users of your software should be able to give credit to your work. Try
+to publish your work in conference proceedings or journals such as
+\emph{Computing and Software for Big Science} so that it can be properly
+cited.
+
+To help users cite your software make sure that you list the recommended
+citation where it can easily be found in your documentation. One highly
+recommended standard is now to add a \texttt{CITATION.cff} file to your
+repository. This is a human and machine readable file that tells users
+exactly how to write a citation. More information is on the
+\href{https://citation-file-format.github.io}{Citation File Format
+website}.
+
+\subsection{Making best practices easier - the HSF Template
+Project}\label{making-best-practices-easier---the-hsf-template-project}
+
+Many of the points mentioned are per se trivial, but need some
+infrastructure to be set up. To assist new projects, an HSF project
+template was created. It covers many of the technical points and
+provides some canonical or example implementation for many of the
+issues. It is meant as open collection point of ideas and proposals by
+the community.
+
+\subsection{Checklist}\label{checklist}
+
+A little checklist of topics to consider is given here. Not every point
+applies to every project, but it may give you a handle in improving the
+quality of the software you provide.
+
+\subsubsection{Repository and code
+checklist}\label{repository-and-code-checklist}
+
+\begin{table}[H]
+  \caption{Repository and code checklist}
+  \label{tab:repository-and-code-checklist}
+  \begin{tabular}{lll}
+  \toprule
+  \textbf{Topic} & \textbf{Possible solution(s)} & \textbf{Template} \\
+  \midrule
+Public repository & \href{https://github.com}{github},
+\href{https://gitlab.com}{gitlab} & - \\
+License + file & MIT, Apache2 & MIT, Apache2 \\
+README file & \href{https://en.wikipedia.org/wiki/Markdown}{Markdown},
+\href{http://docutils.sourceforge.net/rst.html}{reStructuredText} &
+Yes \\
+Reference guide & \href{http://www.doxygen.org}{Doxygen} & Doxygen \\
+build scripts & \href{https://www.cmake.org}{CMake} & CMake \\
+Unit testing & \href{https://github.com/google/googletest}{gtest},
+\href{https://github.com/philsquared/Catch}{catch} & catch \\
+Integration testing & CTest, scripts & CTest \\
+version file & headers & headers \\
+Relocatability & strict policy & Yes \\
+environment setup & (c)sh script & - \\
+\end{tabular}
+\end{table}
+
+\subsubsection{Procedure and release checklist}\label{procedure-and-release-checklist}
+
+The following list contains mostly ``nice-to-have'' points. Having them
+well-defined and documented helps both developers as well as potential
+volunteer contributors.
+
+\begin{table}[H]
+  \caption{Procedure and release checklist}
+  \label{tab:procedure-and-release-checklist}
+  \begin{tabular}{lll}
+  \toprule
+  \textbf{Topic} & \textbf{Possible solution(s)} & \textbf{Template} \\
+  \midrule
+Defined workflow & plenty & \\
+Automatic testing & \href{https://docs.github.com/en/actions}{Github Actions},
+\href{https://about.gitlab.com/solutions/continuous-integration/}{gitlab CI} & - \\
+Test run+reporting & CTest,CDash & CTest \\
+Static Analysis &
+\href{http://clang-analyzer.llvm.org}{clang-analyzer} & - \\
+  \end{tabular}
+\end{table}
+
+\subsubsection{Website and information checklist}\label{website-and-information-checklist}
+
+\begin{table}[H]
+  \caption{Website and information checklist}
+  \label{tab:website-and-information-checklist}
+  \begin{tabular}{ll}
+    \toprule
+    \textbf{Topic} & \textbf{Possible solution(s)}\\
+  Website & \href{https://jekyllrb.com}{jekyll},
+  \href{https://pages.github.com}{github pages}, \href{https://gohugo.io}{Hugo} \\
+  How to contribute & - \\
+  User manual & markdown, doxygen \\
+  Reference manual & doxygen \\
+  Bug tracker & github, gitlab, jira \\
+  Mailing list & google groups, e-groups \\
+  Link to repository & - \\
+  List of releases & - \\
+  List of supported OS+compilers & - \\
+  List of pre-requisites & - \\
+  CITATION.cff file & \href{https://citation-file-format.github.io}{CFF website} \\
+  \end{tabular}
+\end{table}
+
+\subsection{Summary and Outlook}\label{summary-and-outlook}
+
+This document described a few best practices, and potential
+implementations. Updates, additional points or corrections are very
+welcome.
+
+\end{document}
