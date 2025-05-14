@@ -1,0 +1,230 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[letterpaper,top=3cm,bottom=3cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{authblk}
+
+\usepackage{enumitem}
+
+%%Specific defs
+\usepackage{xspace} 
+\newcommand{\red}{\color{red}}
+\def\needref{{\textcolor{red}{[ref]}}\xspace}
+
+\newcommand{\covid}{COVID-19\xspace}
+\def\cpp{{\tt C++}\xspace}
+
+\usepackage[sorting=none,style=numeric-comp]{biblatex}
+\addbibresource{whitepaper.bib}
+
+
+
+\begin{document}
+
+\begin{titlepage}
+
+
+\vspace*{-1.5cm}
+\centerline{\large THE HEP SOFTWARE FOUNDATION (HSF)}
+\vspace*{1.5cm}
+\noindent
+\begin{tabular*}{\linewidth}{lc@{\extracolsep{\fill}}r@{\extracolsep{0pt}}}
+
+\\
+ & & HSF-TN-2024-01 \\  % ID
+ & & April 2024 \\ % Date - Can also hardwire e.g.: 23 March 2010
+ & & \\
+% not in paper \hline
+\end{tabular*}
+
+\vspace*{.5cm}
+
+% Title --------------------------------------------------
+{\bf\boldmath\huge
+\begin{center}
+  Analysis Facilities for the HL-LHC White Paper
+\end{center}
+}
+
+\vspace*{1.0cm}
+
+% Authors -------------------------------------------------
+\begin{center}
+
+
+%58 authors at 33 institutes!
+
+D. Ciangottini$^{1, \rm b}$,
+A. Forti$^{2, \rm b}$,
+L. Heinrich$^{3, \rm b}$,
+N. Skidmore$^{4, \rm b}$, 
+
+C. Alpigiani$^{5}$,
+M. Aly,$^{2}$,
+D. Benjamin$^{6}$,
+B. Bockelman$^{7}$,
+L. Bryant$^{8}$,
+J. Catmore$^{9}$,
+M. D'Alfonso$^{35}$,
+A. Delgado Peris$^{17}$,
+C. Doglioni$^{2}$,
+G. Duckeck$^{10}$,
+P. Elmer$^{11}$,
+J. Eschle$^{12}$,
+M. Feickert$^{13}$,
+J. Frost$^{14}$,
+R. Gardner$^{8}$,
+V. Garonne$^{6}$,
+M. Giffels$^{36}$,
+J. Gooding$^{15}$,
+E. Gramstad$^{9}$,
+L. Gray$^{16}$,
+B. Hegner$^{31}$,
+A. Held$^{13}$,
+J. Hernández$^{17}$,
+B. Holzman$^{16}$,
+F. Hu$^{8}$,
+B. Jashal$^{18,19}$,
+D. Kondratyev$^{20}$,
+E. Kourlitis$^{3}$,
+L. Kreczko$^{21}$,
+I. Krommydas$^{22}$,
+T. Kuhr$^{10}$,
+E. Lancon$^{6}$,
+C. Lange$^{23}$,
+D. Lange$^{11}$, 
+J. Lange$^{34}$, 
+P. Lenzi$^{1}$,
+T. Linden$^{24}$,
+V. Martinez Outschoorn$^{27}$,
+S. McKee$^{25}$,
+J. F. Molina$^{17}$,
+M. Neubauer$^{26}$,
+A. Novak$^{35}$,
+I. Osborne$^{11}$,
+F. Ould-Saada$^{9}$,
+A. P. Pages$^{28}$,
+K. Pedro$^{16}$,
+A. Perez-Calero Yzquierdo$^{17}$,
+S. Piperov$^{20}$,
+J. Pivarski$^{11}$,
+E. Rodrigues$^{29}$,
+N. Sahoo$^{30}$,
+A. Sciaba$^{31}$,
+M. Schulz$^{31}$,
+L. Sexton-Kennedy$^{16}$,
+O. Shadura$^{32}$,
+T. \v{S}imko$^{31}$,
+N. Smith$^{16}$,
+D. Spiga$^{1}$,
+G. Stark$^{33}$,
+G. A. Stewart$^{31}$,
+I. Vukotic$^{8}$,
+G. Watts$^{5}$,
+
+\bigskip
+{\it\footnotesize
+$^b$Editor,
+$^1$INFN,
+$^2$University of Manchester,
+$^3$Technische Universität München,
+$^4$University of Warwick
+$^5$University of Washington
+$^6$Brookhaven National Laboratory
+$^{7}$Morgridge Institute for Research
+$^{8}$University of Chicago
+$^{9}$University of Oslo
+$^{10}$Ludwigs-Maximilians Universität München
+$^{11}$Princeton University
+$^{12}$Syracuse University
+$^{13}$University of Wisconsin-Madison
+$^{14}$University of Oxford
+$^{15}$Technische Universität Dortmund
+$^{16}$FNAL
+$^{17}$Centro de Investigaciones Energéticas, Medioambientales y Tecnológicas
+$^{18}$Instituto de Física Corpuscular, Valencia
+$^{19}$Tata Institute of Fundamental Research Mumbai
+$^{20}$Purdue University
+$^{21}$University of Bristol
+$^{22}$Rice University
+$^{23}$Paul Scherrer Institute
+$^{24}$Helsinki Institute of Physics
+$^{25}$University of Michigan
+$^{26}$University of Illinois at Urbana-Champaign
+$^{27}$University of Massachusetts Amherst
+$^{28}$IFAE
+$^{29}$University of Liverpool
+$^{30}$University of Birmingham
+$^{31}$CERN
+$^{32}$University of Nebraska-Lincoln
+$^{33}$SCIPP UC Santa Cruz
+$^{34}$University of Hamburg
+$^{35}$Massachussets Institute of Technology
+$^{36}$Karlsruhe Institute of Technology
+}
+\end{center}
+
+\vspace*{1.0cm}
+
+% Abstract -----------------------------------------------
+\begin{abstract}
+  \noindent
+
+This white paper presents the current status of the R\&D for Analysis Facilities (AFs) and attempts to summarize the views on the future direction of these facilities. These views have been collected through the High Energy Physics (HEP) Software Foundation’s (HSF) Analysis Facilities forum~\cite{hsfaff}, established in March 2022, the Analysis Ecosystems II workshop~\cite{ecosystemstwo}, that took place in May 2022, and the WLCG/HSF pre-CHEP workshop~\cite{prechep}, that took place in May 2023. The paper attempts to cover all the aspects of an analysis facility.
+
+
+
+\end{abstract}
+
+
+\vspace{\fill}
+
+{\footnotesize
+\centerline{\copyright~Licence \href{http://creativecommons.org/licenses/by/4.0/}{CC-BY-4.0}.}}
+\vspace*{2mm}
+
+\vskip 0.5cm
+\textbf{Keywords}: High energy physics, analysis facilities, data analysis, scientific computing, data access, grid computing, federated identity management, analysis preservation, resource provisioning, HL-LHC
+
+\end{titlepage}
+
+\clearpage
+
+\tableofcontents
+
+\input{introduction}
+\input{userperspective}
+\input{computeresources}
+\input{doma}
+\input{aai}
+\input{accelerators}
+\input{preservation}
+\input{monitoring}
+\input{documentation}
+
+\section{Summary}
+
+Motivated by discussions at the HEP Software Foundations (HSF) Analysis Facilities forum, the Analysis Ecosystems II workshop, and the 26th International Conference on Computing in High Energy \& Nuclear Physics, this white paper documents HEP analysis infrastructure goals and the technologies that can be employed to achieve them. These goals should guide the development of such future infrastructures to enable the full scientific potential of HEP experiments in the next decades to be realized. We recommend the formation of cross-experiment working groups to follow-up these goals. In particular to collect the analysis workflows use-cases, tools for monitoring of user jobs and to discuss the integration of object stores into the experiments. 
+
+
+
+
+
+
+
+%\section*{Acknowledgements}
+
+
+
+\sloppy
+\raggedright
+%\clearpage
+\printbibliography[title={References},heading=bibintoc]
+
+\clearpage
+
+\end{document}

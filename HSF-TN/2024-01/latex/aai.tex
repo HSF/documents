@@ -1,0 +1,14 @@
+\section{Federated Identity Management and AAI}
+\label{aai}
+
+Equitable access to resources in a VO-wide manner is one of the foundations on which the success of the grid is built. Users can access worldwide resources but any one workload is routed to a convenient resource given, e.g. data constraints. This is based on an agreed key piece of Federated Identity Management (FIM) infrastructure: x509 certificates. So far the majority of end user analysis has not required the use of FIM because the resources used are either private ---  provided by universities or national labs --- with their own AAI mechanisms, or are provided by CERN. If there is a significant increase in resources requested, and the need to support all users, FIM will become a key requirement for analysis infrastructure. 
+
+While the WLCG FIM model is very successful, the use and maintenance of certificates for users is difficult and incompatible with the use of cloud services and resources. WLCG is working towards an AAI based on Oauth2.0 and tokens which will replace x509 certificates. By HL-LHC the FIM on the grid will be based on the new token infrastructure, which is fully compatible with cloud and web services such as JupyterHub, CERNBox and kubernetes. This will greatly improve the user experience.  It is highly desirable that the analysis infrastructure services be fully integrated with the new AAI. Note that tokens underpin FIM for internet web services and so their integration into analysis frameworks should be easier.
+
+This integration does not imply or necessitate that all analysis resources support all users, but it allows for a uniform access to all resources for authorized users. As expressed in the user requirements, the VOs ultimately can decide on the authorization mode, i.e. if the facilities will be usable by all users, but whatever decision is made the infrastructure should support it. This would also allow private resources to be more easily made accessible to selected colleagues, which would be a site or local group decision. Some AFs in the US are an example of the latter, currently giving access to ATLAS and CMS users depending on their affiliation.
+
+It is important to underline that currently a Oauth2.0 based AAI is not compatible with a classical SSH/POSIX/batch system infrastructure and development work is necessary to integrate them.
+
+
+
+
