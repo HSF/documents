@@ -1,0 +1,19 @@
+\section{Analysis portability and preservation}
+\label{preservation}
+
+A core requirement of an AF then is providing the user with tools that help them realize their desired software stack and to address the user portability and preservation requirements expressed in section~\ref{userperspective}. There are few methods users can use to build the software stack.
+
+\subsection*{CVMFS}
+CVMFS is the read-only distributed file system for global distribution of HEP software, in which software packages are laid out in a directory structure with software tools that can selectively enable a certain combination of packages within a given user session (e.g., LCG views). The user can augment this global set of software through local installations, which may or may not be carried out in the user space. While this is an effective method to centrally maintain and distribute software it has disadvantages: user code built against CVMFS needs runtime access, so will not work on non-CVMFS nodes; and the user code needs to be preserved separately from the CVMFS dependencies, which is important for analysis preservation.
+
+\subsection*{Conda}
+
+Conda~\cite{conda} is a cross-platform and language agnostic package and environment manager, which solves portability between collaborators and is adopted particularly when python external tools are used. It is not particularly designed for preservation but it makes it easy for users to build their code in multiple environments with different sets of dependencies and switch from one to another. To be truly preserved the conda environment needs to be locked to specific versions (not the default) and, in addition, the user’s supplementary code needs to be also preserved.
+
+\subsection*{Linux containers}
+
+Linux containers allow users to assemble the software stack on their own, in a self-contained, preservable format. The OCI (Open Container Initiative) format, supported by Docker~\cite{docker} and others, can be read by any runtime environment and such container registries can be used to distribute images to facilities. If built with fixed dependencies a container does not change and contains all the software it needs to run the application. It should be noted that preserving only the containers may not be sufficient when older versions of OSs ( for example slc5)  do not run anymore on modern hardware --- this remains an area of R\&D. 
+
+Conda, containers and CVMFS can be combined. For example LHCb uses conda in combination with CVMFS to distribute and preserve different user setups~\cite{lbconda}. Since it is a package manager it can also be used to build containers instead of the specific container OS package manager. CVMFS is also used to distribute singularity/apptainer~\cite{singularity} images on the grid --- currently CVMFS stores and serves around 3000 custom apptainer images. This could be extended to other runtimes with containerd~\cite{containerd} images serving facilities that are built on top of cloud-computing infrastructure, such as kubernetes. Supporting different runtime images for the same software raises questions about the infrastructure as standard distribution, apptainer images and containerd images would all be duplicated software installations.
+
+The construction of well-maintained software stacks and  images may require expertise from AF and experiment experts and an infrastructure to make it easy for the users. For example, SWAN makes a curated set of software environments available through a dedicated user interface. Projects such as repo2docker~\cite{repotodocker} and Binder abstract the image building process away from the user. Here, the user gives their desired set of requirements in a declarative format which then gets built ad-hoc during a start up phase. For reproducibility and shareability of analyses, users code should be versioned or tagged along with the Git repository and environments (conda or container images) used.
